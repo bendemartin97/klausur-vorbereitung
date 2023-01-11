@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "cheatsheet.md.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -146,7 +146,7 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "fbc0cdc24c271e34",
+  "active": "1258e326f35374a3",
   "lastOpenFiles": [
     "README.md",
     "Unbenannt.canvas"

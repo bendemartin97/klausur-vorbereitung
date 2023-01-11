@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "cheatsheet.md.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "cheatsheet.md.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "cheatsheet.md.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "cheatsheet.md.md"
               }
             }
           }
@@ -146,8 +146,9 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "1258e326f35374a3",
+  "active": "fbc0cdc24c271e34",
   "lastOpenFiles": [
+    "README.md",
     "Unbenannt.canvas"
   ]
 }

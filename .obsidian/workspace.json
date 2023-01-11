@@ -14,8 +14,8 @@
               "type": "markdown",
               "state": {
                 "file": "WAS/summary.md",
-                "mode": "preview",
-                "source": true
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -148,9 +148,9 @@
   },
   "active": "1258e326f35374a3",
   "lastOpenFiles": [
-    "cheatsheet.md.md",
     "Pasted image 20221219120548.png.md",
     "WAS/summary.md",
+    "cheatsheet.md.md",
     "README.md",
     "Unbenannt.canvas"
   ]

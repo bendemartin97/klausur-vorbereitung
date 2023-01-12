@@ -52,7 +52,7 @@
     - CORS Request: Origin [host name]  
     - CORS Response: Access-Control-Allow-Origin [host name]
     - ....
-- [ ] Often checked using OPTIONS method before actual Request
+- Often checked using OPTIONS method before actual Request
     - so-called _CORS preflight request_ to avoid errors
 
 ### URI vs. URL vs. URN

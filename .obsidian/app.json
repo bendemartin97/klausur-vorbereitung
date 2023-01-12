@@ -1,1 +1,6 @@
-{}
+{
+  "tabSize": 4,
+  "spellcheck": true,
+  "trashOption": "local",
+  "showInlineTitle": false
+}

@@ -1,21 +1,39 @@
 {
-  "obsidian-git:commit": [
+  "insert-template": [
     {
       "modifiers": [
-        "Alt",
-        "Mod"
+        "Mod",
+        "Shift"
       ],
-      "key": "K"
+      "key": "I"
     }
   ],
-  "obsidian-git:push2": [
+  "insert-current-time": [
     {
       "modifiers": [
-        "Alt",
-        "Mod"
+        "Mod",
+        "Shift"
       ],
-      "key": "P"
+      "key": "T"
     }
   ],
-  "obsidian-git:pull": []
+  "insert-current-date": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "D"
+    }
+  ],
+  "table-editor-obsidian:table-control-bar": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "A"
+    }
+  ],
+  "workspace:undo-close-pane": []
 }

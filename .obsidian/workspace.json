@@ -1,14 +1,14 @@
 {
   "main": {
-    "id": "bc2d6c941c823e7c",
+    "id": "0517b974d742ce72",
     "type": "split",
     "children": [
       {
-        "id": "868161d6116b417e",
+        "id": "7570008c25d8b8a3",
         "type": "tabs",
         "children": [
           {
-            "id": "1258e326f35374a3",
+            "id": "8fc83d0ee4bb625f",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -18,6 +18,14 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "8910d0378659a573",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
           }
         ]
       }
@@ -25,15 +33,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "5d8b43608e1f8a57",
+    "id": "c0afcb2d21ca79bc",
     "type": "split",
     "children": [
       {
-        "id": "50c6d7594640b0d8",
+        "id": "c1c3fd1862f25af5",
         "type": "tabs",
         "children": [
           {
-            "id": "fbc0cdc24c271e34",
+            "id": "ac8470ce3a098358",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,7 +51,7 @@
             }
           },
           {
-            "id": "5cf882105f6f627c",
+            "id": "1803a7dad9fc6efd",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -58,7 +66,7 @@
             }
           },
           {
-            "id": "e8d8b3af16317b3f",
+            "id": "104393af7daad592",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -72,15 +80,15 @@
     "width": 300
   },
   "right": {
-    "id": "fe939a3a8481315c",
+    "id": "d45c2157dcb1ffec",
     "type": "split",
     "children": [
       {
-        "id": "0cc5d3860c74fa03",
+        "id": "4f8562f83b9d9dfd",
         "type": "tabs",
         "children": [
           {
-            "id": "c598a12e96243227",
+            "id": "c9acba16142b65e7",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -97,7 +105,7 @@
             }
           },
           {
-            "id": "4925e6884eae7468",
+            "id": "74dbb1dcd7dc0050",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -109,7 +117,7 @@
             }
           },
           {
-            "id": "dafd16ece65b33f8",
+            "id": "85d3dd6492b45bc3",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -120,13 +128,21 @@
             }
           },
           {
-            "id": "cb887492892a9d02",
+            "id": "64217370065139d1",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
                 "file": "WAS/summary.md"
               }
+            }
+          },
+          {
+            "id": "ddff9ef870fab105",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
             }
           }
         ]
@@ -138,20 +154,26 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-textgenerator-plugin:Generate Text!": false,
+      "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
-      "daily-notes:Open today's daily note": false,
+      "canvas:Create new canvas": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "canvas:Create new canvas": false
+      "command-palette:Open command palette": false
     }
   },
-  "active": "1258e326f35374a3",
+  "active": "ac8470ce3a098358",
   "lastOpenFiles": [
-    "Pasted image 20221219120548.png.md",
-    "WAS/summary.md",
-    "cheatsheet.md.md",
+    "frontend/javascript/typescript.md",
+    "devOps/docker/docker.md",
+    "backend/laravel/Laravel.md",
+    "misc/languages/Erlang & Elixier.md",
     "README.md",
-    "Unbenannt.canvas"
+    "misc/git/github-actions.md",
+    "misc/git/github.md",
+    "misc/git/git.md",
+    "sortspec.md",
+    "devOps/nginx.md"
   ]
 }

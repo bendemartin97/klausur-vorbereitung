@@ -2,5 +2,6 @@
   "tabSize": 4,
   "spellcheck": true,
   "trashOption": "local",
-  "showInlineTitle": false
+  "showInlineTitle": false,
+  "livePreview": false
 }

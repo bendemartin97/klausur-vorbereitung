@@ -154,17 +154,19 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-textgenerator-plugin:Generate Text!": false,
-      "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "obsidian-textgenerator-plugin:Generate Text!": false,
+      "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false
     }
   },
-  "active": "ac8470ce3a098358",
+  "active": "8fc83d0ee4bb625f",
   "lastOpenFiles": [
+    "cheatsheet.md.md",
+    "WAS/summary.md",
     "frontend/javascript/typescript.md",
     "devOps/docker/docker.md",
     "backend/laravel/Laravel.md",
@@ -172,8 +174,6 @@
     "README.md",
     "misc/git/github-actions.md",
     "misc/git/github.md",
-    "misc/git/git.md",
-    "sortspec.md",
-    "devOps/nginx.md"
+    "misc/git/git.md"
   ]
 }

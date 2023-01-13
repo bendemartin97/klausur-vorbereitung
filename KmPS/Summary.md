@@ -11,7 +11,7 @@
 	![[Bildschirm­foto 2023-01-13 um 19.41.00.png]]
 	
 ### Parallelismus
-- bezeichnet die gleichzeitige Ausführung nebenläufiger Programmteile auf mehreren Prozessoren oder Rechnern!
+- __bezeichnet die gleichzeitige Ausführung nebenläufiger Programmteile auf mehreren Prozessoren oder Rechnern__
 - Falls während der Ausführung Abhängigkeiten über Daten oder Kommunikation auftauchen, die Ausführung einiger Teile müssen warten, ggf. pausiert werden
 	![[Bildschirm­foto 2023-01-13 um 19.41.10.png]]
 
@@ -24,17 +24,25 @@
 	- gibt den Prozessor dann an diesen neuen Prozess ab
 - Der Scheduler kann Listen mit verschieden priorisierten Tasks führen, und niedrig priorisierte entsprechend selten aufrufen.
 
-### Kooperatives Scheduling
-- überlässt jedem Task selbst die Entscheidung, wann er die Kontrolle an den Scheduler zurückgibt
+### Kooperatives Scheduling (Phyton, JS, Go)
+- __überlässt jedem Task selbst die Entscheidung, wann er die Kontrolle an den Scheduler zurückgibt__
 - in der Regel wir zumindest jede Dienst-Anforderung an das Betriebssystem mit einem Taskwechsel verbunden
 - Vorteil:
 	- hilft Race Conditions zu vermeiden
 - Nachteil:
 	- kein schnelles Reagieren auf Ereignisse
-	- T
+	- Tasks, die die Kontrolle nicht schnell genug zurückgeben, können das gesamte System / andere Tasks (zeitweise) blockieren
 
 ### Mehrstufige Nebenläufigkeit in Go
-- Ein oder mehrere Prozessoren. 
-- Darüber mehrere Threads: Mindestens ein Thread pro Prozessor. Aber ggfs. auch mehrere Threads pro Prozessor. 
-- Darüber die Goroutinen.
-- Führt dazu, dass das Go Programm nicht unbedingt blockiert, wenn eine Goroutine die Kontrolle nicht zurückgibt: Wenn es noch andere Threads gibt, in denen nicht blockierte Goroutinen sind.
+- ein oder mehrere Prozessoren. 
+- darüber mehrere Threads: Mindestens ein Thread pro Prozessor. Aber ggfs. auch mehrere Threads pro Prozessor. 
+- darüber die Goroutinen.
+- führt dazu, dass das Go Programm nicht unbedingt blockiert, wenn eine Goroutine die Kontrolle nicht zurückgibt: Wenn es noch andere Threads gibt, in denen nicht blockierte Goroutinen sind.
+
+### Preemptive Scheduling (Java, Erland, Betriebssystemen)
+- bezeichnet die Scheduling-Strategie, __bei welcher der Scheduler den Prozessen / Tasks eine Rechenzeit zuteilt und dem aktuellen Prozess die CPU nach Ablauf dieser Zeit wieder entzieht__, egal, an welcher Stelle der Prozess mit seinen Berechnungen gerade ist
+- Vorteil:
+	- der Flow of Control kann einem Task an beliebiger Stelle entzogen werden
+	- schnelles Reagieren
+- Nachteil:
+	- Kombination mit Shared Data: das nächste Task ände

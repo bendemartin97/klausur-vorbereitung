@@ -6,29 +6,52 @@
       {
         "id": "868161d6116b417e",
         "type": "tabs",
+        "dimension": 43.86281588447653,
         "children": [
           {
-            "id": "1258e326f35374a3",
+            "id": "f0352c308ce06454",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "WAS/summary.md",
                 "mode": "source",
-                "source": false
+                "source": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "cb8882ca6d3be75c",
+        "type": "tabs",
+        "dimension": 56.13718411552347,
+        "children": [
+          {
+            "id": "18db3786835a09cc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "KmPS/Summary.md",
+                "mode": "source",
+                "source": true
               }
             }
           },
           {
-            "id": "f0352c308ce06454",
+            "id": "969d4d96beb8239c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "cheatsheet.md.md",
+                "mode": "source",
+                "source": true
+              }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -94,6 +117,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "KmPS/Summary.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,6 +134,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "KmPS/Summary.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,7 +156,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "KmPS/Summary.md"
+              }
             }
           }
         ]
@@ -151,13 +178,14 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "f0352c308ce06454",
+  "active": "18db3786835a09cc",
   "lastOpenFiles": [
+    "cheatsheet.md.md",
+    "KmPS/Summary.md",
+    "WAS/summary.md",
     "conflict-files-obsidian-git.md",
     "Pasted image 20221216112016.png.md",
-    "WAS/summary.md",
     "Pasted image 20221219120548.png.md",
-    "cheatsheet.md.md",
     "README.md",
     "Unbenannt.canvas"
   ]

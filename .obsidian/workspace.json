@@ -18,8 +18,17 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "f0352c308ce06454",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +94,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "WAS/summary.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +110,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "WAS/summary.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +131,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "WAS/summary.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -146,10 +151,12 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "1258e326f35374a3",
+  "active": "f0352c308ce06454",
   "lastOpenFiles": [
-    "Pasted image 20221219120548.png.md",
+    "conflict-files-obsidian-git.md",
+    "Pasted image 20221216112016.png.md",
     "WAS/summary.md",
+    "Pasted image 20221219120548.png.md",
     "cheatsheet.md.md",
     "README.md",
     "Unbenannt.canvas"

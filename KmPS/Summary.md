@@ -26,4 +26,15 @@
 
 ### Kooperatives Scheduling
 - überlässt jedem Task selbst die Entscheidung, wann er die Kontrolle an den Scheduler zurückgibt
-- in der Regel wir zumindest jede Dienst-Anforderung 
+- in der Regel wir zumindest jede Dienst-Anforderung an das Betriebssystem mit einem Taskwechsel verbunden
+- Vorteil:
+	- hilft Race Conditions zu vermeiden
+- Nachteil:
+	- kein schnelles Reagieren auf Ereignisse
+	- T
+
+### Mehrstufige Nebenläufigkeit in Go
+- Ein oder mehrere Prozessoren. 
+- Darüber mehrere Threads: Mindestens ein Thread pro Prozessor. Aber ggfs. auch mehrere Threads pro Prozessor. 
+- Darüber die Goroutinen.
+- Führt dazu, dass das Go Programm nicht unbedingt blockiert, wenn eine Goroutine die Kontrolle nicht zurückgibt: Wenn es noch andere Threads gibt, in denen nicht blockierte Goroutinen sind.

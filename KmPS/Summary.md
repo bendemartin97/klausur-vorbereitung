@@ -45,4 +45,11 @@
 	- der Flow of Control kann einem Task an beliebiger Stelle entzogen werden
 	- schnelles Reagieren
 - Nachteil:
-	- Kombination mit Shared Data: das nächste Task ände
+	- Kombination mit Shared Data: das nächste Task ändert unbemerkt die gemeinsam genutzte Datenstruktur
+	- es ist schwer per Locking alle gemeinsam genutzter Ressource effektiv zu schützen
+
+### Deadlock
+- bezeichnet einen zyklischen Wartezustand zwischen mehreren Prozessen / Tasks, wobei jeder Task auf eine bestimmte Aktion (Nachricht, Datenänderung, Freigabe eines Betriebsmittels wie Datei, ...) wartet und diese Aktion nur exklusiv von diesem anderen Task ausgeführt werden kann
+
+### Race Condition
+- bedeutet, dass das Ergebnis der Programmausführung vom zeitlichen Verhalten bzw. der zeitlichen Abfolge bestimmter Programmteile abhängt, wobei diese zeitliche Abfolge nicht eindeutig durch das Programm selbst bestimmt wird.

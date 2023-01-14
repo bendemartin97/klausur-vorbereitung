@@ -308,4 +308,22 @@ function readData() {
 - Eine zentrale Idee der Programmierung mit Promises ist, dass __Promises als Argumente an andere Prozeduraufrufe weitergereicht werden können.__
 - Zustand pending, wenn Ergebniswert noch nicht fertig berechnet. Ansonsten settled. Dabei entweder resolved (Ergebnis konnte erfolgreich berechnet werden) oder rejected (Fehler während Ergebnisberechnung aufgetreten; Fehlerwert als Ergebnis).
 #### Executor Function
-- ist eine Funktion mit im Promise Standard festgelegter Signatur und stellt den Parameter des Promise Konstruktors dar. Sie wird sofort ausgeführt
+- ist __eine Funktion mit im Promise Standard festgelegter Signatur__ und stellt den Parameter des Promise Konstruktors dar. Sie wird sofort ausgeführt
+- Der Executor hat zwei Parameter. Beide sind Funktionen, die einen Wert als Parameter nehmen und diesen als "positives" bzw. Fehler-Ergebnis in das Promise Objekt eintragen. Die Parameter sind "abstrakte" Parameter, vom JS System definiert.
+- Nur der Rumpf des Executors wird vom Programmierer programmiert, inkl. der dortigen Aufrufe von resolve() bzw. reject()
+```javascript 
+function async_fun(...) {
+
+	// ...  
+	return new Promise( ( resolve , reject ) => {
+			// Operationen, ggfs. asynchroner Art, 
+			// zur "Berechnung" des konkreten Ergebniswerts 
+				if ("async. Berechnung erfolgreich") 
+					resolve(...) ; 
+				else 
+					reject(...) ;
+	
+	} );}
+var promise1 = async_fun(...)
+```
+- resolve() und reject () ind Callback-Funktionen, die einen Wert als Parameter nehmen und diesen für den Fall des Erfolgs bzw. Fehlschlags der Executor-Berechnung des Ergebniswertes zur Promise als "positives" bzw. Fehler-Ergebnis in das Promise Objekt eintragen.

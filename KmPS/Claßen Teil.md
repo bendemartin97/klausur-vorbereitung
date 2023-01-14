@@ -163,3 +163,10 @@
 - skaliert gut, auch bei parallelen Rechnern
 - sehr fehlertolerant: wenn man alles auf viele kleine Einzelprozesse aufteilt, crasht bei Softwarefehler nur einer dieser Prozesse, nicht das Gesamte.
 
+### Erlang Nodes
+- ist eine Erlang Laufzeitumgebung
+- auf einem Host können mehrere gleichzeitig laufen
+- können aber auch über mehrere mittels Netzwerk (auch Internet) verbundene Hosts verteilt werden
+- wird über ihren Namen identifiziert -> müssen innerhalb eines Hosts eindeutig sein
+
+###

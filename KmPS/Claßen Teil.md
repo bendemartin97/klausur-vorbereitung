@@ -340,3 +340,10 @@ var promise1 = async_fun(...)
 	- sondern als "pure function" in seinem Ergebnis nur von den Werten seiner Parameter abhängen
 	- Werte in den Executor eingeschlossen -> können nicht mehr von der Außenwelt geändert werden
 	- ohne denen Problemen bei der Fehlerbehandlung
+- __.then and catch functions:
+	- then für daten-abhängigen Nachfolgecode
+	- catch für Fehler-Callback
+	- Callback Function als Parameter
+	- Promise wird in den konreket Wert resolved dann wird Callback im .then ausgeführt
+	- .then() wird immer verzögert ausgeführt, auch wenn das Promise Objekt schon den Wert hat
+	- 

@@ -210,8 +210,14 @@
 ##### one_for_one
 - bedeutet, dass, wenn Supervisor viele Workers beaufsichtigt und einer von ihnen ausfällt, nur dieser eine neu gestartet werden sollte
 - bei unabhängigen Prozessen
-- Prozess kann seinen Zustand verlieren, ohne dass die Geschwisterprozesse davon betroffen wären
+- Prozess kann seinen Zustand verlieren, ohne dass die Geschwisterprozesse davon betroffen wären![[Bildschirm­foto 2023-01-14 um 12.40.02.png]]
 ##### one_for_all
-- ist immer dann zu verwenden, wenn alle Ihre Prozesse unter einem einzigen Supervisor stark voneinander abhängen, um normal funktionieren zu können
+- ist immer dann zu verwenden, wenn alle Ihre Prozesse unter einem einzigen Supervisor stark voneinander abhängen, um normal funktionieren zu können![[Bildschirm­foto 2023-01-14 um 12.40.10.png]]
 ##### rest_for_one
-- wenn ein Prozess stirbt, alle nach ihm gestarteten Prozesse (die von ihm abhängen) neu gestartet werden, aber nicht umgekehrt.
+- wenn ein Prozess stirbt, alle nach ihm gestarteten Prozesse (die von ihm abhängen) neu gestartet werden, aber nicht umgekehrt.![[Bildschirm­foto 2023-01-14 um 12.40.19.png]]
+##### simple_one_for_one
+- ein simple_one_for_one Supervisor sitzt einfach nur da und weiß, dass er nur eine Art von Child produzieren kann. 
+- wann immer man ein neues Kind haben möchte, fragt man danach und bekommt es. 
+- theoretisch könnte man so etwas auch mit dem standardmäßigen one_for_one supervisor machen, aber es gibt praktische Vorteile, die einfache Version zu verwenden.
+#### Software Patching im laufenden Betrieb
+

@@ -304,8 +304,9 @@ function readData() {
 #### Promise
 - bezeichnet ein __Platzhalter-Objekt für ein Berechnungsergebnis, wobei deise Berechnung ggfs. noch nicht beendet ist__
 - dieser Platzhalter kann vom folgenden, vom Wert anbhängigen Programmteil __direkt entgegengenommen werden__, ohne dass die vorherige Berechnung schon beendet sein muss
-- erst nachdem die zugrundeliegenede asynchrone Operation beendet ist, können von der Promise abhängige Programmteile zur Ausführung kommen
--  _Idee der Programmierung:_Promises als Argumente an andere Prozeduraufrufe weitergereicht werden können.
+- wenn asynchrone Operation beendet ist, können von der Promise abhängige Programmteile zur Ausführung kommen
+-  _Idee der Programmierung:_
+	- Promises als Argumente an andere Prozeduraufrufe weitergereicht werden können.
 - Zustand pending, wenn Ergebniswert noch nicht fertig berechnet.
 - _Ansonsten settled:_
 	- Entweder resolved  (Erfolgreich)
@@ -333,6 +334,9 @@ function async_fun(...) {
 	} );}
 var promise1 = async_fun(...)
 ```
-- resolve() und reject () ind Callback-Funktionen, die einen Wert als Parameter nehmen und diesen für den Fall des Erfolgs bzw. Fehlschlags der Executor-Berechnung des Ergebniswertes zur Promise als "positives" bzw. Fehler-Ergebnis in das Promise Objekt eintragen.
+- __resolve() und reject () sind Callback-Funktionen__
 - Warum gibt es diese Parametern überhaupt:
-	-  Der Executor soll sein Ergebnis nicht über Seiteneffekte "erzielen", sondern er soll als "pure function" in seinem Ergebnis nur von den Werten seiner Parameter abhängen
+	- das Ergebnis nicht über Seiteneffekte "erzielen"
+	- sondern als "pure function" in seinem Ergebnis nur von den Werten seiner Parameter abhängen
+	- Werte in den Executor eingeschlossen -> können nicht mehr von der Außenwelt geändert werden
+	- ohne denen Problemen bei der Fehlerbehandlung

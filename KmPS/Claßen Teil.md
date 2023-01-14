@@ -519,4 +519,6 @@ fun_async().then(alert); // => 42
 - Beim Anlegen einer Funktion wird in dem automatisch angelegten prototype Objekt ein Attribut constructor angelegt, welches auf das Funktions-Objekt zurückverweist
 ### Prototypische Vererbung
 - jedes Objekt kann ein anderes Objekt als Prototypen habe
-- 
+- bei Lesen eines Objekt-Attributes wird erst im Objekt selbs gesucht, sonst wird der Prototypen-Verweiskette gefolgt
+- mehrere Objekte können den gleichen Prototypen haben, der dann zentral Methoden für alle diese Objekte implementieren kann
+- Schreiben, Hinzufügen etc. erfolgt immer im aktuellen Objekt, selbst es irgendwo in der Verweiskette schon existiert (wird ignoriert)

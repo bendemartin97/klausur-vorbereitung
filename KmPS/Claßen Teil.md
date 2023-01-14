@@ -109,3 +109,14 @@
 - der WaitGroup wird die Anzahl der Goroutinen mitgeteilt. Sie wartet dann bei Wait() auf die entsprechende Anzahl von Done() Meldungen.
 - die erwartete Anzahl lässt sich auch dynamisch / nachträglich noch mittels Add() erhöhen.
 - waitGroup Objekte dürfen nicht kopiert werden. D.h. Weitergabe als Funktionsparameter nur per Pointer.
+
+### Timer
+- werden gestartet und schicken bei Ablauf eine Nachricht mit dem Zeitstempel des Ablaufzeitpunkts auf den ihnen jeweils zugeordneten Channel.
+- gedacht für einmalige, zeitabhängige Aktionen.
+- Aähnlich wie ein time.Sleep() , aber:
+	- Timer können vor Ablauf wieder gestoppt werden,
+	- Timer-Setup ist nicht wie time.Sleep() synchron & blockierend, sondern per-se asynchron.
+
+### Ticker
+- werden gestartet und schicken dann wiederholt jeweils eine Nachricht mit dem Zeitstempelwert des jeweiligen Ticks auf einen ihnen jeweils zugeordneten Channel.
+- gedacht für wiederholt wiederkehrende zeitabhängige Aktionen.

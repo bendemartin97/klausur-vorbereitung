@@ -501,3 +501,13 @@ fun_async().then(alert); // => 42
 - ein Zugriff auf das Objekt über die alte Variable nicht möglich
 - kein Move-Semantik bei primitiven Datentypen 
 - benutzerdefinierten Datentypen Entscheidung mithilfe von Copy-Trait
+### Pointer / Referenzen
+- sind sichere Konstrukte -> Compiler kann sicherstellen, dass keine Speicherzugrifffehler über die Referenz geben wird
+- _Sichere Eigenschaften_:
+	- zeigen auf gültigen Speicher
+	- dürfen nie null sein
+	- keine Referenz existiert länger als das von ihr referenzierte Objekt
+	- mutable Objekt wird nicht "anderweitig" verändert, während Mutable Referenz darauf existiert
+	- eine mutable Referenz ist stets die einzige mutable Referenz auf ein Objekt
+- _Non-Lexical Lifetime_
+	- 

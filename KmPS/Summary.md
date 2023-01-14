@@ -55,8 +55,15 @@
 ### Goroutinen
 - meist keine explizite Abgabe der Kontrolle, sondern implizite Abgabe der Kontrolle z.B Aufruf von Libraryfunktionen
 - explizite Abgabe mittel runtime.GoSched()
-- werden auf die Nebenläufigkeitsmechanismen des Betriebssystems (Threads über CPU:s / Kernen) abgebildet
+- __werden auf die Nebenläufigkeitsmechanismen des Betriebssystems (Threads über CPU:s / Kernen) abgebildet__
 - Unterschied zwischen Goroutinen und Threads:
 	- aber viel leichtgewichtiger als Threads (Threads ca. 1 MB Stack size, Goroutine ca. 2 KB)
-	- Threads: preemptive Scheduling, viele Register müssen gesichert werden, teuer Context Switch
-	- Goroutinen: 
+	- __Threads: preemptive Scheduling__, viele Register müssen gesichert werden, teuer Context Switch
+	- __Goroutinen: kooperatives Scheduling im Go Runtime__, leichtgewichtiger Context Switch
+- __die Goroutinen werden vom Go Runtime auf verfügbare Threads verteilt__, um möglichst viele von ihnen nebenläufig betreiben zu können:
+	- ggfs. (sehr) viele Goroutinen, wenige Threads.
+	- blockierende Goroutine blockiert nicht den Thread. Es kommt einfach eine andere Goroutine auf dem Thread dran.
+- Verwaltung von Go Runtime: sogenannte Green Threads
+	- __Scheduling durch das Go Runtime, nicht durch das OS__
+	- alles passiert um user space des Go Runtime, nicht im kernel space
+	- funktioniert auch auf OS:s ohne Thread Support

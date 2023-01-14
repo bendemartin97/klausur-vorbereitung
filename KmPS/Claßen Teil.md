@@ -418,6 +418,23 @@ function_promisified(...).then(...);
 ### async / await
 - asynchrone Funktionen
 - im Rumpf kann mittels await auf die Resultate anderer Funktionen gewartet werden
+#### async
 - async gibt immer ein Promise Objekt zurück
 - async ist also new Promise(...) 
-- ihr Rump ist das Executor
+- ihr Rump ist das Executor der neuen Promise
+- await wartet auf das Settlement einer Promise, d.h die Zeilen hinter einem await sind der Parameter-Funktion eines .then()
+- der return Wert der Funktion wird zum resolve() Wert der Promise
+
+```javascript 
+async function fun_async()  
+{
+	return 42;  
+}
+
+// Test: ...
+fun_async().then(alert); // => 42
+```
+
+#### await
+- ermöglicht, den daten-abhängigen Programmteil "sequentiell hinter dem await" zu programmieren statt im Callback-Stil als Parameter des .then()
+- gibt den Kontrollfluss ab und wird getriggert, wenn die Promise des await in ihren Konkreten Wert resolved

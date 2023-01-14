@@ -5,7 +5,7 @@
 - bei __mehreren__ Prozessoren oder Rechnern ist die parallele Ausführung möglich
 - bei __nur einem__ Prozessor ist nur eine sequentialisierte Ausführung möglich, Reihenfolge variabel
 - aber die Programmteile arbeiten gemeinsam an einer Aufgabe -> Abhängigkeiten
-- Abhängigkeiten werden gelöst in dem:
+- _Abhängigkeiten werden gelöst in dem:_
 	- mehrere Prozessoren/Rechner: Die Ausführung einiger Teile müssen warten oder ggf. pausiert werden
 	- ein Prozessor/Rechner: Kontrollfluss muss wechseln, damit der Sender seine Aufgabe erledigen kann![[Bildschirm­foto 2023-01-13 um 19.41.00.png]]
 	
@@ -15,7 +15,7 @@
 
 ### Scheduler, Scheduling
 - verteilt nebenläufige Programmteile / Tasks auf die zur Verfügung stehenden Ausführungseinheiten, wie z.B Prozessoren und kontrolliert bzw. bestimmt ggfs. ihre Ausführung
-- Der Scheduler:
+- _Der Scheduler:_
 	- sichert den Prozesskontext des gerade unterbrochenen Tasks
 	- wählt den nächsten Prozess aus
 	- stellt dessen Prozesskontext her
@@ -25,9 +25,9 @@
 ### Kooperatives Scheduling (Phyton, JS, Go)
 - __überlässt jedem Task selbst die Entscheidung, wann er die Kontrolle an den Scheduler zurückgibt__
 - in der Regel wir zumindest jede Dienst-Anforderung an das Betriebssystem mit einem Taskwechsel verbunden
-- Vorteil:
+- _Vorteil:_
 	- hilft Race Conditions zu vermeiden
-- Nachteil:
+- _Nachteil:_
 	- kein schnelles Reagieren auf Ereignisse
 	- Tasks, die die Kontrolle nicht schnell genug zurückgeben, können das gesamte System / andere Tasks (zeitweise) blockieren
 
@@ -39,10 +39,10 @@
 
 ### Preemptive Scheduling (Java, Erland, Betriebssystemen)
 - bezeichnet die Scheduling-Strategie, __bei welcher der Scheduler den Prozessen / Tasks eine Rechenzeit zuteilt und dem aktuellen Prozess die CPU nach Ablauf dieser Zeit wieder entzieht__, egal, an welcher Stelle der Prozess mit seinen Berechnungen gerade ist
-- Vorteil:
+- _Vorteil:_
 	- der Flow of Control kann einem Task an beliebiger Stelle entzogen werden
 	- schnelles Reagieren
-- Nachteil:
+- _Nachteil:_
 	- Kombination mit Shared Data: das nächste Task ändert unbemerkt die gemeinsam genutzte Datenstruktur
 	- es ist schwer per Locking alle gemeinsam genutzter Ressource effektiv zu schützen
 
@@ -87,7 +87,7 @@
 - Empfänger wird durch receive blockiert, bis der Sender per send mitteilt, dass er den Sync-Point erreicht hat
 - __Nachricht muss immer überreicht werden__ -> Sender und Receiver immer minimal blockiert
 - Receiver meldet Empfangswunsch an und wird blockiert -> Sender sendet -> Receiver kann empfangen
-- Verwendung:
+- _Verwendung:_
 	- synchronisierten Beenden von main: wird oftmals verwendet, um das Hauptprogramm main() zu informieren, dass auch die letzte weitere Goroutine beendet ist und main() sich somit beenden kann, ohne dass dadurch eine Goroutine abgebrochen wird.
 	- Erreichbarkeit von Webseiten prüfen
 
@@ -115,7 +115,7 @@
 ### Timer
 - werden gestartet und schicken bei Ablauf eine Nachricht mit dem Zeitstempel des Ablaufzeitpunkts auf den ihnen jeweils zugeordneten Channel.
 - __gedacht für einmalige, zeitabhängige Aktionen.__
-- Aähnlich wie ein time.Sleep() , aber:
+- _ähnlich wie ein time.Sleep() , aber:_
 	- Timer können vor Ablauf wieder gestoppt werden,
 	- Timer-Setup ist nicht wie time.Sleep() synchron & blockierend, sondern per-se asynchron.
 
@@ -125,7 +125,7 @@
 
 ### Shared Data
 - __in Go auch das Arbeiten mit Shared Data möglich.__ Also Prinzipien nicht so strikt wie z.B. beim Aktorenmodell von Erlang.
-- Mechanismen:  
+- _Mechanismen:  _
 	- Mutexe: mutual exclusion bei kritischen Bereichen.
 	- Atomic counters: spezielle Zählervariablen mit speziellen atomaren Zugriffsoperationen.
 - Diese und andere Mechanismen sind auch mittels Channels „emulierbar“.
@@ -137,10 +137,10 @@
 #### Aktoren:
 - sind nebenläufige Einheiten, die nicht über einen geteilten Speicherbereich verfügen, sondern ausschließlich über Nachrichten kommunizieren
 - die Kapselung des Zustandes des Aktors ähnelt dem Prinzip der Kapselung in der objektorientierten Programmierung.
-- __Jeder Aktor verfügt über einen Posteingang, eine Adresse und ein Verhalten__![[Bildschirm­foto 2023-01-14 um 10.39.32.png]]
+- __Jeder Aktor verfügt über einen Posteingang, eine Adresse und ein Verhalten__ ![[Bildschirm­foto 2023-01-14 um 10.39.32.png]]
 - der Empfang einer Nachricht wird als __Ereignis__ bezeichnet -> werden __in Posteingang gespeichert__ und werden nach FIFO-Prinzip bearbeitet
 - Das Verhalten des Aktoren beschreibt Reaktionen auf Nachrichten abhängig von deren Aufbau
-- Reaktionen:
+- _Reaktionen:_
 	1. __Nachrichten an sich selbst__ oder __an andere Aktoren__ verschicken. 
 	2. __neue Aktoren erzeugen.__ 
 	3. das __eigene Verhalten ändern.__
@@ -156,21 +156,21 @@
 - entkoppelte parallel Prozesse (kein Shared Data, keine Seiteneffekte)
 - die Verteilung von Erlang Code über viele parallele Rechner leicht möglich
 - jede Server wird in einem Modul gepackt und mittels spawn ein Prozess erzeugt und gestartet. Über die Prozess-ID werden dem Prozess Erlang-Nachrichten gesendet![[Bildschirm­foto 2023-01-14 um 11.24.37.png]]
-- Unterscheidung mehrerer Server:
+- _Unterscheidung mehrerer Server:_
 	- der Server schickt seine Prozess-ID self() mit. Der Client macht Pattern Matching auf empfangene Nachrichten und matcht nur Nachrichten, die von der ID des selbst kontaktierten Servers stammen.
 	- durch das Senden der ID:s in beide Richtungen können nun auch viele Server parallel laufen und sehr viele Clients parallel bedient werden, über das Netzwerk
 
 ### Erlang Prozesse
-- werden in der Erlang VM erzeugt und verwaltet -> OS unabhängig
+- __werden in der Erlang VM erzeugt und verwaltet__ -> OS unabhängig
 - wenig Speicherverbrauch, sehr schnelle Erzeugung, schneller Prozesswechsel
 - skaliert gut, auch bei parallelen Rechnern
 - sehr fehlertolerant: wenn man alles auf viele kleine Einzelprozesse aufteilt, crasht bei Softwarefehler nur einer dieser Prozesse, nicht das Gesamte.
-- nur der Erzeuger eines Prozesses kennt diesen (dessen Prozess-ID) eigentlich. Durch die globale Registry können Clients die Server-ID:s herausfinden. Registrierung unter Aliasnamen. Konvention: Benutze den Modulnamen als Alias.
+- __nur der Erzeuger eines Prozesses kennt diesen (dessen Prozess-ID) eigentlich__. Durch die __globale Registry__ können Clients die Server-ID:s herausfinden. Registrierung unter Aliasnamen. Konvention: Benutze den Modulnamen als Alias.
 
 ### Erlang Nodes
 - ist eine Erlang Laufzeitumgebung
-- auf einem Host können mehrere gleichzeitig laufen
-- können aber auch über mehrere mittels Netzwerk (auch Internet) verbundene Hosts verteilt werden
+- __auf einem Host können mehrere gleichzeitig laufen__
+- können aber auch __über mehrere mittels Netzwerk (auch Internet) verbundene Hosts__ verteilt werden
 - wird über ihren Namen identifiziert -> müssen innerhalb eines Hosts eindeutig sein
 
 ### Erlang Cookies
@@ -182,19 +182,19 @@
 
 ### Fehlerbehandlung in Erlang
 - Let it crash
-- Best Practise:
+- _Best Practise:_
 	- Applikation in zwei Teilen aufbauen: ein Teil, der die Aufgaben erledigt und einer der die Errors behebt
 	- der Teil, der das Problem löst, wird mit so wenig defensivem Code wie möglich geschrieben
 	- der Teil, der Fehler korrigiert, ist oft generisch, so dass derselbe fehlerkorrigierende Code für viele verschiedene Anwendungen verwendet werden kann.
 	- dies führt zu einer sauberen Trennung der Themen und zu einer drastischen Verringerung des Codevolumens.
-- bei parallelen Prozessen:
+- _bei parallelen Prozessen:_
 	- Verknüpfung von Prozessen, die gemeinsam eine Aufgabe lösen mittels Link
 	- bidirektional
 	- wenn eine der Prozesse crashed, sterben alle anderen linked Prozesse auch
-- System Prozesse:
+- _System Prozesse:_
 	- begrenzt die Fehlerpropagation
 	- werden über Fehler benachrichtigt, sterben aber nicht
-- Monitoring von Prozessen durch andere Prozesse:
+- _Monitoring von Prozessen durch andere Prozesse:_
 	- unidirektional: Falls der ge-monitor-te Prozess stirbt, wird der Monitoring Prozess informiert, aber nicht umgekehrt.
 	- Der Monitoring Prozess muss nicht System Process werden, um nur informiert zu werden, aber nicht selbst zu sterben.
 
@@ -231,18 +231,19 @@
 	- JS Runtime ist ein großer Sichtbarkeitbereich -> Seiteneffekte
 	- Parallele Event Loop könnten wegen Seiteneffekten die Semantik der Programme ändern
 	- so wird jede Nachricht vollständig abgearbeitet
-- ScriptJobs Queue:
+- _ScriptJobs Queue:_
 	- vollständige Ausführung eines JS Skripts oder Moduls
 	- wenn Jobs in Queue ist: führe den ersten Job aus
 	- dann zurück zur Event Loop
 	- __Skript / Modul muss abgearbeitet werden__, bevor der Browser wieder rendern kann
-- Nachteile:
+- _Nachteile_:
 	- während eine Nachricht kann keine andere Nachricht abgearbeitet werden
 	- langsame I/O Operationen blockieren die Ausführung
 
 ### Callback Programmierstil
 - asynchroner Code mittels Callbacks und synchrone Funktionsaufrufe dürfen bei Abhängigkeit voneinander (z.B. über Daten) nicht gemischt werden
 - sonst werden die "eigentlich sequentiell später kommenden Programmteile" ggfs. fehlerhafterweise vor den eigentlich "sequentiell vorher kommenden", aber asynchron (per Callback) programmierten Programmteilen ausgeführt.
+
 ```javascript
 const fs = require('fs');
 function readData() {
@@ -257,7 +258,10 @@ return data1;
 
 console.log('User Name:', readData()); 
 ```
--Ebenso dürfen asynchrone Codeteile (mittels Callbacks), die voneinander (z.B. über Daten) abhängen, nicht einfach nur "sequentiell programmiert" werden. Sonst ist die Ausführungsreihenfolge unklar. __Verschachtelung der Callback Aufrufe notwendig.__
+
+
+- Ebenso dürfen asynchrone Codeteile (mittels Callbacks), die voneinander (z.B. über Daten) abhängen, nicht einfach nur "sequentiell programmiert" werden. Sonst ist die Ausführungsreihenfolge unklar. __Verschachtelung der Callback Aufrufe notwendig.__
+
 ```javascript 
 function asyncLogToConsole(data1) { /* ... execute async logging to console ... */ }
 const fs = require('fs');

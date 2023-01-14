@@ -555,4 +555,18 @@ var buch = new Buch("Mein Buch");
 - realisiert die prototypische Vererbung
 - selten genutzt
 - jedes Objekt ist ein Singleton
-- jedes Objekt hat eigene Methoden und kann auch Methoden eines anderen Objekt
+- jedes Objekt hat eigene Methoden und kann auch Methoden eines anderen Objekts besitzen
+- Verweiskette zwischen Objekten benutzt
+- Erzeugung mittel Object.create
+### Polyfilling
+- vor ECMAScript 5
+- Object.create Funktionalität mit selbst-definierten Funktion:
+```javascript
+function object_create(obj) { 
+	function F() {}
+	F.prototype = obj;
+	return new F();
+}
+```
+
+- das bisherige F Funktions-Object word garbage-collected

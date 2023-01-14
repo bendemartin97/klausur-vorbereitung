@@ -459,4 +459,9 @@ fun_async().then(alert); // => 42
 - gilt auch für globale Variablen
 ### Closure
 - bedeutet, dass eine innere Funktion, die als Wert „im Programm umhergereicht“ wird, __den Zugriff auf die bei ihrer Erstellung von ihr benutzten Werte äußerer Funktionen behält__
-- etrifft alle die Variablen in der inneren Funktion, die nicht als Funktionsparameter an die innere Funktion übergeben worden sind, sondern über das Lexical Scoping aus äußeren Funktionen in die innere Funktion gelangt sind
+- betrifft alle die Variablen in der inneren Funktion, die nicht als Funktionsparameter an die innere Funktion übergeben worden sind, sondern über das Lexical Scoping aus äußeren Funktionen in die innere Funktion gelangt sind
+
+# Mutability & Immutable Data
+### Mutability
+- Veränderlichkeit, Wandlungsfähigkeit
+- Wertänderung eines Datenwerts, wobei die Objektidentität alle Referenzen auf das Objekt unverändert bleiben

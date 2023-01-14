@@ -224,9 +224,9 @@
 
 # JavaScript
 ### Event Driven / Reactive Programming
-- Laufzeitumgebung des Programms triggert Events
-- im Programm Callback registriert, der beim entsprechenden Event aufgerufen wird
-- JS Runtime immer single-threaded: Ein Thread mit einer Event Loop:
+- __Laufzeitumgebung des Programms triggert Events__
+- __im Programm Callback registriert, der beim entsprechenden Event aufgerufen wird__
+- JS Runtime immer __single-threaded__: Ein Thread mit einer Event Loop:
 	- vermeide komplexe Anforderungen an die Plattform
 	- JS Runtime ist ein großer Sichtbarkeitbereich -> Seiteneffekte
 	- Parallele Event Loop könnten wegen Seiteneffekten die Semantik der Programme ändern
@@ -235,7 +235,7 @@
 	- vollständige Ausführung eines JS Skripts oder Moduls
 	- wenn Jobs in Queue ist: führe den ersten Job aus
 	- dann zurück zur Event Loop
-	- Skript / Modul muss abgearbeitet werden, bevor der Browser wieder rendern kann
+	- __Skript / Modul muss abgearbeitet werden__, bevor der Browser wieder rendern kann
 - Nachteile:
 	- während eine Nachricht kann keine andere Nachricht abgearbeitet werden
 	- langsame I/O Operationen blockieren die Ausführung
@@ -243,3 +243,35 @@
 ### Callback Programmierstil
 - asynchroner Code mittels Callbacks und synchrone Funktionsaufrufe dürfen bei Abhängigkeit voneinander (z.B. über Daten) nicht gemischt werden
 - sonst werden die "eigentlich sequentiell später kommenden Programmteile" ggfs. fehlerhafterweise vor den eigentlich "sequentiell vorher kommenden", aber asynchron (per Callback) programmierten Programmteilen ausgeführt.
+```javascript
+const fs = require('fs');
+function readData() {
+
+let data1;
+fs.readFile( '/file.md', (err, data) => { if (err) throw err; data1 = data; } );
+return data1;
+
+}
+
+// Das folgende console.log() des Ergebnisses wird ggfs. schon ausgeführt, obwohl // readData() mit seinem asynchronen fs.readFile() ggfs. noch gar kein Ergebnis geliefert hat! ...
+
+console.log('User Name:', readData()); 
+```
+-Ebenso dürfen asynchrone Codeteile (mittels Callbacks), die voneinander (z.B. über Daten) abhängen, nicht einfach nur "sequentiell programmiert" werden. Sonst ist die Ausführungsreihenfolge unklar. __Verschachtelung der Callback Aufrufe notwendig.__
+```javascript 
+function asyncLogToConsole(data1) { /* ... execute async logging to console ... */ }
+const fs = require('fs');
+function readData() {
+
+let data1;
+fs.readFile( '/file.md', (err, data) => { if (err) throw err; data1 = data; } );
+return data1;
+
+}
+
+var data = readData();
+
+// Das folgende asyncLogToConsole() wird ggfs. schon ausgeführt, obwohl readData() // mit seinem asynchronen fs.readFile() ggfs. noch gar kein Ergebnis geliefert hat! ... 
+
+asyncLogToConsole(data);
+```

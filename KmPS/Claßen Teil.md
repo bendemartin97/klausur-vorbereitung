@@ -637,7 +637,27 @@ switch v := i.(type) {
 	case string:
 	// v vom Typ string
 	default:
-// kein match => v vom gleichen Typ wie i
-
+	// kein match => v vom gleichen Typ wie i
 }
 ```
+
+### Type Embedding
+- importiert Attribute und Methoden aus dem inneren eingebetteten Typ
+- innerer Typ kann als Werttyp oder als Pointertyp eingebettet werden
+```go 
+type User struct { Name string } 
+	func (u User) Print() { fmt.Println("User:", u.Name) }
+
+type Admin struct { User }
+
+func main() {
+	admin := Admin { User : User { Name: "Peter"} }
+	admin.Print()
+}
+```
+
+# OO in Rust
+- Strukturierte Datentypen mittels struct, ähnlich wie Go
+- für außerhalb des Moduls sichtbar sein mit __pub__ kennzeichnen
+- Methoden für struct und enum mittel __imp__
+- Methodendefinition außerhalb der Typdefinition -> Methode wird nachträglich hinzugefügt

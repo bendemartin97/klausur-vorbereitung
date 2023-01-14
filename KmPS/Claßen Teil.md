@@ -661,3 +661,19 @@ func main() {
 - für außerhalb des Moduls sichtbar sein mit __pub__ kennzeichnen
 - Methoden für struct und enum mittel __imp__
 - Methodendefinition außerhalb der Typdefinition -> Methode wird nachträglich hinzugefügt
+### Traits
+- spezifieren einen zusammengehörigen Satz von Methoden
+- definieren bestimmtes Teilverhalten von Daten
+- definieren meist nur die Signatur (den Prototyp) der Methoden
+- können aber vordefiniert sein, und später überschrieben
+- __impl__ für Datentyp bezüglich Traits gibt an, dass ein Datentyp einen Trait implementiert
+```Rust
+trait MyPrint { fn my_print(&self) -> String; } impl MyPrint for MyStructType { fn my_print(&self) -> String { ... } } impl MyPrint for i32 { 
+	fn my_print(&self) -> String { format!("i32: {}", self) } }
+```
+- _Copy und Clone Trait:_
+	- definiert, ob die Werte eines Datentyps kopiert werden können oder nicht.
+	- default Verhalten eines struct Typs ist Move Semantics, also Vermeidung von Kopieren
+- _Drop Trait:_
+	- muss von Datentypen implementiert werden, deren Werte externe Ressourcen (z.B. Heap Speicher, Dateien, ...) kontrollieren
+	- so dass diese externen Ressourcen freigegeben werden müssen, wenn der Datenwert des Typs gelöscht wird

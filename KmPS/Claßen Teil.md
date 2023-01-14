@@ -368,7 +368,7 @@ console.log("Script done.");
 ```
 
 - resolve und reject ändern den Status des Promises auf settled -> __weitere resolve und reject werden ignoriert__
-- _.then and catch functions:_
+- _.then, .catch, .finally functions:_
 	- then für daten-abhängigen Nachfolgecode
 	- catch für Fehler-Callback
 	- Callback Function als Parameter
@@ -380,4 +380,14 @@ console.log("Script done.");
 		- .then Callbacks werdem immer in der PromiseJobs Queue gescheduled
 		- .then gibt immer ein Promis Objekt zurück -> können verkettet werden
 	- _.catch für einheitliches Error handling_:
-		- egal ob durch reject oder Exception 
+		- egal ob durch reject oder Exception im .then Rumpf
+	- _.finally für cleanup Aktionen_:
+		- hat kein Parameter
+		- gibt den erhaltenen Resultat / Error Wert zurück
+		- weiter Post-Cleanup-Aktionen möglich
+- _Promise.all_:
+	- warten auf das Settlement mehrerer Promises
+	- bei asynchroner Plattform-Operationen werden parallel ausgeführt
+	- Perfomance-Verbesserung
+	- wenn ein Promise rejected, werden alle Ergebnisse verworden -> Promise.allSettled():
+		- 

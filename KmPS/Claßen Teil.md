@@ -497,4 +497,5 @@ fun_async().then(alert); // => 42
 ### Ownership
 - bezeichnet das Konzept, dass immer eindeutig erkennbar (für den Compiler!) ist, wer der "Besitzer" eines Objekts ist und somit über die Freigabe von dessen Speicherplatz bestimmt
 - sichere Speicherverwaltung ohne Garbage Collection
-- Non-Copy Type zu einer anderen Variable 
+- Non-Copy Type zu einer anderen Variable wird die Ownership verschoben
+- ein Zugriff auf das Objekt über die alte Variable nicht möglich

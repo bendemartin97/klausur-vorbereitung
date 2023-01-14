@@ -51,3 +51,7 @@
 
 ### Race Condition
 - bedeutet, dass das Ergebnis der Programmausführung vom zeitlichen Verhalten bzw. der zeitlichen Abfolge bestimmter Programmteile abhängt, wobei diese zeitliche Abfolge nicht eindeutig durch das Programm selbst bestimmt wird.
+
+### Goroutinen
+- meist keine explizite Abgabe der Kontrolle, sondern implizite Abgabe der Kontrolle z.B Aufruf von Libraryfunktionen
+- explizite Abgabe mittel runtime.GoSched()

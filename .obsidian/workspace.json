@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "7570008c25d8b8a3",
+        "id": "1003e26e2e93bd80",
         "type": "tabs",
         "children": [
           {
-            "id": "8fc83d0ee4bb625f",
+            "id": "2e9ac902aaf378d8",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,19 +20,15 @@
             }
           },
           {
-            "id": "333c64793b9b11fa",
+            "id": "0dcb84cb276851f6",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "KMPS/Claßen Teil.md",
-                "mode": "source",
-                "source": true
-              }
+              "type": "empty",
+              "state": {}
             }
           },
           {
-            "id": "35870001d559050b",
+            "id": "8410d50160fca2e1",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -180,17 +176,17 @@
       "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false
     }
   },
-  "active": "35870001d559050b",
+  "active": "8410d50160fca2e1",
   "lastOpenFiles": [
-    "KMPS/Claßen Teil.md",
     "conflict-files-obsidian-git.md",
     "WAS/summary.md",
-    "Pasted image 20221216112016.png.md",
+    "Further.md",
+    "C1 - Define Security Requirements.md",
+    "C2 - Leverage Security Frameworks and Libraries.md",
     "cheatsheet.md.md",
-    "frontend/javascript/typescript.md",
-    "devOps/docker/docker.md",
-    "backend/laravel/Laravel.md",
-    "misc/languages/Erlang & Elixier.md",
-    "README.md"
+    "KMPS/Claßen Teil.md",
+    "README.md",
+    "_assets/Bildschirm­foto 2023-01-13 um 19.41.00.png",
+    "Pasted image 20221216112016.png.md"
   ]
 }

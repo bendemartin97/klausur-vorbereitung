@@ -3,5 +3,6 @@
   "spellcheck": true,
   "trashOption": "local",
   "showInlineTitle": false,
-  "livePreview": false
+  "livePreview": false,
+  "promptDelete": false
 }

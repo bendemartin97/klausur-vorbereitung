@@ -129,3 +129,12 @@
 - Mutexe: mutual exclusion bei kritischen Bereichen.
 - Atomic counters: spezielle Zählervariablen mit speziellen atomaren Zugriffsoperationen.
 - Diese und andere Mechanismen sind auch mittels Channels „emulierbar“.
+
+# Erlang
+### Aktorenmodell
+- ein Modell in Informatik für nebenläufige Berechnungen bzw. Programme
+- diese werden in nebenläufige Einheiten (Aktoren) unterteilt, die ausschließlich über Nachrichtenaustausch kommunizieren
+- Aktoren:
+	- sind nebenläufige Einheiten, die nicht über einen geteilten Speicherbereich verfügen, sondern ausschließlich über Nachrichten kommunizieren
+	- die Kapselung des Zustandes des Aktors ähnelt dem Prinzip der Kapselung in der objektorientierten Programmierung.
+	- Jeder Aktor verfügt über einen Posteingang, eine Adresse und ein Verhalten![[Bildschirm­foto 2023-01-14 um 10.39.32.png]]

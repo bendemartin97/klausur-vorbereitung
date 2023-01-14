@@ -70,15 +70,15 @@
 - meist keine explizite Abgabe der Kontrolle, sondern implizite Abgabe der Kontrolle z.B Aufruf von Libraryfunktionen
 - __Goroutine gibt Kontrolle kooperativ ab__, wenn idle oder blockiert oder an besonderen Stellen im Programmablauf oder mittels explizite Abgabe  runtime.GoSched() (normal)
 - __wenn eine Goroutine zu lange läuft, wird von Scheduler unterbrochen__
-- Tight Loop
-	- bezeichnet eine Goroutine, __die eine lange laufende Schleife oder Endlosschleife ausführt und dabei die Kontrolle nicht abgibt__ , da sowohl keine Library Funktionen aufgerufen werden (welche die Kontrolle dann abgeben würden) als auch kein runtime.Gosched() innerhalb der Schleife ausgeführt wird, welches die Kontrolle explizit abgeben würde. D.h. in der Schleife werden nur "Elementaroperationen", z.B. elementare Berechnungen, ausgeführt.![[Bildschirm­foto 2023-01-14 um 09.22.03.png]]
+#### Tight Loop
+- bezeichnet eine Goroutine, __die eine lange laufende Schleife oder Endlosschleife ausführt und dabei die Kontrolle nicht abgibt__ , da sowohl keine Library Funktionen aufgerufen werden (welche die Kontrolle dann abgeben würden) als auch kein runtime.Gosched() innerhalb der Schleife ausgeführt wird, welches die Kontrolle explizit abgeben würde. D.h. in der Schleife werden nur "Elementaroperationen", z.B. elementare Berechnungen, ausgeführt.![[Bildschirm­foto 2023-01-14 um 09.22.03.png]]
 
 ### Channels
 - sind __Kommunikationskanäle, an die sich die Goroutinen anschließen können__
 - Datentyp der zu übertragenden Werte bei Erzeugung angeben
 - Operationen: Senden und Empfange
 
-### Unbuffered Channels
+#### Unbuffered Channels
 - __default, d.h er kann nur einen Wert transportieren, aber nicht speichern__
 - send blockiert, wenn sich noch kein Receiver empfangsbereit ist, receive blockiert, bis ein Sender einen Wert sendet
 - blockieren innerhalb einer Goroutine: andere Goroutine wird gescheduled
@@ -91,20 +91,20 @@
 	- synchronisierten Beenden von main: wird oftmals verwendet, um das Hauptprogramm main() zu informieren, dass auch die letzte weitere Goroutine beendet ist und main() sich somit beenden kann, ohne dass dadurch eine Goroutine abgebrochen wird.
 	- Erreichbarkeit von Webseiten prüfen
 
-### Buffered Channels
+#### Buffered Channels
 - __können Nachrichten halten und transportieren__
 - wenn Buffer voll ist, werden die send Operationen blockert, bis Buffer nicht mehr voll ist, sonst können Sender nicht-blockierend senden
 - nicht zur Synchronisation verwendbar
 
 ### select Befehl
-- Receive:
-	- select wartet (blockiert), bis auf einem der Channels eine Nachricht eintrifft. case für die einzelnen Fälle.
-	- auch mit Timeout realisierbar, damit das select nicht zu lange blockiert
-	- auch mit default case realisierbar, damit ein receive auf einem Channel gar nicht blockiert
-- Send:
-	- select wartet (blockiert), bis auf einem der Channels eine Nachricht gesendet werden kann.
-	- auch mit Timeout realisierbar, damit das select nicht zu lange blockiert
-	- auch mit default case realisierbar, damit der Sender vermeidet, beim send auf einem Channel blockiert zu werden, falls noch kein Receiver an dem Channel lauscht
+#### Receive:
+- select wartet (blockiert), bis auf einem der Channels eine Nachricht eintrifft. case für die einzelnen Fälle.
+- auch mit Timeout realisierbar, damit das select nicht zu lange blockiert
+- auch mit default case realisierbar, damit ein receive auf einem Channel gar nicht blockiert
+#### Send:
+- select wartet (blockiert), bis auf einem der Channels eine Nachricht gesendet werden kann.
+- auch mit Timeout realisierbar, damit das select nicht zu lange blockiert
+- auch mit default case realisierbar, damit der Sender vermeidet, beim send auf einem Channel blockiert zu werden, falls noch kein Receiver an dem Channel lauscht
 
 ### WaitGroups
 - __andere Möglichkeit drauf zu warten, dass eine bestimmte Anzahl von Goroutinen endet__
@@ -134,10 +134,10 @@
 ### Aktorenmodell
 - ein Modell in Informatik für nebenläufige Berechnungen bzw. Programme
 - diese werden in nebenläufige Einheiten (Aktoren) unterteilt, die __ausschließlich über Nachrichtenaustausch kommunizieren__
-- Aktoren:
-	- sind nebenläufige Einheiten, die nicht über einen geteilten Speicherbereich verfügen, sondern ausschließlich über Nachrichten kommunizieren
-	- die Kapselung des Zustandes des Aktors ähnelt dem Prinzip der Kapselung in der objektorientierten Programmierung.
-	- __Jeder Aktor verfügt über einen Posteingang, eine Adresse und ein Verhalten__![[Bildschirm­foto 2023-01-14 um 10.39.32.png]]
+#### Aktoren:
+- sind nebenläufige Einheiten, die nicht über einen geteilten Speicherbereich verfügen, sondern ausschließlich über Nachrichten kommunizieren
+- die Kapselung des Zustandes des Aktors ähnelt dem Prinzip der Kapselung in der objektorientierten Programmierung.
+- __Jeder Aktor verfügt über einen Posteingang, eine Adresse und ein Verhalten__![[Bildschirm­foto 2023-01-14 um 10.39.32.png]]
 - der Empfang einer Nachricht wird als __Ereignis__ bezeichnet -> werden __in Posteingang gespeichert__ und werden nach FIFO-Prinzip bearbeitet
 - Das Verhalten des Aktoren beschreibt Reaktionen auf Nachrichten abhängig von deren Aufbau
 - Reaktionen:

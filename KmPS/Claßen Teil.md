@@ -169,4 +169,9 @@
 - können aber auch über mehrere mittels Netzwerk (auch Internet) verbundene Hosts verteilt werden
 - wird über ihren Namen identifiziert -> müssen innerhalb eines Hosts eindeutig sein
 
-###
+### Erlang Cookies
+- gruppieren zusammengehörige Erlang Nodes
+- Nodes können nur connecten, wenn Cookie übereinstimmg
+- gespeichert wird in Datei .erlang.cookie
+- wird Cookie beim Start der Node nicht angegeben, wird er aus dieser Datei genommen
+- Nodes haben auf gleichem Host immer identischen Cookie und können connecten

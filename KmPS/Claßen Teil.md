@@ -154,4 +154,4 @@
 - leicht-gewichtige Erlang-Prozesse
 - entkoppelte parallel Prozesse (kein Shared Data, keine Seiteneffekte)
 - die Verteilung von Erlang Code über viele parallele Rechner leicht möglich
-- jede Server wird in einem Modul gepackt und mittels spawn ein Prozess erzeugt und gestartet. Über die Prozess-ID werdem dem Prozess Erlang-Nachrichten gesendet![[Bildschirm­foto 2023-01-14 um 11.24.37.png]]
+- jede Server wird in einem Modul gepackt und mittels spawn ein Prozess erzeugt und gestartet. Über die Prozess-ID werden dem Prozess Erlang-Nachrichten gesendet![[Bildschirm­foto 2023-01-14 um 11.24.37.png]]

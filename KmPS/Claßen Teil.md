@@ -409,3 +409,15 @@ let function_promisified = promisify(orig_cb_function);
 function_promisified(...).then(...);
 ```
 
+- _Callback-style:_
+	- wenn asynchronen Operationen merhfach verwendet werden, und die Callbacks bei jedem Aufruf andere Wert liefern
+- _Promise-style:_
+	- wenn asynchronen Operationen nur einmal vorkommen, an einer Stelle im Kontrollfluss
+	- kann nur ein Resultatwert haben
+
+### async / await
+- asynchrone Funktionen
+- im Rumpf kann mittels await auf die Resultate anderer Funktionen gewartet werden
+- async gibt immer ein Promise Objekt zurück
+- async ist also new Promise(...) 
+- ihr Rump ist das Executor

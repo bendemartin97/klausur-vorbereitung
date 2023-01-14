@@ -397,4 +397,15 @@ console.log("Script done.");
 	- überwachen das Settlement mehrerer Promises
 	- sammelt das Ergebnis der zuerst fertig werdenden Promise ein
 	- die andere Egebnisse werden verworfen
-	
+### Promisification
+- __Umwandlung einer Library mit API Funktionen im Callback-style in eine Variante der Library in Promise-style__
+- Bei einer systematischen API der Library kann auch die Promisification der Library sehr systematisch gemacht werden, mittels einer generellen __Wrapper Funktion promisify(...)__
+
+```javascript 
+let function_promisified = promisify(orig_cb_function);
+
+// Use the new, promisified function: ...
+
+function_promisified(...).then(...);
+```
+

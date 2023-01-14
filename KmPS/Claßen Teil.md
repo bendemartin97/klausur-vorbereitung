@@ -345,5 +345,9 @@ var promise1 = async_fun(...)
 	- catch für Fehler-Callback
 	- Callback Function als Parameter
 	- Promise wird in den konreket Wert resolved dann wird Callback im .then ausgeführt
-	- .then() wird immer verzögert ausgeführt, auch wenn das Promise Objekt schon den Wert hat
-	- 
+	- ._then() wird immer verzögert ausgeführt, auch wenn das Promise Objekt schon den Wert hat:_
+		- zuerst ScriptJobs abarbeiten -> hängen then / catch Jobs an die PromiseJobs Queue an
+		- PromiseQueue abarbeiten
+		- Zurück zur EventLoop -> nächster ScriptJob abarbeiten
+		- .then Callbacks werdem immer in der PromiseJobs Queue gescheduled
+		- .then gibt immer ein Promis Objekt zurück -> können verkettet werden

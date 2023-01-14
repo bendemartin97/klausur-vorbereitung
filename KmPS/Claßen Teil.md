@@ -150,8 +150,23 @@
 - Aktoren __zu einem Zeitpunkt nur eine Nachricht abarbeiten__ und __kein anderer nebenläufiger Prozess den internen Speicherbereich__ eines Aktors __beinflussen darf__, führt dazu, dass __die Programmierung innerhalb des Aktors rein sequentiell ist__
 - kein Flow of Control, Verhalten wird reihenfolgenlos festgelegt
 
+
 ### Nebenläufigkeit in Erlang
 - leicht-gewichtige Erlang-Prozesse
 - entkoppelte parallel Prozesse (kein Shared Data, keine Seiteneffekte)
 - die Verteilung von Erlang Code über viele parallele Rechner leicht möglich
 - jede Server wird in einem Modul gepackt und mittels spawn ein Prozess erzeugt und gestartet. Über die Prozess-ID werden dem Prozess Erlang-Nachrichten gesendet![[Bildschirm­foto 2023-01-14 um 11.24.37.png]]
+
+### Erlang Prozesse
+- werden in der Erlang VM erzeugt und verwaltet -> OS unabhängig
+- wenig Speicherverbrauch, sehr schnelle Erzeugung, schneller Prozesswechsel
+- skaliert gut, auch bei parallelen Rechnern
+- sehr fehlertolerant: wenn man alles auf viele kleine Einzelprozesse aufteilt, crasht bei Softwarefehler nur einer dieser Prozesse, nicht das Gesamte.
+
+### Erlang Nodes
+- ist eine Erlang Laufzeitumgebung
+- auf einem Host können mehrere gleichzeitig laufen
+- können aber auch über mehrere mittels Netzwerk (auch Internet) verbundene Hosts verteilt werden
+- wird über ihren Namen identifiziert -> müssen innerhalb eines Hosts eindeutig sein
+
+###

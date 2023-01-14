@@ -122,3 +122,10 @@
 ### Ticker
 - werden gestartet und schicken dann wiederholt jeweils eine Nachricht mit dem Zeitstempelwert des jeweiligen Ticks auf einen ihnen jeweils zugeordneten Channel.
 - gedacht für wiederholt wiederkehrende zeitabhängige Aktionen.
+
+### Shared Data
+- in Go auch das Arbeiten mit Shared Data möglich. Also Prinzipien nicht so strikt wie z.B. beim Aktorenmodell von Erlang.
+- Mechanismen:  
+- Mutexe: mutual exclusion bei kritischen Bereichen.
+- Atomic counters: spezielle Zählervariablen mit speziellen atomaren Zugriffsoperationen.
+- Diese und andere Mechanismen sind auch mittels Channels „emulierbar“.

@@ -75,6 +75,9 @@
 - sind Kommunikationskanäle, an die sich die Goroutinen anschließen können
 - Datentyp der zu übertragenden Werte bei Erzeugung angeben
 - Operationen: Senden und Empfange
+- Verwendung:
+	- synchronisierten Beenden von main: wird oftmals verwendet, um das Hauptprogramm main() zu informieren, dass auch die letzte weitere Goroutine beendet ist und main() sich somit beenden kann, ohne dass dadurch eine Goroutine abgebrochen wird.
+	- Erreichbarkeit von Webseiten prüfen
 
 ### Unbuffered Channels
 - default, d.h er kann nur einen Wert transportieren, aber nicht speichern
@@ -84,4 +87,4 @@
 - wesentliche Technik zur Synchronitazation
 - Empfänger wird durch receive blockiert, bis der Sender per send mitteilt, dass er den Sync-Point erreicht hat
 - Nachricht muss immer überreicht werden -> Sender und Receiver immer minimal blockiert
-- Receiver muss
+- Receiver meldet Empfangswunsch an und wird blockiert -> Sender sendet -> Receiver kann empfangen

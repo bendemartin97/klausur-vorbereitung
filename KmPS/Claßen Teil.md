@@ -156,12 +156,16 @@
 - entkoppelte parallel Prozesse (kein Shared Data, keine Seiteneffekte)
 - die Verteilung von Erlang Code über viele parallele Rechner leicht möglich
 - jede Server wird in einem Modul gepackt und mittels spawn ein Prozess erzeugt und gestartet. Über die Prozess-ID werden dem Prozess Erlang-Nachrichten gesendet![[Bildschirm­foto 2023-01-14 um 11.24.37.png]]
+- Unterscheidung mehrerer Server:
+	- der Server schickt seine Prozess-ID self() mit. Der Client macht Pattern Matching auf empfangene Nachrichten und matcht nur Nachrichten, die von der ID des selbst kontaktierten Servers stammen.
+	- durch das Senden der ID:s in beide Richtungen können nun auch viele Server parallel laufen und sehr viele Clients parallel bedient werden, über das Netzwerk
 
 ### Erlang Prozesse
 - werden in der Erlang VM erzeugt und verwaltet -> OS unabhängig
 - wenig Speicherverbrauch, sehr schnelle Erzeugung, schneller Prozesswechsel
 - skaliert gut, auch bei parallelen Rechnern
 - sehr fehlertolerant: wenn man alles auf viele kleine Einzelprozesse aufteilt, crasht bei Softwarefehler nur einer dieser Prozesse, nicht das Gesamte.
+- nur der Erzeuger eines Prozesses kennt diesen (dessen Prozess-ID) eigentlich. Durch die globale Registry können Clients die Server-ID:s herausfinden. Registrierung unter Aliasnamen. Konvention: Benutze den Modulnamen als Alias.
 
 ### Erlang Nodes
 - ist eine Erlang Laufzeitumgebung

@@ -70,3 +70,11 @@
 - __wenn eine Goroutine zu lange läuft, wird von Scheduler unterbrochen__
 - Tight Loop
 	- bezeichnet eine Goroutine, die eine lange laufende Schleife oder Endlosschleife ausführt und dabei die Kontrolle nicht abgibt, da sowohl keine Library Funktionen aufgerufen werden (welche die Kontrolle dann abgeben würden) als auch kein runtime.Gosched() innerhalb der Schleife ausgeführt wird, welches die Kontrolle explizit abgeben würde. D.h. in der Schleife werden nur "Elementaroperationen", z.B. elementare Berechnungen, ausgeführt.![[Bildschirm­foto 2023-01-14 um 09.22.03.png]]
+
+### Channels
+- sind Kommunikationskanäle, an die sich die Goroutinen anschließen können
+- Datentyp der zu übertragenden Werte bei Erzeugung angeben
+- Operationen: Senden und Empfange
+- __Unbuffered Channels__
+	- default, d.h er kann nur einen Wert transportieren, aber nicht speichern
+	- send blockiert, wenn sich noch kein Receiver empfangsbereit ist, receiv

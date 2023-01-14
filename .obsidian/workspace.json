@@ -8,24 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "18db3786835a09cc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "KmPS/Summary.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
             "id": "134701a2275a53ef",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "cheatsheet.md.md",
+                "file": "KmPS/Claßen Teil.md",
                 "mode": "source",
                 "source": true
               }
@@ -98,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "KmPS/Summary.md",
+                "file": "KmPS/Claßen Teil.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "KmPS/Summary.md",
+                "file": "KmPS/Claßen Teil.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "KmPS/Summary.md"
+                "file": "KmPS/Claßen Teil.md"
               }
             }
           }
@@ -158,11 +146,11 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "18db3786835a09cc",
+  "active": "134701a2275a53ef",
   "lastOpenFiles": [
-    "assets/Bildschirm­foto 2023-01-14 um 09.22.03.png",
-    "KmPS/Summary.md",
     "cheatsheet.md.md",
+    "KmPS/Claßen Teil.md",
+    "assets/Bildschirm­foto 2023-01-14 um 09.22.03.png",
     "WAS/summary.md",
     "assets/Bildschirm­foto 2023-01-13 um 19.41.00.png",
     "conflict-files-obsidian-git.md",

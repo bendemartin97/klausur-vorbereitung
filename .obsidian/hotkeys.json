@@ -44,6 +44,7 @@
       "key": "L"
     }
   ],
+<<<<<<< HEAD
   "editor:toggle-checklist-status": [
     {
       "modifiers": [
@@ -52,6 +53,9 @@
       "key": "C"
     }
   ],
+=======
+  "editor:toggle-checklist-status": [],
+>>>>>>> 1feb834dd8111f57ae0bb8bd73e6806c299a27b5
   "hotkeysplus-obsidian:tab-as-space": [
     {
       "modifiers": [

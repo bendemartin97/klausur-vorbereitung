@@ -156,12 +156,16 @@
 - entkoppelte parallel Prozesse (kein Shared Data, keine Seiteneffekte)
 - die Verteilung von Erlang Code über viele parallele Rechner leicht möglich
 - jede Server wird in einem Modul gepackt und mittels spawn ein Prozess erzeugt und gestartet. Über die Prozess-ID werden dem Prozess Erlang-Nachrichten gesendet![[Bildschirm­foto 2023-01-14 um 11.24.37.png]]
+- Unterscheidung mehrerer Server:
+	- der Server schickt seine Prozess-ID self() mit. Der Client macht Pattern Matching auf empfangene Nachrichten und matcht nur Nachrichten, die von der ID des selbst kontaktierten Servers stammen.
+	- durch das Senden der ID:s in beide Richtungen können nun auch viele Server parallel laufen und sehr viele Clients parallel bedient werden, über das Netzwerk
 
 ### Erlang Prozesse
 - werden in der Erlang VM erzeugt und verwaltet -> OS unabhängig
 - wenig Speicherverbrauch, sehr schnelle Erzeugung, schneller Prozesswechsel
 - skaliert gut, auch bei parallelen Rechnern
 - sehr fehlertolerant: wenn man alles auf viele kleine Einzelprozesse aufteilt, crasht bei Softwarefehler nur einer dieser Prozesse, nicht das Gesamte.
+- nur der Erzeuger eines Prozesses kennt diesen (dessen Prozess-ID) eigentlich. Durch die globale Registry können Clients die Server-ID:s herausfinden. Registrierung unter Aliasnamen. Konvention: Benutze den Modulnamen als Alias.
 
 ### Erlang Nodes
 - ist eine Erlang Laufzeitumgebung
@@ -169,4 +173,51 @@
 - können aber auch über mehrere mittels Netzwerk (auch Internet) verbundene Hosts verteilt werden
 - wird über ihren Namen identifiziert -> müssen innerhalb eines Hosts eindeutig sein
 
-###
+### Erlang Cookies
+- gruppieren zusammengehörige Erlang Nodes
+- Nodes können nur connecten, wenn Cookie übereinstimmg
+- gespeichert wird in Datei .erlang.cookie
+- wird Cookie beim Start der Node nicht angegeben, wird er aus dieser Datei genommen
+- Nodes haben auf gleichem Host immer identischen Cookie und können connecten
+
+### Fehlerbehandlung in Erlang
+- Let it crash
+- Best Practise:
+	- Applikation in zwei Teilen aufbauen: ein Teil, der die Aufgaben erledigt und einer der die Errors behebt
+	- der Teil, der das Problem löst, wird mit so wenig defensivem Code wie möglich geschrieben
+	- der Teil, der Fehler korrigiert, ist oft generisch, so dass derselbe fehlerkorrigierende Code für viele verschiedene Anwendungen verwendet werden kann.
+	- dies führt zu einer sauberen Trennung der Themen und zu einer drastischen Verringerung des Codevolumens.
+- bei parallelen Prozessen:
+	- Verknüpfung von Prozessen, die gemeinsam eine Aufgabe lösen mittels Link
+	- bidirektional
+	- wenn eine der Prozesse crashed, sterben alle anderen linked Prozesse auch
+- System Prozesse:
+	- begrenzt die Fehlerpropagation
+	- werden über Fehler benachrichtigt, sterben aber nicht
+- Monitoring von Prozessen durch andere Prozesse:
+	- unidirektional: Falls der ge-monitor-te Prozess stirbt, wird der Monitoring Prozess informiert, aber nicht umgekehrt.
+	- Der Monitoring Prozess muss nicht System Process werden, um nur informiert zu werden, aber nicht selbst zu sterben.
+
+### OTP
+- stellt eine Reihe von Infrastruktur-Funktionalitäten zur Verfügung, um wirkliche "Praxistauglichkeit" in Bereichen wie Prozesshandling, Software Upgrade etc. zu erzielen.
+#### Supervisor
+- sind verantwortlich dafür, ihre Kind-Prozesse zu starten, zu stoppen und zu monitoren
+- überwachen Worker und/oder auch andere Supervisors. Dadurch ergibt sich eine baumartige Struktur
+- die Supervision Strategy gibt an, wie an den bestimmten Stellen im Baum bezüglich der Restart-Strategie zu verfahren ist, wenn ein Kind-Prozess stirbt
+#### Worker
+- sind für die normalen Berechnungen zuständig, ohne aufwendige Fehlerbehandlung
+#### Restart Strategien
+##### one_for_one
+- bedeutet, dass, wenn Supervisor viele Workers beaufsichtigt und einer von ihnen ausfällt, nur dieser eine neu gestartet werden sollte
+- bei unabhängigen Prozessen
+- Prozess kann seinen Zustand verlieren, ohne dass die Geschwisterprozesse davon betroffen wären![[Bildschirm­foto 2023-01-14 um 12.40.02.png]]
+##### one_for_all
+- ist immer dann zu verwenden, wenn alle Ihre Prozesse unter einem einzigen Supervisor stark voneinander abhängen, um normal funktionieren zu können![[Bildschirm­foto 2023-01-14 um 12.40.10.png]]
+##### rest_for_one
+- wenn ein Prozess stirbt, alle nach ihm gestarteten Prozesse (die von ihm abhängen) neu gestartet werden, aber nicht umgekehrt.![[Bildschirm­foto 2023-01-14 um 12.40.19.png]]
+##### simple_one_for_one
+- ein simple_one_for_one Supervisor sitzt einfach nur da und weiß, dass er nur eine Art von Child produzieren kann. 
+- wann immer man ein neues Kind haben möchte, fragt man danach und bekommt es. 
+- theoretisch könnte man so etwas auch mit dem standardmäßigen one_for_one supervisor machen, aber es gibt praktische Vorteile, die einfache Version zu verwenden.
+#### Software Patching im laufenden Betrieb
+- [ ] in Vorlesung nachscheuen 

@@ -4,5 +4,9 @@
   "trashOption": "local",
   "showInlineTitle": false,
   "livePreview": false,
+<<<<<<< HEAD
   "promptDelete": false
+=======
+  "showLineNumber": false
+>>>>>>> 1feb834dd8111f57ae0bb8bd73e6806c299a27b5
 }

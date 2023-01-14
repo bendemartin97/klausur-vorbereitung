@@ -23,19 +23,23 @@
             "id": "0dcb84cb276851f6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "WAS/summary.md",
+                "mode": "source",
+                "source": false
+              }
             }
           },
           {
-            "id": "8410d50160fca2e1",
+            "id": "6ef5d8bb47bf2a9e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "conflict-files-obsidian-git.md",
                 "mode": "source",
-                "source": true
+                "source": false
               }
             }
           }
@@ -176,10 +180,10 @@
       "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false
     }
   },
-  "active": "8410d50160fca2e1",
+  "active": "6ef5d8bb47bf2a9e",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
     "WAS/summary.md",
+    "conflict-files-obsidian-git.md",
     "Further.md",
     "C1 - Define Security Requirements.md",
     "C2 - Leverage Security Frameworks and Libraries.md",

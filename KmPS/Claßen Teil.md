@@ -609,3 +609,10 @@ func main() {
 - Pointer Receiver vermeiden Kopie des receivers -> Effizienzgewinn
 - Für einen Typ T kann eine Methode nur entweder mit Value oder mit Pointer Receiver definiert werden
 - Best Practice: Alle Methoden eines Typ durchgängig mit einem von den beiden umsetzen
+
+### Interfaces
+- als Satz von Methodensignaturen: Method Set
+- Eine Variable eines Interface-Types kann jeden Wert speichern, der die Methoden implementiert -> Das Method Set des Wertes muss die vom Interface geforderten Methoden umfassen
+- kein explizites implements o.ä nötig
+- unterschied zwischen ob ein Wert des Typs oder ein Pointer auf einen Wert des Typs benötigt wird, um die Methode zu implementieren
+- Go Compilet schaut alle Typen & Interfaces und deren Methoden an und generiert die implements Beziehungen dynamisch selbst

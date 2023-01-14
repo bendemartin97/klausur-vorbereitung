@@ -510,4 +510,13 @@ fun_async().then(alert); // => 42
 	- mutable Objekt wird nicht "anderweitig" verändert, während Mutable Referenz darauf existiert
 	- eine mutable Referenz ist stets die einzige mutable Referenz auf ein Objekt
 - _Non-Lexical Lifetime_
-	- 
+	- bedeutet, dass der Scope von Referenzen nur bis zu ihrer letzten Nutzung geht.
+
+# JS Vererbung
+### Prototype
+- jede JS Funktion hat automatisch ein prototype Attribut
+- beim Erzeugen eines Funktions-Objekts wird das prototype Attribut mit einem leeren Objekt initialisiert
+- Beim Anlegen einer Funktion wird in dem automatisch angelegten prototype Objekt ein Attribut constructor angelegt, welches auf das Funktions-Objekt zurückverweist
+### Prototypische Vererbung
+- jedes Objekt kann ein anderes Objekt als Prototypen habe
+- 

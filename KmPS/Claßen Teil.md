@@ -206,3 +206,12 @@
 - die Supervision Strategy gibt an, wie an den bestimmten Stellen im Baum bezüglich der Restart-Strategie zu verfahren ist, wenn ein Kind-Prozess stirbt
 #### Worker
 - sind für die normalen Berechnungen zuständig, ohne aufwendige Fehlerbehandlung
+#### Restart Strategien
+##### one_for_one
+- bedeutet, dass, wenn Supervisor viele Workers beaufsichtigt und einer von ihnen ausfällt, nur dieser eine neu gestartet werden sollte
+- bei unabhängigen Prozessen
+- Prozess kann seinen Zustand verlieren, ohne dass die Geschwisterprozesse davon betroffen wären
+##### one_for_all
+- ist immer dann zu verwenden, wenn alle Ihre Prozesse unter einem einzigen Supervisor stark voneinander abhängen, um normal funktionieren zu können
+##### rest_for_one
+- wenn ein Prozess stirbt, alle nach ihm gestarteten Prozesse (die von ihm abhängen) neu gestartet werden, aber nicht umgekehrt.

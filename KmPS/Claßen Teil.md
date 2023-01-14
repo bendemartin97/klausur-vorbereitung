@@ -569,4 +569,8 @@ function object_create(obj) {
 }
 ```
 
-- das bisherige F Funktions-Object word garbage-collected
+- das bisherige F Funktions-Object wird garbage-collected
+
+# OO in GO
+### Methoden
+- sind Funktionen mit einem speziellen receiver Parameter

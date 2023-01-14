@@ -179,3 +179,8 @@
 - gespeichert wird in Datei .erlang.cookie
 - wird Cookie beim Start der Node nicht angegeben, wird er aus dieser Datei genommen
 - Nodes haben auf gleichem Host immer identischen Cookie und können connecten
+
+### Fehlerbehandlung in Erlang
+- Let it crash
+- Best Practise: Applikation in zwei Teilen aufbauen: ein Teil, der die Aufgaben erledigt und einer der die Errors behebt
+- Teil, der die Aufgaben erledigt ist mit

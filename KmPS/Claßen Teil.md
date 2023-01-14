@@ -95,3 +95,6 @@
 - nicht zur Synchronisation verwendbar
 
 ### select Befehl
+- select wartet (blockiert), bis auf einem der Channels eine Nachricht eintrifft. case für die einzelnen Fälle.
+- select ist auch mit Timeout realisierbar, damit das select nicht zu lange blockiert
+- select ist auch mit default case realisierbar, damit ein receive auf einem Channel gar nicht blockiert

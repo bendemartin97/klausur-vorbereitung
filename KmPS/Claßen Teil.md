@@ -464,4 +464,16 @@ fun_async().then(alert); // => 42
 # Mutability & Immutable Data
 ### Mutability
 - Veränderlichkeit, Wandlungsfähigkeit
-- Wertänderung eines Datenwerts, wobei die Objektidentität alle Referenzen auf das Objekt unverändert bleiben
+- __Wertänderung eines Datenwerts, wobei die Objektidentität alle Referenzen auf das Objekt unverändert bleiben__
+- z.B Arrays, Listen
+### Immutable Date
+- __darf nicht geändert werden, sobald der Wert initial erzeugt wurde__
+- bei Konstanten: Wert zu Compile-Zeit berechnenbar
+- Immutable-Data: initale Wert erst zur Laufzeit
+- initiale Wert ist read-only
+### Single-Assignment 
+- erlauben nur einmalige Bindung einer Variable
+- Rust, Erland: Redefinition von Variablen nicht erlaubt
+- Elixir, Scala: Redefinition erlaubt
+	- neue Variable hat mit der alten nichts zu tun
+	- shadowing: alles, was sich auf die bisherige Variable bezog, nutzt auch weiterhin die bisherige

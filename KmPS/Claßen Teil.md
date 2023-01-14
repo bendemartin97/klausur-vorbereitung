@@ -1,4 +1,4 @@
-## Claßen Teil
+# Concurrency
 
 ### Concurrency
 - bezeichnet die Möglichkeit, Programmteile unabhängig voneinander in unterschiedlicher Reihenfolge auszuführen zu können
@@ -51,6 +51,8 @@
 
 ### Race Condition
 - bedeutet, dass das Ergebnis der Programmausführung vom zeitlichen Verhalten bzw. der zeitlichen Abfolge bestimmter Programmteile abhängt, wobei diese zeitliche Abfolge nicht eindeutig durch das Programm selbst bestimmt wird.
+
+# GO
 
 ### Goroutinen
 - __werden auf die Nebenläufigkeitsmechanismen des Betriebssystems (Threads über CPU:s / Kernen) abgebildet__

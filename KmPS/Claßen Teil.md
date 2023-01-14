@@ -301,7 +301,7 @@ function readData() {
 - ganze event streams als elementare Datenstrukturen ![[Bildschirm­foto 2023-01-14 um 15.38.06.png]]
 ### Nebenläufigkeit im imperativen Kontrollfluss
 - ermöglichen die sequentielle Programmierung voneinander abhängiger asynchroner Programmteile
-#### Promise
+### Promise
 - bezeichnet ein __Platzhalter-Objekt für ein Berechnungsergebnis, wobei deise Berechnung ggfs. noch nicht beendet ist__
 - dieser Platzhalter kann vom folgenden, vom Wert anbhängigen Programmteil __direkt entgegengenommen werden__, ohne dass die vorherige Berechnung schon beendet sein muss
 - wenn asynchrone Operation beendet ist, können von der Promise abhängige Programmteile zur Ausführung kommen
@@ -389,5 +389,12 @@ console.log("Script done.");
 	- warten auf das Settlement mehrerer Promises
 	- bei asynchroner Plattform-Operationen werden parallel ausgeführt
 	- Perfomance-Verbesserung
-	- wenn ein Promise rejected, werden alle Ergebnisse verworden -> Promise.allSettled():
-		- 
+	- wenn ein Promise rejected, werden alle Ergebnisse verworden
+- _Promise.allSettled()_:
+		- sammelt die Ergebnisse und Fehler in Array
+		- bei ein rejected Promise werden die Ergebnisse nicht verworfen
+- _Promise.race_:
+	- überwachen das Settlement mehrerer Promises
+	- sammelt das Ergebnis der zuerst fertig werdenden Promise ein
+	- die andere Egebnisse werden verworfen
+	

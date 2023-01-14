@@ -296,7 +296,7 @@ function readData() {
 ### Callback Hell
 - Die Programmierung der Nebenläufigkeit asynchroner Programmteile mittels Callbacks führt bei nacheinander auszuführenden (d.h. abhängigen) Programmteilen zu tief verschachteltem, unübersichtlichem Callback-Programmcode. ![[Bildschirm­foto 2023-01-14 um 15.34.07.png]]
 
-### Reachtive Programming
+### Reactive Programming
 - higher order event-driven programmin
 - ganze event streams als elementare Datenstrukturen ![[Bildschirm­foto 2023-01-14 um 15.38.06.png]]
 ### Nebenläufigkeit im imperativen Kontrollfluss
@@ -444,3 +444,7 @@ fun_async().then(alert); // => 42
 - await nur in async Funktionen oder auf dem top-level von Modulen
 - viele await oder await in Schleifen verlangsamen den Code
 - await ist asynchron -> in await-Pause können sich globale Variablen geändert haben, da Kontrolle abgegeben wurde
+
+### Promise vs. async / await Style
+- Die Promise-style Notation ist die "daten-orientierte Notation", denn Promises sind Datenobjekte und .then() etc. sind Methoden dieser Datenobjekte. Daher auch keine "Notationsmarkierung" durch einen kontrollfluss-orientierten Befehl wie await, das passt da einfach nicht ...
+- Und Anwendungs-Logik in Funktionsparametern zu haben ist dann auch o.k., denn Funktionsparameter sind auch Datenwerte (vom Funktionstyp) und da passt das auch ganz prima ...

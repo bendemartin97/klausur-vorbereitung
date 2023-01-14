@@ -574,3 +574,38 @@ function object_create(obj) {
 # OO in GO
 ### Methoden
 - sind Funktionen mit einem speziellen receiver Parameter
+- Definion außerhalb der Typdefinition -> wird nachträglich zum Typ hinzugefügt
+- Call by Value -> keine dauerhafte Änderung möglich
+```go
+type Point2D struct {
+	X, Y int
+}
+
+func (p Point2D) Print() { 
+	fmt.Println("Point2D:", p.X, p.Y)
+}
+
+func main() {
+	p := Point2D{5,6}
+	p.Print()
+}
+```
+
+- Pointer Receiver für dauerhafte Wertänderung
+```go
+type Point2D struct {
+	X, Y int
+}
+
+func (p *Point2D) Print() { 
+	fmt.Println("Point2D:", p.X, p.Y)
+}
+
+func main() {
+	p := Point2D{5,6}
+	p.Print()
+}
+```
+- Pointer Receiver vermeiden Kopie des receivers -> Effizienzgewinn
+- Für einen Typ T kann eine Methode nur entweder mit Value oder mit Pointer Receiver definiert werden
+- Best Practice: Alle Methoden eines Typ durchgängig mit einem von den beiden umsetzen

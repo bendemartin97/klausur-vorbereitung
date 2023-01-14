@@ -220,4 +220,10 @@
 - wann immer man ein neues Kind haben möchte, fragt man danach und bekommt es. 
 - theoretisch könnte man so etwas auch mit dem standardmäßigen one_for_one supervisor machen, aber es gibt praktische Vorteile, die einfache Version zu verwenden.
 #### Software Patching im laufenden Betrieb
-- [ ] in Vorlesung nachscheuen 
+- [ ] in Vorlesung nachscheuen
+
+# JavaScript
+### Event Driven / Reactive Programming
+- Laufzeitumgebung des Programms triggert Events
+- im Programm Callback registriert, der beim entsprechenden Event aufgerufen wird
+- JS Runtime immer single-threaded: Ein Thread mit einer Event Loop

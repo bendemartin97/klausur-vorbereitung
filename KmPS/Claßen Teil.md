@@ -294,3 +294,8 @@ function readData() {
 ````
 
 ### Callback Hell
+- Die Programmierung der Nebenläufigkeit asynchroner Programmteile mittels Callbacks führt bei nacheinander auszuführenden (d.h. abhängigen) Programmteilen zu tief verschachteltem, unübersichtlichem Callback-Programmcode. ![[Bildschirm­foto 2023-01-14 um 15.34.07.png]]
+
+### Reachtive Programming
+- higher order event-driven programmin
+- ganze event streams als elementare Datenstrukturen

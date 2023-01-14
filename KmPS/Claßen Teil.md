@@ -189,7 +189,20 @@
 	- dies führt zu einer sauberen Trennung der Themen und zu einer drastischen Verringerung des Codevolumens.
 - bei parallelen Prozessen:
 	- Verknüpfung von Prozessen, die gemeinsam eine Aufgabe lösen mittels Link
+	- bidirektional
 	- wenn eine der Prozesse crashed, sterben alle anderen linked Prozesse auch
 - System Prozesse:
-	- begrenzt die Fehlerpro
+	- begrenzt die Fehlerpropagation
 	- werden über Fehler benachrichtigt, sterben aber nicht
+- Monitoring von Prozessen durch andere Prozesse:
+	- unidirektional: Falls der ge-monitor-te Prozess stirbt, wird der Monitoring Prozess informiert, aber nicht umgekehrt.
+	- Der Monitoring Prozess muss nicht System Process werden, um nur informiert zu werden, aber nicht selbst zu sterben.
+
+### OTP
+- stellt eine Reihe von Infrastruktur-Funktionalitäten zur Verfügung, um wirkliche "Praxistauglichkeit" in Bereichen wie Prozesshandling, Software Upgrade etc. zu erzielen.
+#### Supervisor
+- sind verantwortlich dafür, ihre Kind-Prozesse zu starten, zu stoppen und zu monitoren
+- überwachen Worker und/oder auch andere Supervisors. Dadurch ergibt sich eine baumartige Struktur
+- die Supervision Strategy gibt an, wie an den bestimmten Stellen im Baum bezüglich der Restart-Strategie zu verfahren ist, wenn ein Kind-Prozess stirbt
+#### Worker
+- sind für die normalen Berechnungen zuständig, ohne aufwendige Fehlerbehandlung

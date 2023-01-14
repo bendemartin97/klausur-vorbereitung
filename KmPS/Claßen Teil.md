@@ -305,11 +305,18 @@ function readData() {
 - bezeichnet ein __Platzhalter-Objekt für ein Berechnungsergebnis, wobei deise Berechnung ggfs. noch nicht beendet ist__
 - dieser Platzhalter kann vom folgenden, vom Wert anbhängigen Programmteil __direkt entgegengenommen werden__, ohne dass die vorherige Berechnung schon beendet sein muss
 - erst nachdem die zugrundeliegenede asynchrone Operation beendet ist, können von der Promise abhängige Programmteile zur Ausführung kommen
-- Eine zentrale Idee der Programmierung mit Promises ist, dass __Promises als Argumente an andere Prozeduraufrufe weitergereicht werden können.__
-- Zustand pending, wenn Ergebniswert noch nicht fertig berechnet. Ansonsten settled. Dabei entweder resolved (Ergebnis konnte erfolgreich berechnet werden) oder rejected (Fehler während Ergebnisberechnung aufgetreten; Fehlerwert als Ergebnis).
+-  _Idee der Programmierung:_Promises als Argumente an andere Prozeduraufrufe weitergereicht werden können.
+- Zustand pending, wenn Ergebniswert noch nicht fertig berechnet.
+- _Ansonsten settled:_
+	- Entweder resolved  (Erfolgreich)
+	- oder rejected (Fehler)
 #### Executor Function
 - ist __eine Funktion mit im Promise Standard festgelegter Signatur__ und stellt den Parameter des Promise Konstruktors dar. Sie wird sofort ausgeführt
-- Der Executor hat zwei Parameter. Beide sind Funktionen, die einen Wert als Parameter nehmen und diesen als "positives" bzw. Fehler-Ergebnis in das Promise Objekt eintragen. Die Parameter sind "abstrakte" Parameter, vom JS System definiert.
+- zwei Parameter: 
+	- sind Funktionen, 
+	- einen Wert als Parameter nehmen und diesen als "positives" bzw
+	- Fehler-Ergebnis in das Promise Objekt eintragen.
+	- "abstrakte" Parameter, vom JS System definiert.
 - Nur der Rumpf des Executors wird vom Programmierer programmiert, inkl. der dortigen Aufrufe von resolve() bzw. reject()
 ```javascript 
 function async_fun(...) {
@@ -327,3 +334,5 @@ function async_fun(...) {
 var promise1 = async_fun(...)
 ```
 - resolve() und reject () ind Callback-Funktionen, die einen Wert als Parameter nehmen und diesen für den Fall des Erfolgs bzw. Fehlschlags der Executor-Berechnung des Ergebniswertes zur Promise als "positives" bzw. Fehler-Ergebnis in das Promise Objekt eintragen.
+- Warum gibt es diese Parametern überhaupt:
+	-  Der Executor soll sein Ergebnis nicht über Seiteneffekte "erzielen", sondern er soll als "pure function" in seinem Ergebnis nur von den Werten seiner Parameter abhängen

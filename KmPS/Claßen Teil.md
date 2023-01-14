@@ -522,3 +522,17 @@ fun_async().then(alert); // => 42
 - bei Lesen eines Objekt-Attributes wird erst im Objekt selbs gesucht, sonst wird der Prototypen-Verweiskette gefolgt
 - mehrere Objekte können den gleichen Prototypen haben, der dann zentral Methoden für alle diese Objekte implementieren kann
 - Schreiben, Hinzufügen etc. erfolgt immer im aktuellen Objekt, selbst es irgendwo in der Verweiskette schon existiert (wird ignoriert)
+```javascript 
+function Buch(titel){ this.titel = titel; } 
+var ein_buch = new Buch("Der Buchtitel");
+```
+- new() wird aufgerufen zusammen mit einer Funktion, welche dann die Rolle eines Konstruktors zur Objekt-Initialisierung übernimmt
+- diese Funktion bekommt ein „implizites Argument“ this übergeben, welches das erzeugte Objekt als Wert hat
+### OO Methodiken in JS
+#### pseudo-klassische OO
+- verwendet Klassen
+- unterstützt durch Sprachkonstrukte (new)
+- entspricht nicht dem Basis-Konzept
+#### objekt-basierte OO
+- realisiert die prototypische Vererbung
+- selten genutzt

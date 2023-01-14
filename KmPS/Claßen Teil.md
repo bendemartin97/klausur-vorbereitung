@@ -298,4 +298,10 @@ function readData() {
 
 ### Reachtive Programming
 - higher order event-driven programmin
-- ganze event streams als elementare Datenstrukturen
+- ganze event streams als elementare Datenstrukturen ![[Bildschirm­foto 2023-01-14 um 15.38.06.png]]
+### Nebenläufigkeit im imperativen Kontrollfluss
+- ermöglichen die sequentielle Programmierung voneinander abhängiger asynchroner Programmteile
+#### Promise
+- bezeichnet ein __Platzhalter-Objekt für ein Berechnungsergebnis, wobei deise Berechnung ggfs. noch nicht beendet ist__
+- dieser Platzhalter kann vom folgenden, vom Wert anbhängigen Programmteil __direkt entgegengenommen werden__, ohne dass die vorherige Berechnung schon beendet sein muss
+- erst nachdem die zugrundeli

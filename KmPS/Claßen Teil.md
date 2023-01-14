@@ -616,3 +616,28 @@ func main() {
 - kein explizites implements o.ä nötig
 - unterschied zwischen ob ein Wert des Typs oder ein Pointer auf einen Wert des Typs benötigt wird, um die Methode zu implementieren
 - Go Compilet schaut alle Typen & Interfaces und deren Methoden an und generiert die implements Beziehungen dynamisch selbst
+
+### Type Assertion
+- dynamic Type Cast eines Interface Value
+- falls der Wert nicht den angenommenen Typ hat, gibt eine panic
+- kann die Varianta mit zwei Rückgabewerten verwendet werden
+```go 
+var i interface{} = "willi" ; x, ok := i.(int) 
+// => ok == false, x == nil
+```
+
+### Type Switching .(type)
+- keine Vererbung -> keine virtuellen Methoden
+- in OO Sprachen schlechter Programmierstill, da dort die virtuellen Methoden elegantere Ansatz sind
+```go 
+var i interface{} = "willi"
+switch v := i.(type) {  
+	case int:
+	// v vom Typ int
+	case string:
+	// v vom Typ string
+	default:
+// kein match => v vom gleichen Typ wie i
+
+}
+```

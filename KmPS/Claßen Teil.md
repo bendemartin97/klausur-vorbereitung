@@ -75,10 +75,13 @@
 - sind Kommunikationskanäle, an die sich die Goroutinen anschließen können
 - Datentyp der zu übertragenden Werte bei Erzeugung angeben
 - Operationen: Senden und Empfange
-- __Unbuffered Channels__
-	- default, d.h er kann nur einen Wert transportieren, aber nicht speichern
-	- send blockiert, wenn sich noch kein Receiver empfangsbereit ist, receive blockiert, bis ein Sender einen Wert sendet
-	- blockieren innerhalb einer Goroutine: andere Goroutine wird gescheduled
-	- blockieren im Hauptprogramm führt dazu, dass dieses wartet, d.h eine andere Goroutine gescheduled wird
-	- Technik zur Synchronitazation
-	- Empfänger wird durch receive blockiert, bis der Sender per send mitteilt, dass er den Sync-Point erreicht hat
+
+### Unbuffered Channels
+- default, d.h er kann nur einen Wert transportieren, aber nicht speichern
+- send blockiert, wenn sich noch kein Receiver empfangsbereit ist, receive blockiert, bis ein Sender einen Wert sendet
+- blockieren innerhalb einer Goroutine: andere Goroutine wird gescheduled
+- blockieren im Hauptprogramm führt dazu, dass dieses wartet, d.h eine andere Goroutine gescheduled wird
+- wesentliche Technik zur Synchronitazation
+- Empfänger wird durch receive blockiert, bis der Sender per send mitteilt, dass er den Sync-Point erreicht hat
+- Nachricht muss immer überreicht werden -> Sender und Receiver immer minimal blockiert
+- Receiver muss

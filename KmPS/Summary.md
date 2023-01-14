@@ -7,13 +7,11 @@
 - aber die Programmteile arbeiten gemeinsam an einer Aufgabe -> Abhängigkeiten
 - Abhängigkeiten werden gelöst in dem:
 	- mehrere Prozessoren/Rechner: Die Ausführung einiger Teile müssen warten oder ggf. pausiert werden
-	- ein Prozessor/Rechner: Kontrollfluss muss wechseln, damit der Sender seine Aufgabe erledigen kann
-	![[Bildschirm­foto 2023-01-13 um 19.41.00.png]]
+	- ein Prozessor/Rechner: Kontrollfluss muss wechseln, damit der Sender seine Aufgabe erledigen kann![[Bildschirm­foto 2023-01-13 um 19.41.00.png]]
 	
 ### Parallelismus
 - __bezeichnet die gleichzeitige Ausführung nebenläufiger Programmteile auf mehreren Prozessoren oder Rechnern__
-- Falls während der Ausführung Abhängigkeiten über Daten oder Kommunikation auftauchen, die Ausführung einiger Teile müssen warten, ggf. pausiert werden
-	![[Bildschirm­foto 2023-01-13 um 19.41.10.png]]
+- Falls während der Ausführung Abhängigkeiten über Daten oder Kommunikation auftauchen, die Ausführung einiger Teile müssen warten, ggf. pausiert werden![[Bildschirm­foto 2023-01-13 um 19.41.10.png]]
 
 ### Scheduler, Scheduling
 - verteilt nebenläufige Programmteile / Tasks auf die zur Verfügung stehenden Ausführungseinheiten, wie z.B Prozessoren und kontrolliert bzw. bestimmt ggfs. ihre Ausführung

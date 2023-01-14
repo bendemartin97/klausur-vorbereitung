@@ -4,28 +4,8 @@
     "type": "split",
     "children": [
       {
-        "id": "868161d6116b417e",
-        "type": "tabs",
-        "dimension": 43.86281588447653,
-        "children": [
-          {
-            "id": "f0352c308ce06454",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "WAS/summary.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          }
-        ]
-      },
-      {
         "id": "cb8882ca6d3be75c",
         "type": "tabs",
-        "dimension": 56.13718411552347,
         "children": [
           {
             "id": "18db3786835a09cc",
@@ -34,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "KmPS/Summary.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true
               }
             }
@@ -101,7 +81,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "fe939a3a8481315c",
@@ -179,10 +160,10 @@
   },
   "active": "18db3786835a09cc",
   "lastOpenFiles": [
-    "assets/Bildschirm­foto 2023-01-13 um 19.41.00.png",
-    "KmPS/Summary.md",
-    "cheatsheet.md.md",
     "WAS/summary.md",
+    "KmPS/Summary.md",
+    "assets/Bildschirm­foto 2023-01-13 um 19.41.00.png",
+    "cheatsheet.md.md",
     "conflict-files-obsidian-git.md",
     "Pasted image 20221216112016.png.md",
     "Pasted image 20221219120548.png.md",

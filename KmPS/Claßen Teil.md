@@ -71,10 +71,10 @@
 - __Goroutine gibt Kontrolle kooperativ ab__, wenn idle oder blockiert oder an besonderen Stellen im Programmablauf oder mittels explizite Abgabe  runtime.GoSched() (normal)
 - __wenn eine Goroutine zu lange läuft, wird von Scheduler unterbrochen__
 - Tight Loop
-	- bezeichnet eine Goroutine, die eine lange laufende Schleife oder Endlosschleife ausführt und dabei die Kontrolle nicht abgibt, da sowohl keine Library Funktionen aufgerufen werden (welche die Kontrolle dann abgeben würden) als auch kein runtime.Gosched() innerhalb der Schleife ausgeführt wird, welches die Kontrolle explizit abgeben würde. D.h. in der Schleife werden nur "Elementaroperationen", z.B. elementare Berechnungen, ausgeführt.![[Bildschirm­foto 2023-01-14 um 09.22.03.png]]
+	- bezeichnet eine Goroutine, __die eine lange laufende Schleife oder Endlosschleife ausführt und dabei die Kontrolle nicht abgibt__ , da sowohl keine Library Funktionen aufgerufen werden (welche die Kontrolle dann abgeben würden) als auch kein runtime.Gosched() innerhalb der Schleife ausgeführt wird, welches die Kontrolle explizit abgeben würde. D.h. in der Schleife werden nur "Elementaroperationen", z.B. elementare Berechnungen, ausgeführt.![[Bildschirm­foto 2023-01-14 um 09.22.03.png]]
 
 ### Channels
-- sind Kommunikationskanäle, an die sich die Goroutinen anschließen können
+- sind __Kommunikationskanäle, an die sich die Goroutinen anschließen können__
 - Datentyp der zu übertragenden Werte bei Erzeugung angeben
 - Operationen: Senden und Empfange
 
@@ -107,27 +107,27 @@
 	- auch mit default case realisierbar, damit der Sender vermeidet, beim send auf einem Channel blockiert zu werden, falls noch kein Receiver an dem Channel lauscht
 
 ### WaitGroups
-- andere Möglichkeit drauf zu warten, dass eine bestimmte Anzahl von Goroutinen endet
+- __andere Möglichkeit drauf zu warten, dass eine bestimmte Anzahl von Goroutinen endet__
 - der WaitGroup wird die Anzahl der Goroutinen mitgeteilt. Sie wartet dann bei Wait() auf die entsprechende Anzahl von Done() Meldungen.
 - die erwartete Anzahl lässt sich auch dynamisch / nachträglich noch mittels Add() erhöhen.
-- waitGroup Objekte dürfen nicht kopiert werden. D.h. Weitergabe als Funktionsparameter nur per Pointer.
+- __waitGroup Objekte dürfen nicht kopiert werden__. D.h. Weitergabe als Funktionsparameter nur per Pointer.
 
 ### Timer
 - werden gestartet und schicken bei Ablauf eine Nachricht mit dem Zeitstempel des Ablaufzeitpunkts auf den ihnen jeweils zugeordneten Channel.
-- gedacht für einmalige, zeitabhängige Aktionen.
+- __gedacht für einmalige, zeitabhängige Aktionen.__
 - Aähnlich wie ein time.Sleep() , aber:
 	- Timer können vor Ablauf wieder gestoppt werden,
 	- Timer-Setup ist nicht wie time.Sleep() synchron & blockierend, sondern per-se asynchron.
 
 ### Ticker
 - werden gestartet und schicken dann wiederholt jeweils eine Nachricht mit dem Zeitstempelwert des jeweiligen Ticks auf einen ihnen jeweils zugeordneten Channel.
-- gedacht für wiederholt wiederkehrende zeitabhängige Aktionen.
+- __gedacht für wiederholt wiederkehrende zeitabhängige Aktionen.__
 
 ### Shared Data
-- in Go auch das Arbeiten mit Shared Data möglich. Also Prinzipien nicht so strikt wie z.B. beim Aktorenmodell von Erlang.
+- __in Go auch das Arbeiten mit Shared Data möglich.__ Also Prinzipien nicht so strikt wie z.B. beim Aktorenmodell von Erlang.
 - Mechanismen:  
-- Mutexe: mutual exclusion bei kritischen Bereichen.
-- Atomic counters: spezielle Zählervariablen mit speziellen atomaren Zugriffsoperationen.
+	- Mutexe: mutual exclusion bei kritischen Bereichen.
+	- Atomic counters: spezielle Zählervariablen mit speziellen atomaren Zugriffsoperationen.
 - Diese und andere Mechanismen sind auch mittels Channels „emulierbar“.
 
 # Erlang
@@ -138,3 +138,10 @@
 	- sind nebenläufige Einheiten, die nicht über einen geteilten Speicherbereich verfügen, sondern ausschließlich über Nachrichten kommunizieren
 	- die Kapselung des Zustandes des Aktors ähnelt dem Prinzip der Kapselung in der objektorientierten Programmierung.
 	- Jeder Aktor verfügt über einen Posteingang, eine Adresse und ein Verhalten![[Bildschirm­foto 2023-01-14 um 10.39.32.png]]
+- der Empfang einer Nachricht wird als Ereignis bezeichnet -> werden in Posteingang gespeichert und werden nach FIFO-Prinzip bearbeitet
+- Das Verhalten des Aktoren beschreibt Reaktionen auf Nachrichten abhängig von deren Aufbau
+- Reaktionen:
+	1. Nachrichten an sich selbst oder an andere Aktoren verschicken. 
+	2. Neue Aktoren erzeugen. 
+	3. Das eigene Verhalten ändern.
+- Nachricht austauch ist asynchron

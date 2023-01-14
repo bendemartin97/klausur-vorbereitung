@@ -75,16 +75,23 @@
 - sind Kommunikationskanäle, an die sich die Goroutinen anschließen können
 - Datentyp der zu übertragenden Werte bei Erzeugung angeben
 - Operationen: Senden und Empfange
+
+### Unbuffered Channels
+- __default, d.h er kann nur einen Wert transportieren, aber nicht speichern__
+- send blockiert, wenn sich noch kein Receiver empfangsbereit ist, receive blockiert, bis ein Sender einen Wert sendet
+- blockieren innerhalb einer Goroutine: andere Goroutine wird gescheduled
+- blockieren im Hauptprogramm führt dazu, dass dieses wartet, d.h eine andere Goroutine gescheduled wird
+- __wesentliche Technik zur Synchronitazation__
+- Empfänger wird durch receive blockiert, bis der Sender per send mitteilt, dass er den Sync-Point erreicht hat
+- __Nachricht muss immer überreicht werden__ -> Sender und Receiver immer minimal blockiert
+- Receiver meldet Empfangswunsch an und wird blockiert -> Sender sendet -> Receiver kann empfangen
 - Verwendung:
 	- synchronisierten Beenden von main: wird oftmals verwendet, um das Hauptprogramm main() zu informieren, dass auch die letzte weitere Goroutine beendet ist und main() sich somit beenden kann, ohne dass dadurch eine Goroutine abgebrochen wird.
 	- Erreichbarkeit von Webseiten prüfen
 
-### Unbuffered Channels
-- default, d.h er kann nur einen Wert transportieren, aber nicht speichern
-- send blockiert, wenn sich noch kein Receiver empfangsbereit ist, receive blockiert, bis ein Sender einen Wert sendet
-- blockieren innerhalb einer Goroutine: andere Goroutine wird gescheduled
-- blockieren im Hauptprogramm führt dazu, dass dieses wartet, d.h eine andere Goroutine gescheduled wird
-- wesentliche Technik zur Synchronitazation
-- Empfänger wird durch receive blockiert, bis der Sender per send mitteilt, dass er den Sync-Point erreicht hat
-- Nachricht muss immer überreicht werden -> Sender und Receiver immer minimal blockiert
-- Receiver meldet Empfangswunsch an und wird blockiert -> Sender sendet -> Receiver kann empfangen
+### Buffered Channels
+- __können Nachrichten halten und transportieren__
+- wenn Buffer voll ist, werden die send Operationen blockert, bis Buffer nicht mehr voll ist, sonst können Sender nicht-blockierend senden
+- nicht zur Synchronisation verwendbar
+
+### select Befehl

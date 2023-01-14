@@ -106,4 +106,6 @@
 
 ### WaitGroups
 - andere Möglichkeit drauf zu warten, dass eine bestimmte Anzahl von Goroutinen endet
-- 
+- der WaitGroup wird die Anzahl der Goroutinen mitgeteilt. Sie wartet dann bei Wait() auf die entsprechende Anzahl von Done() Meldungen.
+- die erwartete Anzahl lässt sich auch dynamisch / nachträglich noch mittels Add() erhöhen.
+- waitGroup Objekte dürfen nicht kopiert werden. D.h. Weitergabe als Funktionsparameter nur per Pointer.

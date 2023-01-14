@@ -18,14 +18,6 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "8910d0378659a573",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
           }
         ]
       }
@@ -165,8 +157,8 @@
   },
   "active": "8fc83d0ee4bb625f",
   "lastOpenFiles": [
-    "Pasted image 20221216112016.png.md",
     "WAS/summary.md",
+    "Pasted image 20221216112016.png.md",
     "cheatsheet.md.md",
     "frontend/javascript/typescript.md",
     "devOps/docker/docker.md",

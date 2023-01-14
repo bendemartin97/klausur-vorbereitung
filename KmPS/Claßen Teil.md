@@ -319,6 +319,7 @@ function readData() {
 	- Fehler-Ergebnis in das Promise Objekt eintragen.
 	- "abstrakte" Parameter, vom JS System definiert.
 - Nur der Rumpf des Executors wird vom Programmierer programmiert, inkl. der dortigen Aufrufe von resolve() bzw. reject()
+
 ```javascript 
 function async_fun(...) {
 
@@ -334,12 +335,14 @@ function async_fun(...) {
 	} );}
 var promise1 = async_fun(...)
 ```
+
 - __resolve() und reject () sind Callback-Funktionen__
 - Warum gibt es diese Parametern überhaupt:
 	- das Ergebnis nicht über Seiteneffekte "erzielen"
 	- sondern als "pure function" in seinem Ergebnis nur von den Werten seiner Parameter abhängen
 	- Werte in den Executor eingeschlossen -> können nicht mehr von der Außenwelt geändert werden
 	- ohne denen Problemen bei der Fehlerbehandlung
+	
 ```javascript
 function resolves_after_2_s() { 
 	let promise = new Promise( (resolve, reject) => {
@@ -347,12 +350,13 @@ function resolves_after_2_s() {
 		// Nach 5 Sekunden (asynchron) wird das Promise 
 		// Objekt auf den Wert 42 resolved
 
-		setTimeout( () => {
-			resolve(42); console.log("Resolved.");
+		setTimeout(
+			callback: () => {
+				resolve(42); console.log("Resolved.");
 			}, 
-		5000); 
+			timeout: 5000); 
 		});
-			return promise;
+		return promise;
 }
 
 let promise2 = resolves_after_2_s();
@@ -362,7 +366,9 @@ console.log("Script done.");
 // Script done.
 // Resolved.
 ```
-- __.then and catch functions:
+
+- resolve und reject ändern den Status des Promises auf settled -> __weitere resolve und reject werden ignoriert__
+- _.then and catch functions:_
 	- then für daten-abhängigen Nachfolgecode
 	- catch für Fehler-Callback
 	- Callback Function als Parameter
@@ -373,3 +379,5 @@ console.log("Script done.");
 		- Zurück zur EventLoop -> nächster ScriptJob abarbeiten
 		- .then Callbacks werdem immer in der PromiseJobs Queue gescheduled
 		- .then gibt immer ein Promis Objekt zurück -> können verkettet werden
+	- _.catch für einheitliches Error handling_:
+		- egal ob durch reject oder Exception 

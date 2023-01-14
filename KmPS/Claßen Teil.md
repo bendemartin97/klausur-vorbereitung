@@ -438,3 +438,9 @@ fun_async().then(alert); // => 42
 #### await
 - ermöglicht, den daten-abhängigen Programmteil "sequentiell hinter dem await" zu programmieren statt im Callback-Stil als Parameter des .then()
 - gibt den Kontrollfluss ab und wird getriggert, wenn die Promise des await in ihren Konkreten Wert resolved
+#### Fehlerbehandlung
+- mittels try / catch 
+#### Problematiken des async / await
+- await nur in async Funktionen oder auf dem top-level von Modulen
+- viele await oder await in Schleifen verlangsamen den Code
+- await ist asynchron -> in await-Pause können sich globale Variablen geändert haben, da Kontrolle abgegeben wurde

@@ -174,26 +174,26 @@
 - wird über ihren Namen identifiziert -> müssen innerhalb eines Hosts eindeutig sein
 
 ### Erlang Cookies
-- gruppieren zusammengehörige Erlang Nodes
-- Nodes können nur connecten, wenn Cookie übereinstimmg
+- gruppieren __zusammengehörige Erlang Nodes__
+- __Nodes können nur connecten, wenn Cookie übereinstimmt__
 - gespeichert wird in Datei .erlang.cookie
 - wird Cookie beim Start der Node nicht angegeben, wird er aus dieser Datei genommen
 - Nodes haben auf gleichem Host immer identischen Cookie und können connecten
 
 ### Fehlerbehandlung in Erlang
-- Let it crash
+- "Let it crash"
 - _Best Practise:_
-	- Applikation in zwei Teilen aufbauen: ein Teil, der die Aufgaben erledigt und einer der die Errors behebt
-	- der Teil, der das Problem löst, wird mit so wenig defensivem Code wie möglich geschrieben
-	- der Teil, der Fehler korrigiert, ist oft generisch, so dass derselbe fehlerkorrigierende Code für viele verschiedene Anwendungen verwendet werden kann.
-	- dies führt zu einer sauberen Trennung der Themen und zu einer drastischen Verringerung des Codevolumens.
+	- __Applikation in zwei Teilen aufbauen__: ein Teil, der die Aufgaben erledigt und einer der die Errors behebt
+	- der __Teil, der das Problem löst, wird mit so wenig defensivem Code__ wie möglich geschrieben
+	- der __Teil, der Fehler korrigiert, ist oft generisch,__ so dass derselbe fehlerkorrigierende Code für viele verschiedene Anwendungen verwendet werden kann.
+	- dies führt zu einer __sauberen Trennung der Themen__ und zu einer drastischen __Verringerung des Codevolumens__.
 - _bei parallelen Prozessen:_
 	- Verknüpfung von Prozessen, die gemeinsam eine Aufgabe lösen mittels Link
-	- bidirektional
-	- wenn eine der Prozesse crashed, sterben alle anderen linked Prozesse auch
+	- __bidirektional__
+	- wenn __eine der Prozesse crashed, sterben alle anderen linked Prozesse__ auch
 - _System Prozesse:_
 	- begrenzt die Fehlerpropagation
-	- werden über Fehler benachrichtigt, sterben aber nicht
+	- werden über Fehler benachrichtigt, sterben aber __nicht__
 - _Monitoring von Prozessen durch andere Prozesse:_
 	- unidirektional: Falls der ge-monitor-te Prozess stirbt, wird der Monitoring Prozess informiert, aber nicht umgekehrt.
 	- Der Monitoring Prozess muss nicht System Process werden, um nur informiert zu werden, aber nicht selbst zu sterben.
@@ -201,23 +201,23 @@
 ### OTP
 - stellt eine Reihe von Infrastruktur-Funktionalitäten zur Verfügung, um wirkliche "Praxistauglichkeit" in Bereichen wie Prozesshandling, Software Upgrade etc. zu erzielen.
 #### Supervisor
-- sind verantwortlich dafür, ihre Kind-Prozesse zu starten, zu stoppen und zu monitoren
-- überwachen Worker und/oder auch andere Supervisors. Dadurch ergibt sich eine baumartige Struktur
+- sind verantwortlich dafür, ihre __Kind-Prozesse zu starten, zu stoppen und zu monitoren__
+- __überwachen Worker und/oder auch andere Supervisors__. Dadurch ergibt sich eine baumartige Struktur
 - die Supervision Strategy gibt an, wie an den bestimmten Stellen im Baum bezüglich der Restart-Strategie zu verfahren ist, wenn ein Kind-Prozess stirbt
 #### Worker
 - sind für die normalen Berechnungen zuständig, ohne aufwendige Fehlerbehandlung
 #### Restart Strategien
 ##### one_for_one
-- bedeutet, dass, wenn Supervisor viele Workers beaufsichtigt und einer von ihnen ausfällt, nur dieser eine neu gestartet werden sollte
+- bedeutet, dass, wenn Supervisor viele Workers beaufsichtigt und einer von ihnen ausfällt, nur dieser __eine neu gestartet__ werden sollte
 - bei unabhängigen Prozessen
 - Prozess kann seinen Zustand verlieren, ohne dass die Geschwisterprozesse davon betroffen wären![[Bildschirm­foto 2023-01-14 um 12.40.02.png]]
 ##### one_for_all
-- ist immer dann zu verwenden, wenn alle Ihre Prozesse unter einem einzigen Supervisor stark voneinander abhängen, um normal funktionieren zu können![[Bildschirm­foto 2023-01-14 um 12.40.10.png]]
+- ist immer dann zu verwenden, wenn __alle Ihre Prozesse unter einem einzigen Supervisor stark voneinander abhängen__, um normal funktionieren zu können![[Bildschirm­foto 2023-01-14 um 12.40.10.png]]
 ##### rest_for_one
-- wenn ein Prozess stirbt, alle nach ihm gestarteten Prozesse (die von ihm abhängen) neu gestartet werden, aber nicht umgekehrt.![[Bildschirm­foto 2023-01-14 um 12.40.19.png]]
+- wenn ein Prozess stirbt, __alle nach ihm gestarteten Prozesse (die von ihm abhängen) neu gestartet werden__, aber nicht umgekehrt.![[Bildschirm­foto 2023-01-14 um 12.40.19.png]]
 ##### simple_one_for_one
 - ein simple_one_for_one Supervisor sitzt einfach nur da und weiß, dass er nur eine Art von Child produzieren kann. 
-- wann immer man ein neues Kind haben möchte, fragt man danach und bekommt es. 
+- wann immer man __ein neues Kind haben möchte, fragt man danach und bekommt es. __
 - theoretisch könnte man so etwas auch mit dem standardmäßigen one_for_one supervisor machen, aber es gibt praktische Vorteile, die einfache Version zu verwenden.
 #### Software Patching im laufenden Betrieb
 - [ ] in Vorlesung nachscheuen
@@ -243,7 +243,7 @@
 ### Callback Programmierstil
 - asynchroner Code mittels Callbacks und synchrone Funktionsaufrufe dürfen bei Abhängigkeit voneinander (z.B. über Daten) nicht gemischt werden
 - sonst werden die "eigentlich sequentiell später kommenden Programmteile" ggfs. fehlerhafterweise vor den eigentlich "sequentiell vorher kommenden", aber asynchron (per Callback) programmierten Programmteilen ausgeführt.
-
+##### falsch
 ```javascript
 const fs = require('fs');
 function readData() {
@@ -261,7 +261,7 @@ console.log('User Name:', readData());
 
 
 - Ebenso dürfen asynchrone Codeteile (mittels Callbacks), die voneinander (z.B. über Daten) abhängen, nicht einfach nur "sequentiell programmiert" werden. Sonst ist die Ausführungsreihenfolge unklar. __Verschachtelung der Callback Aufrufe notwendig.__
-
+##### falsch
 ```javascript 
 function asyncLogToConsole(data1) { /* ... execute async logging to console ... */ }
 const fs = require('fs');
@@ -279,3 +279,19 @@ var data = readData();
 
 asyncLogToConsole(data);
 ```
+### richtig
+```javascript 
+function asyncLogToConsole(data1) { /* ... async log to console ... */ }
+const fs = require('fs');
+function readData() {
+
+fs.readFile( '/file.md',
+          (err, data) => { if (err) throw err;
+
+}
+
+);
+
+asyncLogToConsole(data);
+}
+````

@@ -677,3 +677,28 @@ trait MyPrint { fn my_print(&self) -> String; } impl MyPrint for MyStructType { 
 - _Drop Trait:_
 	- muss von Datentypen implementiert werden, deren Werte externe Ressourcen (z.B. Heap Speicher, Dateien, ...) kontrollieren
 	- so dass diese externen Ressourcen freigegeben werden müssen, wenn der Datenwert des Typs gelöscht wird
+- Supertraits und Subtraits definieren eine Vererbungsbeziehung zwischen Traits
+```Rust 
+trait MySuperTrait { fn my_method(&self) -> (); } trait MySubTrait : MySuperTrait { fn another_method(&self) -> String; }
+
+// alternativ: trait MySubTrait where Self : MySuperTrait { ... }
+```
+
+### Vererbung
+- keine Vererbung außer bei Traits
+- statische Typprüfung auf Methoden mittel Traits und generisches Programmierung
+- Vererbung erzwingt Angabe "exakter" Vererbungs-Beziehungen. "Additive Flexibilität" dort mittels Mehrfachvererbung, die aber konzeptuell problematisch ist
+- Minins / Traits ermöglichen "additive Flexibilität" für den Programmierer durch "inkrementelles" Hinzufügen von Methoden
+
+### Generische Programmierung
+- ähnlich zu Templates in C++
+```Rust 
+fn my_ident<T> (value: &T) -> &T { 
+	value
+}
+
+let n = 99;  
+println!( "{}", my_ident(&n) );
+```
+- sobald aber Operationen oder Methoden auf dem übergebenen Wert augegerufen werden, muss gesichert sein, dass dieser Wert diese Operationen bzw. Methoden auch unterstützt
+- Trait Bounds spezifizieren, welche Traits der Typ des Typparameters unterstützen muss

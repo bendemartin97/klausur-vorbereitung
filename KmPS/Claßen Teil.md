@@ -182,5 +182,14 @@
 
 ### Fehlerbehandlung in Erlang
 - Let it crash
-- Best Practise: Applikation in zwei Teilen aufbauen: ein Teil, der die Aufgaben erledigt und einer der die Errors behebt
-- Teil, der die Aufgaben erledigt ist mit
+- Best Practise:
+	- Applikation in zwei Teilen aufbauen: ein Teil, der die Aufgaben erledigt und einer der die Errors behebt
+	- der Teil, der das Problem löst, wird mit so wenig defensivem Code wie möglich geschrieben
+	- der Teil, der Fehler korrigiert, ist oft generisch, so dass derselbe fehlerkorrigierende Code für viele verschiedene Anwendungen verwendet werden kann.
+	- dies führt zu einer sauberen Trennung der Themen und zu einer drastischen Verringerung des Codevolumens.
+- bei parallelen Prozessen:
+	- Verknüpfung von Prozessen, die gemeinsam eine Aufgabe lösen mittels Link
+	- wenn eine der Prozesse crashed, sterben alle anderen linked Prozesse auch
+- System Prozesse:
+	- begrenzt die Fehlerpro
+	- werden über Fehler benachrichtigt, sterben aber nicht

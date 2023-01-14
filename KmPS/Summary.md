@@ -53,8 +53,6 @@
 - bedeutet, dass das Ergebnis der Programmausführung vom zeitlichen Verhalten bzw. der zeitlichen Abfolge bestimmter Programmteile abhängt, wobei diese zeitliche Abfolge nicht eindeutig durch das Programm selbst bestimmt wird.
 
 ### Goroutinen
-- meist keine explizite Abgabe der Kontrolle, sondern implizite Abgabe der Kontrolle z.B Aufruf von Libraryfunktionen
-- explizite Abgabe mittel runtime.GoSched()
 - __werden auf die Nebenläufigkeitsmechanismen des Betriebssystems (Threads über CPU:s / Kernen) abgebildet__
 - Unterschied zwischen Goroutinen und Threads:
 	- aber viel leichtgewichtiger als Threads (Threads ca. 1 MB Stack size, Goroutine ca. 2 KB)
@@ -67,3 +65,6 @@
 	- __Scheduling durch das Go Runtime, nicht durch das OS__
 	- alles passiert um user space des Go Runtime, nicht im kernel space
 	- funktioniert auch auf OS:s ohne Thread Support
+- meist keine explizite Abgabe der Kontrolle, sondern implizite Abgabe der Kontrolle z.B Aufruf von Libraryfunktionen
+- __Goroutine gibt Kontrolle kooperativ ab__, wenn idle oder blockiert oder an besonderen Stellen im Programmablauf oder mittels explizite Abgabe  runtime.GoSched() (normal)
+- __wenn eine Goroutine zu lange läuft, wird von Scheduler unterbrochen__

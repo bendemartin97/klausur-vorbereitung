@@ -526,8 +526,13 @@ fun_async().then(alert); // => 42
 function Buch(titel){ this.titel = titel; } 
 var ein_buch = new Buch("Der Buchtitel");
 ```
-- new() wird aufgerufen zusammen mit einer Funktion, welche dann die Rolle eines Konstruktors zur Objekt-Initialisierung übernimmt
-- diese Funktion bekommt ein „implizites Argument“ this übergeben, welches das erzeugte Objekt als Wert hat
+
+- _was der new Befehl leistet:_
+	1. legt ein neues Objekt an
+	2. ändert den Prototype Verweis des neuen Objekts auf der Konstruktor-Funktion im Prototype
+	3. Konstruktor wird aufgerufen, bekommt das neue Objekt als Wert von this übergeben. Explizit angegebene Parameter des Konstruktors werden übergeben
+	4. Wenn das Konstruktor einen Wert zurückgibt, wird es der Resultatwert der new Anweisung, sond das neu erzeugte Objekt
+- Methoden 
 ### OO Methodiken in JS
 #### pseudo-klassische OO
 - verwendet Klassen

@@ -466,6 +466,7 @@ fun_async().then(alert); // => 42
 - Veränderlichkeit, Wandlungsfähigkeit
 - __Wertänderung eines Datenwerts, wobei die Objektidentität alle Referenzen auf das Objekt unverändert bleiben__
 - z.B Arrays, Listen
+- Problematisch bezüglic
 ### Immutable Date
 - __darf nicht geändert werden, sobald der Wert initial erzeugt wurde__
 - bei Konstanten: Wert zu Compile-Zeit berechnenbar
@@ -473,6 +474,7 @@ fun_async().then(alert); // => 42
 - initiale Wert ist read-only -> darf nicht geändert werden, sobald einmal erzeugt ist
 - ändernde Operationen sind nicht erlaubt, oder nur mithilfe einer Kopie
 - sind änderbar, aber nicht auf dem gleichem Datum
+- bei Änderungen verhält sich, alswürde  jede Objektreferenz immer auf ein seperates Objekt 
 ### Single-Assignment 
 - erlauben nur einmalige Bindung einer Variable
 - Rust, Erland: Redefinition von Variablen nicht erlaubt

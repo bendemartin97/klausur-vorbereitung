@@ -1,12 +1,8 @@
 {
-  "tabSize": 4,
-  "spellcheck": true,
-  "trashOption": "local",
-  "showInlineTitle": false,
-  "livePreview": false,
-<<<<<<< HEAD
-  "promptDelete": false
-=======
-  "showLineNumber": false
->>>>>>> 1feb834dd8111f57ae0bb8bd73e6806c299a27b5
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
 }

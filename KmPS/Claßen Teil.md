@@ -241,17 +241,17 @@
 	- langsame I/O Operationen blockieren die Ausführung
 
 ### Callback Programmierstil
-- asynchroner Code mittels Callbacks und synchrone Funktionsaufrufe dürfen bei Abhängigkeit voneinander (z.B. über Daten) nicht gemischt werden
-- sonst werden die "eigentlich sequentiell später kommenden Programmteile" ggfs. fehlerhafterweise vor den eigentlich "sequentiell vorher kommenden", aber asynchron (per Callback) programmierten Programmteilen ausgeführt.
+- __asynchroner Code mittels Callbacks und synchrone Funktionsaufrufe__ dürfen bei Abhängigkeit voneinander (z.B. über Daten) nicht gemischt werden
+- sonst werden die "__eigentlich sequentiell später kommenden Programmteile" ggfs. fehlerhafterweise vor den eigentlich "sequentiell vorher kommenden",__ aber asynchron (per Callback) programmierten Programmteilen ausgeführt.
 ##### falsch
 ```javascript
 const fs = require('fs');
 function readData() {
 
-let data1;
-fs.readFile( '/file.md', (err, data) => { if (err) throw err; data1 = data; } );
-return data1;
-
+	let data1;
+	fs.readFile( '/file.md', 
+	(err, data) => { if (err) throw err; data1 = data; } );
+	return data1;
 }
 
 // Das folgende console.log() des Ergebnisses wird ggfs. schon ausgeführt, obwohl // readData() mit seinem asynchronen fs.readFile() ggfs. noch gar kein Ergebnis geliefert hat! ...
@@ -267,9 +267,10 @@ function asyncLogToConsole(data1) { /* ... execute async logging to console ... 
 const fs = require('fs');
 function readData() {
 
-let data1;
-fs.readFile( '/file.md', (err, data) => { if (err) throw err; data1 = data; } );
-return data1;
+	let data1;
+	fs.readFile( '/file.md', 
+		(err, data) => { if (err) throw err; data1 = data; } );
+	return data1;
 
 }
 
@@ -279,19 +280,17 @@ var data = readData();
 
 asyncLogToConsole(data);
 ```
-### richtig
+#### richtig
 ```javascript 
 function asyncLogToConsole(data1) { /* ... async log to console ... */ }
 const fs = require('fs');
 function readData() {
-
-fs.readFile( '/file.md',
-          (err, data) => { if (err) throw err;
-
-}
-
+	fs.readFile( '/file.md',
+	          (err, data) => { if (err) throw err;
+								asyncLogToConsole(data);
+							}
 );
-
-asyncLogToConsole(data);
 }
 ````
+
+### Callback Hell

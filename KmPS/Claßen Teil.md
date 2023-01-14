@@ -452,3 +452,11 @@ fun_async().then(alert); // => 42
 	- Und Anwendungs-Logik in Funktionsparametern zu haben ist dann auch o.k., denn Funktionsparameter sind auch Datenwerte (vom Funktionstyp) und da passt das auch ganz prima ...
 - _async / await-style Notation_:
 	- async / await-style Notation ist "kontrollfluss-orientierte Notation". Kontrollfluss-orientierte Befehle (Befehle sind per-se kontrollfluss-orientiert...) async/await, abhängige Anwendungslogik ganz normal "im Kontrollfluss" notiert, Boilerplate Code zur Erzeugung des Promise-Datenobjekts "unterdrückt" (nicht explizit sichtbar).
+# Closures
+### Lexical Scoping
+- bestimmt in vielen anderen funktionalen, imperativen und objekt-orientierten Sprachen die Sichtbarkeit und Gültigkeit von Bezeichnern (Variablennamen, Funktionsnamen) im Programm.
+- bei __verschachtelten Funktionen sind die Bezeichner der äußeren Funktion auch in der inneren Funktion sichtbar__.
+- gilt auch für globale Variablen
+### Closure
+- bedeutet, dass eine innere Funktion, die als Wert „im Programm umhergereicht“ wird, __den Zugriff auf die bei ihrer Erstellung von ihr benutzten Werte äußerer Funktionen behält__
+- etrifft alle die Variablen in der inneren Funktion, die nicht als Funktionsparameter an die innere Funktion übergeben worden sind, sondern über das Lexical Scoping aus äußeren Funktionen in die innere Funktion gelangt sind

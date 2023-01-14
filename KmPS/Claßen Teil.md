@@ -470,7 +470,9 @@ fun_async().then(alert); // => 42
 - __darf nicht geändert werden, sobald der Wert initial erzeugt wurde__
 - bei Konstanten: Wert zu Compile-Zeit berechnenbar
 - Immutable-Data: initale Wert erst zur Laufzeit
-- initiale Wert ist read-only
+- initiale Wert ist read-only -> darf nicht geändert werden, sobald einmal erzeugt ist
+- ändernde Operationen sind nicht erlaubt, oder nur mithilfe einer Kopie
+- sind änderbar, aber nicht auf dem gleichem Datum
 ### Single-Assignment 
 - erlauben nur einmalige Bindung einer Variable
 - Rust, Erland: Redefinition von Variablen nicht erlaubt

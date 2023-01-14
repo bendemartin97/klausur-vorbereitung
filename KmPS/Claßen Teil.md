@@ -238,3 +238,4 @@
 	- Skript / Modul muss abgearbeitet werden, bevor der Browser wieder rendern kann
 - Nachteile:
 	- während eine Nachricht kann keine andere Nachricht abgearbeitet werden
+	- langsame I/O Operationen blockieren die Ausführung

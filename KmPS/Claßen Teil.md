@@ -466,7 +466,11 @@ fun_async().then(alert); // => 42
 - Veränderlichkeit, Wandlungsfähigkeit
 - __Wertänderung eines Datenwerts, wobei die Objektidentität alle Referenzen auf das Objekt unverändert bleiben__
 - z.B Arrays, Listen
-- Problematisch bezüglic
+- Problematisch bezüglich:
+	- Programmkorrektheit
+	- Parallelisierung von Code-Teilen
+	- Sicherheitsaspekten
+	- Abhängigkeiten in der Speicherung von Daten, die durch Daten-Mutation unterlaufen werden
 ### Immutable Date
 - __darf nicht geändert werden, sobald der Wert initial erzeugt wurde__
 - bei Konstanten: Wert zu Compile-Zeit berechnenbar
@@ -481,3 +485,7 @@ fun_async().then(alert); // => 42
 - Elixir, Scala: Redefinition erlaubt
 	- neue Variable hat mit der alten nichts zu tun
 	- shadowing: alles, was sich auf die bisherige Variable bezog, nutzt auch weiterhin die bisherige
+
+# Rust Mutability
+- default immutable
+- mittels mut -> mutable

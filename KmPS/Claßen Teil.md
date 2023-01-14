@@ -532,7 +532,20 @@ var ein_buch = new Buch("Der Buchtitel");
 	2. ändert den Prototype Verweis des neuen Objekts auf der Konstruktor-Funktion im Prototype
 	3. Konstruktor wird aufgerufen, bekommt das neue Objekt als Wert von this übergeben. Explizit angegebene Parameter des Konstruktors werden übergeben
 	4. Wenn das Konstruktor einen Wert zurückgibt, wird es der Resultatwert der new Anweisung, sond das neu erzeugte Objekt
-- Methoden 
+- Methoden müssen im prototype Objekt angelegt werden um für alle Objekt der Klasse gültig sein
+
+```javascript 
+function Buch (titel) { 
+	this.titel = titel;
+}
+
+Buch.prototype.ablegen = function() { 
+	console.log("Im Regal ablegen.");
+}
+
+var buch = new Buch("Mein Buch");
+```
+
 ### OO Methodiken in JS
 #### pseudo-klassische OO
 - verwendet Klassen
@@ -541,3 +554,5 @@ var ein_buch = new Buch("Der Buchtitel");
 #### objekt-basierte OO
 - realisiert die prototypische Vererbung
 - selten genutzt
+- jedes Objekt ist ein Singleton
+- jedes Objekt hat eigene Methoden und kann auch Methoden eines anderen Objekt

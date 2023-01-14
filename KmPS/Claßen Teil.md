@@ -226,4 +226,15 @@
 ### Event Driven / Reactive Programming
 - Laufzeitumgebung des Programms triggert Events
 - im Programm Callback registriert, der beim entsprechenden Event aufgerufen wird
-- JS Runtime immer single-threaded: Ein Thread mit einer Event Loop
+- JS Runtime immer single-threaded: Ein Thread mit einer Event Loop:
+	- vermeide komplexe Anforderungen an die Plattform
+	- JS Runtime ist ein großer Sichtbarkeitbereich -> Seiteneffekte
+	- Parallele Event Loop könnten wegen Seiteneffekten die Semantik der Programme ändern
+	- so wird jede Nachricht vollständig abgearbeitet
+- ScriptJobs Queue:
+	- vollständige Ausführung eines JS Skripts oder Moduls
+	- wenn Jobs in Queue ist: führe den ersten Job aus
+	- dann zurück zur Event Loop
+	- Skript / Modul muss abgearbeitet werden, bevor der Browser wieder rendern kann
+- Nachteile:
+	- während eine Nachricht kann keine andere Nachricht abgearbeitet werden

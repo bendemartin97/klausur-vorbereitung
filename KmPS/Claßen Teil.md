@@ -133,15 +133,16 @@
 # Erlang
 ### Aktorenmodell
 - ein Modell in Informatik für nebenläufige Berechnungen bzw. Programme
-- diese werden in nebenläufige Einheiten (Aktoren) unterteilt, die ausschließlich über Nachrichtenaustausch kommunizieren
+- diese werden in nebenläufige Einheiten (Aktoren) unterteilt, die __ausschließlich über Nachrichtenaustausch kommunizieren__
 - Aktoren:
 	- sind nebenläufige Einheiten, die nicht über einen geteilten Speicherbereich verfügen, sondern ausschließlich über Nachrichten kommunizieren
 	- die Kapselung des Zustandes des Aktors ähnelt dem Prinzip der Kapselung in der objektorientierten Programmierung.
-	- Jeder Aktor verfügt über einen Posteingang, eine Adresse und ein Verhalten![[Bildschirm­foto 2023-01-14 um 10.39.32.png]]
-- der Empfang einer Nachricht wird als Ereignis bezeichnet -> werden in Posteingang gespeichert und werden nach FIFO-Prinzip bearbeitet
+	- __Jeder Aktor verfügt über einen Posteingang, eine Adresse und ein Verhalten__![[Bildschirm­foto 2023-01-14 um 10.39.32.png]]
+- der Empfang einer Nachricht wird als __Ereignis__ bezeichnet -> werden __in Posteingang gespeichert__ und werden nach FIFO-Prinzip bearbeitet
 - Das Verhalten des Aktoren beschreibt Reaktionen auf Nachrichten abhängig von deren Aufbau
 - Reaktionen:
-	1. Nachrichten an sich selbst oder an andere Aktoren verschicken. 
-	2. Neue Aktoren erzeugen. 
-	3. Das eigene Verhalten ändern.
-- Nachricht austauch ist asynchron
+	1. __Nachrichten an sich selbst__ oder __an andere Aktoren__ verschicken. 
+	2. __neue Aktoren erzeugen.__ 
+	3. das __eigene Verhalten ändern.__
+- __Der Nachrichtenaustausch erfolgt asynchron__, d. h. der Sender einer Nachricht __kann nach dem Abschicken sofort mit anderen Aktionen fortfahren__ und __muss nicht warten, bis der Empfänger die Nachricht akzeptiert.__
+- Das Actor Model __legt nicht fest, wie lange die Vermittlung einer Nachricht dauern darf.__ Es wird nur definiert, dass __jede Nachricht nach endlicher Zeit beim Empfänger ankommen muss__.

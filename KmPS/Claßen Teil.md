@@ -489,3 +489,12 @@ fun_async().then(alert); // => 42
 # Rust Mutability
 - default immutable
 - mittels mut -> mutable
+### Data Copy in Rust
+- wird vermieden -> Perfomance, keine Garbage Collection
+- selbst definierte Datentypen default non-copy -> copy-operation erforderlich (Trait Copy)
+- Rust Standard-Datentypen wie String (Heap-Speicher) non-copy
+- Basis-Datentypen (int, float etc.) copy, da sehr effizient möglich
+### Ownership
+- bezeichnet das Konzept, dass immer eindeutig erkennbar (für den Compiler!) ist, wer der "Besitzer" eines Objekts ist und somit über die Freigabe von dessen Speicherplatz bestimmt
+- sichere Speicherverwaltung ohne Garbage Collection
+- Non-Copy Type zu einer anderen Variable 

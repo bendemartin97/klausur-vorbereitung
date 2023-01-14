@@ -340,6 +340,28 @@ var promise1 = async_fun(...)
 	- sondern als "pure function" in seinem Ergebnis nur von den Werten seiner Parameter abhängen
 	- Werte in den Executor eingeschlossen -> können nicht mehr von der Außenwelt geändert werden
 	- ohne denen Problemen bei der Fehlerbehandlung
+```javascript
+function resolves_after_2_s() { 
+	let promise = new Promise( (resolve, reject) => {
+		// Executor wird sofort ausgeführt ...
+		// Nach 5 Sekunden (asynchron) wird das Promise 
+		// Objekt auf den Wert 42 resolved
+
+		setTimeout( () => {
+			resolve(42); console.log("Resolved.");
+			}, 
+		5000); 
+		});
+			return promise;
+}
+
+let promise2 = resolves_after_2_s();
+console.log("Script done.");
+
+// Output:
+// Script done.
+// Resolved.
+```
 - __.then and catch functions:
 	- then für daten-abhängigen Nachfolgecode
 	- catch für Fehler-Callback

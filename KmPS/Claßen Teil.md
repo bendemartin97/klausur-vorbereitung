@@ -304,4 +304,6 @@ function readData() {
 #### Promise
 - bezeichnet ein __Platzhalter-Objekt für ein Berechnungsergebnis, wobei deise Berechnung ggfs. noch nicht beendet ist__
 - dieser Platzhalter kann vom folgenden, vom Wert anbhängigen Programmteil __direkt entgegengenommen werden__, ohne dass die vorherige Berechnung schon beendet sein muss
-- erst nachdem die zugrundeli
+- erst nachdem die zugrundeliegenede asynchrone Operation beendet ist, können von der Promise abhängige Programmteile zur Ausführung kommen
+- Eine zentrale Idee der Programmierung mit Promises ist, dass __Promises als Argumente an andere Prozeduraufrufe weitergereicht werden können.__
+- Zustand pending, wenn Ergebniswert noch nicht fertig berechnet. Ansonsten settled. Dabei entweder resolved (Ergebnis konnte erfolgreich berechnet werden) oder rejected (Fehler während Ergebnisberechnung aufgetreten; Fehlerwert als Ergebnis).

@@ -144,7 +144,10 @@
 	1. __Nachrichten an sich selbst__ oder __an andere Aktoren__ verschicken. 
 	2. __neue Aktoren erzeugen.__ 
 	3. das __eigene Verhalten ändern.__
-- __Der Nachrichtenaustausch erfolgt asynchron__, d. h. der Sender einer Nachricht __kann nach dem Abschicken sofort mit anderen Aktionen fortfahren__ und __muss nicht warten, bis der Empfänger die Nachricht akzeptiert.__
+- __Der Nachrichtenaustausch erfolgt asynchron__, d. h. der Sender einer Nachricht __kann nach dem Abschicken 
+- 
+- 
+- sofort mit anderen Aktionen fortfahren__ und __muss nicht warten, bis der Empfänger die Nachricht akzeptiert.__
 - Das Actor Model __legt nicht fest, wie lange die Vermittlung einer Nachricht dauern darf.__ Es wird nur definiert, dass __jede Nachricht nach endlicher Zeit beim Empfänger ankommen muss__.
 - Aktoren __zu einem Zeitpunkt nur eine Nachricht abarbeiten__ und __kein anderer nebenläufiger Prozess den internen Speicherbereich__ eines Aktors __beinflussen darf__, führt dazu, dass __die Programmierung innerhalb des Aktors rein sequentiell ist__
 - kein Flow of Control, Verhalten wird reihenfolgenlos festgelegt

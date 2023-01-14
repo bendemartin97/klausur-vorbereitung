@@ -94,7 +94,7 @@
     - Unauthorised information disclosure, modification, or destruction of all data or
     - performing a business function outside the user's limits
 ####    Common vulnerabilities
-- 
+   - 
 ### A02 - Cryptographic Failures 
 [Link](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/)
 

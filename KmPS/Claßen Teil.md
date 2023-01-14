@@ -103,3 +103,7 @@
 	- select wartet (blockiert), bis auf einem der Channels eine Nachricht gesendet werden kann.
 	- auch mit Timeout realisierbar, damit das select nicht zu lange blockiert
 	- auch mit default case realisierbar, damit der Sender vermeidet, beim send auf einem Channel blockiert zu werden, falls noch kein Receiver an dem Channel lauscht
+
+### WaitGroups
+- andere Möglichkeit drauf zu warten, dass eine bestimmte Anzahl von Goroutinen endet
+- 

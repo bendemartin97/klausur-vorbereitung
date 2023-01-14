@@ -55,3 +55,8 @@
 ### Goroutinen
 - meist keine explizite Abgabe der Kontrolle, sondern implizite Abgabe der Kontrolle z.B Aufruf von Libraryfunktionen
 - explizite Abgabe mittel runtime.GoSched()
+- werden auf die Nebenläufigkeitsmechanismen des Betriebssystems (Threads über CPU:s / Kernen) abgebildet
+- Unterschied zwischen Goroutinen und Threads:
+	- aber viel leichtgewichtiger als Threads (Threads ca. 1 MB Stack size, Goroutine ca. 2 KB)
+	- Threads: preemptive Scheduling, viele Register müssen gesichert werden, teuer Context Switch
+	- Goroutinen: 

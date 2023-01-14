@@ -239,3 +239,7 @@
 - Nachteile:
 	- während eine Nachricht kann keine andere Nachricht abgearbeitet werden
 	- langsame I/O Operationen blockieren die Ausführung
+
+### Callback Programmierstil
+- asynchroner Code mittels Callbacks und synchrone Funktionsaufrufe dürfen bei Abhängigkeit voneinander (z.B. über Daten) nicht gemischt werden
+- sonst werden die "eigentlich sequentiell später kommenden Programmteile" ggfs. fehlerhafterweise vor den eigentlich "sequentiell vorher kommenden", aber asynchron (per Callback) programmierten Programmteilen ausgeführt.

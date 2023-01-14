@@ -307,3 +307,5 @@ function readData() {
 - erst nachdem die zugrundeliegenede asynchrone Operation beendet ist, können von der Promise abhängige Programmteile zur Ausführung kommen
 - Eine zentrale Idee der Programmierung mit Promises ist, dass __Promises als Argumente an andere Prozeduraufrufe weitergereicht werden können.__
 - Zustand pending, wenn Ergebniswert noch nicht fertig berechnet. Ansonsten settled. Dabei entweder resolved (Ergebnis konnte erfolgreich berechnet werden) oder rejected (Fehler während Ergebnisberechnung aufgetreten; Fehlerwert als Ergebnis).
+#### Executor Function
+- ist eine Funktion mit im Promise Standard festgelegter Signatur und stellt den Parameter des Promise Konstruktors dar. Sie wird sofort ausgeführt

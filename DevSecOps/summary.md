@@ -145,4 +145,18 @@
 		- konzentriert sich auf den Inhalt und nicht die Struktur
 		- Prüfung z.B ob erwartete Zeichen vorhanden sind
 		- einfache Regexps sind gute Möglichkeit
-		- bei komplexeren Eingabedaten Lexer-Tools verwede
+		- bei komplexeren Eingabedaten Lexer-Tools verweden
+	4. Syntax:
+		- Prüfen ob Daten in richtigen Form vorliegen
+		- kann wieder über Regexps oder über Code erfolgen
+		- komplexe Datenstrukturen, wie XML, erfordern einen Parser
+	5. Semantik
+		 - Prüfen ob die Datek korrekt und konsistent sind und zum System passen
+		 - Prüfen ob die Daten den Regeln und Einschränkungen des Domänenmodells entsprechen
+
+### Sicheres Objekt-Design
+- in OO Programmierung spielt eine große Rolle
+- _wichtige Schutzziele:_
+	- Datenintegrität: Konsistenz der Daten
+	- Datenverfügbarkeit: Daten sind immer abrufbar
+	- Datenvertraulichkeit: Schutz von Daten vor unbeabsichtigtem, unrechtmäßigem oder unbefugtem Zugriff

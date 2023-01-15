@@ -75,8 +75,23 @@
 	2. Was könnte schief gehen?
 		- anhand einer Bedrohunsmodell-Methodik Bedrohungen finden
 		- Herzstück der Bedrohungsmodellierung
-		- Kreativität 
-	3. Was könnte man dagegen tun?
+		- Kreativität eines pontenzielles Angreifer erforderlich
+		- _Ansätze, um Bedrohungen zu finden:_
+			- [[#STRIDE-Modell]]
+			- Angriffsbäume
+			- Angriffsbibliotheken
+			- LINDDUN-Modell 
+			- etc.
+	1. Was könnte man dagegen tun?
 		- die Bedrohungen priosieren
-	4. Ist die Analyse korrekt?
+		- _4 Möglichkeiten:_
+			1. Abschwächen
+			2. Beseitigen
+			3. Übertragen
+			4. Akzeptieren
+	1. Ist die Analyse korrekt?
 		- durch ein IT-Sicherheitstestprogramm valadieren
+
+
+### STRIDE-Modell
+![[Bildschirm­foto 2023-01-15 um 14.05.07.png]]

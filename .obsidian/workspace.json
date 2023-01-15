@@ -18,6 +18,18 @@
                 "source": true
               }
             }
+          },
+          {
+            "id": "9491b4c562bc7761",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "WAS/summary.md",
+                "mode": "source",
+                "source": true
+              }
+            }
           }
         ]
       }

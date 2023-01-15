@@ -58,4 +58,18 @@
 ### Smart
 - _Datenspeicherung auf Festplatten:_
 	- Daten werden in Blöcken gelesen und geschrieben
-	- Partitionen
+	- Partitionen: Unterteilung der Festplatte in unabhängige Bereiche
+	- Dateisystem: Strukturinformation für die Datenspeicherung
+	- Festplattezugriffe langsamer als Zugriffe auf PRozessor Cache und RAM Speicher
+	- Caching der Daten im RAM des Computers
+	- beim Ausfall gelangen die Cache-Inhalte nicht mehr auf die Festplatte
+	- Server-Festplatten haben eine höhere MTTF als Desktop-Festplatten
+- _Ausfallursachen bei Festplatten:_
+	- Fehler in Steuerelektronik
+	- Verschleiß der Mechanik
+	- Mechanisches Aufsetzen des Schreib-Lesekopfes aufgrund von Bewegungen
+	- thermische Probelem
+### SMART
+- Self-Monitoring, Analysis and Reporting Technology
+- System zur Selbstüberwachung
+- Festplatten-interne Mechanismen protokollieren eine Reihe von Parametern

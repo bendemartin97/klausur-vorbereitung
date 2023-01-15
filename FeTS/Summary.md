@@ -183,3 +183,23 @@
 	- Neue Platten erhalten Nutz- und Kontrolldaten gemäß dem RAID 6 Schema
 	- können nach dem Ausfall einer Platte auch Lesefehler während des Rebuilds ausgeglichen werden (auch nach einem zweiten Ausfall)
 - Schreibperformance ist nicht optimal (müssen zwei Kontrollblöcke geschrieben werden)
+
+##### RAID 0
+- Just of a Bunch of Disks:
+	- Datenspeicherkonfiguration mit mehreren unabhängigen Festplatten
+- festen Blockgröße von meist 64 kB
+- keine Redundanz
+- Ausfall einer Platte ist schlimmer als bei n unabhängigen Platten
+- Erhöhte Lese- und Schreibperformance durch Benutzung mehrerer Festplatten des RAID 0 Arrays
+
+##### RAID 2
+- Daten werden bitweise über die Festplatten des RAID 2 Arrays verteilt
+- Führt dazu, dass Anzahl der Datenplatten typischerweise der Anzahl der Bits in einem Datenwort entspricht, also typischerweise 32 Festplatten
+- Pro Datenwort wird ein Hamming Error Correction Code berechnet, dessen Bits werden auf die zusätzlichen ECC Festplatten verteilt
+- Redundante ECC Information:
+	- schützt gegen den Ausfall einer Festplatte
+	- schützt auch gegen Schreibfehler auf irgendeiner der Festplatten
+##### RAID 3
+- Daten werden über die Festplatten des RAID 3 Arrays verteilt
+- Plus Datenredundanz mittels Paritätsinformation.
+- Paritätsblöcke auf eigener Platte gespeichert

@@ -40,6 +40,22 @@
 		- im Fehlerfall werden sie Ersatz für die fehlerhaften Dienstinstanzen
 		- Hot Standby: Systemstart und Aufwand für das Übertragen der aktuellen Konfiguration etc. minimiert
 		- Cold Standy: einfacher zu realisiren, aber längere downtime und höherer Aufwand zur Behandlung des Fehlerfalls
-	- 1+1 Redundanz: 
+	- 1 + 1 Redundanz: 
 		- Pro aktivem System ein passiver Standby
-		- Verschwdn
+		- Verschwendung der Ressources des passiven Systems
+	- N + 1 Redundanz:
+		- bei mehreren aktiven System ein passiver Standby
+	- M + N Redundanz:
+		- bei mehreren aktiven System gibt mehrere passive Standbys
+- _Out of Band Management:_
+	- Administraton eines Systems über einen Zugriffspfad
+	- getrennt vom Datenpfad deer Applikationsdaten des Systems
+	- z.B seperates Netzwerk für die Systemadministration
+	- verhindert, dass Netzwerkprobleme im Bereich der Applikationsdaten auch die Administration des Server-Systems behindern oder verhindern
+- _In-Band Management:_
+	- Administration eines Systems über den gleichen Netzwerkzugang
+
+### Smart
+- _Datenspeicherung auf Festplatten:_
+	- Daten werden in Blöcken gelesen und geschrieben
+	- Partitionen

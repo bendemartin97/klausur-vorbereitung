@@ -61,5 +61,12 @@
 - seperate application and access control code
 - default deny
 ### C8 - Protect Data Everywhere  
+- _benefits of HTTPS:_
+	- confidentiality: attacker cannot view your data
+	- integrity: attacker cannot change your data
+	- authenticity: server you are visiting is the right one
+- HSTS (Strict Transport Security)
+	- forces browser to only HTTPS connect to server
+	- fowarding secrecy ( negotiate Secretc throug an e)
 ### C9 - Implement Security Logging and Monitoring
 ### C10 - Handle All Errors and Exceptions

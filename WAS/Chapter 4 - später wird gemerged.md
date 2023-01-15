@@ -62,20 +62,28 @@
 - default deny
 ### C8 - Protect Data Everywhere  
 - _benefits of HTTPS:_
-	- confidentiality: attacker cannot view your data
-	- integrity: attacker cannot change your data
-	- authenticity: server you are visiting is the right one
+	- __confidentiality__: attacker cannot view your data
+	- __integrity__: attacker cannot change your data
+	- __authenticity__: server you are visiting is the right one
 - HSTS (Strict Transport Security)
-	- forces browser to only HTTPS connect to server (server sends Strict-Transport-Security-Header)
-	- fowarding secrecy ( negotiate Secretc throug an ephemeral key exchange)
+	- __forces browser to only HTTPS connect to server__ (server sends Strict-Transport-Security-Header)
+	- __fowarding secrecy__ ( negotiate Secretc throug an ephemeral key exchange)
 ### C9 - Implement Security Logging and Monitoring
 - logging: concept for debugging and diagnostic purposes
 - monitoring: live review of application and security logs using automation
-- use common standard frameworks
-- protect againts log injection attacks
+- __use common standard frameworks__
+- __protect againts log injection attacks__
 - detection points:
 	- input validation failure server-side when client-sode validation exists
 	- input validation failure server-side on non-user editable parameters
 	- forced browsing to common attack entry point
 	- honeypot URL (e.g /admin/secretlogin.jsp)
+	- sql or xss attacks
 ### C10 - Handle All Errors and Exceptions
+- exception handling: concept that allows an application to respond to different error states
+- manage exceptions in a centralized manner
+- do not leadk critical data
+- exceptions logged with enough information for:
+	- quantity assurance
+	- forensics
+	- incident response teams

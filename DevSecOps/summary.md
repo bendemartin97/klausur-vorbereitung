@@ -86,11 +86,17 @@
 		- die Bedrohungen priosieren
 		- _4 Möglichkeiten:_
 			1. Abschwächen
+				- Maßnahmen, die die Ausnutzung einer Bedrohung erschweren
 			2. Beseitigen
+				- durch Beseitigung von Funktionalitäten / Funktionen
 			3. Übertragen
+				 - das Risiko von etwas anderem übernehem lassen
 			4. Akzeptieren
+				- Risiko akzeptieren
 	1. Ist die Analyse korrekt?
 		- durch ein IT-Sicherheitstestprogramm valadieren
+		- sicherstellen, dass gefundene Security-Bedrogungen behoden wurden
+		- für jede Bedrohung sollte ein guter Test existieren
 
 
 ### STRIDE-Modell

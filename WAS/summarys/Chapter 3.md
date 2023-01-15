@@ -654,49 +654,9 @@ __Scenario #2:__ Sensitive data exposure
 [PDF Link](Chapter_3_WAS.pdf#page=171)
 
 ### Further risks (from earlier OWASP top 10 lists) 
-[PDF Link](Chapter_3_WAS.pdf#page=174)
 [OWASP Top ten](https://owasp.org/Top10/A11_2021-Next_Steps/)
 
-#### Common vulnerabilities
-#### Example Attacks
-#### How to prevent 
-
-## Chapter 4
-
-### OWASP Top Ten Proactive Controls (OPCs)
-	[[#C1 - Define Security Requirements]]
-	[[#C2 - Leverage Security Frameworks and Libraries]]
-	[[#C3 - Secure Database Access  ]]
-	[[#C4 - Encode and Escape Data  ]]
-	[[#C5 - Validate All Inputs  ]]
-	[[#C6 - Implement Digital Identity]]
-	[[#C7 - Enforce Access Controls  ]]
-	[[#C8 - Protect Data Everywhere ]] 
-	[[#C9 - Implement Security Logging and Monitoring]]
-	[[#C10 - Handle All Errors and Exceptions]]
+#### Insufficient Attack Protection [PDF Link](Chapter_3_WAS.pdf#page=174)
+#### Underprotected APIs [PDF Link](Chapter_3_WAS.pdf#page=174)
 
 
-### C1 - Define Security Requirements  
-### C2 - Leverage Security Frameworks and Libraries
-### C3 - Secure Database Access  
-### C4 - Encode and Escape Data  
-### C5 - Validate All Inputs  
-### C6 - Implement Digital Identity  
-### C7 - Enforce Access Controls  
-### C8 - Protect Data Everywhere  
-### C9 - Implement Security Logging and Monitoring
-### C10 - Handle All Errors and Exceptions
-
-## Chapter 5
-
-### Application Security Verification Standard (ASVS)
-	[[#Level 1: Opportunistic (Minimum Requirement)]]
-	[[#Level 2: Standard (Normal Requirements)]]
-	[[#Level 3: Advanced (Maximum Requirements)]]
-	[[#Applying ASVS in Practice]]
-
-
-### Level 1: Opportunistic (Minimum Requirement)
-### Level 2: Standard (Normal Requirements)
-### Level 3: Advanced (Maximum Requirements)
-### Applying ASVS in Practice

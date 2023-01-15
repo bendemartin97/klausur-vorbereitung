@@ -20,6 +20,30 @@
             }
           },
           {
+            "id": "abbcbd337373dc29",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "WAS/summary.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a21be4db6882ba04",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "WAS/summary.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
             "id": "79af2907cbf38a2c",
             "type": "leaf",
             "state": {
@@ -31,7 +55,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -97,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "WAS/summary.md",
+                "file": "cheatsheet.md.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "WAS/summary.md",
+                "file": "cheatsheet.md.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "WAS/summary.md"
+                "file": "cheatsheet.md.md"
               }
             }
           }
@@ -157,17 +182,17 @@
       "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "134701a2275a53ef",
+  "active": "79af2907cbf38a2c",
   "lastOpenFiles": [
+    "WAS/summary.md",
+    "WAS/Chapter 4 - später wird gemerged.md",
     "KmPS/Claßen Teil.md",
     "assets/Bildschirm­foto 2023-01-14 um 12.40.19.png",
     "assets/Bildschirm­foto 2023-01-14 um 12.40.10.png",
     "assets/Bildschirm­foto 2023-01-14 um 12.40.02.png",
-    "WAS/summary.md",
     "cheatsheet.md.md",
     "assets/Bildschirm­foto 2023-01-14 um 09.22.03.png",
     "assets/Bildschirm­foto 2023-01-13 um 19.41.00.png",
-    "conflict-files-obsidian-git.md",
-    "Pasted image 20221216112016.png.md"
+    "conflict-files-obsidian-git.md"
   ]
 }

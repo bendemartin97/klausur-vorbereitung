@@ -104,6 +104,7 @@
 	- SMART - Infos müssen über das Management des RAID ausglesen werden
 
 ### RAID
+- Redundant Array of Inexpensive Disks
 - _Ziel:_
 	- Absicherung gegen Festplattenausfall
 	- kein Datenverlust
@@ -112,4 +113,11 @@
 - _Idee:_
 	- logische Laufwerke
 	- intern aus mehreren physiche Laufwerken
-	- Daten werden re
+	- Daten redundant speichern
+- _Vorteile:_
+	- höhere Verfügbarkeit der Daten bei Ausfall
+	- bessere Perfomande (Datendurchsatz)
+- _RAID Controller:_
+	- hat die Rolle des Festplattencontrollers
+	- stellt das RAID Array dem Host als eine logische Festplatte dar
+	- sammelt Informationen über den Status der einzelnen Festplatten und stellt diese zur Verfügung

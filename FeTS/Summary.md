@@ -133,4 +133,17 @@
 - spezifiert die Mechanismen, nach denen das RAID System arbeitet
 ##### Raid 1
 - spiegelt die Daten über zwei oder mehr Festplatten des RAID 1 Arrays
-- Redundanz der Daten
+- Redundanz der Daten: die gleichen Daten auf allen Platten, redundant bis zum n -2 Platten 
+- Kapazität: Kapazität des kleinsten Platte
+- sehr einfaches Funktionsprinzip
+- festen Blockgröße von meist 64 kB
+- hohe Ausfallsicherheit
+- sehr einfaches Rebuild:
+	- kopieren der Daten auf die neue Platte
+	- geringe Komplexität
+	- Datenverlust beim Ausfall aller Platten
+- hohe Kosten für die Redundanz
+- Hardweare RAID, ggf. Disk Array empfehlenswert
+- erhöhte Leseperfomance durch Lesen von mehreren Festplatten
+- Ausfall von bis zu n-1 Platten keine Auswirkung auf die operative Perfomance
+- Schreiben der gespiegelten Nut

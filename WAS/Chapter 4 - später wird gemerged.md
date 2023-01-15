@@ -14,8 +14,11 @@
 		2. Standard: suitable for sensitive data, 75% testable, somewhat automatable
 		3. Comprehensive: suitable for critical app, mostly testabla via automation, manual verifacitions required
 - includes the writing of unit tests
-	- validation
+	- validate your app each and every build
+	- allows to concentrate on difficult to automate test (business logic flaws, access control issues etc.)
 ### C2 - Leverage Security Frameworks and Libraries
+- help guard against security-related desing and implementation flaws
+- because of sufficient knowledge, time, or budget no 
 ### C3 - Secure Database Access  
 ### C4 - Encode and Escape Data  
 ### C5 - Validate All Inputs  

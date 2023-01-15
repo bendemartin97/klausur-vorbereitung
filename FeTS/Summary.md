@@ -17,3 +17,20 @@
 	- bei nicht reparierbaren Komponenten oder bei denen, die nach der Reparatur neuwerting sind
 	- bezeichneit die mittlere Betriebsdauer bis zu Ausfall -> mittlere Lebensdauer
 	- statische Kenngröße
+- _Hochverfügbarkeit:_
+	- Verfügbarkeit liegt oberhalb einer Minimalerwartung
+	- 99,99 %, also 52:36 Minuten in hochverfügbaren IT-Systeme
+	- 99,999 %, also 5:16 Minuten in Telekommunikationsnetzte
+	- wird durch Fehlertoleranz gewährleistet
+- _Fehlertoleranz:_
+	- Anwendung auch im Fehlerfall weiterhin verfügbar
+	- ohne unmittelbaren menschlichen Eingriff weiter nutztbar
+	- Anwender nimmt keine oder nur kurze Unterbrechung wahr
+- _Sinple Point of Failure:_
+	- eine einzelne Komponente, deren Versagen zum Ausfall des gesamten Systems führ
+	- Vermeidung durch:
+		- Redundanz von Komponenten
+		- Fehlertolerantes und robustes Systemverhalten
+- _Redundanzkonfigurationen:_
+	- Active / Active:
+		- im nicht 

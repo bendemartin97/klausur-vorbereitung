@@ -51,7 +51,10 @@
 ### C6 - Implement Digital Identity  
 - digital identity: unique representation of a user
 - authentication: process of verifying that an entity is who they claim to be
-- session management: process by wich server maintains the state of the user authentication -> user has
+- session management: process by wich server maintains the state of the user authentication -> user has not to reauthenticate
+- _Best Practices:_
+	- do not limit the password length and do not allow common passwords
+	- use a cryptograpiclly strong credential-specific salt (32+ byte)
 ### C7 - Enforce Access Controls  
 ### C8 - Protect Data Everywhere  
 ### C9 - Implement Security Logging and Monitoring

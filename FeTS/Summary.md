@@ -121,3 +121,16 @@
 	- hat die Rolle des Festplattencontrollers
 	- stellt das RAID Array dem Host als eine logische Festplatte dar
 	- sammelt Informationen über den Status der einzelnen Festplatten und stellt diese zur Verfügung
+	- in Hardware
+	- in Software, getrennt von der Implementierung des Dateisystems
+	- in Software als Teil des Datensystems
+### RAID Architektur
+#### Host-Based RAID
+- Teil des Host Systems
+- Software RAID oder Hardware RAID
+- einfache Lösungen belasten den Prozessor und die Datentransferbusse des Hosts start
+#### RAID Levels
+- spezifiert die Mechanismen, nach denen das RAID System arbeitet
+##### Raid 1
+- spiegelt die Daten über zwei oder mehr Festplatten des RAID 1 Arrays
+- Redundanz der Daten

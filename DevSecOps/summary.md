@@ -117,3 +117,61 @@
 - System muss öfter gescannt werden, wenn oft Änderungen vorgenommen werden
 - Scannan automatisieren und Teil der Build-Pipeline werden lassen
 
+#### Kritische Schwachstellen
+- schnell handeln ist wichtig
+- zeitnah viele Infos über Schwachstelle erhalten
+- Fehler verstehen und Risiko anhand des CVE einschätzen
+- alle Systeme identifizieren
+- Feststellen, ob Systeme betroffen sind
+- Plan für die schnelle Fehlerbehebung erstellen
+- Prüfen, ob Maßnahmen erfolgreich waren
+
+### Clean Code
+- Sourcecode soll gut strukturiert, prägnant, leicht zu verstehen und lesen sein
+- schlecht geschriebener Code erhöht das Risiko von Sicherheitsvorfällen
+- bestimmte Code-Konstrukte sind aus IT-Sicherheitsaspekte besser 
+### Validierung
+- _2 Herausforderungen:_
+	1. sicherstellen dass überall im Code alle Eingaben überprüft werden
+	2. an allen Stellen definieren, was gültige Daten sind
+- 5 Schritte:
+	1. Ursprung:
+		- prüfen woher die Daten kommen
+		- Überprüfung der IP-Adresse
+		- oder API-Schlüssels verwenden
+	2. Größe
+		- sinnvoll die Größe der Daten zu prüfen
+	3. Lexikalischer Analyse
+		- konzentriert sich auf den Inhalt und nicht die Struktur
+		- Prüfung z.B ob erwartete Zeichen vorhanden sind
+		- einfache Regexps sind gute Möglichkeit
+		- bei komplexeren Eingabedaten Lexer-Tools verweden
+	4. Syntax:
+		- Prüfen ob Daten in richtigen Form vorliegen
+		- kann wieder über Regexps oder über Code erfolgen
+		- komplexe Datenstrukturen, wie XML, erfordern einen Parser
+	5. Semantik
+		 - Prüfen ob die Datek korrekt und konsistent sind und zum System passen
+		 - Prüfen ob die Daten den Regeln und Einschränkungen des Domänenmodells entsprechen
+
+### Sicheres Objekt-Design
+- in OO Programmierung spielt eine große Rolle
+- _wichtige Schutzziele:_
+	- Datenintegrität: Konsistenz der Daten
+	- Datenverfügbarkeit: Daten sind immer abrufbar
+	- Datenvertraulichkeit: Schutz von Daten vor unbeabsichtigtem, unrechtmäßigem oder unbefugtem Zugriff
+
+### Source-Code Reviews
+- _Arten:_
+	- formale Reviews 
+	- Rubber Ducking
+	- Pair Programming
+	- Peer Code Reviews
+	- External Source Code Audits
+	- Automatisierte Code Reviews
+- _Gründe für Source-Code Reviews:_
+	- Fehler werden noch in der Entwicklungsphase erkannt
+	- Code in den Coding-Richtlinien des Unternehmens festgelegten Standards entspricht
+	- wiederholende Code Blöcke können erkannt werden
+	- häufig verbreitete Schwachstellen können erkannt werden, wie Race-Conditions, Bufferüberläufe etc.
+	- fungiert als Wissenaustausch

@@ -74,16 +74,16 @@
 - __use common standard frameworks__
 - __protect againts log injection attacks__
 - detection points:
-	- input validation failure server-side when client-sode validation exists
-	- input validation failure server-side on non-user editable parameters
-	- forced browsing to common attack entry point
-	- honeypot URL (e.g /admin/secretlogin.jsp)
-	- sql or xss attacks
+	- input validation __failure server-side when client-sode validation exists__
+	- input validation __failure server-side on non-user editable parameters__
+	- forced __browsing to common attack entry point__
+	- __honeypot URL__ (e.g /admin/secretlogin.jsp)
+	- __sql or xss attacks__
 ### C10 - Handle All Errors and Exceptions
 - exception handling: concept that allows an application to respond to different error states
 - manage exceptions in a centralized manner
-- do not leadk critical data
-- exceptions logged with enough information for:
+- __do not lead critical data__
+- __exceptions logged with enough information for:__
 	- quantity assurance
 	- forensics
 	- incident response teams

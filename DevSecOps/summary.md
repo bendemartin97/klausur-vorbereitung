@@ -19,7 +19,7 @@
 - _Ziele:_
 	- mehr Softwarequalität
 	- schnellere Softwareentwicklung
-	- verbesserte Teamszusammenar ![[Bildschirm­foto 2023-01-15 um 11.31.08.png]]
+	- verbesserte Teamszusammenarbeit ![[Bildschirm­foto 2023-01-15 um 11.31.08.png]]
 - _Pipelineaufbau:_
 	1. Einrichtung eines CI-CD-Pipeline-Frameworks
 	2. Integration mit einem Tool zur Quellcodeverwaltung
@@ -101,3 +101,6 @@
 
 ### STRIDE-Modell
 ![[Bildschirm­foto 2023-01-15 um 14.05.07.png]]
+
+### Schwachstellenmanagement
+

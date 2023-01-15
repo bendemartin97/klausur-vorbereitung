@@ -103,4 +103,17 @@
 ![[Bildschirm­foto 2023-01-15 um 14.05.07.png]]
 
 ### Schwachstellenmanagement
+- alle Systeme, Anwendungen, Komponenten, Schnittstellen identifizieren, die pontenziell bedroht sind
+- Verwendung von automatisierten Konfigurationsmanagement-Tool für Infrastrukturmanagement
+### Schwachstellenscans
+#### Standardablauf
+1. Scannen der Server und Netzwerkanwendungen mit Tool wie Core Impact, Nessus
+2. Überprüfung von gefundenen Schwachstellen, die filtern und priorisieren
+3. Übergabe der Ergebnisse an das DevSecOps-Team
+4. Erneutes Scannan, ob die Probleme beheben wurden
+5. Dokumentieren
+
+#### DevSecOps
+- System muss öfter gescannt werden, wenn oft Änderungen vorgenommen werden
+- Scannan automatisieren und Teil der Build-Pipeline werden lassen
 

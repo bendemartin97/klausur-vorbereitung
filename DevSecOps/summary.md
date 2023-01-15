@@ -25,4 +25,12 @@
 	2. Integration mit einem Tool zur Quellcodeverwaltung
 	3. Verbindung zum Buildautomatisierungstool
 	4. Server-seitige Software-Bereitstellung
-	5. Testen des 
+	5. Testen des Software-Codes
+- Vorteile:
+	- schnelleres Time-to-Market
+	- häufigere Software-Releases
+	- Überwachung und Transparenz
+	- geringere Fehlerkosten
+	- Automatisierung
+
+### 

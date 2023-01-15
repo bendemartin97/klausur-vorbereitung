@@ -43,7 +43,7 @@
 	- Clean Code Policies
 	- Qualitätsmaßnahmen
 #### Bedrohungsmodellierung - Threat Modelling
-- bei der Modellierung von Bedrohungen geht es um die Verwe
+- bei der Modellierung von Bedrohungen geht es um die Verwendung von Modellen zum Auffinden von Sicherheitsproblemen
 - _Ziele:_
 	- Auffinden und Verhindern von Sicherheitsproblemen
 	- Auffinden von Problemen, die nicht bekannt sind

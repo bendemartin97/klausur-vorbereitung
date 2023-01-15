@@ -55,7 +55,7 @@
 - _In-Band Management:_
 	- Administration eines Systems über den gleichen Netzwerkzugang
 
-### Smart
+### Festplatten
 - _Datenspeicherung auf Festplatten:_
 	- Daten werden in Blöcken gelesen und geschrieben
 	- Partitionen: Unterteilung der Festplatte in unabhängige Bereiche
@@ -99,4 +99,17 @@
 		 - Abrufen der Parameterwerte
 		 - Reporting der Werte
 		 - Triggern der Offline-Tests
-- SMAR
+- SMART mit Raid:
+	- direkte Zugriff aufgrund der Virtualisierung der Datenspeicher nicht möglich
+	- SMART - Infos müssen über das Management des RAID ausglesen werden
+
+### RAID
+- _Ziel:_
+	- Absicherung gegen Festplattenausfall
+	- kein Datenverlust
+	- keine Downtime im Betrieb
+	- keine Auswirkungen des zusätlichen Sicherungsmechanismus
+- _Idee:_
+	- logische Laufwerke
+	- intern aus mehreren physiche Laufwerken
+	- Daten werden re

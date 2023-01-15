@@ -702,3 +702,26 @@ println!( "{}", my_ident(&n) );
 ```
 - sobald aber Operationen oder Methoden auf dem übergebenen Wert augegerufen werden, muss gesichert sein, dass dieser Wert diese Operationen bzw. Methoden auch unterstützt
 - Trait Bounds spezifizieren, welche Traits der Typ des Typparameters unterstützen muss
+
+### Attribute / Direktiven
+- als Metadaten für Funktionen, Traits, Module
+- automatic trait implementation: derive
+- Makros: Definition, -Export
+- steuern den Compiler, Makro-Prozessor und andere Tools der Toolchain
+- ermöglichen erhöhten Programmierkomfort
+- z.B automatische Generierung von Trait-Implementierung für neue Datentypen
+```Rust 
+#[derive(Copy, Clone)]
+struct Dummy{ index: i32 }
+
+// ... anstelle von ...
+
+struct Dummy{ index: i32 }
+
+impl Copy for Dummy { }  
+impl Clone for Dummy { fn clone(&self) -> Dummy { *self } }
+```
+
+### Makros
+- ermöglichen Flexibelität in der Syntax und Funktionalität
+- werden vor dem Compiler aufgelöst

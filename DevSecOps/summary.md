@@ -11,4 +11,18 @@
 - effektivste Modell hängt stark ab vom :
 	- zu entwickelten Projekt
 	- Ressourcen and Budget
-	- technischer Kenntnisstand, Er
+	- technischer Kenntnisstand, Erfahrung
+	- Kunde
+- keine allgemeingültige Antwort
+### DevOps
+- generell diverse Praktiken, Tools und eine (Unternehmens)-Philosophie
+- Ziele:
+	- mehr Softwarequalität
+	- schnellere Softwareentwicklung
+	- verbesserte Teamszusammenar ![[Bildschirm­foto 2023-01-15 um 11.31.08.png]]
+- Pipelineaufbau:
+	1. Einrichtung eines CI-CD-Pipeline-Frameworks
+	2. Integration mit einem Tool zur Quellcodeverwaltung
+	3. Verbindung zum Buildautomatisierungstool
+	4. Server-seitige Software-Bereitstellung
+	5. Testen des 

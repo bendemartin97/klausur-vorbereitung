@@ -103,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "WAS/Chapter_3_WAS.pdf",
+                "file": "WAS/summary.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "WAS/Chapter_3_WAS.pdf",
+                "file": "WAS/summary.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "WAS/Chapter_3_WAS.pdf"
+                "file": "WAS/summary.md"
               }
             }
           },
@@ -173,11 +173,11 @@
       "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false
     }
   },
-  "active": "0dcb84cb276851f6",
+  "active": "54d613ede75ed2c5",
   "lastOpenFiles": [
+    "WAS/Chapter_3_WAS.pdf",
     "WAS/summary.md",
     "cheatsheet.md.md",
-    "WAS/Chapter_3_WAS.pdf",
     "KMPS/Claßen Teil.md",
     "DevSecOps/summary.md",
     "WAS/Chapter 4 - später wird gemerged.md",

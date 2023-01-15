@@ -93,7 +93,7 @@
 - __Failures__ typically lead to:
     - Unauthorised information disclosure, modification, or destruction of all data or
     - performing a business function outside the user's limits
-####    Common vulnerabilities
+#### Common vulnerabilities
    - __Violation of principle of least privilege__ or __deny by default__
 	   - access ***should*** only be granted for particular capabilities, roles, or users, but is available to anyone
    - __Bypassing access control checks__ by  
@@ -122,38 +122,85 @@ pstmt.setString(1, request.getParameter(“acct”)); ResultSet results = pstmt.
 An attacker simply __modifies the ‘acct’ parameter in the browser to send whatever account number they want__. If not properly verified, the attacker can access any user’s account.
 	http://example.com/app/accountInfo?acct=notmyacct
 
-#### How to prevent    
-- 
+#### How to prevent
+- __Deny by default__
+- __Enforce record ownership__
+- __Input validation__
+- __functional access control unit and integration tests__
+
+#####    Insecure Direct Object References
+   - Attacker changes account id in Url to get acces to other accounts
+	   - ?acct=6065 -> 6064
+   
 ### A02 - Cryptographic Failures 
 [Link](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/)
+
+#### Common vulnerabilities
+#### Example Attacks
+#### How to prevent 
 
 ### A03 - Injection 
 [Link](https://owasp.org/Top10/A03_2021-Injection/)
 
+#### Common vulnerabilities
+#### Example Attacks
+#### How to prevent 
+
 ### A04 - Insecure Design 
 [Link](https://owasp.org/Top10/A04_2021-Insecure_Design/) 
+
+#### Common vulnerabilities
+#### Example Attacks
+#### How to prevent 
 
 ### A05 - Security Misconfiguration 
 [Link](https://owasp.org/Top10/A05_2021-Security_Misconfiguration/) 
 
+#### Common vulnerabilities
+#### Example Attacks
+#### How to prevent 
+
 ### A06 - Vulnerable and Outdated Components 
 [Link](https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/)  
+
+#### Common vulnerabilities
+#### Example Attacks
+#### How to prevent 
 
 ### A07 - Identification and Authentication Failures 
 [Link](https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/)
 
+#### Common vulnerabilities
+#### Example Attacks
+#### How to prevent 
+
 ### A08 - Software and Data Integrity Failures 
 [Link](https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/)
+
+#### Common vulnerabilities
+#### Example Attacks
+#### How to prevent 
 
 ### A09 - Security Logging and Monitoring Failures 
 [Link](https://owasp.org/Top10/A09_2021-Security_Logging_and_Monitoring_Failures/)
 
+#### Common vulnerabilities
+#### Example Attacks
+#### How to prevent 
+
 ### A10 - Server-Side Request Forgery (SSRF) 
 [Link](https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/)
+
+#### Common vulnerabilities
+#### Example Attacks
+#### How to prevent 
 
 ### Further risks (from earlier OWASP top 10 lists) 
 [Link](https://owasp.org/Top10/A11_2021-Next_Steps/)
 
+#### Common vulnerabilities
+#### Example Attacks
+#### How to prevent 
 
 ## Chapter 4
 

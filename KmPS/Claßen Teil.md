@@ -574,9 +574,9 @@ function object_create(obj) {
 
 # OO in GO
 ### Methoden
-- sind Funktionen mit einem speziellen receiver Parameter
-- Definion außerhalb der Typdefinition -> wird nachträglich zum Typ hinzugefügt
-- Call by Value -> keine dauerhafte Änderung möglich
+- sind Funktionen mit einem __speziellen receiver Parameter__
+- Definion außerhalb der Typdefinition -> wird __nachträglich zum Typ hinzugefügt__
+- Call by Value -> __keine dauerhafte Änderung möglich__
 ```go
 type Point2D struct {
 	X, Y int
@@ -592,7 +592,7 @@ func main() {
 }
 ```
 
-- Pointer Receiver für dauerhafte Wertänderung
+- Pointer Receiver für __dauerhafte Wertänderung__
 ```go
 type Point2D struct {
 	X, Y int
@@ -607,8 +607,8 @@ func main() {
 	p.Print()
 }
 ```
-- Pointer Receiver vermeiden Kopie des receivers -> Effizienzgewinn
-- Für einen Typ T kann eine Methode nur entweder mit Value oder mit Pointer Receiver definiert werden
+- __Pointer Receiver vermeiden Kopie des receivers__ -> Effizienzgewinn
+- Für einen Typ T kann __eine Methode nur entweder mit Value oder mit Pointer Receiver definiert werden__
 - Best Practice: Alle Methoden eines Typ durchgängig mit einem von den beiden umsetzen
 
 ### Interfaces
@@ -616,12 +616,12 @@ func main() {
 - Eine Variable eines Interface-Types kann jeden Wert speichern, der die Methoden implementiert -> Das Method Set des Wertes muss die vom Interface geforderten Methoden umfassen
 - kein explizites implements o.ä nötig
 - unterschied zwischen ob ein Wert des Typs oder ein Pointer auf einen Wert des Typs benötigt wird, um die Methode zu implementieren
-- Go Compilet schaut alle Typen & Interfaces und deren Methoden an und generiert die implements Beziehungen dynamisch selbst
+- Go Compiler __schaut alle Typen & Interfaces__ und deren Methoden an und __generiert die implements Beziehungen dynamisch__ selbst
 
 ### Type Assertion
 - dynamic Type Cast eines Interface Value
 - falls der Wert nicht den angenommenen Typ hat, gibt eine panic
-- kann die Varianta mit zwei Rückgabewerten verwendet werden
+- kann die Variante mit zwei Rückgabewerten verwendet werden
 ```go 
 var i interface{} = "willi" ; x, ok := i.(int) 
 // => ok == false, x == nil
@@ -661,12 +661,12 @@ func main() {
 - Strukturierte Datentypen mittels struct, ähnlich wie Go
 - für außerhalb des Moduls sichtbar sein mit __pub__ kennzeichnen
 - Methoden für struct und enum mittel __imp__
-- Methodendefinition außerhalb der Typdefinition -> Methode wird nachträglich hinzugefügt
+- __Methodendefinition außerhalb der Typdefinition -> Methode wird nachträglich hinzugefügt__
 ### Traits
-- spezifieren einen zusammengehörigen Satz von Methoden
+- spezifieren einen __zusammengehörigen Satz von Methoden__
 - definieren bestimmtes Teilverhalten von Daten
-- definieren meist nur die Signatur (den Prototyp) der Methoden
-- können aber vordefiniert sein, und später überschrieben
+- definieren __meist nur die Signatur__ (den Prototyp) __der Methoden__
+- __können aber vordefiniert sein, und später überschrieben__
 - __impl__ für Datentyp bezüglich Traits gibt an, dass ein Datentyp einen Trait implementiert
 ```Rust
 trait MyPrint { fn my_print(&self) -> String; } impl MyPrint for MyStructType { fn my_print(&self) -> String { ... } } impl MyPrint for i32 { 

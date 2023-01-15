@@ -84,5 +84,19 @@
 	- pre-fail: warn vor baldigem Ausfall
 	- old-age: zeigt Alterungszustand an
 - Self Test:
-	- prüft die Platte aktive elektrischen und mechanischen Eigenschaften
-	- und Lesedurchsatz
+	- prüft die Platte aktive elektrischen und mechanischen Eigenschaften und Lesedurchsatz
+	- beim BS-Zugriff auf die Platte wird der Test unterbrochen
+	- brechnen bei Fehlern an
+- Offline Test:
+	- Ergänzung des Self Test, wird aber meist mit Self Test kombiniert
+	- mehr Parameter werden erhoben
+	- beim BS-Zugriftt wird unterbrochen
+- Architektur:
+	1. Festplatte und Festplatten-Controlle:
+		- Erhebung und Speicherung der "online" Parameterwerte, jeweils aktuellen Rohwert sowie "worst"
+		- Ausführung der Offline Test, wenn getriggert, Erhebung und Speicherung der "offline" Parameterwerte
+	2. Software auf den Rechner
+		 - Abrufen der Parameterwerte
+		 - Reporting der Werte
+		 - Triggern der Offline-Tests
+- SMAR

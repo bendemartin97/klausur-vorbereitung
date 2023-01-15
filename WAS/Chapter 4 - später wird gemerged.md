@@ -1,4 +1,3 @@
-
 ### C1 - Define Security Requirements 
 - security requirements: __statement of needed security functionality__
 	- derived from industry standards
@@ -43,9 +42,9 @@
 	- syntax validity: data in in the expected form
 - _two general approaches:_
 	1. blacklisting:
-		- check that data does not contain "know bad" content
+		- __check that data does not contain "know bad" content__
 	2. whitelisting:
-		- check that data mat
+		- __check that data matches a set of "know good" content__
 ### C6 - Implement Digital Identity  
 ### C7 - Enforce Access Controls  
 ### C8 - Protect Data Everywhere  

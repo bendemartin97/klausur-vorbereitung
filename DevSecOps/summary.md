@@ -16,7 +16,7 @@
 - keine allgemeingültige Antwort
 ### DevOps
 - generell diverse Praktiken, Tools und eine (Unternehmens)-Philosophie
-- _Ziele_:
+- _Ziele:_
 	- mehr Softwarequalität
 	- schnellere Softwareentwicklung
 	- verbesserte Teamszusammenar ![[Bildschirm­foto 2023-01-15 um 11.31.08.png]]
@@ -33,4 +33,19 @@
 	- geringere Fehlerkosten
 	- Automatisierung
 - _Shift Left_
-	- Bemühungen eines DevOps-Team die Anweundungsicherheit in den frühesten Stadien des Entwicklungslebenzyklus zu gewährleisten
+	- Bemühungen eines DevOps-Team die __Anweundungsicherheit in den frühesten Stadien des Entwicklungslebenzyklus__ zu gewährleisten
+	
+### Security by design
+- IT-Sicherheit in Mittelpunkt steht
+- _beeinflusst z.B:_
+	- Design von Implementierungen
+	- Desing von Softwareentwicklungsprozessen
+	- Clean Code Policies
+	- Qualitätsmaßnahmen
+#### Bedrohungsmodellierung - Threat Modelling
+- bei der Modellierung von Bedrohungen geht es um die Verwe
+- _Ziele:_
+	- Auffinden und Verhindern von Sicherheitsproblemen
+	- Auffinden von Problemen, die nicht bekannt sind
+	- Produkte mit mehr Qualität entwickeln
+	- Sicherheitsprobleme frühzeitig in Entwicklung angehen und beheben

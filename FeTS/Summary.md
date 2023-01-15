@@ -154,3 +154,22 @@
 - Datenredundanz mittels Paritätsinformationen
 - Paritätsblöcke gleichmäßig über alle Platten verteilt
 - festen Blockgröße von meist 64 kB
+- redundante Paritätsinformation erlaubt den Rebuild einer Platte bei deren Verlust
+- erhöhte Leseperfomance durch Lesen von mehreren Festplatten
+- Berechnung der Paritätsdaten erfordert Processing-Kapazität, und Schreiben der Paritätsdaten erfordert Datentransfer-Kapazität zwischen Controller und Platte
+- Hardware RAID ist empfehlenswert
+- geringe Kosten für die Redundanz
+- Beim Ausfall einer Platte ist ein Rebuild erforderlich, um die Redundanz wiederherzustellen:
+	- neue Platte erhält Nutz und Paritätsdaten 
+	- Datenverlust bei einem weiteren Ausfall
+- Schreiben einfache Variante:
+	- Schreiben von Data1 auf die erste Festplatte.  
+	 - Lesen von Data2, Data3, Data4 von den anderen Festplatten
+	 - Berechnung der neuen Parität aus Data2, Data3, Data4 und neuem Data1
+	 - Schreiben der neuen Parität auf die fünfte Festplatte.
+- Schreiben verbesserte Variante:
+	- Lesen des alten Werts Data1_old und der alten Parität Parity_old(Data1_old...Data4)
+	- Schreiben von Data1 auf die erste Festplatte
+	- Berechnung der neuen Parität aus Data1_old, Parity_old und neuem Data1
+	- Schreiben der neuen Parität auf die fünfte Festplatte
+- 

@@ -52,4 +52,18 @@
 - _Vetrauensgrenze:_
 	- wer kontrolliert was? -> Trust boundaries
 	- unterschiedliche Account-Level
-	- 
+	- unterschiedliche physikalische Rechner
+	- virtuelle Maschinen
+	- organisatorische Grenze
+	- überall wo Unterschied zwischen Zugriffpriviligen gibt
+- _Angriffsfläche:_
+	- Teile des System, für die sich Angreifer interessieren
+	- 3 Hauptbereiche:
+		1. Netztwerk:
+			- alle exponierten Netzwerkendpunkte, Geräte, Diesnte, BS, VMs, Container
+		2. Anwendung:
+			- Stellen, wo Daten oder Befehle eingegeben werden kann
+			- insbesonders versteckte Endpunkte
+			- Code hinter der Anwendung
+		3. Mensch:
+			- 

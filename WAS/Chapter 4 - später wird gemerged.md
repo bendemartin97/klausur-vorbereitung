@@ -28,10 +28,24 @@
 - validate passwords
 - use prepateStatements
 ### C4 - Encode and Escape Data 
-- encoding: translating special chars into different but equivalent form
+- encoding: __translating special chars into__ different but __equivalent form__
 	- HTML: "<" -> "&lt;"
-- escaping: adding a special char before the char / string aviod it being misinterpreted
+- escaping: __adding a special char__ before the char / string aviod it being misinterpreted
+- _Solutions:_
+	- OWASP Java Encoder Project
+		- designed for high-availability, high-perfomance encoding
+		- no configuration
+		- no dependencies
+	- Microsoft Encoder and AntiXSS Library
+		- can encode for different contexts : html, xml, css, JS
 ### C5 - Validate All Inputs  
+- validate input before using it
+	- syntax validity: data in in the expected form
+- _two general approaches:_
+	1. blacklisting:
+		- check that data does not contain "know bad" content
+	2. whitelisting:
+		- check that data mat
 ### C6 - Implement Digital Identity  
 ### C7 - Enforce Access Controls  
 ### C8 - Protect Data Everywhere  

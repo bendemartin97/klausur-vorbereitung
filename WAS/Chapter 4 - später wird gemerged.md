@@ -1,4 +1,3 @@
-
 ### C1 - Define Security Requirements 
 - security requirements: __statement of needed security functionality__
 	- derived from industry standards
@@ -40,14 +39,51 @@
 		- can encode for different contexts : html, xml, css, JS
 ### C5 - Validate All Inputs  
 - validate input before using it
-	- syntax validity: data in in the expected form
+	- __syntax validity: data in in the expected form__ 
+		- example: app allows to enter 4 digit account id -> app checks that the entered data is exactly 4 digits and ionly numbers
+	- __semantic validity: data is within an accaptable range for the given application functionality__ 
+		- example: start date is before end date
 - _two general approaches:_
 	1. blacklisting:
-		- check that data does not contain "know bad" content
+		- __check that data does not contain "know bad" content__
 	2. whitelisting:
-		- check that data mat
+		- __check that data matches a set of "know good" content__
 ### C6 - Implement Digital Identity  
-### C7 - Enforce Access Controls  
+- digital identity: __unique representation of a user__
+- authentication: __process of verifying that an entity is who they claim to be__
+- session management: __process by wich server maintains the state of the user authentication__ -> user has not to reauthenticate
+- _Best Practices:_
+	- do not limit the password length and do not allow common passwords
+	- use a cryptograpiclly strong credential-specific salt (32+ byte)
+	- impose difficult verifaction on only the attacker
+### C7 - Enforce Access Controls 
+- access control: __process of granting speicific requests from a user__ __and involves the act of granting and revoking those privileges__
+- seperate application and access control code
+- default deny
 ### C8 - Protect Data Everywhere  
+- _benefits of HTTPS:_
+	- __confidentiality__: attacker cannot view your data
+	- __integrity__: attacker cannot change your data
+	- __authenticity__: server you are visiting is the right one
+- HSTS (Strict Transport Security)
+	- __forces browser to only HTTPS connect to server__ (server sends Strict-Transport-Security-Header)
+	- __fowarding secrecy__ ( negotiate Secretc throug an ephemeral key exchange)
 ### C9 - Implement Security Logging and Monitoring
+- logging: concept for debugging and diagnostic purposes
+- monitoring: live review of application and security logs using automation
+- __use common standard frameworks__
+- __protect againts log injection attacks__
+- detection points:
+	- input validation __failure server-side when client-sode validation exists__
+	- input validation __failure server-side on non-user editable parameters__
+	- forced __browsing to common attack entry point__
+	- __honeypot URL__ (e.g /admin/secretlogin.jsp)
+	- __sql or xss attacks__
 ### C10 - Handle All Errors and Exceptions
+- exception handling: concept that allows an application to respond to different error states
+- manage exceptions in a centralized manner
+- __do not lead critical data__
+- __exceptions logged with enough information for:__
+	- quantity assurance
+	- forensics
+	- incident response teams

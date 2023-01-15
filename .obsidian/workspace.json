@@ -4,36 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "1003e26e2e93bd80",
+        "id": "7ac19ff42a03b2d1",
         "type": "tabs",
-        "dimension": 49.921135646687695,
         "children": [
           {
-            "id": "54d613ede75ed2c5",
+            "id": "d5c2b1ee5d6a3e6a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "conflict-files-obsidian-git.md",
+                "file": "WAS/summary.md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "8143e0adb2f83590",
-        "type": "tabs",
-        "dimension": 50.078864353312305,
-        "children": [
-          {
-            "id": "0dcb84cb276851f6",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "WAS/Chapter_3_WAS.pdf"
               }
             }
           }
@@ -103,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "conflict-files-obsidian-git.md",
+                "file": "WAS/summary.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "conflict-files-obsidian-git.md",
+                "file": "WAS/summary.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "conflict-files-obsidian-git.md"
+                "file": "WAS/summary.md"
               }
             }
           },
@@ -174,11 +156,11 @@
       "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false
     }
   },
-  "active": "54d613ede75ed2c5",
+  "active": "d5c2b1ee5d6a3e6a",
   "lastOpenFiles": [
+    "conflict-files-obsidian-git.md",
     "WAS/summary.md",
     "_assets/Bildschirm­foto 2023-01-14 um 12.40.19 1.png",
-    "conflict-files-obsidian-git.md",
     "_assets/Pasted image 20230115135015.png",
     "_assets/Pasted image 20230115140103.png",
     "_assets/Pasted image 20230115120716.png",

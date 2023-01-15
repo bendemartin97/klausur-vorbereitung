@@ -132,7 +132,7 @@
 #### RAID Levels
 - spezifiert die Mechanismen, nach denen das RAID System arbeitet
 
-##### Raid 1
+##### RAID 1
 - spiegelt die Daten über zwei oder mehr Festplatten des RAID 1 Arrays
 - Redundanz der Daten: die gleichen Daten auf allen Platten, redundant bis zum n -2 Platten 
 - Kapazität: Kapazität des kleinsten Platte
@@ -149,7 +149,7 @@
 - Ausfall von bis zu n-1 Platten keine Auswirkung auf die operative Perfomance
 - Schreiben der gespiegelten Nutzdaten erfordert zusätzliche Datentransfer-Kapazität zwischen Controller und Platte
 
-##### Raid 5
+##### RAID 5
 - Daten werden über die Festplatten des RAID 5 Arrays verteilt
 - Datenredundanz mittels Paritätsinformationen
 - Paritätsblöcke gleichmäßig über alle Platten verteilt
@@ -172,4 +172,14 @@
 	- Schreiben von Data1 auf die erste Festplatte
 	- Berechnung der neuen Parität aus Data1_old, Parity_old und neuem Data1
 	- Schreiben der neuen Parität auf die fünfte Festplatte
-- 
+- Hot Spare Disks sind schon in das RAID Array „verkabelt“, aber noch nicht aktiv eingebunden, d.h. keine Datenspeicherung
+
+##### RAID 6
+- Erweiterung von RAID 5, Ausfall von bis zu zwei Platten kompensiert werden kann
+- zwei Sätze von Redundanzinformation 
+- Erhöhte Leseperformance durch Lesen von mehreren Festplatten des RAID 6 Arrays
+- Datenintegrität des RAID 6 Arrays beim Ausfall von bis zu zwei Platten
+- Rebuild:
+	- Neue Platten erhalten Nutz- und Kontrolldaten gemäß dem RAID 6 Schema
+	- können nach dem Ausfall einer Platte auch Lesefehler während des Rebuilds ausgeglichen werden (auch nach einem zweiten Ausfall)
+- Schreibperformance ist nicht optimal (müssen zwei Kontrollblöcke geschrieben werden)

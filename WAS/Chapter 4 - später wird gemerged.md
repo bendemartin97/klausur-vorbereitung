@@ -49,13 +49,17 @@
 	2. whitelisting:
 		- __check that data matches a set of "know good" content__
 ### C6 - Implement Digital Identity  
-- digital identity: unique representation of a user
-- authentication: process of verifying that an entity is who they claim to be
-- session management: process by wich server maintains the state of the user authentication -> user has not to reauthenticate
+- digital identity: __unique representation of a user__
+- authentication: __process of verifying that an entity is who they claim to be__
+- session management: __process by wich server maintains the state of the user authentication__ -> user has not to reauthenticate
 - _Best Practices:_
 	- do not limit the password length and do not allow common passwords
 	- use a cryptograpiclly strong credential-specific salt (32+ byte)
-### C7 - Enforce Access Controls  
+	- impose difficult verifaction on only the attacker
+### C7 - Enforce Access Controls 
+- access control: __process of granting speicific requests from a user__ __and involves the act of granting and revoking those privileges__
+- seperate application and access control code
+- default deny
 ### C8 - Protect Data Everywhere  
 ### C9 - Implement Security Logging and Monitoring
 ### C10 - Handle All Errors and Exceptions

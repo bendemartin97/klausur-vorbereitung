@@ -114,14 +114,16 @@
 	   - to authenticated pages as an unauthenticated user or
 	   - to privileged pages as a standard user
 
-####    Example Attacks
-   Scenario #1: The application uses unverified data in a SQL call that is accessing account information:
-
+#### Example Attacks
+- _Scenario #1:_ The application uses unverified data in a SQL call that is accessing account information:
+``` php
 pstmt.setString(1, request.getParameter(“acct”)); ResultSet results = pstmt.executeQuery();
+```
+An attacker simply __modifies the ‘acct’ parameter in the browser to send whatever account number they want__. If not properly verified, the attacker can access any user’s account.
+	http://example.com/app/accountInfo?acct=notmyacct
 
-An attacker simply modifies the ‘acct’ parameter in the browser to send whatever account number they want. If not properly verified, the attacker can access any user’s account.
-
-http://example.com/app/accountInfo?acct=notmyacct
+#### How to prevent    
+- 
 ### A02 - Cryptographic Failures 
 [Link](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/)
 

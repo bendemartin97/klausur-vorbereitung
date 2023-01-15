@@ -23,5 +23,14 @@
 	- skilled & motivated attackers 
 	- use tools & techniques effective
 ### Level 3: Advanced (Maximum Requirements)
-- applications achiv
+- applications achives, if it adequately defends against advanced application security vulnerabilities and also demonstrates principles of good security design
+- for applications with
+	- required significant security level
+	- perform ciritical functions
+- demostrate a good security design ( modularized, each module seperated by network etc.)
 ### Applying ASVS in Practice
+- not certify vendors, verifiers or SW
+- if ASVS is used for verification or "certification" reports need to be include:
+	- scope of the verification
+	- summary of verification findings (passes / failed tests / how to resolve failed tests)
+	- documentation details (work papers, screen shots, scripts used, electronic records of testing)

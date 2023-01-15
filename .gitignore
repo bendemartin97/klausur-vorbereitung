@@ -4,6 +4,7 @@
 ### Obsidian ###
 # config dir
 .obsidian/
+.obsidian/workspace*
 .git/
 .trash/
 .DS_Store

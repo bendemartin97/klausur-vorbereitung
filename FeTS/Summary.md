@@ -2,7 +2,18 @@
 - _Verfügbarkeit:_
 	- ein System ist verfügbar, wenn es in der Lage ist, die vorgesehenen Aufgaben zu erfüllen
 	- Produktionszeit / (Produktionszeit + Ausfallzeit) * 100
+	- Gesamtverfügbarkeit hängt ab von der Verfügbarkeit und der logischen Anordnung der Teilsysteme
+	- Serielle Anordnung: Gesamtfunktionalität nur dann gegeben, wenn alle Teilsysteme funktionieren
+	- Parallele Anordnung: bei gleicher Funktionalität (Redundanz), solange ein Teilsystem arbeitet, ist die Gesamtfunktionalität prinzipell noch gegeben 
 - _Downtime:_
 	- bezeichnet die Zeit, in der ein Computersystem nicht verfügbar bzw. nicht funktionstüchtig ist
 	- scheduled downtime: Wartungsarbeiten, geplante Änderungen
 	- unplanned downtime: Fehler in Systemkomponenten, Bedienung, Umgebung
+	- Service Level Agreements definieren, ob scheduled downtime in die Berechnung der Verfügbarkeit eingeht oder nicht (default nicht)
+- _Mean Time Between Failures_:
+	- mittlere Betriebszeit zwischen zwei aufeinanderfolgenden Ausfällen
+	- ist ein Maß für die Zuverlässugkeit des Systems
+- _Mean Time To Failure_:
+	- bei nicht reparierbaren Komponenten oder bei denen, die nach der Reparatur neuwerting sind
+	- bezeichneit die mittlere Betriebsdauer bis zu Ausfall -> mittlere Lebensdauer
+	- statische Kenngröße

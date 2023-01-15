@@ -117,3 +117,17 @@
 - System muss öfter gescannt werden, wenn oft Änderungen vorgenommen werden
 - Scannan automatisieren und Teil der Build-Pipeline werden lassen
 
+#### Kritische Schwachstellen
+- schnell handeln ist wichtig
+- zeitnah viele Infos über Schwachstelle erhalten
+- Fehler verstehen und Risiko anhand des CVE einschätzen
+- alle Systeme identifizieren
+- Feststellen, ob Systeme betroffen sind
+- Plan für die schnelle Fehlerbehebung erstellen
+- Prüfen, ob Maßnahmen erfolgreich waren
+
+### Clean Code
+- Sourcecode soll gut strukturiert, prägnant, leicht zu verstehen und lesen sein
+- schlecht geschriebener Code erhöht das Risiko von Sicherheitsvorfällen
+- bestimmte Code-Konstrukte sind aus IT-Sicherheitsaspekte besser 
+- 

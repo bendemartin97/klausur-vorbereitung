@@ -33,4 +33,13 @@
 		- Fehlertolerantes und robustes Systemverhalten
 - _Redundanzkonfigurationen:_
 	- Active / Active:
-		- im nicht 
+		- im Nicht-Fehlerfall alle Dienste auf allen Systemen aktiv
+		- im Fehlerfall fallen einzelne Dienstinstanzen weg, alle anderen arbeiten
+	- Active / Passive:
+		- Passive Dienstinstanzen unaktiv
+		- im Fehlerfall werden sie Ersatz für die fehlerhaften Dienstinstanzen
+		- Hot Standby: Systemstart und Aufwand für das Übertragen der aktuellen Konfiguration etc. minimiert
+		- Cold Standy: einfacher zu realisiren, aber längere downtime und höherer Aufwand zur Behandlung des Fehlerfalls
+	- 1+1 Redundanz: 
+		- Pro aktivem System ein passiver Standby
+		- Verschwdn

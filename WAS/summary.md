@@ -94,7 +94,25 @@
     - Unauthorised information disclosure, modification, or destruction of all data or
     - performing a business function outside the user's limits
 ####    Common vulnerabilities
-   - 
+   - __Violation of principle of least privilege__ or __deny by default__
+	   - access ***should*** only be granted for particular capabilities, roles, or users, but is available to anyone
+   - __Bypassing access control checks__ by  
+	   - modifying the URL (parameter tampering or force browsing), internal application state, or the HTML page, or  
+	   - by using an attack tool modifying API requests
+   - __Permitting viewing or editing__ someone else's account,  
+	   - by providing its unique identifier (insecure direct object references)
+   - Accessing API with __missing access controls for POST, PUT and DELETE__
+   - __Elevation of privilege__  
+	   - acting as a user without being logged in or  
+	   - acting as an admin when logged in as a user
+   - Metadata manipulation, such as
+	   - replaying or tampering with a JSON Web Token (JWT) access control token, or
+	   - a cookie or hidden field manipulated to elevate privileges or
+	   - abusing JWT invalidation
+   - CORS misconfiguration allows API access from unauthorized/untrusted origins
+   - Force browsing 
+	   - to authenticated pages as an unauthenticated user or
+	   - to privileged pages as a standard user
 ### A02 - Cryptographic Failures 
 [Link](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/)
 

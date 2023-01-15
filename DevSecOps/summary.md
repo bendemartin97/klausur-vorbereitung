@@ -130,4 +130,19 @@
 - Sourcecode soll gut strukturiert, prägnant, leicht zu verstehen und lesen sein
 - schlecht geschriebener Code erhöht das Risiko von Sicherheitsvorfällen
 - bestimmte Code-Konstrukte sind aus IT-Sicherheitsaspekte besser 
-- 
+### Validierung
+- _2 Herausforderungen:_
+	1. sicherstellen dass überall im Code alle Eingaben überprüft werden
+	2. an allen Stellen definieren, was gültige Daten sind
+- 5 Schritte:
+	1. Ursprung:
+		- prüfen woher die Daten kommen
+		- Überprüfung der IP-Adresse
+		- oder API-Schlüssels verwenden
+	2. Größe
+		- sinnvoll die Größe der Daten zu prüfen
+	3. Lexikalischer Analyse
+		- konzentriert sich auf den Inhalt und nicht die Struktur
+		- Prüfung z.B ob erwartete Zeichen vorhanden sind
+		- einfache Regexps sind gute Möglichkeit
+		- bei komplexeren Eingabedaten Lexer-Tools verwede

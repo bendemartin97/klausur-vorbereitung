@@ -475,12 +475,12 @@ fun_async().then(alert); // => 42
 - __darf nicht geändert werden, sobald der Wert initial erzeugt wurde__
 - bei Konstanten: Wert zu Compile-Zeit berechnenbar
 - Immutable-Data: initale Wert erst zur Laufzeit
-- initiale Wert ist read-only -> darf nicht geändert werden, sobald einmal erzeugt ist
-- ändernde Operationen sind nicht erlaubt, oder nur mithilfe einer Kopie
-- sind änderbar, aber nicht auf dem gleichem Datum
-- bei Änderungen verhält sich, alswürde  jede Objektreferenz immer auf ein seperates Objekt 
+- initiale Wert ist __read-only__ -> darf nicht geändert werden, sobald einmal erzeugt ist
+- __ändernde Operationen sind nicht erlaubt__, oder nur mithilfe einer Kopie
+- sind also doch änderbar, aber nicht auf dem gleichem Datum
+- bei Änderungen verhält sich, als würde  __jede Objektreferenz immer auf ein seperates Objekt__ 
 ### Single-Assignment 
-- erlauben nur einmalige Bindung einer Variable
+- erlauben nur __einmalige Bindung einer Variable__
 - Rust, Erland: Redefinition von Variablen nicht erlaubt
 - Elixir, Scala: Redefinition erlaubt
 	- neue Variable hat mit der alten nichts zu tun
@@ -490,16 +490,16 @@ fun_async().then(alert); // => 42
 - default immutable
 - mittels mut -> mutable
 ### Data Copy in Rust
-- wird vermieden -> Perfomance, keine Garbage Collection
-- selbst definierte Datentypen default non-copy -> copy-operation erforderlich (Trait Copy)
-- Rust Standard-Datentypen wie String (Heap-Speicher) non-copy
-- Basis-Datentypen (int, float etc.) copy, da sehr effizient möglich
+- wird vermieden -> Perfomance, __keine Garbage Collection__
+- __selbst definierte Datentypen default non-copy__ -> copy-operation erforderlich (Trait Copy)
+- Rust __Standard-Datentypen__ wie String (Heap-Speicher) __non-copy__
+- __Basis-Datentypen__ (int, float etc.) __copy__, da sehr effizient möglich
 ### Ownership
-- bezeichnet das Konzept, dass immer eindeutig erkennbar (für den Compiler!) ist, wer der "Besitzer" eines Objekts ist und somit über die Freigabe von dessen Speicherplatz bestimmt
-- sichere Speicherverwaltung ohne Garbage Collection
-- Non-Copy Type zu einer anderen Variable wird die Ownership verschoben (auch als Wertparameter von Funktionen)
-- ein Zugriff auf das Objekt über die alte Variable nicht möglich
-- kein Move-Semantik bei primitiven Datentypen 
+- bezeichnet das Konzept, dass __immer eindeutig erkennbar__ (für den Compiler!) ist, wer __der "Besitzer" eines Objekts__ ist und somit über die Freigabe von dessen Speicherplatz bestimmt
+- __sichere Speicherverwaltung__ ohne Garbage Collection
+- __Non-Copy Type__ zu einer anderen Variable __wird die Ownership verschoben__ (auch als Wertparameter von Funktionen)
+- ein __Zugriff auf das Objekt über die alte Variable nicht möglich
+-__ kein Move-Semantik bei primitiven Datentypen 
 - benutzerdefinierten Datentypen Entscheidung mithilfe von Copy-Trait
 ### Pointer / Referenzen
 - sind sichere Konstrukte -> Compiler kann sicherstellen, dass keine Speicherzugrifffehler über die Referenz geben wird

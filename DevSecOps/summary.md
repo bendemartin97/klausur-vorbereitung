@@ -16,21 +16,21 @@
 - keine allgemeingültige Antwort
 ### DevOps
 - generell diverse Praktiken, Tools und eine (Unternehmens)-Philosophie
-- Ziele:
+- _Ziele_:
 	- mehr Softwarequalität
 	- schnellere Softwareentwicklung
 	- verbesserte Teamszusammenar ![[Bildschirm­foto 2023-01-15 um 11.31.08.png]]
-- Pipelineaufbau:
+- _Pipelineaufbau:_
 	1. Einrichtung eines CI-CD-Pipeline-Frameworks
 	2. Integration mit einem Tool zur Quellcodeverwaltung
 	3. Verbindung zum Buildautomatisierungstool
 	4. Server-seitige Software-Bereitstellung
 	5. Testen des Software-Codes
-- Vorteile:
+- _Vorteile:_
 	- schnelleres Time-to-Market
 	- häufigere Software-Releases
 	- Überwachung und Transparenz
 	- geringere Fehlerkosten
 	- Automatisierung
-
-### 
+- _Shift Left_
+	- Bemühungen eines DevOps-Team die Anweundungsicherheit in den frühesten Stadien des Entwicklungslebenzyklus zu gewährleisten

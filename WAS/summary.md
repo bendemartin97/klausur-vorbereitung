@@ -105,14 +105,23 @@
    - __Elevation of privilege__  
 	   - acting as a user without being logged in or  
 	   - acting as an admin when logged in as a user
-   - Metadata manipulation, such as
+   - __Metadata manipulation__, such as
 	   - replaying or tampering with a JSON Web Token (JWT) access control token, or
 	   - a cookie or hidden field manipulated to elevate privileges or
 	   - abusing JWT invalidation
-   - CORS misconfiguration allows API access from unauthorized/untrusted origins
-   - Force browsing 
+   - __CORS misconfiguration__ allows API access from unauthorized/untrusted origins
+   - __Force browsing__ 
 	   - to authenticated pages as an unauthenticated user or
 	   - to privileged pages as a standard user
+
+####    Example Attacks
+   Scenario #1: The application uses unverified data in a SQL call that is accessing account information:
+
+pstmt.setString(1, request.getParameter(“acct”)); ResultSet results = pstmt.executeQuery();
+
+An attacker simply modifies the ‘acct’ parameter in the browser to send whatever account number they want. If not properly verified, the attacker can access any user’s account.
+
+http://example.com/app/accountInfo?acct=notmyacct
 ### A02 - Cryptographic Failures 
 [Link](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/)
 

@@ -199,7 +199,23 @@
 - Redundante ECC Information:
 	- schützt gegen den Ausfall einer Festplatte
 	- schützt auch gegen Schreibfehler auf irgendeiner der Festplatten
+
 ##### RAID 3
 - Daten werden über die Festplatten des RAID 3 Arrays verteilt
 - Plus Datenredundanz mittels Paritätsinformation.
 - Paritätsblöcke auf eigener Platte gespeichert
+- Keine standardisierte Blockgröße
+- Paritätsfestplatte wird zum Engpass bei Schreiboperationen
+- Datenintegrität des RAID 3 Arrays beim Ausfall von maximal einer Platte
+- Beim Ausfall einer Platte ist ein Rebuild erforderlich
+
+##### RAID 4
+- Striping und Paritätsinformation auf einer dedizierten Festplatte wie bei RAID 3
+- festen Blockgröße von meist 64 kB
+- Paritätsfestplatte wird zum Engpass bei Schreiboperationen
+- Datenintegrität des RAID 4 Arrays beim Ausfall von maximal einer Platte
+
+##### kombinierten RAID Levels
+- Setups mit kombinierten RAID Levels können die Nachteile der individuellen RAID Levels ausgleichen
+- Realisiert als RAID Array, bei dem jede (logische) oder einzelne Festplatten selbst wiederum ein RAID Array ist/sind
+- Äußeres“ RAID Array und „innere“ RAID Arrays arbeiten nach verschiedenen RAID Levels

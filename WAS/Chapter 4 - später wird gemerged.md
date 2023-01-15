@@ -39,13 +39,19 @@
 		- can encode for different contexts : html, xml, css, JS
 ### C5 - Validate All Inputs  
 - validate input before using it
-	- syntax validity: data in in the expected form
+	- __syntax validity: data in in the expected form__ 
+		- example: app allows to enter 4 digit account id -> app checks that the entered data is exactly 4 digits and ionly numbers
+	- __semantic validity: data is within an accaptable range for the given application functionality__ 
+		- example: start date is before end date
 - _two general approaches:_
 	1. blacklisting:
 		- __check that data does not contain "know bad" content__
 	2. whitelisting:
 		- __check that data matches a set of "know good" content__
 ### C6 - Implement Digital Identity  
+- digital identity: unique representation of a user
+- authentication: process of verifying that an entity is who they claim to be
+- session management: process by wich server maintains the state of the user authentication -> user has
 ### C7 - Enforce Access Controls  
 ### C8 - Protect Data Everywhere  
 ### C9 - Implement Security Logging and Monitoring

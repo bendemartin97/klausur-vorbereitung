@@ -49,3 +49,7 @@
 	- Auffinden von Problemen, die nicht bekannt sind
 	- Produkte mit mehr Qualität entwickeln
 	- Sicherheitsprobleme frühzeitig in Entwicklung angehen und beheben
+- _Vetrauensgrenze:_
+	- wer kontrolliert was? -> Trust boundaries
+	- unterschiedliche Account-Level
+	- 

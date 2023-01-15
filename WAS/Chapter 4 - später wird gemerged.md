@@ -1,11 +1,20 @@
 
 ### C1 - Define Security Requirements 
-- security requirements: statement of needed security functionality
+- security requirements: __statement of needed security functionality__
 	- derived from industry standards
-	- define new features to solce specific security problem or elimante vulnerability
+	- define new features to solve specific security problem or elimante vulnerability
 	- provide a foundation for security
 - standard security requirements for reusing 
-	- 
+	- prevent the repeat of past security failures
+- Application Security Verifactiion Standard 4.0.1:
+	- first application security standard 
+	- defines 3 risk levels with 280 controls
+	- _3 Levels:_
+		1. Baseline: min. required for all app, mostly fully testable and automatable
+		2. Standard: suitable for sensitive data, 75% testable, somewhat automatable
+		3. Comprehensive: suitable for critical app, mostly testabla via automation, manual verifacitions required
+- includes the writing of unit tests
+	- validation
 ### C2 - Leverage Security Frameworks and Libraries
 ### C3 - Secure Database Access  
 ### C4 - Encode and Escape Data  

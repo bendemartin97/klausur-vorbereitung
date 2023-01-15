@@ -24,8 +24,13 @@
 	- use native secure features of frameworks
 	- stay and keep libraries and components up to date
 	- expose only the requires behaviour into your software
-### C3 - Secure Database Access  
-### C4 - Encode and Escape Data  
+### C3 - Secure Database Access 
+- validate passwords
+- use prepateStatements
+### C4 - Encode and Escape Data 
+- encoding: translating special chars into different but equivalent form
+	- HTML: "<" -> "&lt;"
+- escaping: adding a special char before the char / string aviod it being misinterpreted
 ### C5 - Validate All Inputs  
 ### C6 - Implement Digital Identity  
 ### C7 - Enforce Access Controls  

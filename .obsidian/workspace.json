@@ -1,64 +1,39 @@
 {
   "main": {
-    "id": "0517b974d742ce72",
+    "id": "bc2d6c941c823e7c",
     "type": "split",
     "children": [
       {
-        "id": "1003e26e2e93bd80",
+        "id": "cb8882ca6d3be75c",
         "type": "tabs",
         "children": [
           {
-            "id": "2e9ac902aaf378d8",
+            "id": "79af2907cbf38a2c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "WAS/summary.md",
+                "file": "WAS/Chapter 4 - später wird gemerged.md",
                 "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0dcb84cb276851f6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "WAS/summary.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "54d613ede75ed2c5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "cheatsheet.md.md",
-                "mode": "source",
-                "source": false
+                "source": true
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "c0afcb2d21ca79bc",
+    "id": "5d8b43608e1f8a57",
     "type": "split",
     "children": [
       {
-        "id": "c1c3fd1862f25af5",
+        "id": "50c6d7594640b0d8",
         "type": "tabs",
         "children": [
           {
-            "id": "ac8470ce3a098358",
+            "id": "fbc0cdc24c271e34",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -68,7 +43,7 @@
             }
           },
           {
-            "id": "1803a7dad9fc6efd",
+            "id": "5cf882105f6f627c",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -83,7 +58,7 @@
             }
           },
           {
-            "id": "104393af7daad592",
+            "id": "e8d8b3af16317b3f",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -97,20 +72,20 @@
     "width": 300
   },
   "right": {
-    "id": "d45c2157dcb1ffec",
+    "id": "fe939a3a8481315c",
     "type": "split",
     "children": [
       {
-        "id": "4f8562f83b9d9dfd",
+        "id": "0cc5d3860c74fa03",
         "type": "tabs",
         "children": [
           {
-            "id": "c9acba16142b65e7",
+            "id": "c598a12e96243227",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "WAS/summary.md",
+                "file": "WAS/Chapter 4 - später wird gemerged.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,19 +97,19 @@
             }
           },
           {
-            "id": "74dbb1dcd7dc0050",
+            "id": "4925e6884eae7468",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "WAS/summary.md",
+                "file": "WAS/Chapter 4 - später wird gemerged.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "85d3dd6492b45bc3",
+            "id": "dafd16ece65b33f8",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -145,21 +120,13 @@
             }
           },
           {
-            "id": "64217370065139d1",
+            "id": "cb887492892a9d02",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "WAS/summary.md"
+                "file": "WAS/Chapter 4 - später wird gemerged.md"
               }
-            }
-          },
-          {
-            "id": "ddff9ef870fab105",
-            "type": "leaf",
-            "state": {
-              "type": "calendar",
-              "state": {}
             }
           }
         ]
@@ -171,26 +138,24 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
+      "switcher:Schnellauswahl öffnen": false,
+      "graph:Graphen-Ansicht öffnen": false,
       "canvas:Create new canvas": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "obsidian-textgenerator-plugin:Generate Text!": false,
-      "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false
+      "templates:Vorlage einfügen": false,
+      "command-palette:Befehlspalette öffnen": false
     }
   },
-  "active": "0dcb84cb276851f6",
+  "active": "79af2907cbf38a2c",
   "lastOpenFiles": [
-    "KMPS/Claßen Teil.md",
     "WAS/summary.md",
-    "cheatsheet.md.md",
-    "DevSecOps/summary.md",
     "WAS/Chapter 4 - später wird gemerged.md",
-    "conflict-files-obsidian-git.md",
-    "Further.md",
-    "C1 - Define Security Requirements.md",
-    "C2 - Leverage Security Frameworks and Libraries.md",
-    "README.md"
+    "cheatsheet.md.md",
+    "KmPS/Claßen Teil.md",
+    "assets/Bildschirm­foto 2023-01-14 um 12.40.19.png",
+    "assets/Bildschirm­foto 2023-01-14 um 12.40.10.png",
+    "assets/Bildschirm­foto 2023-01-14 um 12.40.02.png",
+    "assets/Bildschirm­foto 2023-01-14 um 09.22.03.png",
+    "assets/Bildschirm­foto 2023-01-13 um 19.41.00.png",
+    "conflict-files-obsidian-git.md"
   ]
 }

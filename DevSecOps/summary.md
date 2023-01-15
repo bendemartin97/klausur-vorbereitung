@@ -66,4 +66,17 @@
 			- insbesonders versteckte Endpunkte
 			- Code hinter der Anwendung
 		3. Mensch:
-			- 
+			- alle Personen, die an dem System arbeiten
+- _4 Schritt Ansatz:_
+	1. Was wird entwickelt?
+		- das verändernde System modellieren
+		- System verstehen
+		- Systemdokumentation als Ausganspunkt
+	2. Was könnte schief gehen?
+		- anhand einer Bedrohunsmodell-Methodik Bedrohungen finden
+		- Herzstück der Bedrohungsmodellierung
+		- Kreativität 
+	3. Was könnte man dagegen tun?
+		- die Bedrohungen priosieren
+	4. Ist die Analyse korrekt?
+		- durch ein IT-Sicherheitstestprogramm valadieren

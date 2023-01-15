@@ -73,3 +73,16 @@
 - Self-Monitoring, Analysis and Reporting Technology
 - System zur Selbstüberwachung
 - Festplatten-interne Mechanismen protokollieren eine Reihe von Parametern
+	- Realisiert im Festplatten Controller
+	- in einem reservierten Bereich der Platte
+	- kein Einfluss auf die Perfomance
+- für jeden Parameter protokolliert die Festplatte:
+	1. Rohdaten: eigentlich gemessener Wert
+	2. Übersetzter Wert: Skala bis 255 bis 0, aktueller und bisher schlechtester Wert
+	3. Grenzwert: vom Hersteller festgelegt, Problem bei der Unterschreitung des Grenzwertes
+- Parameter-Typs:
+	- pre-fail: warn vor baldigem Ausfall
+	- old-age: zeigt Alterungszustand an
+- Self Test:
+	- prüft die Platte aktive elektrischen und mechanischen Eigenschaften
+	- und Lesedurchsatz

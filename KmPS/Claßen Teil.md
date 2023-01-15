@@ -498,8 +498,8 @@ fun_async().then(alert); // => 42
 - bezeichnet das Konzept, dass __immer eindeutig erkennbar__ (für den Compiler!) ist, wer __der "Besitzer" eines Objekts__ ist und somit über die Freigabe von dessen Speicherplatz bestimmt
 - __sichere Speicherverwaltung__ ohne Garbage Collection
 - __Non-Copy Type__ zu einer anderen Variable __wird die Ownership verschoben__ (auch als Wertparameter von Funktionen)
-- ein __Zugriff auf das Objekt über die alte Variable nicht möglich
--__ kein Move-Semantik bei primitiven Datentypen 
+- ein __Zugriff auf das Objekt über die alte Variable nicht möglich__
+- kein Move-Semantik bei primitiven Datentypen 
 - benutzerdefinierten Datentypen Entscheidung mithilfe von Copy-Trait
 ### Pointer / Referenzen
 - sind sichere Konstrukte -> Compiler kann sicherstellen, dass keine Speicherzugrifffehler über die Referenz geben wird
@@ -514,13 +514,13 @@ fun_async().then(alert); // => 42
 
 # JS Vererbung
 ### Prototype
-- jede JS Funktion hat automatisch ein prototype Attribut
-- beim Erzeugen eines Funktions-Objekts wird das prototype Attribut mit einem leeren Objekt initialisiert
-- Beim Anlegen einer Funktion wird in dem automatisch angelegten prototype Objekt ein Attribut constructor angelegt, welches auf das Funktions-Objekt zurückverweist
+- jede JS Funktion hat __automatisch ein prototype Attribut__
+- beim Erzeugen eines Funktions-Objekts wird das __prototype Attribut mit einem leeren Objekt initialisiert__
+- Beim Anlegen einer Funktion wird in dem automatisch angelegten prototype Objekt __ein Attribut constructor angelegt__, welches __auf das Funktions-Objekt zurückverweist__
 ### Prototypische Vererbung
-- jedes Objekt kann ein anderes Objekt als Prototypen habe
-- bei Lesen eines Objekt-Attributes wird erst im Objekt selbs gesucht, sonst wird der Prototypen-Verweiskette gefolgt
-- mehrere Objekte können den gleichen Prototypen haben, der dann zentral Methoden für alle diese Objekte implementieren kann
+- jedes Objekt kann __ein anderes Objekt als Prototypen__ habe
+- bei Lesen eines Objekt-Attributes __wird erst im Objekt selbs gesucht__, sonst wird der __Prototypen-Verweiskette gefolgt__
+- __mehrere Objekte__ können __den gleichen Prototypen__ haben, der dann __zentral Methoden für alle diese Objekte__ implementieren kann
 - Schreiben, Hinzufügen etc. erfolgt immer im aktuellen Objekt, selbst es irgendwo in der Verweiskette schon existiert (wird ignoriert)
 ```javascript 
 function Buch(titel){ this.titel = titel; } 
@@ -548,8 +548,8 @@ var buch = new Buch("Mein Buch");
 
 ### OO Methodiken in JS
 #### pseudo-klassische OO
-- verwendet Klassen
-- unterstützt durch Sprachkonstrukte (new)
+- verwendet __Klassen__
+- unterstützt durch __Sprachkonstrukte (new)__
 - entspricht nicht dem Basis-Konzept
 #### objekt-basierte OO
 - realisiert die prototypische Vererbung
@@ -561,6 +561,7 @@ var buch = new Buch("Mein Buch");
 ### Polyfilling
 - vor ECMAScript 5
 - Object.create Funktionalität mit selbst-definierten Funktion:
+- Für den Fall wenn Object.create nicht unterstützt, im negativen Fall eine entsprechende Emulator-Funktion definieren
 ```javascript
 function object_create(obj) { 
 	function F() {}

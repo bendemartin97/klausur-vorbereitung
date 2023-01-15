@@ -23,14 +23,18 @@
 	- skilled & motivated attackers 
 	- use tools & techniques effective
 ### Level 3: Advanced (Maximum Requirements)
-- applications achives, if it adequately defends against advanced application security vulnerabilities and also demonstrates principles of good security design
+- applications achives, if __it adequately defends against advanced application security vulnerabilities__ 
 - for applications with
 	- required significant security level
 	- perform ciritical functions
-- demostrate a good security design ( modularized, each module seperated by network etc.)
+- demostrate a __good security design__ ( modularized, each module seperated by network etc.)
 ### Applying ASVS in Practice
-- not certify vendors, verifiers or SW
+- __not certify vendors, verifiers or SW__
 - if ASVS is used for verification or "certification" reports need to be include:
 	- scope of the verification
 	- summary of verification findings (passes / failed tests / how to resolve failed tests)
 	- documentation details (work papers, screen shots, scripts used, electronic records of testing)
+#### Penetration Testing
+ - use of automated pentest tools
+ - ASVS cannot be automated completely (because of L2 and L3)
+ - Pentesting alone not efficient

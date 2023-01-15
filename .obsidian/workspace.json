@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "WAS/Chapter 5 - später wird gemerged.md",
+                "file": "DevSecOps/summary.md",
                 "mode": "source",
                 "source": true
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "WAS/Chapter 5 - später wird gemerged.md",
+                "file": "DevSecOps/summary.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "WAS/Chapter 5 - später wird gemerged.md",
+                "file": "DevSecOps/summary.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "WAS/Chapter 5 - später wird gemerged.md"
+                "file": "DevSecOps/summary.md"
               }
             }
           }
@@ -160,8 +160,8 @@
   "active": "79af2907cbf38a2c",
   "lastOpenFiles": [
     "WAS/Chapter 4 - später wird gemerged.md",
-    "WAS/summary.md",
     "WAS/Chapter 5 - später wird gemerged.md",
+    "WAS/summary.md",
     "cheatsheet.md.md",
     "KmPS/Claßen Teil.md",
     "assets/Bildschirm­foto 2023-01-14 um 12.40.19.png",

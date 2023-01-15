@@ -131,6 +131,7 @@
 - einfache Lösungen belasten den Prozessor und die Datentransferbusse des Hosts start
 #### RAID Levels
 - spezifiert die Mechanismen, nach denen das RAID System arbeitet
+
 ##### Raid 1
 - spiegelt die Daten über zwei oder mehr Festplatten des RAID 1 Arrays
 - Redundanz der Daten: die gleichen Daten auf allen Platten, redundant bis zum n -2 Platten 
@@ -146,4 +147,10 @@
 - Hardweare RAID, ggf. Disk Array empfehlenswert
 - erhöhte Leseperfomance durch Lesen von mehreren Festplatten
 - Ausfall von bis zu n-1 Platten keine Auswirkung auf die operative Perfomance
-- Schreiben der gespiegelten Nut
+- Schreiben der gespiegelten Nutzdaten erfordert zusätzliche Datentransfer-Kapazität zwischen Controller und Platte
+
+##### Raid 5
+- Daten werden über die Festplatten des RAID 5 Arrays verteilt
+- Datenredundanz mittels Paritätsinformationen
+- Paritätsblöcke gleichmäßig über alle Platten verteilt
+- festen Blockgröße von meist 64 kB

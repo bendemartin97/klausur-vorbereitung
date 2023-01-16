@@ -362,4 +362,23 @@
 	- Node-Level Fencing
 	- Fehler im Cluster Interconnect, nicht stoppbare Ressourcen, ausbleibende Rückmeldungen, Software-Absturz
 
-##
+### Monitoring Systeme, Nagios
+- _Ziele:_
+	- Ausfälle wenig Geld kosten
+	- Planung von Durchführung von Infrastruktur-Upgrades
+	- auf Anzeichnen von Störungen frühzeitig reagieren
+	- in bestimmten Fällen automasiertes Lösen von Problemen
+	- Koordination
+	- Sicherstellung der Service Level Agreements
+	- ganzheitliches Monitoring
+#### Nagios
+- überwacht Hosts, Services, Netztwerke
+- erledigt durch Plug-Ins bestimmte Überwachungsaufgaben
+- _Hosts in Nagios:_
+	- Geräte im Netztwerk, auf dendn zu überwachende Services laufen
+	- wird erst überwacht, wenn es mindestens zu einen zu überwachenden Service gibt
+- _Host Resources:_
+	- spezifische Aspekte von Hosts, die überwacht werden können
+	- Prozesstemperatur, RAM Speicherverbrauch etc.
+	- werden als Services betrachtet
+	- 

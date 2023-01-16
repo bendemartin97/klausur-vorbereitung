@@ -523,4 +523,22 @@
 	- Benachrichtigungen, Alarmgenerierung
 	- Reporting
 - _Log Collection & Archiving:_
-	- viele Logs in vi
+	- viele Logs aus vielen Quellen in vielen verschiedenen Formaten
+- _Log normalization:_
+	- binäre Logdaten in menschen-lesbares Format wandenl
+	- extrahiere Datenfelder
+
+### Incident Management
+- _IT Service Management: _
+	- Maßnahmen und Methoden, um Unterstützung von Geschäftsprozessen durch IT-Organisation
+- _IT Infrastructure Library:_
+	- Dokumentationsreihe
+	- Sammlung bewährter, praxisbezogener Richtlinien und Verfahren
+	- Planung, Bereitstellung, Betrieb und Management von IT Services
+	- sind Prozesse, Rollen, Verantwortlichkeiten, Begriffsdefinitionen
+- _Incident:_
+	- ungeplante Beeinträchtigung bzw. Unterbrechung eines IT Services
+	- Technisches Ausfall: System funktioniert gar nicht mehr
+	- Perfomance incident: System funktioniert mit eingeschränkten Leistung
+- _Incident management:_
+	- der reaktiven Prozess zur schnellst- möglichen, vollständigen Wiederherstellung des normalen Servicebetriebs.

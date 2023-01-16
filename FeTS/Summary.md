@@ -325,3 +325,10 @@
 	- Verwaltet die Resource Adapters
 - _Resource Agents:_
 	- abstrahiert von den konkreten Details der Ressourcen
+	- einheitliche abstrakte Sicht von Seiten des Clusters 
+	- Adapter für das konkrete Handling der Ressourcen
+- _Score:_
+	- beim Start einer Ressource im Cluster wird berechnet
+	- eine Kennzahl, welche die Eignung des Knotens zur Aufnahme dieser Ressource festlegt
+	- Plazierung der Ressource dann auf dem Knoten mit dem höchsten score
+- _Resource Sti_

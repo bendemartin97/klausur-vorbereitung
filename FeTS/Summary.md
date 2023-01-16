@@ -227,6 +227,21 @@
 	- Vegleich mit den von den Platte gelesenen Daten
 	- ggfs. Korrektur der falschen Daten
 	- Cache der Platte muss aus sein
-- RAID S
+- RAID Scrubbing bei RAID 5 / 6:
+	- korriegiert bei gefunderen Inkonststenz in einem Stripe nur die Parität dieses Stripes
 - Datenfehler auf Applikationsebede können nicht von RAID behandelt werden
 - kein Ersatz für Datensicherung
+#### Dateisysteme mit integriertem RAID
+- sind Dateisystemfunktionalität und RAID Funktionalität integriert (ZFS, Linux btrfs)
+- Vorteil:
+	- RAID kennt belegte und freie Blöcke
+	- behandelt bei Rebuild nur belegte Blöcke -> schneller
+	- Dateisystem kann über Prüfsummen die Dateiintegrität überwachen
+- Nachteil:
+	- Mechanismen sind nicht separiert
+	- erhöhte Komplexität und Fehleranfälligkeit
+	- Hardware-Unterstptzung schwer zu realisieren
+#### Kombination von Volume Management und RAID
+- als Kombination seperater Funktionalitäten
+- oder integriert in die LVM Funktionalität
+- 

@@ -541,4 +541,20 @@
 	- Technisches Ausfall: System funktioniert gar nicht mehr
 	- Perfomance incident: System funktioniert mit eingeschränkten Leistung
 - _Incident management:_
-	- der reaktiven Prozess zur schnellst- möglichen, vollständigen Wiederherstellung des normalen Servicebetriebs.
+	- der reaktive Prozess zur schnellst- möglichen, vollständigen Wiederherstellung des normalen Servicebetriebs
+- _Support Organization:_
+	-  verantwortlich für die Lösung der Incidents
+	- oft strukturiert in drei Levels:
+		1. Helpdesk:
+			- first line to the customer
+			- führt Erstklassifikation der Probleme durch
+			- Löst möglich viele Standardprobleme sofort
+			- Weiterleitung an 2nd Level
+			- Kommuniziert Problemlösung und schließt das Ticket
+			- Rückgriff auf CMDB -> schnelle Erschließung der spezifischen Situation beim Kunden
+		2. 2nd Level Support:
+			- weniger kompetentere Experte
+			- in funktionalen Teams nach techn. Gebieten sub-strukturiert
+			- Erstellen Standard-Lösungen für häufig wiederkehrende Probleme
+		3. 3rd Party Product Support:
+			- 

@@ -355,4 +355,8 @@
 	- konkurrierende Ressourcen, Inkonsistenzen, unkontrolliertes Verhalten
 	- Maßnahmen:
 		- Redundante Auslegung des Cluster Interconnet
-		- 
+		- Quorom Mechanismus: Auswahlmechanismus zur Bestimmung des einzig gültigen Teilclusters
+- _Fencing:_
+	- Ausschluss von einzelnen Ressourcen oder ganzen Knoten, deren Zustand unbestimmt ist
+	- Resource-Level Fencing
+	- Node-Level Fen

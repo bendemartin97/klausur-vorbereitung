@@ -439,3 +439,12 @@
 	- stellt sicher, dass Prüfungsresultate von passiven Prüfungen so regelmäßig wie erwartet empfangen worden sind
 - _Service Dependencies:_
 	- Benachrichtungen und aktive Prüfungen von Services in Abhängigkeit vom Status eines oder mehrerer Services zu unterdrücken 
+### Elastic Stack
+- Elasticsearch: Text und JSON basierende Suchmaschine. "Herz" des ELK Stacks
+- Logstash: Sammeln, parsen, transformieren, speichern und an ES weitergeben von Log-Dateien
+- Kibana: Visualisierung von ES Ergebnisdaten.
+- _Volltextsuche:_
+	- Tokenizing: in Worte zerlegen
+	- Stemming: Worte auf ihre Stammform reduzieren
+	- Filtering: Füllworte weg
+	- Ranking der Ergegnisse: 

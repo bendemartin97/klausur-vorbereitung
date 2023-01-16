@@ -557,4 +557,17 @@
 			- in funktionalen Teams nach techn. Gebieten sub-strukturiert
 			- Erstellen Standard-Lösungen für häufig wiederkehrende Probleme
 		3. 3rd Party Product Support:
-			- 
+			- Werden Produkte anderer Hersteller in den eigenen Services oder Produkten verwendet, so muss ggf. die Support-Organisation des externen Herstellers in die Incident-Bearbeitung miteingebunden werden
+- _Prozess:_
+	- Erkennen des Incidents
+	- Dokumentation
+	- Direkte Lösung oder Weiterreichen
+	- Lösung des Incidents
+	- Dokumentation der Lösung
+	- Nachprüfen der Lösung
+	- Schließen des Incidents
+- _Priorität:_
+	- Bearbeitung der Incidents gemäß deren Priorität:
+		- Reihenfolge der Bearbeitung
+		- Umfang eingesetzter Ressourcen
+	- Priorität = Auswirkungen * Dringlichkeit

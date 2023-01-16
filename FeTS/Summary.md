@@ -435,3 +435,7 @@
 	- RAM Speicherauslastung, CPU-Auslastung
 - _Passive Checks:_
 	- werden von Agent SW auf dem Host durchgeführt
+- _Freshness Prüfung:_
+	- stellt sicher, dass Prüfungsresultate von passiven Prüfungen so regelmäßig wie erwartet empfangen worden sind
+- _Service Dependencies:_
+	- Benachrichtungen und aktive Prüfungen von Services in Abhängigkeit vom Status eines oder mehrerer Services zu unterdrücken

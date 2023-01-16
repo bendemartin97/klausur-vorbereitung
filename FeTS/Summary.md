@@ -245,3 +245,16 @@
 - als Kombination seperater Funktionalitäten
 - oder integriert in die LVM Funktionalität
 ##### LVM mit Integriertem RAID 1 ![[Bildschirm­foto 2023-01-16 um 09.17.50.png]]
+##### Realisierung der PV:s als RAID Arrays
+- geringe Integration und Interaktion von LVM und RAID
+- modulare Realisierung
+- klar abgegrenzte Funktionalität, Administration und Fehlerhandling
+- gut für HW-Unterstützung der RAID Funktionalität
+- ![[Bildschirm­foto 2023-01-16 um 09.21.27.png]]
+##### RAID Funktionalitäten integriert in dem LVM
+- hohe Integration
+- entweder über API getrennt implementiert
+- oder gemeinsame, integrierte Implementierung
+- keine HW-Unterstützung der RAID Funktionalität
+- komplexeres, manuelles Handling des Rebuilds 
+- ![[Bildschirm­foto 2023-01-16 um 09.22.23.png]]

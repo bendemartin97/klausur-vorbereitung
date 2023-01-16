@@ -260,3 +260,10 @@
 - ![[Bildschirm­foto 2023-01-16 um 09.22.23.png]]
 
 ### Clustersysteme
+- eine Anzahl von vernetzten Computern, die von außen in vielen Fällen als ein Computer gesehen werden können
+- die einzelnen Cluster-Knoten sind untereinander über ein schnelles Netzwerk verbunden
+- _Ziel:_
+	- erhöhung der Rechnenkapazität oder Erhöhung der Verfügbarkeit gegenüber einem einzelnen Computer
+- _Hochverfügbarkeitscluster:_
+	- Steigerung der Verüfgbarkeit
+	- 

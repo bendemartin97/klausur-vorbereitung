@@ -381,4 +381,17 @@
 	- spezifische Aspekte von Hosts, die überwacht werden können
 	- Prozesstemperatur, RAM Speicherverbrauch etc.
 	- werden als Services betrachtet
-	- 
+- _Host Checks:_
+	- in regelmäßigen Intervallen
+	- nach Bedarf, wenn ein mit dem Host verbundener Service den Status wechselt
+	- nach Bedarf als Teil der Host-Verfügbarkeits-Logik
+	- nach Bedarf bei vorausschauenden Hosts-Abhängigkeitsprüfungen
+- _Host Groups:_
+	- mehrere Hosts zu gruppieren
+	- Nagios Konfigurationen zu vereinfachen
+	- werden im User Interface verwendet
+- _Services:_
+	- SW-Dienst (HTTP, FTP etc.)
+	- interne Eigenschaft eines Hosts (Speicher- und CPU-Auslastung)
+	- messbare Umweltbedingung (Temperaturwert)
+	- mit einem Host verbundene Information 

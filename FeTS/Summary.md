@@ -291,4 +291,22 @@
 - _Cluster Membership:_
 	- relevante Situationen:
 		- Ausfälle von Clusterknoten und Ressourcen
-		- inital
+		- initaler Start des Clusters
+		- Hinzufügen oder Entfernen von Knoten
+		- jeder Zeit unbedingt ein genaues und korrektes Bild der Membership
+- _Cluster Manager:_
+	- Steuer-Software des Clusters
+	- läuft auf jedem Knoten -> die Steuerung läuft auch im Fehlerfall weiter
+- _Cluster Information Base:_
+	- zentrale Cluster Datenbank
+	- im Cluster gespeichert und verwaltet von dem Manager
+	- enthält alle Informationen über die aktuelle Konfiguration des Clusters
+	- auf jedem Knoten verfügbar
+- _Cluster Resource Manager:_
+	- verwaltet CIB und behandelte alle Änderungen von clusterrelevanen Konfigurationsdaten
+	- reagiert auf Events (z.B Ausfälle von Diensten)
+	- Teil des Cluster Managers
+- _Designated Coordinator:_
+	- eine einzigartige zugewiesene Rolle
+	- hält die Master-CIB
+	- entscheidet 

@@ -244,4 +244,4 @@
 #### Kombination von Volume Management und RAID
 - als Kombination seperater Funktionalitäten
 - oder integriert in die LVM Funktionalität
-- 
+##### LVM mit Integriertem RAID 1 ![[Bildschirm­foto 2023-01-16 um 09.17.50.png]]

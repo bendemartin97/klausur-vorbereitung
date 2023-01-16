@@ -346,4 +346,10 @@
 	- Zusammenfassung von Ressourcen zu Gruppen
 	- gemeinsame Administration
 - _Migration von Ressourcen:_
-	- das Monitoring der Ressourcen kann schon bei ihrer 
+	- das Monitoring der Ressourcen kann schon bei ihrer Definition spezifiert werden
+	- übersteigt der fail-count einer Ressource ihren migration-threshold Parameter so wird die Ressource auf einen anderen Knoten migriert
+- _Split Brain Situation:_
+	- bei Störungen im Cluster-Interconnect entstehen mehrere Teilcluster
+	- Jeder Teilcluster denkt, er wäre der einzig Überlebende oder der einzige korrekt funktionierende Teilsitzer
+	- Jeder Teilcluster startet alle Ressourcen
+	- konkurrierende Ressourcen, Inkonsistenzen, unk

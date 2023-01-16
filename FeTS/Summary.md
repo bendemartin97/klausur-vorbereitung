@@ -265,5 +265,11 @@
 - _Ziel:_
 	- erhöhung der Rechnenkapazität oder Erhöhung der Verfügbarkeit gegenüber einem einzelnen Computer
 - _Hochverfügbarkeitscluster:_
-	- Steigerung der Verüfgbarkeit
-	- 
+	- Steigerung der Verfügbarkeit
+	- beim Fehlerfall auf einem Knoten werden die Dienste und Ressources dieses Clusters auf andere Clusterknoten migriert
+- _Clusterknoten:_
+	- eigenständige Computer mit eigenem BS und Applikationen
+- _Cluster Messaging:_
+	- schnelle Kommunikation zwischen den Clusterknoten
+	- Austausch von Lebenszeichen
+	- wichtig zur schennel 

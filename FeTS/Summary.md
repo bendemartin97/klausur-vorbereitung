@@ -361,3 +361,5 @@
 	- Resource-Level Fencing
 	- Node-Level Fencing
 	- Fehler im Cluster Interconnect, nicht stoppbare Ressourcen, ausbleibende Rückmeldungen, Software-Absturz
+
+##

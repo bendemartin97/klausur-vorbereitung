@@ -492,4 +492,17 @@
 	- Scorre Boosting beinflusst das Scoring basierend auf Regeln, die man angeben kann
 	- beinflussende Faktoren:
 		- Term Frequency: wie oft kommt der Term im Dokument vor?
-		- Inverse Document Frequency: 
+		- Inverse Document Frequency: eie oft kommt der Term in allen Dokumenten des Index vor? Je häufiger, desto geringer die Gesamt-Relevanz
+		- Field-Length Norm: je kürzer die Values des Treffer-Keys, desto relevanter
+- _Cluster:_
+	- bestehen aus mehreren ES Nodes
+	- ES verhält sich wie ein gemeinsamer Dienst
+	- Anfragen können an jeden Knoten des Clusters gerichtet werden
+	- Anfragen werden automatisch verteilt
+	- höhere Perfomance
+### Event Management
+- bezeichnet in der ITIL den Prozess zur Definizion von Filtern und Kategorisierung für Events
+- Events häufig im Form von System-Alarmen und Logdatei-Einrägen
+- _Prozess:_
+	- Analyse von Trends und Mustern 
+	- Pflege E

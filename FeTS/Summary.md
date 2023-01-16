@@ -315,3 +315,13 @@
 	- Auswahlregeln klar und einfach -> bei Ausfall muss neue DC schnell gewählt werden
 - _Cluster Ressourcen:_
 	- auf Clusterebene verwaltete Dienste, Objekte
+	- beinhaltet nicht die lokale Ressourcen der Clusterknoten
+- _Local Resource Manager:_
+	- auf jedem Clusterknoten
+	- verwaltet lokalen Ressourcen
+	- Änderungswünsche von CRM werden an den LRM delegiert
+	- Logik zur Ressourceverwaltung
+	- Adapter für das konkrete Handling der verschiedenen Ressourcen
+	- Verwaltet die Resource Adapters
+- _Resource Agents:_
+	- abstrahiert von den konkreten Details der Ressourcen

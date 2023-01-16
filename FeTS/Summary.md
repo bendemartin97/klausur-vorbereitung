@@ -482,3 +482,14 @@
 	- Zusammenstellung von Dokumenten
 	- gleich benannte Felder von Dokumenten im selben Index müssen vom selben Datentyp sein
 - _Types:_
+	- logische Unterteilung eines Index
+- _Mapping:_
+	- gibt an welcher Datentyp für welches Feld festgelegt ist
+- _Schemalosigkeit:_
+	- beim ersten Erstellen eines Index durch Einlesen erster Daten ein Mapping anhand der Daten der bisheringen Dokumente automatisch aufgebaut wird
+- _Scoring:_
+	- Einstufung der Relevanz jedes Suchergebnisses 
+	- Scorre Boosting beinflusst das Scoring basierend auf Regeln, die man angeben kann
+	- beinflussende Faktoren:
+		- Term Frequency: wie oft kommt der Term im Dokument vor?
+		- Inverse Document Frequency: 

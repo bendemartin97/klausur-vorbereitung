@@ -131,7 +131,6 @@
 - einfache Lösungen belasten den Prozessor und die Datentransferbusse des Hosts start
 #### RAID Levels
 - spezifiert die Mechanismen, nach denen das RAID System arbeitet
-
 ##### RAID 1
 - spiegelt die Daten über zwei oder mehr Festplatten des RAID 1 Arrays
 - Redundanz der Daten: die gleichen Daten auf allen Platten, redundant bis zum n -2 Platten 
@@ -219,3 +218,15 @@
 - Setups mit kombinierten RAID Levels können die Nachteile der individuellen RAID Levels ausgleichen
 - Realisiert als RAID Array, bei dem jede (logische) oder einzelne Festplatten selbst wiederum ein RAID Array ist/sind
 - Äußeres“ RAID Array und „innere“ RAID Arrays arbeiten nach verschiedenen RAID Levels
+
+#### Datenintegrität
+- Ziel ist Schutz vor dem Ausfall einer oder mehreren Festplatten
+- Datenintegrität wird normaleweise nicht berücksichtigt (ausnahme RAID 2)
+- einige RAID Controller haben Korrekturmechaniscmen:
+	- read after write
+	- Vegleich mit den von den Platte gelesenen Daten
+	- ggfs. Korrektur der falschen Daten
+	- Cache der Platte muss aus sein
+- RAID S
+- Datenfehler auf Applikationsebede können nicht von RAID behandelt werden
+- kein Ersatz für Datensicherung

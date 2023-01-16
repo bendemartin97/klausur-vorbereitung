@@ -271,5 +271,24 @@
 	- eigenständige Computer mit eigenem BS und Applikationen
 - _Cluster Messaging:_
 	- schnelle Kommunikation zwischen den Clusterknoten
-	- Austausch von Lebenszeichen
-	- wichtig zur schennel 
+	- Austausch von Lebenszeichen (heartbeat)
+	- wichtig zur schennel Behandlung von Konfigurationsänderungen und Failures
+- _Heartbeat:_
+	- gegenseitige Benachrichtigung der Clusterknoten, dass sie betriebsbereit sind
+	- regelmäßig gesendet
+	- unicast oder multicast
+	- typische Intervalle 1-5s
+	- Ausbleiben mehreren aufeinanderfolgenden heartbeats löst Fehlerbehandlungsmechanismen in anderen Knoten aus
+	- Gründe für das Ausbleiben:
+		- verlorengegangene Nachrichten
+		- Exzessive Verzögerung
+		- Ausfall des Netzwerkinterfaces
+		- Ausfall des Clusterknotens
+- _Cluster Interconnect:_
+	- optionale Separierung des cluster-internen Netzwerk vom öffenlichen
+	- verhindert störende externe Einflüsse auf cluster-interne Kommunikation
+	- erlaubt verscheidene Redundanz-Setups für beide Netzwerke
+- _Cluster Membership:_
+	- relevante Situationen:
+		- Ausfälle von Clusterknoten und Ressourcen
+		- inital

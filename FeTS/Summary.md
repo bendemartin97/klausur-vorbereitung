@@ -438,4 +438,4 @@
 - _Freshness Prüfung:_
 	- stellt sicher, dass Prüfungsresultate von passiven Prüfungen so regelmäßig wie erwartet empfangen worden sind
 - _Service Dependencies:_
-	- Benachrichtungen und aktive Prüfungen von Services in Abhängigkeit vom Status eines oder mehrerer Services zu unterdrücken
+	- Benachrichtungen und aktive Prüfungen von Services in Abhängigkeit vom Status eines oder mehrerer Services zu unterdrücken 

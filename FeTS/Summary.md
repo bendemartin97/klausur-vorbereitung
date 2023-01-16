@@ -577,4 +577,14 @@
 - ermöglciht die Zuweisung eines Tickets an ein Team oder an eine Person zur weiteren Bearbeitung
 - sicherstellen, dass keine Nachricht verloren geht
 - _Issue Tracking:_
-	- Ströungen
+	- nicht nur Fehlern und Störungen
+	- Strörungen
+	- Anfragen nach Informationen, Preisen etc.
+	- Änderungswünsche
+- _Trouble Ticket:_
+	- die elektronische Form einer Fehlermeldung im Fault Management
+- _Queues:_
+	- Mailbox für Tickets
+	- gruppieren die Tickets inhaltlich
+	- ein Ticket kann in eine andere Queue weitergeleitet werden
+- Eskalationen:

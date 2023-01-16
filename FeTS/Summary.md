@@ -309,4 +309,9 @@
 - _Designated Coordinator:_
 	- eine einzigartige zugewiesene Rolle
 	- hält die Master-CIB
-	- entscheidet 
+	- entscheidet über Beitritss-Requests neuer Knoten
+	- Cluster-Konfigurationsänderungen zuerst im DC, welcher die Änderunegen in alle anderen Knoten propagiert
+	- Auswahl bei Clusterstart: der erste aktive Knoten
+	- Auswahlregeln klar und einfach -> bei Ausfall muss neue DC schnell gewählt werden
+- _Cluster Ressourcen:_
+	- auf Clusterebene verwaltete Dienste, Objekte

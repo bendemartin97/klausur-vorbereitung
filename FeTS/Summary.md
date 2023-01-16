@@ -447,4 +447,23 @@
 	- Tokenizing: in Worte zerlegen
 	- Stemming: Worte auf ihre Stammform reduzieren
 	- Filtering: Füllworte weg
-	- Ranking der Ergegnisse: 
+	- Ranking der Ergegnisse: wie viele Treffer im Dokument
+	- Such-Index: schneller Suche
+	- invertierter Index: Index der Suchbegriffe mit Verweisen auf die Vorkommen in den Dokument
+- persistente Datenspeicherung
+- REST API: Anfragen und Ergebnisse im JSON Format
+- Clustering: skalierende Perfomance, hohe Verfügbarkeit
+- _Datenspeicherung:_
+	- NoSQL Datenbanken:
+		- Key-Value Stores
+		- Wide-Column Stores
+		- Graph-orientierte DB
+		- Dokumenten-orientierte DB
+	- Key-Value Stores:
+		- speichern Daten in From von Schlüssel-Wertparen
+		- die Werte können von verschiedenen Typen sein
+		- einfach in der Struktur und Datenspeicherung
+		- schnelle Suche
+		- leicht horizontal skalierbar
+	- Wide-Column Stores
+		- 

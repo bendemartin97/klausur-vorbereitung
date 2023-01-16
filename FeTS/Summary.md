@@ -466,4 +466,19 @@
 		- schnelle Suche
 		- leicht horizontal skalierbar
 	- Wide-Column Stores
-		- 
+		- Tabellenform
+		- alle Informationen eines Datensatzes in einer Zeile
+		- Anzahl der genutzten Spalten kann von Datensatz zu Datensatz unterschiedlich sein
+		- Daten können schemalos abgelegt werden
+	- Dokumenten-orientierte DB
+		- speichern die Daten in Form von Dokumenten
+		- ein Dokument ist eine Sammlung von Schlüssel-Werte-Paaren, die einen Bezug zueinander haben
+		- dürfen unterschiedliche Struktur haben
+		- schemafrei
+- ES ist schema-lose, dokumenten-orientierte NoSQL DB
+- Daten werden im JSON Format verarbeitet und gespeichert
+- Daten können einfach eingefügt werden
+- _Index:_
+	- Zusammenstellung von Dokumenten
+	- gleich benannte Felder von Dokumenten im selben Index müssen vom selben Datentyp sein
+- _Types:_

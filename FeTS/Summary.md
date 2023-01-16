@@ -258,3 +258,5 @@
 - keine HW-Unterstützung der RAID Funktionalität
 - komplexeres, manuelles Handling des Rebuilds 
 - ![[Bildschirm­foto 2023-01-16 um 09.22.23.png]]
+
+### Clustersysteme

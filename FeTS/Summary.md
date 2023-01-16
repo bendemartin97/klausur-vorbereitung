@@ -571,3 +571,10 @@
 		- Reihenfolge der Bearbeitung
 		- Umfang eingesetzter Ressourcen
 	- Priorität = Auswirkungen * Dringlichkeit
+
+### Ticket Systeme
+- Software für Empfang, Bestätigung, Klassifizierung und Bearbeitung von Störungsmeldungen
+- ermöglciht die Zuweisung eines Tickets an ein Team oder an eine Person zur weiteren Bearbeitung
+- sicherstellen, dass keine Nachricht verloren geht
+- _Issue Tracking:_
+	- Ströungen

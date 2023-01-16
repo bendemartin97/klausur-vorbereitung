@@ -402,4 +402,17 @@
 	-  mehrere Services zu gruppieren
 	- Nagios Konfigurationen zu vereinfachen
 	- werden im User Interface verwendet
-- _Statustypen :_
+- _Statustypen :
+	- Soft Error:
+		- Prüfungsergebnis in einem Nicht-Ok oder Nicht-Up Status
+		- Prüfung noch nicht nach max_check_attempts oft durchgeführt wurde
+		- werden nur die Eventhandler getriggert
+	- Hard Error:
+		- Prüfungsergebnis in einem Nicht-Ok oder Nicht-Up Status
+		- Prüfung  nach max_check_attempts  oft durchgeführt wurde
+		- von einem Hard-Error-Zustand in einen anderen Fehlerzustand wechselt
+		- Service Prüfung mit einem Nicht-Ok-Status endet und der zugehörige Host down oder nicht erreichbar ist
+		- trigger Eventhandler
+		- Kontakte werden benachrichtigt
+- _Flapping:_
+	- durch öftere Zusta

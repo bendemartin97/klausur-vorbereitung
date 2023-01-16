@@ -395,3 +395,11 @@
 	- interne Eigenschaft eines Hosts (Speicher- und CPU-Auslastung)
 	- messbare Umweltbedingung (Temperaturwert)
 	- mit einem Host verbundene Information 
+- _Service Checks:_
+	- in regelmäßigen Intervallen
+	- nach Bedarf bei voraussichtlichen Service-Abhängigkeitsprüfungen
+- _Service Groups:_
+	-  mehrere Services zu gruppieren
+	- Nagios Konfigurationen zu vereinfachen
+	- werden im User Interface verwendet
+- _Statustypen :_

@@ -415,4 +415,23 @@
 		- trigger Eventhandler
 		- Kontakte werden benachrichtigt
 - _Flapping:_
-	- durch öftere Zusta
+	- durch öftere Zustandswchsels wird ein Sturm von Problemen- und Erholungsbenachrichtigung erzeugt
+	- kann auf Konfigurationsproblemen hinweisen
+	- oder auf sich gegenseiteig störende Services
+	- oder auf wirkliche Netztwerkprobleme
+	- oder anderweitige technische Probleme
+- _Publicy Available Services:_
+	- von außen zugängliche Services eines Hosts
+	- können von außen von Nagios geprüft werden
+	- keine Add-On Software auf dem Host notwendig
+	- HTTP, SMTP, ping, FTP, SSH
+- _Aktive Checks:_
+	- gebräuchlichste Methode zur Überwachung
+	- vom Nagios-Prozess veranlasst
+	- laufen auf einer regelmäßig geplanten Basis
+- _Private Services:_
+	- nicht von außen zugängliche Services eines Hosts
+	- Add-On Software (agent) auf dem Host erforderlich
+	- RAM Speicherauslastung, CPU-Auslastung
+- _Passive Checks:_
+	- werden von Agent SW auf dem Host durchgeführt

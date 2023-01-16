@@ -508,3 +508,19 @@
 	- Pflege der Event-Monitoring-Regeln zur Filterung
 	- Event-Filterung sollte automatisiert durchgeführt werden
 	- Kontinuierliche Verbesserung des Event-Inputs
+
+### Log Management
+- Welche Arten von Infos aus Logs sind gewinnbar?
+	- IT Sicherheit: Bedrohungen, Hack-Versuche
+	- Troubleshooting: Systemfehler, Incidents
+	- Systemperfomance
+	- System Management: Welche Konfigurationsänderungen wo wann
+	- Regulatorische Informationen: bestimmte Prozess- oder Sicherheitszertifierungen erfordern aktive Überwachund der Logs
+- _Log Management Operationen:_
+	- Log Collection & Archiving
+	- Log Normalization
+	- Log Monitoring: Log Correlation füge Zusatzinfos aus anderen Quellen hinzu
+	- Benachrichtigungen, Alarmgenerierung
+	- Reporting
+- _Log Collection & Archiving:_
+	- viele Logs in vi

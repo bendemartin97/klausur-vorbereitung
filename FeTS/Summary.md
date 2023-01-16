@@ -505,4 +505,6 @@
 - Events häufig im Form von System-Alarmen und Logdatei-Einrägen
 - _Prozess:_
 	- Analyse von Trends und Mustern 
-	- Pflege E
+	- Pflege der Event-Monitoring-Regeln zur Filterung
+	- Event-Filterung sollte automatisiert durchgeführt werden
+	- Kontinuierliche Verbesserung des Event-Inputs

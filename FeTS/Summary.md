@@ -359,4 +359,5 @@
 - _Fencing:_
 	- Ausschluss von einzelnen Ressourcen oder ganzen Knoten, deren Zustand unbestimmt ist
 	- Resource-Level Fencing
-	- Node-Level Fen
+	- Node-Level Fencing
+	- Fehler im Cluster Interconnect, nicht stoppbare Ressourcen, ausbleibende Rückmeldungen, Software-Absturz

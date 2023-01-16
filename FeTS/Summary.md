@@ -352,4 +352,7 @@
 	- bei Störungen im Cluster-Interconnect entstehen mehrere Teilcluster
 	- Jeder Teilcluster denkt, er wäre der einzig Überlebende oder der einzige korrekt funktionierende Teilsitzer
 	- Jeder Teilcluster startet alle Ressourcen
-	- konkurrierende Ressourcen, Inkonsistenzen, unk
+	- konkurrierende Ressourcen, Inkonsistenzen, unkontrolliertes Verhalten
+	- Maßnahmen:
+		- Redundante Auslegung des Cluster Interconnet
+		- 

@@ -331,4 +331,19 @@
 	- beim Start einer Ressource im Cluster wird berechnet
 	- eine Kennzahl, welche die Eignung des Knotens zur Aufnahme dieser Ressource festlegt
 	- Plazierung der Ressource dann auf dem Knoten mit dem höchsten score
-- _Resource Sti_
+- _Resource Stickiness:_
+	- Beharrungsvermögen einer Ressource auf einem Knoten
+	- soll das zu häufige Wechseln einer Ressource zwischen verschiedenen Knoten erschweren
+	- default Resource Stickiness gilt für alle Ressourcen auf allen Knoten
+- _Constraints:_
+	- Regeln, welche die scores der Clusterknoten bezüglich der Ressourcen beeinflussen
+	- werden vom Cluster-Administrator definiert
+	- Arten:
+		1. Location: Platzierung von Ressourcen auf einem bestimmten Knoten
+		2. Colocation: gemeinsame Platzierung von Ressourcen auf dem gleichen Knoten
+		3. Ordering: Reihenfolge des Startens und Stoppens von Ressourcen
+- _Resource Groups:_
+	- Zusammenfassung von Ressourcen zu Gruppen
+	- gemeinsame Administration
+- _Migration von Ressourcen:_
+	- das Monitoring der Ressourcen kann schon bei ihrer 

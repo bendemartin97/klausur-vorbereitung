@@ -587,4 +587,25 @@
 	- Mailbox für Tickets
 	- gruppieren die Tickets inhaltlich
 	- ein Ticket kann in eine andere Queue weitergeleitet werden
-- Eskalationen:
+- _Eskalationen:_
+	- Wird ein Ticket mit einer bestimmten Priorität vom aktuellen Support Level nicht innerhalb eines bestimmten Zeitraums gelöst, so wird es ggfs. vom Ticket System automatisch eskaliert
+- _Vorteile:_
+	- alle Tickets einheitlich dokumentiert und behandelt
+	- automatische Meldung
+	- online Überprüfung vom aktuellen Stand
+	- Einheitlichkeit des Ablaufs
+	- Analyse der Fallhistorien
+	- eindeutige Kommunikation
+	- Reporting
+
+### Problem Management
+- bezeichnet in der ITIL den proaktiven Prozess zur Ermittlung der eigentlichen Ursache für das (ggf.) wiederholte Auftreten von Incidents
+- _Ziel:_
+	- endgültige Beseitigungs der Störursache
+	- oder Minimirung der Impacts zukünftiger solcher Incidents
+- _Aktivitäten in Problem Management:_
+	- Erkennen von Trends
+	- Ursachenforschung
+	- Erstellung von Lösungskonzepten
+	- Initiierung von Request for Change
+	- Reporting

@@ -1,8 +1,7 @@
 # 💣 Important
 
-## Scala
 
-### Tail-rekursion
+## Tail-rekursion
 Tail-Rekursion ist eine Form der Rekursion, bei der der **rekursive Aufruf die letzte von der Funktion ausgeführte Operation ist**. Bei tail-recursiven Funktionen ist der rekursive Aufruf nicht in andere Ausdrücke eingebettet, so dass der Compiler die Funktion optimieren kann, indem er den rekursiven Aufruf durch eine Schleife ersetzt. 
 **Dies kann effizienter sein** als die Standardrekursion, da 
 man einen __konstanten Platzaufwand__ benötigt, weil durch die Tail-Rekursion immer der gleiche Stack-Frame verwendet werden kann.
@@ -27,7 +26,8 @@ def sumfirstnTR(n:Int,res:Int) : Int =
 	if (n==0) res else sumfirstnTR(n-1,res+n)
 ```
 
-### Auswertungsstrategien
+## Auswertungsstrategien
+
 ![[Pasted image 20230119123459.png]]
 
 #### Call-by-Value 
@@ -39,7 +39,7 @@ _Left-most_ -> linker Ausdruck zuerst
 _Right-most_ -> rechter Ausdruck zuert
 
 
-### Currying
+## Currying
 Currying ist eine Technik in der Funktionale Programmierung, bei der eine Funktion, die **mehrere Argumente nimmt, in eine Kette von Funktionen umgewandelt wird, die jeweils nur ein Argument entgegennehmen.** Jede dieser Funktionen gibt eine neue Funktion zurück, die das nächste Argument erwartet, bis alle Argumente verarbeitet wurden und das endgültige Ergebnis zurückgegeben wird.
 
 ``` Scala
@@ -48,7 +48,7 @@ val result = multiply(5)(6)
 ```
 
 
-### Higher-Order-Funtions
+## Higher-Order-Funtions
 #### Map
 wendet eine **Funktion** auf jedes Element der Liste an und speichert es in neuer Liste.
 
@@ -84,7 +84,7 @@ println(sum) // Prints 15
 In diesem Beispiel wird die Methode reduce mit der Liste numbers aufgerufen und erhält eine Binärfunktion als Argument. Die binäre Funktion nimmt zwei ganze Zahlen, x und y, und gibt deren Summe zurück. Die Methode reduce wendet diese Funktion auf die Elemente der Liste an, **beginnend mit den ersten beiden Elementen, dann das Ergebnis und das nächste Element usw., bis sie beim letzten Element angelangt ist.**
 
 
-### Lazy Evaluation
+## Lazy Evaluation
 Lazy evaluation is a feature that allows certain **expressions to be evaluated only when their values are needed.** This can help to improve performance and reduce memory usage by avoiding unnecessary computation.
 
 

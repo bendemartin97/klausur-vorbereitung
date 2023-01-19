@@ -1,3 +1,6 @@
+cards-deck: DevSecOps::summarys
+---
+
     [[#Kapitel 3]]
 	    [[#Motivation Automatisiertes Testing]]
 	    [[#Automatisierter Software Testing Life Cycle]]
@@ -22,7 +25,7 @@
 	    
 ## Kapitel 3 - Security Testing & SAST
 [PDF Link](DevSecOps_Kapitel3.pdf)
--   __Hauptziele des Security Testing__
+__Hauptziele des Security Testing__
     -   Testen ist eine wichtige Tätigkeit im _SDLC_, insbesondere bevor der Kunde die Software erhält
     -   Security Testing legt einen Fokus auf Fehler, die als Schwachstellen ausgenutzt werden können
     - _Hier Fokus auf automatisierte Tests_
@@ -30,6 +33,7 @@
 -   __Hauptziele des Static Application Security Testing__
     -   Fehler im Source Code und potentielle _Schwachstellen frühzeitig finden (während der Entwicklung)_
     -   _Automatisierte Tools unterstützen die Entwickler_ und machen eine sichere Entwicklung erst möglich
+^1673868798945
 
 
 #### Motivation Automatisiertes Testing
@@ -46,39 +50,52 @@
 
 #### Use Cases für Automatisiertes Testing
 [PDF Link](DevSecOps_Kapitel3.pdf#page=7)
-##### Regression Testing
-	eignen sich für automatisierte Tests, da der Code häufig
-	geändert wird und die menschliche Fähigkeit zur rechtzeitigen
-	und qualitativen Durchführung von Tests überfordert ist.
-##### Load testing
-	Es soll überprüft werden, ob das System/die Anwendung die
-	erwartete Anzahl von Transaktionen bewältigen kann, und das
-	Verhalten des Systems/der Anwendung sowohl unter normalen als
-	auch unter Spitzenlastbedingungen überprüft werden.
-##### Performance Testing
-	Bei dieser Art von Tests werden die Geschwindigkeits-,
-	Skalierbarkeits- und/oder Stabilitätseigenschaften des zu
-	prüfenden Systems oder der zu prüfenden Anwendung ermittelt
-	oder validiert.
+
+##### Regression Testing #card
+	eignen sich für automatisierte Tests, da der
+	Code häufig geändert wird und die menschliche
+	Fähigkeit zur rechtzeitigen und qualitativen
+	Durchführung von Tests überfordert ist.
+	^1673869588619
+##### Load testing #card
+	Es soll überprüft werden, ob das System/die
+	Anwendung die erwartete Anzahl von
+	Transaktionen bewältigen kann, und das
+	Verhalten des Systems/der Anwendung sowohl
+	unter normalen als auch unter 
+	Spitzenlastbedingungen überprüft werden.
+	^1673869699916
+##### Performance Testing #card
+	Bei dieser Art von Tests werden die 
+	Geschwindigkeits-, Skalierbarkeits- und/oder 
+	Stabilitätseigenschaften des zu
+	prüfenden Systems oder der zu prüfenden
+	Anwendung ermittelt oder validiert.
+	^1673869771390
 ##### Weitere...
 	- End-to-End Testing
-		- Wertvoll, aber manchmal schwierig zu automatisieren
+	- Wertvoll, aber manchmal schwierig zu 
+		automatisieren
 	- Unit-Tests
 	- Integrationstests
+
+
+
 
 #### Automatisiertes Testen vs Manuelles Testen
 ![[Pasted image 20230116092629.png]]
 
-#### Bekannte Testautomatisierungsframeworks
+#### Bekannte Testautomatisierungsframeworks #card
 - HP QTP (Quick Test Professional) / UFT (Unified 01
 - Silk Test
 - Selenium
 - Test Complete
 - ....
+^1673869997467
 
 #### Security Testing
 [PDF Link](DevSecOps_Kapitel3.pdf#page=10)
-##### Auswahl an Techniken
+##### Auswahl an Techniken 
 - Vulnerability Scanning
 - Password Virus
 - Cracking Detect

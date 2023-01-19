@@ -1,6 +1,4 @@
-Thanks to [Brendan O’Connor](https://brenocon.com/), this cheatsheet aims to be a quick reference of Scala syntactic constructions. Licensed by Brendan O’Connor under a CC-BY-SA 3.0 license.
-
-#### variables
+#### Variables
 
 **Variable**
 ```Scala

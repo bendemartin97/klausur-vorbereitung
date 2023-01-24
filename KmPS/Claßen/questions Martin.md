@@ -11,7 +11,7 @@ Beschreiben Sie, was man unter Concurrency und was man unter Parallelismus verst
 	- Parallelismus ist eine Art von Concurrency, wobei die Programmteile zur gleicher Zeit auf mehreren Prozessoren ausgeführt werden können.
 
 Beschreiben Sie das Scheduling nebenläufiger Programmteile in Go und in Erlang und grenzen Sie diese beiden Scheduling Konzepte gegeneinander ab. 
-- Nebenläufigkeit in Go werden mithilfe von Goroutine realisiert die auf von dem Scheduler für verfügbare 
+- Nebenläufigkeit in Go werden mithilfe von Goroutine realisiert, die auf von dem Scheduler auf verfügbare Threads verteilt werden. Die Verwaltung von Goroutinen werden von dem sogenannten Green Thread realisiert. Der ganze Ablauf passiert in dem user space von Goruntime und nicht im kernel space, deswegen ist es OS unabähingig und funktioniert auch auf OS:s ohne Threads Support. Blockierende Goroutine blockieren nicht den Thread, es kommt einfach eine neue Goroutine auf dem Thread dran. Goroutine geben die Kontrolle kooperativ ab, 
 
 Was versteht man unter kooperativem Scheduling? Nennen Sie dabei auch einen Vorteil und einen Nachteil dieses Scheduling Ansatzes. Beschreiben Sie das kooperative Scheduling in der Programmiersprache Go.
 	- Unter kooperativem Scheduling versteht man, dass der Scheduler die Entscheidung selber dem Prozess überlässt, wann er die Kontrolle wieder zurückgibt. In der Regel sind jede Dienst-Anforderungen an das Betriebssystem mit einem Task-Wechsel verbunden

@@ -112,13 +112,73 @@ Bei Erlang Applikationen, die auf das Framework OTP aufgebaut sind, besteht die 
 JavaScript Interpreter bieten im Prinzip nur eine "Ausführungseinheit" für den JavaScript Code und nur eine Event Loop. Trotzdem ist es möglich, nebenläufige Programmteile zu programmieren.
 	1. Beschreiben Sie einen Mechanismus, durch den bestimmt wird, ob und wann die nebenläufigen Programmteile zur Ausführung kommen. 
 	2. Zu welchen negativen Konsequenzen können die Einschränkungen "eine Ausführungseinheit" und "eine Event Loop" trotz des Vorhandenseins von Nebenläufigkeit führen, wenn man ausschließlich die Ausführung von JavaScript Code betrachtet? Denken Sie sich ein Beispiel aus, welches diesen Effekt illustriert, und beschreiben Sie es high-level.
-2. Was versteht man unter dem JavaScript Callback Programmierstil? Geben Sie ein JavaScript Codebeispiel mit von ihnen erdachten JavaScript Funktionen an, welches das Callback Prinzip illustriert, und erläutern Sie ihr Beispiel.
-3. Wie kann man bei der JavaScript Programmierung mittels einfacher Callbacks die Fehlerbehandlung programmieren? Geben Sie ein JavaScript Codebeispiel mit einer von ihnen erdachten JavaScript Callback Funktion an, welches illustriert, wie die Fehlerinformationen einer asynchronen Operation an ein Callback übergeben und von diesem verarbeitet werden könnten. Das Beispiel soll auch die Registrierung der Callback Funktion beinhalten.
-4. Was versteht man bei der JavaScript Programmierung unter dem Problem der "Callback Hell" (oder "Pyramid of Doom")? Geben Sie ein JavaScript Codebeispiel mit von ihnen erdachten JavaScript Funktionen an, welches das "Callback Hell" Problem illustriert, und erläutern Sie ihr Beispiel.
-5. Erläutern Sie anhand eines von Ihnen erdachten JavaScript Pseudo-Code-Beispiels das Konzept des "Reactive Programming". Erläutern Sie insbesondere, auf welcher Art von Datenstrukturen dieser Ansatz basiert und welche Art von Operationen auf diesen Daten benutzt werden. Beschreiben Sie, welchen Vorteil dieser Programmieransatz bietet gegenüber der klassischen event-basierten Programmierung in JavaScript.
-6. Was versteht man bei der JavaScript Programmierung unter dem Konzept der Promises? Was ist eine Promise? Wie wird sie im JavaScript Code programmiert? Geben Sie ein von Ihnen erdachtes JavaScript Pseudo-Code-Beispiel an, in dem eine von Ihnen erdachte JavaScript Funktion eine Promise erzeugt und zurückgibt. Erläutern Sie den Zweck der Promise mittels ihres Beispiels. Erläutern Sie auch, aus welchen Codekonstrukten sich die Promise zusammensetzt und wie diese Konstrukte in ihrem Beispiel genutzt werden, damit die Promise ihren Zweck erfüllen kann.
-7. Was passiert bei einer JavaScript Promise, wenn im Executor der Promise die Funktion resolve() einmal mit dem Parameterwert 11 aufgerufen wird (resolve(11)) und anschließend mit dem Parameterwert 22 aufgerufen wird (resolve(22))? Erläutern Sie insbesondere, zu welchem Ergebniswert und Status der Promise dies führt. Was passiert bei einer JavaScript Promise, wenn im Executor der Promise zuerst resolve(33) aufgerufen wird und anschließend reject(-1) (d.h. Fehlercode -1)? Erläutern Sie insbesondere, zu welchem Ergebniswert und Status der Promise dies führt.
-8. Es ist im JavaScript Code auf keine der folgenden alternativen Arten möglich, die Beispiel-Promise zu resolven: 
+
+Was versteht man unter dem JavaScript Callback Programmierstil? Geben Sie ein JavaScript Codebeispiel mit von ihnen erdachten JavaScript Funktionen an, welches das Callback Prinzip illustriert, und erläutern Sie ihr Beispiel #wiederholen 
+- Callback-Programmierung ist ein Konzept der asynchronen Programmierung, bei dem eine Funktion (der "Callback") als Argument an eine andere Funktion übergeben wird, die später aufgerufen wird. Dies ermöglicht es, dass eine Funktion ihre Arbeit fortsetzen kann, während eine andere Funktion ausgeführt wird.
+	- *Example*
+	
+		```JavaScript
+		function getDataFromServer(callback) {
+		    // Simuliert einen Server-Aufruf, der Daten zurückgibt
+		    setTimeout(() => {
+		        const data = {
+		            name: "John",
+		            age: 30
+		        };
+		        callback(data);
+		    }, 2000);
+		}
+		
+		function displayData(data) {
+		    console.log(data);
+		}
+		
+		getDataFromServer(displayData); 
+		// Gibt nach 2 Sekunden { name: "John", age: 30 } aus
+		```
+	- In diesem Beispiel ruft die Funktion `getDataFromServer` einen asynchronen Prozess auf, der simuliert, Daten von einem Server zu erhalten. Wenn die Daten verfügbar sind, ruft die Funktion den übergebenen Callback (`displayData`) auf und übergibt ihm die Daten. Die `displayData` Funktion gibt die Daten dann auf der Konsole aus.
+
+ Wie kann man bei der JavaScript Programmierung mittels einfacher Callbacks die Fehlerbehandlung programmieren? Geben Sie ein JavaScript Codebeispiel mit einer von ihnen erdachten JavaScript Callback Funktion an, welches illustriert, wie die Fehlerinformationen einer asynchronen Operation an ein Callback übergeben und von diesem verarbeitet werden könnten. Das Beispiel soll auch die Registrierung der Callback Funktion beinhalten.
+	- In JavaScript kann man Fehler in Callbacks durch die Übergabe eines Error-Objekts als erstes Argument des Callbacks handhaben.
+	- *Example*
+ ```javascript 
+	function getDataFromServer(callback) {
+		    // Simuliert einen Server-Aufruf, der Daten zurückgibt
+		    setTimeout(() => {
+			    // Simuliert einen erfolgreichen oder fehlerhaften Aufruf
+		        const success = 
+			        Math.random() >= 0.5;
+			        
+		        if (success) {
+		            const data = { name: "John", age: 30 };
+		            callback(null, data); // Kein Fehler, übergebe Daten
+		            
+		        } else {
+			        const error = 
+				        new Error("Could not retrieve data from server");
+		            callback(error); // Fehler, übergebe Error-Objekt
+		        }
+		    }, 2000);
+		}
+
+		// Registrieren des Callbacks
+		getDataFromServer(function (error, data) {
+		    if (error) {
+		        console.error(error.message);
+		    } else {
+		        console.log(data);
+		    }
+		}); 
+ ```
+	- In diesem Beispiel wird das Ergebnis des Serveraufrufs simuliert. Wenn der Aufruf erfolgreich ist, werden die Daten an den Callback übergeben, ansonsten wird ein Error-Objekt übergeben. Der Callback prüft dann, ob ein Fehler vorliegt und handelt entsprechend. Wenn es ein Fehler ist, wird die Fehlermeldung auf der Konsole ausgegeben, andernfalls werden die Daten ausgegeben.
+
+Was versteht man bei der JavaScript Programmierung unter dem Problem der "Callback Hell" (oder "Pyramid of Doom")? Geben Sie ein JavaScript Codebeispiel mit von ihnen erdachten JavaScript Funktionen an, welches das "Callback Hell" Problem illustriert, und erläutern Sie ihr Beispiel.
+- Programmierung der Nebenläufigkeit asynchroner Programmteile führt bei nacheinander auszuführenden (voneinander abhängigen) Programmteile zu einem tief verschachtelten, unübersichtlichen Callbacks-Programmcode
+2. Erläutern Sie anhand eines von Ihnen erdachten JavaScript Pseudo-Code-Beispiels das Konzept des "Reactive Programming". Erläutern Sie insbesondere, auf welcher Art von Datenstrukturen dieser Ansatz basiert und welche Art von Operationen auf diesen Daten benutzt werden. Beschreiben Sie, welchen Vorteil dieser Programmieransatz bietet gegenüber der klassischen event-basierten Programmierung in JavaScript.
+Was versteht man bei der JavaScript Programmierung unter dem Konzept der Promises? Was ist eine Promise? Wie wird sie im JavaScript Code programmiert? Geben Sie ein von Ihnen erdachtes JavaScript Pseudo-Code-Beispiel an, in dem eine von Ihnen erdachte JavaScript Funktion eine Promise erzeugt und zurückgibt. Erläutern Sie den Zweck der Promise mittels ihres Beispiels. Erläutern Sie auch, aus welchen Codekonstrukten sich die Promise zusammensetzt und wie diese Konstrukte in ihrem Beispiel genutzt werden, damit die Promise ihren Zweck erfüllen kann.
+- 
+4. Was passiert bei einer JavaScript Promise, wenn im Executor der Promise die Funktion resolve() einmal mit dem Parameterwert 11 aufgerufen wird (resolve(11)) und anschließend mit dem Parameterwert 22 aufgerufen wird (resolve(22))? Erläutern Sie insbesondere, zu welchem Ergebniswert und Status der Promise dies führt. Was passiert bei einer JavaScript Promise, wenn im Executor der Promise zuerst resolve(33) aufgerufen wird und anschließend reject(-1) (d.h. Fehlercode -1)? Erläutern Sie insbesondere, zu welchem Ergebniswert und Status der Promise dies führt.
+5. Es ist im JavaScript Code auf keine der folgenden alternativen Arten möglich, die Beispiel-Promise zu resolven: 
 	``` Javascript
 	let my_promise = new Promise( … ); 
 	resolve(my_promise); //funktioniert nicht 

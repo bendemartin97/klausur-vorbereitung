@@ -1,7 +1,7 @@
 
-# Concurrency #card 
+# Concurrency
 
-### Concurrency #card 
+### Concurrency 
 - bezeichnet die Möglichkeit, Programmteile unabhängig voneinander in unterschiedlicher Reihenfolge auszuführen zu können
 - bei __mehreren__ Prozessoren oder Rechnern ist die parallele Ausführung möglich
 - bei __nur einem__ Prozessor ist nur eine sequentialisierte Ausführung möglich, Reihenfolge variabel
@@ -10,12 +10,12 @@
 	- mehrere Prozessoren/Rechner: Die Ausführung einiger Teile müssen warten oder ggf. pausiert werden
 	- ein Prozessor/Rechner: Kontrollfluss muss wechseln, damit der Sender seine Aufgabe erledigen kann![[Bildschirm­foto 2023-01-13 um 19.41.00.png]]
 	
-### Parallelismus #card
+### Parallelismus 
 - __bezeichnet die gleichzeitige Ausführung nebenläufiger Programmteile auf mehreren Prozessoren oder Rechnern__
 - Falls während der Ausführung Abhängigkeiten über Daten oder Kommunikation auftauchen, die Ausführung einiger Teile müssen warten, ggf. pausiert werden![[Bildschirm­foto 2023-01-13 um 19.41.10.png]]
 ^1674552513448
 
-### Scheduler, Scheduling #card
+### Scheduler, Scheduling 
 - verteilt nebenläufige Programmteile / Tasks auf die zur Verfügung stehenden Ausführungseinheiten, wie z.B Prozessoren und kontrolliert bzw. bestimmt ggfs. ihre Ausführung
 - _Der Scheduler:_
 	- sichert den Prozesskontext des gerade unterbrochenen Tasks
@@ -25,7 +25,7 @@
 - Der Scheduler kann Listen mit verschieden priorisierten Tasks führen, und niedrig priorisierte entsprechend selten aufrufen.
 ^1674552513453
 
-### Kooperatives Scheduling (Phyton, JS, Go) #card
+### Kooperatives Scheduling (Phyton, JS, Go) 
 - __überlässt jedem Task selbst die Entscheidung, wann er die Kontrolle an den Scheduler zurückgibt__
 - in der Regel wir zumindest jede Dienst-Anforderung an das Betriebssystem mit einem Taskwechsel verbunden
 - _Vorteil:_
@@ -35,14 +35,14 @@
 	- Tasks, die die Kontrolle nicht schnell genug zurückgeben, können das gesamte System / andere Tasks (zeitweise) blockieren
 ^1674552513456
 
-### Mehrstufige Nebenläufigkeit in Go #card
+### Mehrstufige Nebenläufigkeit in Go 
 - ein oder mehrere Prozessoren. 
 - darüber mehrere Threads: Mindestens ein Thread pro Prozessor. Aber ggfs. auch mehrere Threads pro Prozessor. 
 - darüber die Goroutinen.
 - führt dazu, dass das Go Programm nicht unbedingt blockiert, wenn eine Goroutine die Kontrolle nicht zurückgibt: Wenn es noch andere Threads gibt, in denen nicht blockierte Goroutinen sind.
 ^1674552513458
 
-### Preemptive Scheduling (Java, Erland, Betriebssystemen) #card
+### Preemptive Scheduling (Java, Erland, Betriebssystemen) 
 - bezeichnet die Scheduling-Strategie, __bei welcher der Scheduler den Prozessen / Tasks eine Rechenzeit zuteilt und dem aktuellen Prozess die CPU nach Ablauf dieser Zeit wieder entzieht__, egal, an welcher Stelle der Prozess mit seinen Berechnungen gerade ist
 - _Vorteil:_
 	- der Flow of Control kann einem Task an beliebiger Stelle entzogen werden
@@ -52,11 +52,11 @@
 	- es ist schwer per Locking alle gemeinsam genutzter Ressource effektiv zu schützen
 ^1674552513461
 
-### Deadlock #card
+### Deadlock 
 - bezeichnet einen zyklischen Wartezustand zwischen mehreren Prozessen / Tasks, wobei jeder Task auf eine bestimmte Aktion (Nachricht, Datenänderung, Freigabe eines Betriebsmittels wie Datei, ...) wartet und diese Aktion nur exklusiv von diesem anderen Task ausgeführt werden kann
 ^1674552513463
 
-### Race Condition #card
+### Race Condition 
 - bedeutet, dass das Ergebnis der Programmausführung vom zeitlichen Verhalten bzw. der zeitlichen Abfolge bestimmter Programmteile abhängt, wobei diese zeitliche Abfolge nicht eindeutig durch das Programm selbst bestimmt wird.
 ^1674552513466
 

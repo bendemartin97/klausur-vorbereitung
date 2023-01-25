@@ -558,7 +558,6 @@ var buch = new Buch("Mein Buch");
 #### pseudo-klassische OO
 - ausgewählte Funktions-Objekte, welche die Rolle von Klassen haben und gleichzeitig auch als Konstruktoren für Instanz-Objekte dieser Klasse fungieren
 - new wird aufgerufen zusammen mit einer Funktion, welche dann die Rolle eines Konstruktors zur Objekt-Initialisierung übernimmt.
-
 - entspricht nicht dem Basis-Konzept
 #### objekt-basierte OO
 - realisiert die prototypische Vererbung

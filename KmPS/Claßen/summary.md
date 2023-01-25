@@ -567,9 +567,9 @@ var buch = new Buch("Mein Buch");
 - Verweiskette zwischen Objekten benutzt
 - Erzeugung mittel Object.create
 ### Polyfilling
-- vor ECMAScript 5
+- Object.create wurde erst im ECMAScript 5 definiert
 - Object.create Funktionalität mit selbst-definierten Funktion:
-- Für den Fall wenn Object.create nicht unterstützt, im negativen Fall eine entsprechende Emulator-Funktion definieren
+	- Für den Fall wenn Object.create nicht unterstützt, im negativen Fall eine entsprechende Emulator-Funktion definieren
 ```javascript
 function object_create(obj) { 
 	function F() {}

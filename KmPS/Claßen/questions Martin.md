@@ -325,8 +325,7 @@ my_square1.y = 20
 Was versteht man unter prototypischer Vererbung (auch objekt-basierte Vererbung genannt) in JavaScript? Nennen und beschreiben Sie drei charakteristische Aspekte, die wesentlich in diesem Konzept sind. Dies können z.B. Aspekte sein, wie dieses Konzept „funktioniert“ oder z.B. zentrale Konstrukte der Programmiersprache, die in diesem Konzept relevant sind.
 	- jede JS Function hat automatisch ein Attribut prototype, der zuerst mit einem leeren Objekt initializiert wird und dieser automatisch erzeugten Attribut hat ein Attribut constructor, der auf dem Function-Objekt zurückweist.
 	- jedes Objekt kann ein anderes Objekt als Prototype haben, und mehrere Objekte können den gleichen Prototype haben, der dann zentrale Methode für alle diese Objekte implementiert
-	- neue Instanze einer Klasse können mittels new oder Object.create erzeugt werden. new wird immer zusammen mit einer Funktions-Objekt aufgerufen, welches die Rolle des Konstru
-Was versteht man unter pseudo-klassischer Vererbung in JavaScript? Nennen und beschreiben Sie auch hier drei charakteristische Aspekte, die wesentlich in diesem Konzept sind.
+	- neue Instanze einer Klasse können mittels new oder Object.create erzeugt werden. new wird immer zusammen mit einer Funktions-Objekt aufgerufen, welches die Rolle des Konstruktors zur Objekt-Initializierung übernimmt
 
 Gegeben sei folgender JavaScript Code. Zeichnen Sie das Diagramm der Objekte und ihrer Attribut-Beziehungen zueinander, dass sich bei der JavaScript-internen Umsetzung dieses Programmcodes ergibt. Orientieren Sie sich an der in der Vorlesung verwendeten Diagramm-Notation.
 ``` JavaScript

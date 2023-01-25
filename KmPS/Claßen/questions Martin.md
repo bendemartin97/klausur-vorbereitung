@@ -140,6 +140,7 @@ Was versteht man unter dem JavaScript Callback Programmierstil? Geben Sie ein Ja
 
  Wie kann man bei der JavaScript Programmierung mittels einfacher Callbacks die Fehlerbehandlung programmieren? Geben Sie ein JavaScript Codebeispiel mit einer von ihnen erdachten JavaScript Callback Funktion an, welches illustriert, wie die Fehlerinformationen einer asynchronen Operation an ein Callback übergeben und von diesem verarbeitet werden könnten. Das Beispiel soll auch die Registrierung der Callback Funktion beinhalten.
 	- In JavaScript kann man Fehler in Callbacks durch die Übergabe eines Error-Objekts als erstes Argument des Callbacks handhaben.
+	-  In diesem Beispiel wird das Ergebnis des Serveraufrufs simuliert. Wenn der Aufruf erfolgreich ist, werden die Daten an den Callback übergeben, ansonsten wird ein Error-Objekt übergeben. Der Callback prüft dann, ob ein Fehler vorliegt und handelt entsprechend. Wenn es ein Fehler ist, wird die Fehlermeldung auf der Konsole ausgegeben, andernfalls werden die Daten ausgegeben
 	- *Example*
  ```javascript 
 	function getDataFromServer(callback) {
@@ -170,8 +171,7 @@ Was versteht man unter dem JavaScript Callback Programmierstil? Geben Sie ein Ja
 		    }
 		}); 
  ```
-	 - In diesem Beispiel wird das Ergebnis des Serveraufrufs simuliert. Wenn der Aufruf erfolgreich ist, werden die Daten an den Callback übergeben, ansonsten wird ein Error-Objekt übergeben. Der Callback prüft dann, ob ein Fehler vorliegt und handelt entsprechend. Wenn es ein Fehler ist, wird die Fehlermeldung auf der Konsole ausgegeben, andernfalls werden die Daten ausgegeben
-	 - 
+
 Was versteht man bei der JavaScript Programmierung unter dem Problem der "Callback Hell" (oder "Pyramid of Doom")? Geben Sie ein JavaScript Codebeispiel mit von ihnen erdachten JavaScript Funktionen an, welches das "Callback Hell" Problem illustriert, und erläutern Sie ihr Beispiel.
 	- Programmierung der Nebenläufigkeit asynchroner Programmteile führt bei nacheinander auszuführenden (voneinander abhängigen) Programmteile zu einem tief verschachtelten, unübersichtlichen Callbacks-Programmcode
 ```javascript 
@@ -220,19 +220,22 @@ dataObserver.age = 35;
  ```
 
 Was versteht man bei der JavaScript Programmierung unter dem Konzept der Promises? Was ist eine Promise? Wie wird sie im JavaScript Code programmiert? Geben Sie ein von Ihnen erdachtes JavaScript Pseudo-Code-Beispiel an, in dem eine von Ihnen erdachte JavaScript Funktion eine Promise erzeugt und zurückgibt. Erläutern Sie den Zweck der Promise mittels ihres Beispiels. Erläutern Sie auch, aus welchen Codekonstrukten sich die Promise zusammensetzt und wie diese Konstrukte in ihrem Beispiel genutzt werden, damit die Promise ihren Zweck erfüllen kann.
+	- Promise ist ein Konzept für die Realisierung asynchriner Berechnungen
 	- Ein Promise ist ein Platzhalteobjekt für einen berechneten Wert, wobei die Berechnung noch nicht vollständig berechnet sein muss.
 	- Dieses Objekt kann von dem folgenden, von dem Wert abhängige Programmteil direkt entgegengenommen werden.
 	- Wenn die asynchrone Operation fertig berechnet wurde, kann der vom dem Promise abhängigen Programmteil zur Ausführung kommen.
-	- Eine Promise hat eine Executor Function, die aus 2 Funktionen, resolve und rejected besteht. Beide nehmen einen Wert als Parameter, und tragen diesen als positives (resolve) bzw. als Fehlerergebniss (rejected) in das Promise Objekt ein. Zustand der Promise ist pending solange, bis der Wert nicht fertig berechnet wurde. 
+	- Eine Promise hat eine Executor Function, die aus 2 Funktionen, resolve und rejected besteht. Beide nehmen einen Wert als Parameter, und tragen diesen als positives (resolve) bzw. als Fehlerergebniss (rejected) in das Promise Objekt ein. Zustand der Promise ist pending solange, bis der Wert nicht fertig berechnet wurde. Resolve und Reject ändern den Status der Promise auf settled. Wenn sich eine Promise im Zustand settled befindet, werden alle weitere resolve und reject Aufrufe ignoriert. Nur der Rumpf der Executor muss von dem Programmieren explizit programmiert werden, inkl. der dortigen Aufruf von resolve und reject.
 
-1. Was passiert bei einer JavaScript Promise, wenn im Executor der Promise die Funktion resolve() einmal mit dem Parameterwert 11 aufgerufen wird (resolve(11)) und anschließend mit dem Parameterwert 22 aufgerufen wird (resolve(22))? Erläutern Sie insbesondere, zu welchem Ergebniswert und Status der Promise dies führt. Was passiert bei einer JavaScript Promise, wenn im Executor der Promise zuerst resolve(33) aufgerufen wird und anschließend reject(-1) (d.h. Fehlercode -1)? Erläutern Sie insbesondere, zu welchem Ergebniswert und Status der Promise dies führt.
-2. Es ist im JavaScript Code auf keine der folgenden alternativen Arten möglich, die Beispiel-Promise zu resolven: 
-	``` Javascript
+Was passiert bei einer JavaScript Promise, wenn im Executor der Promise die Funktion resolve() einmal mit dem Parameterwert 11 aufgerufen wird (resolve(11)) und anschließend mit dem Parameterwert 22 aufgerufen wird (resolve(22))? Erläutern Sie insbesondere, zu welchem Ergebniswert und Status der Promise dies führt. Was passiert bei einer JavaScript Promise, wenn im Executor der Promise zuerst resolve(33) aufgerufen wird und anschließend reject(-1) (d.h. Fehlercode -1)? Erläutern Sie insbesondere, zu welchem Ergebniswert und Status der Promise dies führt.
+	- Resolve und auch reject setzen den Status der Promise auf settled. Wenn sich die Promise einmal in den Status settled gesetzt wurde, werden alle weitere Aufrufe von resolve und reject ignoriert. Ein späteren Aufruf von Reject kann z.B nicht resolve Wert korrigieren oder umgekehrt.
+
+Es ist im JavaScript Code auf keine der folgenden alternativen Arten möglich, die Beispiel-Promise zu resolven. Erläutern Sie, wie bzw. von wo aus die Promise denn dann resolved werden kann und warum das Promise Konzept nicht erlaubt, die Promise auf die obigen zwei Arten zu resolven. Sie können in ihren Erläuterungen auch gerne den oben weggelassenen Teil des Codes (die drei Pünktchen) beispielhaft konkretisieren, wenn dies für ihre Erläuterungen notwendig sein sollte.
+``` Javascript
 	let my_promise = new Promise( … ); 
 	resolve(my_promise); //funktioniert nicht 
 	my_promise.resolve(42); // funktioniert auch nicht 
 	```
-	Erläutern Sie, wie bzw. von wo aus die Promise denn dann resolved werden kann und warum das Promise Konzept nicht erlaubt, die Promise auf die obigen zwei Arten zu resolven. Sie können in ihren Erläuterungen auch gerne den oben weggelassenen Teil des Codes (die drei Pünktchen) beispielhaft konkretisieren, wenn dies für ihre Erläuterungen notwendig sein sollte.
+	
 30. Wozu dient die .then() Methode bei JavaScript Promises? Erläutern Sie dies anhand eines von ihnen erdachten illustrativen JavaScript Codebeispiels. Erläutern Sie insbesondere auch, ob die Methode Parameter hat, wenn ja wieviele und wie diese genutzt werden, ob die Methode einen Rückgabewert hat und wenn ja, welche Funktion dieser erfüllt und welche Aufgabe die .then() Methode im Konzept der Nebenläufigkeit mittels Promises erfüllt.
 31. Wozu dient die .catch() Methode bei JavaScript Promises? Erläutern Sie dies anhand eines von ihnen erdachten illustrativen JavaScript Codebeispiels. Erläutern Sie insbesondere auch, ob die Methode Parameter hat, wenn ja wieviele und wie diese genutzt werden, ob die Methode einen Rückgabewert hat und wenn ja, welche Funktion dieser erfüllt und welche Aufgabe die .catch() Methode im Konzept der Nebenläufigkeit mittels Promises erfüllt. Erläutern Sie ferner die Relation zwischen der .catch() Methode von Promises und dem catch in try/catch Blöcken. Wie ist die Relation zwischen diesen beiden Konstrukten im Kontext der Programmierung mit Promises? Sollten beide benutzt werden?
 32. Was versteht man unter der Promise Absorption? Erläutern Sie, wie dieser Mechanismus funktioniert und welchen Zweck er für die Programmierung mittels Promises erfüllt. Was versteht man unter Promise Chaining? Erläutern Sie auch hier, wie dieser Mechanismus funktioniert und welchen Zweck er für die Programmierung mittels Promises erfüllt. #wiederholen 

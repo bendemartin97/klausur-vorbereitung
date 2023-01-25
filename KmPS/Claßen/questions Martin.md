@@ -299,10 +299,33 @@ Erläutern Sie das Konzept der Fehlerbehandlung beim JavaScript async / await Ko
 
 Erläutern Sie das Konzept der objekt-basierten / prototypischen Vererbung in JavaScript. Welche Operation ist die zentrale Operation bei dieser Art der ObjektOrientierung, um das Konzept der Vererbung zu realisieren (es existieren mehrere Standardnamen für diese Operation, geben sie mindestens einen dieser Namen an)? Schreiben Sie JavaScript Code, um folgendes (ausschließlich) mittels dieser Art der Objekt-Orientierung zu realisieren: Alle Shape2D haben eine x und eine y Koordinate und unterstützen die parameterlose Methode mirror(). Der Rumpf der Methode kann leer gelassen werden. Rectangle erbt von Shape2D und bietet zusätzlich die parameterlose Methode area(). Auch hier kann der Methodenrumpf leergelassen werden. Square erbt von rectangle und überschreibt die Methode area(). my_square1 ist ein Square, bei dem sie dann x auf den Wert 10 und y auf den Wert 20 setzen (über direkte zuweisungen an die Attribute).
 	- Jede JS Funktion hat automatisch ein Attribut prototype, der bei der Erzeugen der Funktion-Objekts mit einer leeren Objekt initializiert wird. Beim Erstellen eines Funktion-Objekts wird in der automatischen erzeugten prototyp Attribut ein Attribut constructor angelegt, das immer das Funktion-Objekt referenziert. Mittels new oder Object.create(Klasse) können neue Instanzen der Klasse erzeugt werden. new wird zusammen mit einer Funktion aufgerufen, welche dann die Rolle des Konstruktors zur Objekt-Initializierung übernimmt.
+```javascript 
+function Shape2D() {
+	this.x = 0
+	this.y = 0
+}
 
+Shape2D.prototype.mirror = function () {}
+
+function Rectangle() {}
+Rectangle.prototype = new Shape2D()
+Rectangle.prototype.constructor = Rectangle
+Rectangle.prototype.area = function() {}
+
+function Square() {}
+Square.prototype = new Rectangle()
+Square.prototype.constructor = Square
+Square.prototype.area = function() {}
+
+let my_square1 = new Square()
+my_square1.x = 10
+my_square1.y = 20
+```
 
 Was versteht man unter prototypischer Vererbung (auch objekt-basierte Vererbung genannt) in JavaScript? Nennen und beschreiben Sie drei charakteristische Aspekte, die wesentlich in diesem Konzept sind. Dies können z.B. Aspekte sein, wie dieses Konzept „funktioniert“ oder z.B. zentrale Konstrukte der Programmiersprache, die in diesem Konzept relevant sind.
-
+	- jede JS Function hat automatisch ein Attribut prototype, der zuerst mit einem leeren Objekt initializiert wird und dieser automatisch erzeugten Attribut hat ein Attribut constructor, der auf dem Function-Objekt zurückweist.
+	- jedes Objekt kann ein anderes Objekt als Prototype haben, und mehrere Objekte können den gleichen Prototype haben, der dann zentrale Methode für alle diese Objekte implementiert
+	- neue Instanze einer Klasse können mittels new oder Object.create erzeugt werden. new wird immer zusammen mit einer Funktions-Objekt aufgerufen, welches die Rolle des Konstru
 Was versteht man unter pseudo-klassischer Vererbung in JavaScript? Nennen und beschreiben Sie auch hier drei charakteristische Aspekte, die wesentlich in diesem Konzept sind.
 
 Gegeben sei folgender JavaScript Code. Zeichnen Sie das Diagramm der Objekte und ihrer Attribut-Beziehungen zueinander, dass sich bei der JavaScript-internen Umsetzung dieses Programmcodes ergibt. Orientieren Sie sich an der in der Vorlesung verwendeten Diagramm-Notation.

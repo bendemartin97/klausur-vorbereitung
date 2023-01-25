@@ -32,12 +32,12 @@ Nennen Sie den wesentlichen Unterschied zwischen Goroutinen und den Threads des 
 
 Was versteht man in Go unter einem Tight Loop Szenario? Geben Sie ein Beispiel (Go Codeausschnitt) dafür an. Wie kann der Programmierer dieses Problem lösen?
 	- Tight Loop beschreibt, dass eine Go Routine in einer sehr langen Schleife oder in einer Endloschleife läuft und dabei die Kontrolle nicht abgibt, heißt es werden keine Library Funktionen aufgerufen noch runtime.GoSched. Das heißt, in der Schleife werden nur elementare Operationen, also elementare Berechnungen durchgeführt. Der Programmieren kann Mechanismen in den Code abbauen, die die Schleife expizit abrechen (z.B time.Sleep(), oder mindesten die Kontrolle mittel runtime.GoSched abgibt.
-		```GO 
+```GO 
 var a = true
 while(a) {
 	const b = 2
 }
-	```
+```
 	
 Beschreiben Sie, wofür Channels in Go genutzt werden. Welche Arten von Channels gibt es? Für welche Kommunikationsszenarien werden diese genutzt? Mittels welcher Operationen können die Goroutinen solche Channels nutzen? 
 	- Channels sind Kommunikationskanäle, an denen sich Goroutine anschließen können. Mithilfe von Channels können Goroutine miteinander Nachrichten auszutauschen. Datentyp der zu übertragenden Werte müssen bei der Erzeugung angegeben werden. Es sind 2 verschiede Arten von Channels: Buffered und unbuffered Channels. Die ledigliche Unterscheid besteht zwichen den beiden dadrin, dass buffered Channels die Werte nicht nur übertragen, sondern auch speichern können. Es gibt 2 verschiedene Operationen bei Channels: Send und Receive. Für verschiedene Kommunikationsszenarien können Channels verwendet werden. Z.B für synchronisierten Beenden von main oder überall, wo wichtig ist mitzuteilen, dass z.B eine Goroutine mit seiner Berechnung durch ist.
@@ -174,6 +174,30 @@ Was versteht man unter dem JavaScript Callback Programmierstil? Geben Sie ein Ja
 	 - 
 Was versteht man bei der JavaScript Programmierung unter dem Problem der "Callback Hell" (oder "Pyramid of Doom")? Geben Sie ein JavaScript Codebeispiel mit von ihnen erdachten JavaScript Funktionen an, welches das "Callback Hell" Problem illustriert, und erläutern Sie ihr Beispiel.
 	- Programmierung der Nebenläufigkeit asynchroner Programmteile führt bei nacheinander auszuführenden (voneinander abhängigen) Programmteile zu einem tief verschachtelten, unübersichtlichen Callbacks-Programmcode
+```javascript 
+function getUserData(userId, callback) {
+  fetch('https://jsonplaceholder.typicode.com/users/' + userId)
+    .then(response => response.json())
+    .then(userData => {
+      fetch('https://jsonplaceholder.typicode.com/posts?userId=' + userId)
+        .then(response => response.json())
+        .then(posts => {
+          userData.posts = posts;
+          fetch('https://jsonplaceholder.typicode.com/comments?postId=' + userData.posts[0].id)
+            .then(response => response.json())
+            .then(comments => {
+              userData.posts[0].comments = comments;
+              callback(userData);
+            });
+        });
+    });
+}
+
+getUserData(1, (userData) => {
+  console.log(userData);
+});
+
+```
 
 Erläutern Sie anhand eines von Ihnen erdachten JavaScript Pseudo-Code-Beispiels das Konzept des "Reactive Programming". Erläutern Sie insbesondere, auf welcher Art von Datenstrukturen dieser Ansatz basiert und welche Art von Operationen auf diesen Daten benutzt werden. Beschreiben Sie, welchen Vorteil dieser Programmieransatz bietet gegenüber der klassischen event-basierten Programmierung in JavaScript. #wiederholen 
 	- die Reactive Programming benutzt ganze Event Streams als elementare Datenstrukturen. Außerdem werden verschiedene Operationen, wie map oder filter im Kobination mit Event Streams verwendet. 
@@ -199,6 +223,7 @@ Was versteht man bei der JavaScript Programmierung unter dem Konzept der Promise
 	- Ein Promise ist ein Platzhalteobjekt für einen berechneten Wert, wobei die Berechnung noch nicht vollständig berechnet sein muss.
 	- Dieses Objekt kann von dem folgenden, von dem Wert abhängige Programmteil direkt entgegengenommen werden.
 	- Wenn die asynchrone Operation fertig berechnet wurde, kann der vom dem Promise abhängigen Programmteil zur Ausführung kommen.
+	- Eine Promise hat eine Executor Function, die aus 2 Funktionen, resolve und rejected besteht. Beide nehmen einen Wert als Parameter, und tragen diesen als positives (resolve) bzw. als Fehlerergebniss (rejected) in das Promise Objekt ein. Zustand der Promise ist pending solange, bis der Wert nicht fertig berechnet wurde. 
 
 1. Was passiert bei einer JavaScript Promise, wenn im Executor der Promise die Funktion resolve() einmal mit dem Parameterwert 11 aufgerufen wird (resolve(11)) und anschließend mit dem Parameterwert 22 aufgerufen wird (resolve(22))? Erläutern Sie insbesondere, zu welchem Ergebniswert und Status der Promise dies führt. Was passiert bei einer JavaScript Promise, wenn im Executor der Promise zuerst resolve(33) aufgerufen wird und anschließend reject(-1) (d.h. Fehlercode -1)? Erläutern Sie insbesondere, zu welchem Ergebniswert und Status der Promise dies führt.
 2. Es ist im JavaScript Code auf keine der folgenden alternativen Arten möglich, die Beispiel-Promise zu resolven: 

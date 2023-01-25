@@ -170,11 +170,30 @@ Was versteht man unter dem JavaScript Callback Programmierstil? Geben Sie ein Ja
 		    }
 		}); 
  ```
-	- In diesem Beispiel wird das Ergebnis des Serveraufrufs simuliert. Wenn der Aufruf erfolgreich ist, werden die Daten an den Callback übergeben, ansonsten wird ein Error-Objekt übergeben. Der Callback prüft dann, ob ein Fehler vorliegt und handelt entsprechend. Wenn es ein Fehler ist, wird die Fehlermeldung auf der Konsole ausgegeben, andernfalls werden die Daten ausgegeben.
-
+	 - In diesem Beispiel wird das Ergebnis des Serveraufrufs simuliert. Wenn der Aufruf erfolgreich ist, werden die Daten an den Callback übergeben, ansonsten wird ein Error-Objekt übergeben. Der Callback prüft dann, ob ein Fehler vorliegt und handelt entsprechend. Wenn es ein Fehler ist, wird die Fehlermeldung auf der Konsole ausgegeben, andernfalls werden die Daten ausgegeben
+	 - 
 Was versteht man bei der JavaScript Programmierung unter dem Problem der "Callback Hell" (oder "Pyramid of Doom")? Geben Sie ein JavaScript Codebeispiel mit von ihnen erdachten JavaScript Funktionen an, welches das "Callback Hell" Problem illustriert, und erläutern Sie ihr Beispiel.
-- Programmierung der Nebenläufigkeit asynchroner Programmteile führt bei nacheinander auszuführenden (voneinander abhängigen) Programmteile zu einem tief verschachtelten, unübersichtlichen Callbacks-Programmcode
-2. Erläutern Sie anhand eines von Ihnen erdachten JavaScript Pseudo-Code-Beispiels das Konzept des "Reactive Programming". Erläutern Sie insbesondere, auf welcher Art von Datenstrukturen dieser Ansatz basiert und welche Art von Operationen auf diesen Daten benutzt werden. Beschreiben Sie, welchen Vorteil dieser Programmieransatz bietet gegenüber der klassischen event-basierten Programmierung in JavaScript.
+	- Programmierung der Nebenläufigkeit asynchroner Programmteile führt bei nacheinander auszuführenden (voneinander abhängigen) Programmteile zu einem tief verschachtelten, unübersichtlichen Callbacks-Programmcode
+
+Erläutern Sie anhand eines von Ihnen erdachten JavaScript Pseudo-Code-Beispiels das Konzept des "Reactive Programming". Erläutern Sie insbesondere, auf welcher Art von Datenstrukturen dieser Ansatz basiert und welche Art von Operationen auf diesen Daten benutzt werden. Beschreiben Sie, welchen Vorteil dieser Programmieransatz bietet gegenüber der klassischen event-basierten Programmierung in JavaScript. #wiederholen 
+	- die Reactive Programming benutzt ganze Event Streams als elementare Datenstrukturen. Außerdem werden verschiedene Operationen, wie map oder filter im Kobination mit Event Streams verwendet. 
+	- Der Hauptvorteil der reaktiven Programmierung gegenüber der traditionellen ereignisbasierten Programmierung in JavaScript besteht darin, dass sie einen deklarativen und funktionalen Ansatz für die Programmierung ermöglicht. Außerdem ist es einfacher, reaktionsschnelle und hochgradig interaktive Benutzeroberflächen zu erstellen, und es ist einfacher, den Datenfluss in einer Anwendung zu verstehen.
+ ```javascript 
+const data = {
+  name: "John Doe",
+  age: 30
+};
+
+const dataObserver = new Observer(data, (newData) => {
+  console.log(`Data has changed: ${JSON.stringify(newData)}`);
+});
+
+dataObserver.name = "Jane Doe";
+// Output: Data has changed: {"name":"Jane Doe","age":30}
+
+dataObserver.age = 35;
+// Output: Data has changed: {"name":"Jane Doe","age":35}
+ ```
 
 Was versteht man bei der JavaScript Programmierung unter dem Konzept der Promises? Was ist eine Promise? Wie wird sie im JavaScript Code programmiert? Geben Sie ein von Ihnen erdachtes JavaScript Pseudo-Code-Beispiel an, in dem eine von Ihnen erdachte JavaScript Funktion eine Promise erzeugt und zurückgibt. Erläutern Sie den Zweck der Promise mittels ihres Beispiels. Erläutern Sie auch, aus welchen Codekonstrukten sich die Promise zusammensetzt und wie diese Konstrukte in ihrem Beispiel genutzt werden, damit die Promise ihren Zweck erfüllen kann.
 	- Ein Promise ist ein Platzhalteobjekt für einen berechneten Wert, wobei die Berechnung noch nicht vollständig berechnet sein muss.

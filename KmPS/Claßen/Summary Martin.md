@@ -296,7 +296,7 @@
 - hat immer einen konstanten Platzaufwand, weil durch die Tail-Rekursion immer der gleiche Stack-Frame verwendet werden kann
 
 ### Call-By-Value
-- werden die Parameter eines Funktionsaufrufs leftmostinnermost ausgewertet und nach vollständiger Auswertung der Parameter wird der Aufruf durch die rechte Seite der Funktionsdefinition ersetzt und die formalen Parameter werden durch die ausgewerteten Werte ersetzt
+- werden die Parameter eines Funktionsaufrufs leftmost-innermost ausgewertet und nach vollständiger Auswertung der Parameter wird der Aufruf durch die rechte Seite der Funktionsdefinition ersetzt und die formalen Parameter werden durch die ausgewerteten Werte ersetzt
 
 ### Call-By-Name
 - Bei Call-By-Name wird der Funktionsaufruf durch die rechte Seite ersetzt, wobei die formalen Parameter durch die Ausdrücke (noch nicht ausgewertet) in den aktuellen Parametern ersetzt werden. Die dabei erhaltenen Ausdrücke werden dann leftmost-outermost ausgewertet

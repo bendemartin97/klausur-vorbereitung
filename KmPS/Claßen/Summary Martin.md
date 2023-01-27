@@ -275,3 +275,28 @@
 	- await kann nur mit async oder auf top-level von Modulen verwendet werden
 	- viele asnyc und await in Schleifen verlangsamen den Programmcode
 	- await ist asynchron -> in await-Pausen können die globale Variablen geändert haben, da die Kontrolle abgegeben wurde
+
+### Prototype
+- jede JS Funktion hat automatisch ein Attribute prototype
+- beim Erzeugen eines Funktions-Objekt wird das prorotype Attribut mit einem leerem Objekt initializiert-
+- beim Anlegen einer Funktion wird in dem automatisch angelegten Prototype Objekt ein Attribut constructor angelegt, welches auf das Funktions-Objekt zurückweist
+
+### Prototypische Vererbung
+- jedes Objekt kann ein anderes Objekt als Prototypen haben
+- beim Lesen eines Objekts wird erst im Objekt selbst gesucht, danach die Prototype-Verweiskette gefolgt
+- mehrere Objekte können den gleichen Prototype haben, der dann zentrale Methoden für alle diese Objekte implementieren kann
+- neue Objekte können mittels new oder Object.create() initializiert werden
+- new muss immer mit einer Funktion zusammen aufgerufen werden, welche die Rolle eines Konstruktor zur Objekt-Initializierung übernimmt
+
+### Polyfilling
+- Polyfilling bezieht sich auf die Praxis, ältere oder nicht vollständig unterstützte JavaScript-Funktionalitäten in älteren Browsern durch Code-Implementierungen zu ersetzen, die dieselbe Funktionalität bereitstellen. Dieser Code wird normalerweise als polyfill bezeichnet. Ein Beispiel dafür ist die Verwendung von Object.create()
+
+### Tail-rekursion
+- Tail-Rekursion ist eine Form der Rekursion, bei der der rekursive Aufruf die letzte von der Funktion ausgeführte Operation ist
+- hat immer einen konstanten Platzaufwand, weil durch die Tail-Rekursion immer der gleiche Stack-Frame verwendet werden kann
+
+### Call-By-Value
+- werden die Parameter eines Funktionsaufrufs leftmostinnermost ausgewertet und nach vollständiger Auswertung der Parameter wird der Aufruf durch die rechte Seite der Funktionsdefinition ersetzt und die formalen Parameter werden durch die ausgewerteten Werte ersetzt
+
+### Call-By-Name
+- Bei Call-By-Name wird der Funktionsaufruf durch die rechte Seite ersetzt, wobei die formalen Parameter durch die Ausdrücke (noch nicht ausgewertet) in den aktuellen Parametern ersetzt werden. Die dabei erhaltenen Ausdrücke werden dann leftmost-outermost ausgewertet

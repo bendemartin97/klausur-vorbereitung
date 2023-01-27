@@ -236,6 +236,20 @@
 	- gibt immer den Resultat oder den Fehler zurück
 	- weiter Post-Cleanup-Aktionen möglich
 
+### Promise.all
+- wartet auf das Settlement mehrere Prommise
+- bei asynchrone Plattform-Operation können parallel ausgeführt werden -> Perfomance Verbesserung
+- wenn eine Promise rejected ist, werden alle Ergebnisse verworfen
+
+### Promise.allSettled
+- sammelt die Ergebnisse und Fehler in einem Array
+- wenn eine Promise rejected ist, werden die Ergenisse nicht verworfen
+
+### Promise.race
+- überwacht das Settlement mehrerer Promises
+- sammelt das Ergebnis von dem zuerst fertig werdenen Promise ein
+- danach werden alle andere Ergebnisse verworfen
+
 ### Promisification
 - bezeichnet die Umwandlung einer Library mit API Funktionen in Callback-Style in einer Variante in Promise-Style
 - bei einer systematischen API der Library kann die Promisification der Library sehr systematisch gemacht werden, mittels einer generellen Wrapper Funktion promisify()
@@ -255,4 +269,9 @@
 	- await wartet auf das Settlemant der Promise, d.h die Zeilen hinter einem await sind die Callback-Funktion eines .then
 	- ihr Rückgabewert wird der resolved Wert der Promise
 - await:
-	- ermöglicht 
+	- ermöglicht den daten-abhängigen Programmteil sequentiell hinter einem await zu implementieren, statt in Callback-Stil als Parameter eines .then
+	- gibt den Kontrollfluss ab und wird getriggert, wenn die Promise in ihrem konrekten Wert resolved wird
+- Problematiken:
+	- await kann nur mit async oder auf top-level von Modulen verwendet werden
+	- viele asnyc und await in Schleifen verlangsamen den Programmcode
+	- await ist asynchron -> in await-Pausen können die globale Variablen geändert haben, da die Kontrolle abgegeben wurde

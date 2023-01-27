@@ -108,7 +108,36 @@
 - Das Aktor Model beschreibt nicht, wie lange die Vermittlung einer Nachricht dauern darf, es ist nur definiert, dass jede Nachricht nach einer endlichen Zeit bei dem Empfänger ankommen muss.
 
 ### Nebenläufigkeit in Erlang
-- leichtgewichtigte Erlang Prozesse -> OS abhängig
+- leichtgewichtigte Erlang Prozesse
 - entkoppelte parallele Prozesse, kein Shared Data, keine Seiteneffekte
 - die Verteilung von Erlang Code auf mehreren Rechner leicht möglich
-- nur der Erzeuger kennt den Prozess und dessen Prozess-ID eigentlich. Durch das globale registry können Client die Server-ID:s herausfinden. Registierung unter Alias. Konventi
+- jede Server wird in einem Modul gepackt und mittels spawn ein Prozess erzeugt und gestartet. 
+- Unterscheidung mehrerer Server:
+	- Server schickt seine ID mittels self() mit. Client macht Patter Matching und matcht nur die Nachrichten, die von dem selbst kontaktierten Server stammen
+	- Durch die Sendung der ID:s in beide Richtungen können viele Server parallel laufen und viele Client parallel bedient werden über das Netzwerk
+
+### Erlang Prozesse
+- werden vom dem Erlang VM erzeugt und verwaltet -> OS abhängig
+- wenig Speicherbedarf, schnelle Erzeugung, sehr schnelle Kontextswitch
+- skaliert gut, auch bei parallelen Rechnern
+- sehr fehlertolerant
+- nur der Erzeuger kennt den Prozess und dessen Prozess-ID eigentlich. Durch das globale registry können Client die Server-ID:s herausfinden. Registierung unter Alias. Konvention: Benutze den Modulnamen als Alias
+
+### Erlang Nodes
+- sind Erlang Laufzeitumgebungen
+- auf einem Host können mehrere gleichzeitig laufen
+- können aber auch auf mehreren durch Netzwerk (Internet) verbundenen Host verteilt werden
+- werden über ihren Namen identifiziert
+
+### Erlang Cookies
+- gruppieren zusammengehörige Erlang Nodes
+- Nodes können connecten, wenn der Cookie übereinstimmt
+- auf gleichem Host haben alle Nodes den identischen Cookie
+
+### Fehlerbehandlung in Erlang
+- Let it crash
+- Best Practice:
+	- die Anwendung in zwei Teile aufteilen: einer, der die Aufgaben löst, und einer der die Errors behebt
+	- der Teil, der die Aufgaben löst, soll mit so wenig defensivem Code, wie möglich geschrieben werden
+	- der Teil, der die Errors behebt ist oft generisch, um die gleiche Fehlermeldung bei mehreren Anwendung verwenden zu können.
+	- Diese führen zu einer sauberen Trennung der Themen und der Verringerung des Codevolumes

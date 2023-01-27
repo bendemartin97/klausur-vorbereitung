@@ -6,9 +6,10 @@
 - 6 Klausuraufgaben
 - Themengebiete **aus Praktikum**, die relevant sind:
 	- Modellierung mit Threat Dragon (P1)
-	- Github Apps & Oauth Apps
-	- Sonarcloud
-	- Github Actions
+	- Github Apps & Oauth Apps (P2)
+	- Sonarcloud (P2)
+	- Github Actions (P2)
+	- Github Actions CI/CD (P3)
 
 
 

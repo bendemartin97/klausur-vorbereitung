@@ -32,7 +32,7 @@
 - auf einem oder mehreren Prozessor
 - darüber Threads
 - darüber Goroutine
-- führt dazu, dass Threads nicht unbedigt blockieren, wenn eine Goroutine die Kontrolle nicht schnell genug zurückggeben. Es kommt einfach eine andere Goroutine auf dem Thread dran
+- führt dazu, dass das Go Programm nicht unbedingt blockiert, wenn eine Goroutine die Kontrolle nicht zurückgibt: Wenn es noch andere Threads gibt, in denen nicht blockierte Goroutinen sind.
 
 ### Preemptive Scheduling
 - bezeichnet die Scheduling-Strategie, bei der der Scheduler jeden Prozessen eine bestimmte Rechnerzeit zuteilt und dem Prozess den CPU nach der Ablauf dieser Zeit wieder entzieht, egal, an welcher Stelle der Prozess mit seiner Berechnung gerade ist
@@ -56,5 +56,31 @@
 	- Threads verwenden preemptive Scheduling: viele Register müssen gesichert werden -> teuere Kontextswitch
 	- Goroutine verwenden kooperative Scheduling in Goruntime: leicht-gewichtigere Kontextswitch
 - Goroutine werden vom dem Go Runtime auf verfügbare Threads verteilt:
+	- ggf. sehr viele Goroutine und wenig Threads
+	-  blockierende Goroutine blockieren nicht unbedingt den Thread. Es kommt einfach eine andere Goroutine auf dem Thread dran
+- Goroutine werden von den sogenannten Green Threads verwaltet:
+	- Scheduling durch Go Runtime und nicht durch BS-> BS unabhängig
 	- alles passiert im user space von Go Runtime und nicht im kernel space
-	- 
+	- funktioniert auch auf BS ohne Thread Support
+- Goroutine geben die kontrolle kooperativ ab, wenn idle oder blockiert oder an besonderen Stellen im Programmfluss oder explizite Abgabe mittels runtime.GoSched
+- wenn eine Goroutine zu lange läuft, wird von dem Scheduler unterbrochen
+
+### Channels
+- Kommunikationskanäle, an der sich Goroutine anschließen können
+- der Typ der zu übertagenden Werte muss bei der Erzeugung der Channel angegeben werden
+- 2 Operationen: Send und Receive
+
+### Unbuffered Channel
+- können nur einen Wert transportieren, aber nicht halten
+- wesentliche Technik zur Synchronization
+- Receiver meldet Empfangwunsch an und wird blockiert -> Sender sendet -> Receiver kann empfangen
+- Nachricht muss immer überreicht werden
+
+### Buffered Channel
+- können mehreren Wert transportieren und speichern
+- wenn der Buffer voll ist, wird der Sender solange blockiert, bis der Buffer nicht mehr voll ist, sonst könnte der Sender nicht nicht-blockierend senden
+- nicht zur Synchronization verwendbar
+
+### Select Befehl - Receive
+- select blockiert, bis auf einem der Channels eine Nachricht empfangen werden kann
+- auch mit timeout realisierbar, damit der s

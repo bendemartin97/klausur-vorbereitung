@@ -175,4 +175,26 @@
 	- wenn man ein Kindprozess braucht, fragt man danach und bekommt es
 
 ### Event driven / Reactive Programming
+- Laufzeitumgebung des Programms triggert Events
+- diese werden im Programmcallback registriert, und bei entsprechenden Events aufgerufen
+- JS Runtime ist immer single-threaded -> ein Thread mit einem Event Loop:
+	- vermeide komplexe Anforderungen an die Plattform
+	- JS Runtime ist ein großer Sichtbarkeitsbereich -> Seiteneffekte
+	- die paralle Event Loops könnten wegen der Seiteneffekte die Semantik der Programm verändern
+	- so wird jede Nachricht vollständig abgearbeitet
+- ScriptJobs Queue:
+	- vollständige Ausführung einer JS Script oder Modul
+	- wenn ein Job im Queue ist, führe den ersten Job aus
+	- zurück zum Event Loop
+	- Script oder Modul muss vollstandändig abgearbeitet werden, bevor der Browser wieder rendern kann
+- Nachteile:
+	- langsame I/O Operationen blockieren die Ausführung
+	- während einer Nachricht kann keine andere Nachricht abgearbeitet werden
+
+### Callback Programmierstil
+- asynchrone Programmteile mittels Callbacks und synchrone Funktionsaufrufe düfen bei Abhängigkeiten voneinander nicht gemischt werden
+- sonst werden sequentliell später kommenden Teile ggf. fehlerhafterweise vor dem sequentiell vorher kommenden, aber asynchrone programmierte Programmteile ausgeführt
+- ebenso dürfen asynchrone Codeteile per Callbacks, die voneinander abhängen, einfach sequentiell programmiert werden, sonst ist die Ausführungsreihenfolge unklar. Die Verschachtelung der Callbackk Aufrufe notwendig
+
+### Callback Hell
 - 

@@ -351,4 +351,5 @@ Square.prototype.toString = function() {
 var square = new Square(6);
 ```
 
-Erläutern Sie, was man bei JavaScript unter dem Begriff des "Polyfilling" versteht. (Den Code für das Polyfilling von Object.create() werde ich nicht erfragen. Auch nicht, wie man auf die Existenz testet und dann beim "fehlen" das Polyfilling macht. Aber als Beispiel für Polyfilling sollte man Object.create angeben können.)
+Erläutern Sie, was man bei JavaScript unter dem Begriff des "Polyfilling" versteht. (Den Code für das Polyfilling von Object.create() werde ich nicht erfragen. Auch nicht, wie man auf die Existenz testet und dann beim "fehlen" das Polyfilling macht. Aber als Beispiel für Polyfilling sollte man Object.create angeben können.) #wiederholen 
+	- Polyfilling bezieht sich auf die Praxis, ältere oder nicht vollständig unterstützte JavaScript-Funktionalitäten in älteren Browsern durch Code-Implementierungen zu ersetzen, die dieselbe Funktionalität bereitstellen. Dieser Code wird normalerweise als polyfill bezeichnet. Ein Beispiel dafür ist die Verwendung von Object.create(), einer Methode, die in älteren Browsern nicht vorhanden ist, aber in neueren Browsern verfügbar ist. Um diese Methode in älteren Browsern verfügbar zu machen, kann ein polyfill implementiert werden, das eine ähnliche Funktionalität bereitstellt. 

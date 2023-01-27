@@ -221,4 +221,38 @@
 
 ### .then, .catch und .finally
 - .then für den daten-abhängigen Nachfolgecode
-- .catch für d
+- .catch für Fehler-Callback
+- Promise wird immer in seinem konrekten Wert resolved, und dann wird die Callback in .then ausgeführt
+- .then:
+	- wird immer verzögert ausgeführt, auch wenn das Promise Objekt schon den Wert hat
+	- zuert ScriptJobsQueue abarbeiten: hängt weitere .then und .catch an dem PromiseQueue an
+	- PromiseQueue abarbeiten
+	- erst dann zurück zum EventLoop
+	- .then gibt immer ein Promise Objekt zurück, können also verkettet werden
+- catch für die einheitliche Fehlerbehandlung:
+	- egal ob durch reject oder durch ein Exception in .then
+- finally für Cleanup-Aktionen:
+	- hat kein Parameter
+	- gibt immer den Resultat oder den Fehler zurück
+	- weiter Post-Cleanup-Aktionen möglich
+
+### Promisification
+- bezeichnet die Umwandlung einer Library mit API Funktionen in Callback-Style in einer Variante in Promise-Style
+- bei einer systematischen API der Library kann die Promisification der Library sehr systematisch gemacht werden, mittels einer generellen Wrapper Funktion promisify()
+- Callback-Stlye:
+	- wenn asynchrone Operationen mehrfach verwendet werden, und die Callbacks bei jedem Aufruf eine andere Wert liefern
+- Promise-Style
+	- wenn asynchrone Operationen nur einmal verwendet werden, an einer Stelle im Kontrollfluss
+	- kann nur einen Resultatwert haben
+
+### async / await
+- asynchrone Funktionen
+- im Rump kann mittels await auf die Resultatwerte anderer Funktionen gewartet werden
+- async:
+	- gibt immer eine Promise zurück
+	- ist also new Promis(...)
+	- ihr Rump ist also die Executor der neuen Promise
+	- await wartet auf das Settlemant der Promise, d.h die Zeilen hinter einem await sind die Callback-Funktion eines .then
+	- ihr Rückgabewert wird der resolved Wert der Promise
+- await:
+	- ermöglicht 

@@ -141,3 +141,12 @@
 	- der Teil, der die Aufgaben löst, soll mit so wenig defensivem Code, wie möglich geschrieben werden
 	- der Teil, der die Errors behebt ist oft generisch, um die gleiche Fehlermeldung bei mehreren Anwendung verwenden zu können.
 	- Diese führen zu einer sauberen Trennung der Themen und der Verringerung des Codevolumes
+- bei parallelen Prozessen:
+	- Verknüpfung von Prozessen, die auf der gleiche Aufgabe arbeiten mittels Links
+	- bidirektionale Verbindung
+	- wenn ein Prozess stirbt, sterben alle gelinkte Prozesse auch
+- System Prozess:
+	- begrenzt die Fehlerpropagation
+	- wenn ein Prozess stirbt, werden benachrichtigt, sterben aber nicht
+- Monitoring von PRozessen durch anderen Prozessen:
+	- 

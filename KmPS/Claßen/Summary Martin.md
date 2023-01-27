@@ -264,7 +264,7 @@
 - im Rump kann mittels await auf die Resultatwerte anderer Funktionen gewartet werden
 - async:
 	- gibt immer eine Promise zurück
-	- ist also new Promis(...)
+	- ist also new Promise(...)
 	- ihr Rump ist also die Executor der neuen Promise
 	- await wartet auf das Settlemant der Promise, d.h die Zeilen hinter einem await sind die Callback-Funktion eines .then
 	- ihr Rückgabewert wird der resolved Wert der Promise
@@ -278,7 +278,7 @@
 
 ### Prototype
 - jede JS Funktion hat automatisch ein Attribute prototype
-- beim Erzeugen eines Funktions-Objekt wird das prorotype Attribut mit einem leerem Objekt initializiert-
+- beim Erzeugen eines Funktions-Objekt wird das prorotype Attribut mit einem leerem Objekt initializiert
 - beim Anlegen einer Funktion wird in dem automatisch angelegten Prototype Objekt ein Attribut constructor angelegt, welches auf das Funktions-Objekt zurückweist
 
 ### Prototypische Vererbung

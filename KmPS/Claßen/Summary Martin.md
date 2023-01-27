@@ -83,4 +83,32 @@
 
 ### Select Befehl - Receive
 - select blockiert, bis auf einem der Channels eine Nachricht empfangen werden kann
-- auch mit timeout realisierbar, damit der s
+- auch mit timeout realisierbar, damit der select nicht zu lange blockiert
+- auch mit default realisierbar, damit der select auf einem Channel gar nicht blockiert
+
+### Select Befehl - Send
+- select blockiert, bis auf einem der Channels eine Nachricht gesendet werden kann
+- auch mit timeout realisierbar, damit der select nicht zu lange blockiert
+- auch mit default realisierbar, um zu vermeiden, dass select auf einem Channel blockiert, auf dem noch kein Receiver lauscht
+
+### Aktorenmodell
+- ein Modell in Informatik für nebenläufige Berechnungen und Programme
+- diese werden in nebenläufigen Einheiten unterteilt, die ausschließlich über Nachrichtenaustausch kommunizieren
+
+### Aktor
+- sind nebenläufige Einheite, die nicht über einen gemeinsamen Speicherbereich verfügen, sondern ausschließlich über Nachrichten kommunizieren
+- jede Aktor verfügt über ein Posteingang, eine Adresse und ein Verhalten
+- der Empfang einer Nachricht wird als Ereignis bezeichet und diese werden im Posteingang gespeichert und nach FIFO Prinzip abgearbeitet
+- das Verhalten eines Aktors beschriebt die Reaktion auf einer Nachricht abhängig von deren Aufbau
+- Reaktionen:
+	- Nachricht an sich selbst oder an einem anderen Aktor versenden
+	- neue Aktore erzeugen
+	- eigenes Verhalten ändern
+- Der Nachrichtenaustausch erfolgt asynchron, d.h der Sender kann nach Absenden einer Nachricht direkt mit einer anderen Aktion fortsetzten, und muss darauf warten, dass der Empfänger die Nachricht akzeptiert
+- Das Aktor Model beschreibt nicht, wie lange die Vermittlung einer Nachricht dauern darf, es ist nur definiert, dass jede Nachricht nach einer endlichen Zeit bei dem Empfänger ankommen muss.
+
+### Nebenläufigkeit in Erlang
+- leichtgewichtigte Erlang Prozesse -> OS abhängig
+- entkoppelte parallele Prozesse, kein Shared Data, keine Seiteneffekte
+- die Verteilung von Erlang Code auf mehreren Rechner leicht möglich
+- nur der Erzeuger kennt den Prozess und dessen Prozess-ID eigentlich. Durch das globale registry können Client die Server-ID:s herausfinden. Registierung unter Alias. Konventi

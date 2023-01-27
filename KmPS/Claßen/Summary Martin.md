@@ -28,5 +28,33 @@
 	- kein schnelles Reagieren auf Ereignisse
 	- Tasks, die die Kontrolle nicht schnell genug zurückgeben, können das gesamte System blockieren
 
-### Preemptive Scheduling:
-- bezeichnet die Scheduling-Strategie, bei der der Scheduler jeden Prozessen eine bestimmte Rechnerzeit zuteilt und dem Prozess den CP
+### Mehrstufige Nebeläufigkeit in GO
+- auf einem oder mehreren Prozessor
+- darüber Threads
+- darüber Goroutine
+- führt dazu, dass Threads nicht unbedigt blockieren, wenn eine Goroutine die Kontrolle nicht schnell genug zurückggeben. Es kommt einfach eine andere Goroutine auf dem Thread dran
+
+### Preemptive Scheduling
+- bezeichnet die Scheduling-Strategie, bei der der Scheduler jeden Prozessen eine bestimmte Rechnerzeit zuteilt und dem Prozess den CPU nach der Ablauf dieser Zeit wieder entzieht, egal, an welcher Stelle der Prozess mit seiner Berechnung gerade ist
+- Vorteile:
+	- schnelles Reagieren
+	- der Flow of Control kann an beliebigen Stellen entzogen werden
+- Nachteile:
+	- Kombination mit Shared Date: der nächste Task kann unbemerkt die gemeinsam genutzte Daten verändern
+	- es ist schwer per locking alle gemeinsam genutze Ressourcen effektiv zu schützen
+
+### Deadlock
+- beschriebt einen zyklisen Wartezustand zwsichen mehreren Prozessen die auf einer bestimmte Aktion warten und diese Aktion nur exklusiv von diesem anderem Prozess ausgeführt werden kann
+
+### Race Condition
+- bedeutet, wenn das Ergebnis der Programmausführung von zeitlichen Verhalten bzw. von zeitlichen Abfolge bestimmter Programmteile abhängt, und diese zeitliche Abfolge nicht von dem Programm selbs eindeutig bestimmt werden kann.
+
+### Goroutine
+- werden auf die Nebenläufigkeitsmechanismen des Betriebssystem abgebildet (Threads)
+- Unterschied zwischen Goroutine und Thread:
+	- Goroutine sind leicht-gewichtiger, ein Thread hat 1 MB Stack size, eine Goroutine nur 2 KB
+	- Threads verwenden preemptive Scheduling: viele Register müssen gesichert werden -> teuere Kontextswitch
+	- Goroutine verwenden kooperative Scheduling in Goruntime: leicht-gewichtigere Kontextswitch
+- Goroutine werden vom dem Go Runtime auf verfügbare Threads verteilt:
+	- alles passiert im user space von Go Runtime und nicht im kernel space
+	- 

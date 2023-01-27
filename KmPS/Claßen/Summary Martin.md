@@ -148,5 +148,31 @@
 - System Prozess:
 	- begrenzt die Fehlerpropagation
 	- wenn ein Prozess stirbt, werden benachrichtigt, sterben aber nicht
-- Monitoring von PRozessen durch anderen Prozessen:
-	- 
+- Monitoring von Prozessen durch anderen Prozessen:
+	- falls die ge-monitorte stirbt, wird der Monitoring Prozess benachrichtigt, aber nicht umgekehrt
+	- unidirektional
+	- der Monitoring Prozess muss nicht System Prozess werden
+
+### Supervisor
+- ist verantworlich ihre Kindprozesse zu starten, zu stoppen und zu monitoren
+- kann Workers und / oder Supervisors überwachen, daruch entsteht ein Baum Struktur
+- die Supervisor-Strategie gibt an, wie es in bestimmten Stellen im Baum bezüglich der Restart-Strategie zu verfahren ist, wenn ein Kind Prozess stirbt
+
+### Worker
+- sind für die normalen Berechnungen zuständing, ohne aufwändige Fehlerbehandlung
+
+### Restart-Strategien:
+- one-for-one
+	- bedeutet wenn ein Supervisor viele Workers überwacht und eine von ihnen ausfällt, nur dieser eine neu gestartet werden muss
+	- bei unabhängigen Prozessen zu verwenden
+	- der Prozess kann seinen Zustand verlieren, ohne dass ihre Geschwisterprozesse davon betroffen wären
+- one-for-all
+	- ist immer dann anzuwenden, wenn alle Prozesse unter einem Supervisor starkt voneinander abhängen, um normal funktionieren zu können
+- rest-for-all
+	- bedeutet, wenn ein Prozess stirbt, werden alle nach ihm gestarteten (also abhängigen) Prozesse auch neu gestartet
+- simple-one-for-one
+	- ein Supervisor sitzt einfach da und weißt, dass er nur eine Art von Kindprozesse erzeugen kann
+	- wenn man ein Kindprozess braucht, fragt man danach und bekommt es
+
+### Event driven / Reactive Programming
+- 

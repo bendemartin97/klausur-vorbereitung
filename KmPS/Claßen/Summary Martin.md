@@ -197,4 +197,28 @@
 - ebenso dürfen asynchrone Codeteile per Callbacks, die voneinander abhängen, einfach sequentiell programmiert werden, sonst ist die Ausführungsreihenfolge unklar. Die Verschachtelung der Callbackk Aufrufe notwendig
 
 ### Callback Hell
-- 
+- Programmierung der Nebenläufigkeit der asynchronen Programmteile mittel Callbacks führt bei nacheinander auszuführenden (also abhängigen) Programmteile, zu einem tief verschachtelten und unübersichtlichen Programmcode
+
+### Promise
+- bezeichet ein Platzhalter-Objekt für ein Berechnungsergebnis, wobei die Berechnung ggf. noch nicht beendet ist
+- dieses Platzhalter-Objekt kann von dem folgenden, von dem Wert abhängigen Programmteil direkt entgegengenommen werden, ohne dass die Berechnung berechnet sein muss
+- wenn die asynchrone Programmteil beendet ist, kann der von dem Promise abhängigen Programmteil zur Ausführung kommen
+- Zustand ist pendig, wenn die Berechnung noch nicht fertig berechnet wurde
+- Ansonsten settled: entweder rejected oder resolved
+
+### Executor
+- ist eine Funktion mit im Promise-Standard festgelegten Signature und stellt den Parameter des Promise-Konstruktors dar. Sie wird sofort ausgeführt
+- hat 2 Parameter:
+	- sind Funktionen
+	- eine, die den Wert als Parameter nimmt und diesen als positives
+	- und eine, die den Wert als Fehlerergebnis in das Promise-Objekt einträgt
+- nur der Rumpf des Executors muss vom Programmieren programmiert werden, inkl. mit der dortigen Aufruf von resolve und reject
+- resolve und reject sind Callback Funktionen
+- warum gibt diese 2 Parameter überhaupt:
+	- um die Ergebnisse nicht über Seiteneffekte zu erzielen
+	- die Werte sind in Executor eingeschlossen und können von der Außenwelt nicht mehr geändert werden
+- resolve und reject ändern den Zustand der Promise auf settled, d.h weiter resolve und reject werden ignoriert
+
+### .then, .catch und .finally
+- .then für den daten-abhängigen Nachfolgecode
+- .catch für d

@@ -50,3 +50,12 @@
 		- upgrage xml processors and libraries, disable xml external entity and drd processing, whitelisting
 - prevent:
 	- hardening proces, remove all unnecessary features, updating configurations, segmentation, client security directives (security headers), automated verification process
+
+### A06 - Vulnerable and Outdated Components
+- exploite vulnerable component, like libraries, frameworks, which are running with the same privilages as the application
+- common vulnerabilities:
+	- you do not know the versions of all components in use, know all outdated or vulnerable, unsupported software, scan for vulnerabilities regularly
+- prevent:
+	- remove unused dependencies, features, components, invertory the versions, using of components from official sources over secure links, monitor for libraries and components   
+
+### A07 - Identification and A

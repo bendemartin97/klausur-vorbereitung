@@ -44,7 +44,7 @@
 
 ### A05- Security Misconfiguration
 - missing security hardening, unnecessary features are enabled, default accounts are enabled, error handling shows stack traces, latest security features are disabled, security settings are not set to secure values, missing security headers, software is outdated
-- xml externel eintities:
+- xml externel eintities (xss):
 	- dos attack, access external entites, like files, access can be extendend to files not local if attacksers know location and structure of web application
 	- prevent:
 		- upgrage xml processors and libraries, disable xml external entity and drd processing, whitelisting
@@ -78,3 +78,10 @@
 	- logins, failed logins etc are not logged, warnings and errors generate unclear log messages, logs not monitored for suspicious activitiy, log store locally, useless alerting thresholds, testing do no trigger alerts, cannot detect active attacks in real-time
 - prevent:
 	- log login, validation failures, encode log data correctly, effective monitoring and alerting for suspicious activities
+
+### A10 - Server-Side Request Forgery (SSRF)
+- **SSRF flaws occur whenever a web application is fetching a remote resource without validating the user-supplied URL**
+- CSRF:
+	- force a victim browser with victon credentials, such session cookie, to generate requests
+	- prevent:
+		- using of an existing csrf defense, unpredictable token in each HTTP request

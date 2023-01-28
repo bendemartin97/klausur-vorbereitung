@@ -33,3 +33,13 @@
 	- out-of-band
 - Cross-Site Scripting:
 	- The application uses untrusted data in the construction of the following HTML snippet _without validation or escaping_
+- prevent:
+	- using of sage api, parameterized interface, white listing, sql control statements, escape special characters 
+
+### A04- Insecure desing
+- insecure desing can not be fixed by perfect implementation
+- in _user story development determine the correct flow and failure states_
+- prevent:
+	- using of secure dev lifecycle, library of secure design patterns, threat modelling, testing
+
+### A05- Security Misconfiguration

@@ -58,4 +58,11 @@
 - prevent:
 	- remove unused dependencies, features, components, invertory the versions, using of components from official sources over secure links, monitor for libraries and components   
 
-### A07 - Identification and A
+### A07 - Identification and Authentication Failures
+- **Allows attackers to compromise passwords, keys, or session tokens, or to exploit other implementation flaws to assume other users’ identities temporarily or permanently**
+- common vulnerabilities:
+	- weak passwords and forgotpassword process, weak hash functions for passwords, missing multi-factor auth, session identifier in url, not correct invalidated session ids
+- prevent:
+	- multi-factor auth, weak password checks, limit failed login attempts, log all failures, server-side session manager
+
+### A08 - Software and Data Integrity Failures

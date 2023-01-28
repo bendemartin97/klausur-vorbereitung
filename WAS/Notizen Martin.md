@@ -12,5 +12,14 @@
 - Prevent:
 	- testing for access contol, input validation, enforce record ownership
 
-### A02 Cryptographic Failures
+### A02 - Cryptographic Failures
 - moving from the third position
+- validation of certs, using of outdated cryptographic algorithms adn hash functions
+- prevent:
+	- don't store and cache sensitive data unnecessarily, using strong adaptive and salted hashing functions
+
+### A03 - Injection
+- Common vulneralibities: 
+	- incoming data is not validated, dynamic queries are non-parameterized, hostile data is directly used
+- how to find vulneralibities:
+	- static code analysis: code reviews,

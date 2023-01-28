@@ -53,16 +53,21 @@
 
 ### A06 - Vulnerable and Outdated Components
 - exploite vulnerable component, like libraries, frameworks, which are running with the same privilages as the application
-- common vulnerabilities:
+- common vulneralibities:
 	- you do not know the versions of all components in use, know all outdated or vulnerable, unsupported software, scan for vulnerabilities regularly
 - prevent:
 	- remove unused dependencies, features, components, invertory the versions, using of components from official sources over secure links, monitor for libraries and components   
 
 ### A07 - Identification and Authentication Failures
 - **Allows attackers to compromise passwords, keys, or session tokens, or to exploit other implementation flaws to assume other users’ identities temporarily or permanently**
-- common vulnerabilities:
+- common vulneralibities:
 	- weak passwords and forgotpassword process, weak hash functions for passwords, missing multi-factor auth, session identifier in url, not correct invalidated session ids
 - prevent:
 	- multi-factor auth, weak password checks, limit failed login attempts, log all failures, server-side session manager
 
 ### A08 - Software and Data Integrity Failures
+- **Software and data integrity failures relate to code and infrastructure that does not protect against integrity violations**
+- common vulneralibities:
+	- using of libraries from untrusted sources, insecure CI/CD pipeline, auto-update of libraries without integrity verification, insecure deserialization
+- prevent:
+	- digital signatures to verify data, using components from trusted repos, review code and config changes, CI/CD pipeline with proper segregation, config, access control, do not sent unencrypted serialized data to untrusted client

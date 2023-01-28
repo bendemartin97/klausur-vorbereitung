@@ -8,12 +8,9 @@
 - moving up from the fifth position
 - Access control enforces policy such that **users cannot act outside of their intended permissions**
 - Common vulneralibities:
-	- if principli of least privilege is violated, or a user can do something, for wich he does not have any permission
-	- violation of principle of least privilege
-	- bypassing access control checks : modifying url, api request, html page
-	- permitting vieweing or editing someone else's account
-	- accessing api with missing access controls for post, put, delete
-	- elevation of privilege: acting as an admin, as user or acting as user without being logged in
-	- metadata manipulation: cookie or jwt
-	- cors misconfiguration: api access from untrusted origins
-	- force browsing: to authenticated pages as an unauthenticated user
+	- __if principle of least privilege is going to be violated, or a user can do something, for wich he does not have any permission__ (modifying request, missing access control for api, metadata manipulation)
+- Prevent:
+	- testing for access contol, input validation, enforce record ownership
+
+### A02 Cryptographic Failures
+- moving from the third position

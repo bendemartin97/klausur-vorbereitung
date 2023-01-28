@@ -301,6 +301,6 @@
 - die formalen Parameter werden durch die ausgewerteten Werte ersetzt
 
 ### Call-By-Name
-- Bei Call-By-Name wird der Funktionsaufruf durch die rechte Seite ersetzt 
+- wird der Funktionsaufruf durch die rechte Seite ersetzt 
 - die formalen Parameter werden durch die Ausdrücke (noch nicht ausgewertet) in den aktuellen Parametern ersetzt. 
 - die dabei erhaltenen Ausdrücke werden dann leftmost-outermost ausgewertet

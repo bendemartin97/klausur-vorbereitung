@@ -71,3 +71,10 @@
 	- using of libraries from untrusted sources, insecure CI/CD pipeline, auto-update of libraries without integrity verification, insecure deserialization
 - prevent:
 	- digital signatures to verify data, using components from trusted repos, review code and config changes, CI/CD pipeline with proper segregation, config, access control, do not sent unencrypted serialized data to untrusted client
+
+### A09 - Security Logging and Monitoring Failures
+- **his category is to help detect, escalate, and respond to active breaches**
+- common vulneralibities:
+	- logins, failed logins etc are not logged, warnings and errors generate unclear log messages, logs not monitored for suspicious activitiy, log store locally, useless alerting thresholds, testing do no trigger alerts, cannot detect active attacks in real-time
+- prevent:
+	- log login, validation failures, encode log data correctly, effective monitoring and alerting for suspicious activities

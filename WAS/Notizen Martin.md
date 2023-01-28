@@ -14,12 +14,22 @@
 
 ### A02 - Cryptographic Failures
 - moving from the third position
-- validation of certs, using of outdated cryptographic algorithms adn hash functions
+- **validation of certs, using of outdated cryptographic algorithms adn hash functions**
 - prevent:
-	- don't store and cache sensitive data unnecessarily, using strong adaptive and salted hashing functions
+	- **don't store and cache sensitive data unnecessarily, using strong adaptive and salted hashing functions**
 
 ### A03 - Injection
 - Common vulneralibities: 
-	- incoming data is not validated, dynamic queries are non-parameterized, hostile data is directly used
+	- **incoming data is not validated, dynamic queries are non-parameterized, hostile data is directly used**
 - how to find vulneralibities:
-	- static code analysis: code reviews,
+	- **static code analysis**: part of CI, manual code reviews
+	- **dynamic analysis**: vulnerability scanning, penetration testers
+- SQL-Intection types:
+	- in-band:
+		- error-based: attackers get i**nformation about the structure of the db from the caused db error**
+		- union-bases: fuses **multiple select statements to get a single http response**
+	- blind:
+		- from the **response and behavior can attackers derive the servers structure**
+	- out-of-band
+- Cross-Site Scripting:
+	- The application uses untrusted data in the construction of the following HTML snippet _without validation or escaping_

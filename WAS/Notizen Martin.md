@@ -43,3 +43,10 @@
 	- using of secure dev lifecycle, library of secure design patterns, threat modelling, testing
 
 ### A05- Security Misconfiguration
+- missing security hardening, unnecessary features are enabled, default accounts are enabled, error handling shows stack traces, latest security features are disabled, security settings are not set to secure values, missing security headers, software is outdated
+- xml externel eintities:
+	- dos attack, access external entites, like files, access can be extendend to files not local if attacksers know location and structure of web application
+	- prevent:
+		- upgrage xml processors and libraries, disable xml external entity and drd processing, whitelisting
+- prevent:
+	- hardening proces, remove all unnecessary features, updating configurations, segmentation, client security directives (security headers), automated verification process

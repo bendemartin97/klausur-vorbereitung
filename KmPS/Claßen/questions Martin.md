@@ -264,6 +264,7 @@ console.log("Skript Ende!");
 	- Da die resolve Methode bei der Definition aufgerufen wird, hat die Promise sofort einen Ergebniswert. Ferner wird die Methode resolve auf das ScriptJobQueue von JS Runtime gepusht. Bei der Ausführung dieser Job, wird ein .then() Script auf dem PromiseJobQueue angehängt. Da diese Queue vollständig abgearbeitet werden muss, bevor der nächste Script ausgeführt werden kann, wird zuert der Resultat geprintet. Danach wird weiter ScriptJobsQueue abgearbeitet und Skript Ende geprintet.
 Erläutern Sie das Konzept der Promise.all() Operation: Wozu wird diese Operation genutzt? Was sind die Parameter und was ist der Rückgabewert dieser Operation? Wie werden Fehlerszenarien durch diese Operation behandelt?
 	- Dabei wird auf das Settlement mehrerer Promise gewartet. Die Parameter dieser Funktion ist ein Array an Promises. Bei asynchronen Plattform-Operationen ist die parallele Ausführung möglich, um die Perfomance zu verbessern. Wenn eine Promise rejected ist, werden alle andere Ergebnisse auch verworfen.
+	- 
 Was versteht man unter der "Promisification" einer JavaScript Library? Muss dazu die Library immer komplett neu geschrieben werden? Oder gibt es ein alternatives, effizienteres Vorgehen, dass sich bei manchen Libraries umsetzen ließ? Beschreiben Sie mittels JavaScript Pseudo-Code, wie dieses alternative, effiziente Verfahren funktioniert.
 	- Promisifacition bedeutet die Umwandlung einer Library mit API Funktionen in Callback-Style in einer Variante in Promise-Style. Für eine systematische API der Library kann die Promisification der Library sehr systematisch gemacht werden, mittels einer generellen Wrappen Funktion promisify().
 
@@ -325,8 +326,7 @@ my_square1.y = 20
 Was versteht man unter prototypischer Vererbung (auch objekt-basierte Vererbung genannt) in JavaScript? Nennen und beschreiben Sie drei charakteristische Aspekte, die wesentlich in diesem Konzept sind. Dies können z.B. Aspekte sein, wie dieses Konzept „funktioniert“ oder z.B. zentrale Konstrukte der Programmiersprache, die in diesem Konzept relevant sind.
 	- jede JS Function hat automatisch ein Attribut prototype, der zuerst mit einem leeren Objekt initializiert wird und dieser automatisch erzeugten Attribut hat ein Attribut constructor, der auf dem Function-Objekt zurückweist.
 	- jedes Objekt kann ein anderes Objekt als Prototype haben, und mehrere Objekte können den gleichen Prototype haben, der dann zentrale Methode für alle diese Objekte implementiert
-	- neue Instanze einer Klasse können mittels new oder Object.create erzeugt werden. new wird immer zusammen mit einer Funktions-Objekt aufgerufen, welches die Rolle des Konstru
-Was versteht man unter pseudo-klassischer Vererbung in JavaScript? Nennen und beschreiben Sie auch hier drei charakteristische Aspekte, die wesentlich in diesem Konzept sind.
+	- neue Instanze einer Klasse können mittels new oder Object.create erzeugt werden. new wird immer zusammen mit einer Funktions-Objekt aufgerufen, welches die Rolle des Konstruktors zur Objekt-Initializierung übernimmt
 
 Gegeben sei folgender JavaScript Code. Zeichnen Sie das Diagramm der Objekte und ihrer Attribut-Beziehungen zueinander, dass sich bei der JavaScript-internen Umsetzung dieses Programmcodes ergibt. Orientieren Sie sich an der in der Vorlesung verwendeten Diagramm-Notation.
 ``` JavaScript
@@ -352,4 +352,5 @@ Square.prototype.toString = function() {
 var square = new Square(6);
 ```
 
-Erläutern Sie, was man bei JavaScript unter dem Begriff des "Polyfilling" versteht. (Den Code für das Polyfilling von Object.create() werde ich nicht erfragen. Auch nicht, wie man auf die Existenz testet und dann beim "fehlen" das Polyfilling macht. Aber als Beispiel für Polyfilling sollte man Object.create angeben können.)
+Erläutern Sie, was man bei JavaScript unter dem Begriff des "Polyfilling" versteht. (Den Code für das Polyfilling von Object.create() werde ich nicht erfragen. Auch nicht, wie man auf die Existenz testet und dann beim "fehlen" das Polyfilling macht. Aber als Beispiel für Polyfilling sollte man Object.create angeben können.) #wiederholen 
+	- Polyfilling bezieht sich auf die Praxis, ältere oder nicht vollständig unterstützte JavaScript-Funktionalitäten in älteren Browsern durch Code-Implementierungen zu ersetzen, die dieselbe Funktionalität bereitstellen. Dieser Code wird normalerweise als polyfill bezeichnet. Ein Beispiel dafür ist die Verwendung von Object.create(), einer Methode, die in älteren Browsern nicht vorhanden ist, aber in neueren Browsern verfügbar ist. Um diese Methode in älteren Browsern verfügbar zu machen, kann ein polyfill implementiert werden, das eine ähnliche Funktionalität bereitstellt. 

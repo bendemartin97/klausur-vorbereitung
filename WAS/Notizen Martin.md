@@ -121,7 +121,7 @@
 	- __integrity__: attacker cannot change your data
 	- __authenticity__: server you are visiting is the right one
 - HSTS (Strict Transport Security)
-	- __forces browser to only HTTPS connect to server__ (server sends Strict-Transport-Security-Header)
+	- __forces browser to only HTTPS (never HTTP) connect to server__ (server sends Strict-Transport-Security-Header)
 	- __fowarding secrecy__ ( negotiate Secretc throug an ephemeral key exchange)
 
 ### C9 - Sec. Logging und Monitoring
@@ -151,3 +151,4 @@ Penetration testind requires a lower skill-seet than source code review
 Automates application scanners for black box testing is not effective
 HTTP Paramater pollution is to supply multiple http parameters with the same name in one request
 Reflected XSS is: attacker injects browser executable code, is non-persistent and first-order or type 1 XSS, is not stored in the application
+.inc and .asa files never returned from a web server

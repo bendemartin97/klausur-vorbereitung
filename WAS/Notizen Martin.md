@@ -21,9 +21,6 @@
 ### A03 - Injection
 - Common vulneralibities: 
 	- **incoming data is not validated, dynamic queries are non-parameterized, hostile data is directly used**
-- how to find vulneralibities:
-	- **static code analysis**: part of CI, manual code reviews
-	- **dynamic analysis**: vulnerability scanning, penetration testers
 - SQL-Intection types:
 	- in-band:
 		- error-based: attackers get i**nformation about the structure of the db from the caused db error**
@@ -34,6 +31,8 @@
 - Cross-Site Scripting:
 	- The application uses untrusted data in the construction of the following HTML snippet _without validation or escaping_
 - prevent:
+	- **static code analysis**: part of CI, manual code reviews
+	- **dynamic analysis**: vulnerability scanning, penetration testers
 	- using of sage api, parameterized interface, white listing, sql control statements, escape special characters 
 
 ### A04- Insecure desing

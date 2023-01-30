@@ -123,3 +123,18 @@
 - HSTS (Strict Transport Security)
 	- __forces browser to only HTTPS connect to server__ (server sends Strict-Transport-Security-Header)
 	- __fowarding secrecy__ ( negotiate Secretc throug an ephemeral key exchange)
+
+### C9 - Sec. Logging und Monitoring
+ detection points:
+	- input validation __failure server-side when client-sode validation exists__
+	- input validation __failure server-side on non-user editable parameters__
+	- forced __browsing to common attack entry point__
+	- __honeypot URL__ (e.g /admin/secretlogin.jsp)
+	- __sql or xss attacks__
+
+### C10 - Handle All Errors and Exceptions
+- __do not lead critical data__
+- __exceptions logged with enough information for:__
+	- quantity assurance
+	- forensics
+	- incident response teams

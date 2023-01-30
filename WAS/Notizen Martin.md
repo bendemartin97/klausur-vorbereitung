@@ -103,3 +103,23 @@
 - encoding: __translating special chars into__ different but __equivalent form__ (OWASP Java Encoder Project, MS Encoder and AntiXSS Library)
 
 ### C5 - Validate All Inputs
+- syntax validity: data in in the expected form
+- semantic validity: data is within an accaptable range for the given app functionality
+- using of black or whitelist
+
+### C6 - Implement Digital Identity
+- unique representation of a user
+- authentication: __process of verifying that an entity is who they claim to be__
+- session management: __process by wich server maintains the state of the user authentication__
+
+### C7 - Enforce Access Controls
+- access control: __process of granting speicific requests from a user__ __and involves the act of granting and revoking those privileges__
+
+### C8 - Protect Data Everywhere
+- _benefits of HTTPS:_
+	- __confidentiality__: attacker cannot view your data
+	- __integrity__: attacker cannot change your data
+	- __authenticity__: server you are visiting is the right one
+- HSTS (Strict Transport Security)
+	- __forces browser to only HTTPS connect to server__ (server sends Strict-Transport-Security-Header)
+	- __fowarding secrecy__ ( negotiate Secretc throug an ephemeral key exchange)

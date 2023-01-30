@@ -77,7 +77,7 @@ An attacker simply __modifies the ‘acct’ parameter in the browser to send wh
    - Attacker changes account id in Url to get acces to other accounts
 	   - ?acct=6065 -> 6064
    - __Avoid__
-	   - Use acces reference maps
+	   - Use access reference maps
 	   - Use salted hash to replace direct ID
 #### References
 [PDF Link](Chapter_3_WAS.pdf#page=49)

@@ -145,4 +145,9 @@ SSL chiper suite is specified by: the encryption key lenght, hash algorithm, an 
 using site search operator to restrict search results to a spicific domain
 SQL Injection attacks: inband, inferential or blind, out-of-band
 out-of-band is useful, if there is no connection to the db
-Merriam-Webst
+Merriam-Webster Dictionaray: to be assigned a standing or evaluation based on tests, to put to test or proof, to undergo a test
+One of the best method to prevent sec bugs is to improve the SDLC by including security in each of its phases
+Penetration testind requires a lower skill-seet than source code review
+Automates application scanners for black box testing is not effective
+HTTP Paramater pollution is to supply multiple http parameters with the same name in one request
+Reflected XSS is: attacker injects browser executable code, is non-persistent and first-order or type 1 XSS, is not stored in the application

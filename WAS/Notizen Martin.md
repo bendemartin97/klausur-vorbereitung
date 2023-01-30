@@ -85,3 +85,21 @@
 	- force a victim browser with victon credentials, such session cookie, to generate requests
 	- prevent:
 		- using of an existing csrf defense, unpredictable token in each HTTP request
+
+### ASVS
+- application security standard with 3 Levels
+- baseline: min. required for all app, mostly full testable and automatable
+- Standard: suitable for sensitive data, 75% testable, somewhat automatable
+- Comprehensive: suitable for critical app, mostly testabla via automation, manual verifacitions required
+### C1- Define Security Requierments
+- statement of needed security functionality
+
+### C2 - Leverage Security Frameworks and Libraries
+- help __guard against security-related desing and implementation flaws__
+- because __missing of sufficient knowledge, time, or budget not sufficient security features__
+
+### C3 - Secure DB Access
+### C4 - Encode and Escape Data
+- encoding: __translating special chars into__ different but __equivalent form__ (OWASP Java Encoder Project, MS Encoder and AntiXSS Library)
+
+### C5 - Validate All Inputs

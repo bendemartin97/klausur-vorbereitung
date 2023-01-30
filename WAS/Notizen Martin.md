@@ -138,3 +138,8 @@
 	- quantity assurance
 	- forensics
 	- incident response teams
+
+Directoriy travelsat attack: an attacker is able to access data outside the web doc root, include scripts, read directories, which they could not read
+Vertical privilege escalation: access resources granted to more priviliged accounts
+SSL chiper suite is specified by: the encryption key lenght, hash algorithm, an encryption protocol
+using site search operator to restrict search results to a spicific domain

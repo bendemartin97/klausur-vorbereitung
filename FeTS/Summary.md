@@ -72,34 +72,34 @@
 ### SMART
 - Self-Monitoring, Analysis and Reporting Technology
 - System zur Selbstüberwachung
-- Festplatten-interne Mechanismen protokollieren eine Reihe von Parametern
+- _Festplatten-interne Mechanismen protokollieren eine Reihe von Parametern_ #lernen
 	- Realisiert im Festplatten Controller
 	- in einem reservierten Bereich der Platte
 	- kein Einfluss auf die Perfomance
-- für jeden Parameter protokolliert die Festplatte:
+- _für jeden Parameter protokolliert die Festplatte:_ #lernen
 	1. Rohdaten: eigentlich gemessener Wert
 	2. Übersetzter Wert: Skala bis 255 bis 0, aktueller und bisher schlechtester Wert
 	3. Grenzwert: vom Hersteller festgelegt, Problem bei der Unterschreitung des Grenzwertes
-- Parameter-Typs:
+- _Parameter-Typs:_ #lernen
 	- pre-fail: warn vor baldigem Ausfall
 	- old-age: zeigt Alterungszustand an
-- Self Test:
+- _Self Test:_ #lernen 
 	- prüft die Platte aktive elektrischen und mechanischen Eigenschaften und Lesedurchsatz
 	- beim BS-Zugriff auf die Platte wird der Test unterbrochen
 	- brechnen bei Fehlern an
-- Offline Test:
+- _Offline Test:_ #lernen
 	- Ergänzung des Self Test, wird aber meist mit Self Test kombiniert
 	- mehr Parameter werden erhoben
 	- beim BS-Zugriftt wird unterbrochen
-- Architektur:
-	1. Festplatte und Festplatten-Controlle:
+- _Architektur:_ #lernen 
+	1. Festplatte und Festplatten-Controlle: 
 		- Erhebung und Speicherung der "online" Parameterwerte, jeweils aktuellen Rohwert sowie "worst"
 		- Ausführung der Offline Test, wenn getriggert, Erhebung und Speicherung der "offline" Parameterwerte
 	2. Software auf den Rechner
 		 - Abrufen der Parameterwerte
 		 - Reporting der Werte
 		 - Triggern der Offline-Tests
-- SMART mit Raid:
+- _SMART mit Raid:_
 	- direkte Zugriff aufgrund der Virtualisierung der Datenspeicher nicht möglich
 	- SMART - Infos müssen über das Management des RAID ausglesen werden
 
@@ -125,13 +125,18 @@
 	- in Software, getrennt von der Implementierung des Dateisystems
 	- in Software als Teil des Datensystems
 ### RAID Architektur
-#### Host-Based RAID
+- _Ziel: _
+	- kein Datenverlust beim Ausfall einer oder mehrerer Festplatten
+	- uneingeschränkte Verfügbarkeit der Daten
+	- Keine Auswirkungen des zusätzlichen Sicherungsmechanismus auf die Applikationen
+#### Host-Based RAID #lernen
 - Teil des Host Systems
 - Software RAID oder Hardware RAID
 - einfache Lösungen belasten den Prozessor und die Datentransferbusse des Hosts start
+#### Software RAID
 #### RAID Levels
 - spezifiert die Mechanismen, nach denen das RAID System arbeitet
-##### RAID 1
+##### RAID 1 #lernen
 - spiegelt die Daten über zwei oder mehr Festplatten des RAID 1 Arrays
 - Redundanz der Daten: die gleichen Daten auf allen Platten, redundant bis zum n -2 Platten 
 - Kapazität: Kapazität des kleinsten Platte
@@ -148,7 +153,7 @@
 - Ausfall von bis zu n-1 Platten keine Auswirkung auf die operative Perfomance
 - Schreiben der gespiegelten Nutzdaten erfordert zusätzliche Datentransfer-Kapazität zwischen Controller und Platte
 
-##### RAID 5
+##### RAID 5 #lernen 
 - Daten werden über die Festplatten des RAID 5 Arrays verteilt
 - Datenredundanz mittels Paritätsinformationen
 - Paritätsblöcke gleichmäßig über alle Platten verteilt
@@ -173,7 +178,7 @@
 	- Schreiben der neuen Parität auf die fünfte Festplatte
 - Hot Spare Disks sind schon in das RAID Array „verkabelt“, aber noch nicht aktiv eingebunden, d.h. keine Datenspeicherung
 
-##### RAID 6
+##### RAID 6 #lernen
 - Erweiterung von RAID 5, Ausfall von bis zu zwei Platten kompensiert werden kann
 - zwei Sätze von Redundanzinformation 
 - Erhöhte Leseperformance durch Lesen von mehreren Festplatten des RAID 6 Arrays
@@ -183,7 +188,7 @@
 	- können nach dem Ausfall einer Platte auch Lesefehler während des Rebuilds ausgeglichen werden (auch nach einem zweiten Ausfall)
 - Schreibperformance ist nicht optimal (müssen zwei Kontrollblöcke geschrieben werden)
 
-##### RAID 0
+##### RAID 0 #lernen
 - Just of a Bunch of Disks:
 	- Datenspeicherkonfiguration mit mehreren unabhängigen Festplatten
 - festen Blockgröße von meist 64 kB
@@ -214,7 +219,7 @@
 - Paritätsfestplatte wird zum Engpass bei Schreiboperationen
 - Datenintegrität des RAID 4 Arrays beim Ausfall von maximal einer Platte
 
-##### kombinierten RAID Levels
+##### kombinierten RAID Levels #lernen
 - Setups mit kombinierten RAID Levels können die Nachteile der individuellen RAID Levels ausgleichen
 - Realisiert als RAID Array, bei dem jede (logische) oder einzelne Festplatten selbst wiederum ein RAID Array ist/sind
 - Äußeres“ RAID Array und „innere“ RAID Arrays arbeiten nach verschiedenen RAID Levels
@@ -244,7 +249,8 @@
 #### Kombination von Volume Management und RAID
 - als Kombination seperater Funktionalitäten
 - oder integriert in die LVM Funktionalität
-##### LVM mit Integriertem RAID 1 ![[Bildschirm­foto 2023-01-16 um 09.17.50.png]]
+##### LVM mit Integriertem RAID 1 
+![[Bildschirm­foto 2023-01-16 um 09.17.50.png]]
 ##### Realisierung der PV:s als RAID Arrays
 - geringe Integration und Interaktion von LVM und RAID
 - modulare Realisierung

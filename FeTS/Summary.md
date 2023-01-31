@@ -321,8 +321,19 @@
 		- Kontakte werden benachrichtigt
 - _Flapping:_ #lernen 
 	- durch öftere Zustandswechsels wird ein Sturm von Problemen- und Erholungsbenachrichtigung erzeugt
-	- kann auf Konfigurationsproblemen, auf sich gegenseiteig störende Services, wirkliche Netztwerkprobleme oder anderweitige technische Probleme hinweisen
-
+	- kann auf Konfigurationsproblemen, sich gegenseiteig störende Services, wirkliche Netztwerkprobleme oder anderweitige technische Probleme hinweisen
+	- Ein Host oder Service wird eingestuft, mit dem Flapping begonnen zu haben, wenn der Prozentsatz das erste Mal den hohen Flapping-Schwellwert überschritten hat
+	- Ein Host oder Service wird angesehen, das Flapping beendet zu haben, wenn der Prozentsatz unter den niedrigen Flapping-Schwellwert sinkt
+	- Flapping Start:
+		- Event-Meldung protokollieren
+		- nicht permanenter Kommentar zum Host oder Service hinzufügen, dass er flattert
+		- flapping-start Benachrichtigung an die betreffende Kontakte versenden
+		- andere Benachrachtigungen unterdrücken
+	- Flapping End:
+		- Event-Meldung protokkolieren
+		- den Kommentar löschen
+		- flapping stop Benachrichtigung an die betreffende Kontakte versenden
+		- die Blockade von Benachrichtigungen entfernen.
 
 - _Publicy Available Services:_ #lernen 
 	- von außen zugängliche Services eines Hosts
@@ -353,52 +364,34 @@
 - _Business Process Add-Ons:_
 	- überwachen in konsolidierten Form Geschäftsprozesse, die aus mehreren Hosts und Services bestehen
 	- Dies ist insbesondere im Kontext von Service Level Agreements wichtig, da diese oft auf der Ebene der Auswirkungen auf die Geschäftsprozesse definiert sind.
+
+
 ### Elastic Stack
 - Elasticsearch: Text und JSON basierende Suchmaschine. "Herz" des ELK Stacks
-- Logstash: Sammeln, parsen, transformieren, speichern und an ES weitergeben von Log-Dateien
-- Kibana: Visualisierung von ES Ergebnisdaten.
+- _Logstash:_
+	- sammelt, parsed und identifiziert Strukturen, transformiert und speichert Event-, Log- und anderen Daten-Input, z.B. Log-Dateien als datei-basierten Input, und sendet diesen transformierten und strukturierten Input an Elasticsearch oder andere Systeme.
+- _Beats:_
+	- ist die Plattform für Daten-Shipper, die jeweils genau für einen Anwendungsfall gebaut werden. Diese lassen sich als leichtgewichtige Agenten installieren und übermitteln Daten von Hunderten oder Tausenden Maschinen an Logstash oder Elasticsearch.
+- _Kibana:_
+	- für die browser-basierte, interaktive Analyse und Diagramm-Visualisierung der von Ergebnisdaten, insbesondere jener von Elasticsearch.  
+	- Konfigurierbarkeit der Oberfläche: Dashboard.  
+	- Viele verschiedene Diagrammtypen: Histogramme, Geo-Maps, ...
 - _Volltextsuche:_
-	- Tokenizing: in Worte zerlegen
+	- ~~Tokenizing: in Worte zerlegen
 	- Stemming: Worte auf ihre Stammform reduzieren
 	- Filtering: Füllworte weg
 	- Ranking der Ergegnisse: wie viele Treffer im Dokument
 	- Such-Index: schneller Suche
-	- invertierter Index: Index der Suchbegriffe mit Verweisen auf die Vorkommen in den Dokument
-- persistente Datenspeicherung
-- REST API: Anfragen und Ergebnisse im JSON Format
-- Clustering: skalierende Perfomance, hohe Verfügbarkeit
-- _Datenspeicherung:_
-	- NoSQL Datenbanken:
-		- Key-Value Stores
-		- Wide-Column Stores
-		- Graph-orientierte DB
-		- Dokumenten-orientierte DB
-	- Key-Value Stores:
-		- speichern Daten in From von Schlüssel-Wertparen
-		- die Werte können von verschiedenen Typen sein
-		- einfach in der Struktur und Datenspeicherung
-		- schnelle Suche
-		- leicht horizontal skalierbar
-	- Wide-Column Stores
-		- Tabellenform
-		- alle Informationen eines Datensatzes in einer Zeile
-		- Anzahl der genutzten Spalten kann von Datensatz zu Datensatz unterschiedlich sein
-		- Daten können schemalos abgelegt werden
-	- Dokumenten-orientierte DB
-		- speichern die Daten in Form von Dokumenten
-		- ein Dokument ist eine Sammlung von Schlüssel-Werte-Paaren, die einen Bezug zueinander haben
-		- dürfen unterschiedliche Struktur haben
-		- schemafrei
-- ES ist schema-lose, dokumenten-orientierte NoSQL DB
-- Daten werden im JSON Format verarbeitet und gespeichert
-- Daten können einfach eingefügt werden
+	- invertierter Index: Index der Suchbegriffe mit Verweisen auf die Vorkommen in den Dokument~~
+	- persistente Datenspeicherung
+	- REST API: Anfragen und Ergebnisse im JSON Format
+	- Clustering: skalierende Perfomance, hohe Verfügbarkeit
+	- ES ist schema-lose, dokumenten-orientierte NoSQL DB
+	- Daten werden im JSON Format verarbeitet und gespeichert
+	- Daten können einfach eingefügt werden
 - _Index:_
 	- Zusammenstellung von Dokumenten
 	- gleich benannte Felder von Dokumenten im selben Index müssen vom selben Datentyp sein
-- _Types:_
-	- logische Unterteilung eines Index
-- _Mapping:_
-	- gibt an welcher Datentyp für welches Feld festgelegt ist
 - _Schemalosigkeit:_
 	- beim ersten Erstellen eines Index durch Einlesen erster Daten ein Mapping anhand der Daten der bisheringen Dokumente automatisch aufgebaut wird
 - _Scoring:_

@@ -406,6 +406,13 @@
 		- Reihenfolge der Bearbeitung
 		- Umfang eingesetzter Ressourcen
 	- Priorität = Auswirkungen * Dringlichkeit
+	-  Auswirkungen:
+		- Anzahl betroffener Anwender, Anzahl betroffener „Chefs“
+		- Ausmaß der Beeinträchtigung der Geschäftsprozesse , monetäre Verluste -> Business Impact
+		- Gefährdung der Service Levels
+	- Dringlichkeit:
+		- Größe und Eskalation potentiell entstehender Schäden
+		- eitl
 
 ### Ticket Systeme
 - Software für Empfang, Bestätigung, Klassifizierung und Bearbeitung von Störungsmeldungen

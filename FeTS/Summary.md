@@ -387,6 +387,7 @@
 	- der reaktive Prozess zur schnellst- möglichen, vollständigen Wiederherstellung des normalen Servicebetriebs
 - _Support Organization:_
 	-  verantwortlich für die Lösung der Incidents
+	- aufgeteilt in Levels, also Gruppen von Experten für einen Bereich von Tätigkeiten im Support
 	- oft strukturiert in drei Levels:
 		1. Helpdesk:
 			- first line to the customer
@@ -412,23 +413,32 @@
 		- Gefährdung der Service Levels
 	- Dringlichkeit:
 		- Größe und Eskalation potentiell entstehender Schäden
-		- eitl
+		- zeitliche Aspekte der Auswirkungen auf die Geschäftsprozesse
+		- Aufwand der Behebung
+- _Eskalation:_
+	- um eine Steigerung des Ressourceneinsatzes bei der Incident- Behebung herbeizuführen
+	- um Entscheidungen herbeizuführen
+	- funktionale Eskaltion: Weiterleitung von 1st Line zum 2nd Line Support -> Inanspruchname höherer technischer Kompetenz
 
 ### Ticket Systeme
 - Software für Empfang, Bestätigung, Klassifizierung und Bearbeitung von Störungsmeldungen
 - ermöglciht die Zuweisung eines Tickets an ein Team oder an eine Person zur weiteren Bearbeitung
-- sicherstellen, dass keine Nachricht verloren geht
+- stellen sicher, dass keine Nachricht verloren geht, ein Gesamtüberblick über die zu bearbeitenden Vorgänge und die Störungs- / Anfragenlage jederzeit möglich ist und die Bearbeitung strukturiert und koordiniert ablaufen kann.
 - _Issue Tracking:_
 	- nicht nur Fehlern und Störungen
 	- Strörungen
 	- Anfragen nach Informationen, Preisen etc.
 	- Änderungswünsche
-- _Trouble Ticket:_
-	- die elektronische Form einer Fehlermeldung im Fault Management
 - _Queues:_
-	- Mailbox für Tickets
+	- Mailbox für Tickets, zu speicherung und Verwaltung von Tickets
 	- gruppieren die Tickets inhaltlich
 	- ein Ticket kann in eine andere Queue weitergeleitet werden
+	- Gruppierung nach Themen:
+		- Bearbeiter sehen nur Tickets, die zum eigenen Fachgebiet gehören
+		- Überblick, in welchen Themenbereichen wie viele Tickets anfallen
+	- Zuweisung der Tickets zu Berarbeitern
+		- Queue entkoppelt die Generierung des Tickets von der Zuweisung zum Bearbeiter
+		- Kunde kann höchstent der Queue zuweiden, aber nicht den Bearbeiter herausfinden
 - _Eskalationen:_
 	- Wird ein Ticket mit einer bestimmten Priorität vom aktuellen Support Level nicht innerhalb eines bestimmten Zeitraums gelöst, so wird es ggfs. vom Ticket System automatisch eskaliert
 - _Vorteile:_

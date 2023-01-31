@@ -1,74 +1,6 @@
-### Grundlagen
-- _Verfügbarkeit:_
-	- ein System ist verfügbar, wenn es in der Lage ist, die vorgesehenen Aufgaben zu erfüllen
-	- Produktionszeit / (Produktionszeit + Ausfallzeit) * 100
-	- Gesamtverfügbarkeit hängt ab von der Verfügbarkeit und der logischen Anordnung der Teilsysteme
-	- Serielle Anordnung: Gesamtfunktionalität nur dann gegeben, wenn alle Teilsysteme funktionieren
-	- Parallele Anordnung: bei gleicher Funktionalität (Redundanz), solange ein Teilsystem arbeitet, ist die Gesamtfunktionalität prinzipell noch gegeben 
-- _Downtime:_
-	- bezeichnet die Zeit, in der ein Computersystem nicht verfügbar bzw. nicht funktionstüchtig ist
-	- scheduled downtime: Wartungsarbeiten, geplante Änderungen
-	- unplanned downtime: Fehler in Systemkomponenten, Bedienung, Umgebung
-	- Service Level Agreements definieren, ob scheduled downtime in die Berechnung der Verfügbarkeit eingeht oder nicht (default nicht)
-- _Mean Time Between Failures_:
-	- mittlere Betriebszeit zwischen zwei aufeinanderfolgenden Ausfällen
-	- ist ein Maß für die Zuverlässugkeit des Systems
-- _Mean Time To Failure_:
-	- bei nicht reparierbaren Komponenten oder bei denen, die nach der Reparatur neuwerting sind
-	- bezeichneit die mittlere Betriebsdauer bis zu Ausfall -> mittlere Lebensdauer
-	- statische Kenngröße
-- _Hochverfügbarkeit:_
-	- Verfügbarkeit liegt oberhalb einer Minimalerwartung
-	- 99,99 %, also 52:36 Minuten in hochverfügbaren IT-Systeme
-	- 99,999 %, also 5:16 Minuten in Telekommunikationsnetzte
-	- wird durch Fehlertoleranz gewährleistet
-- _Fehlertoleranz:_
-	- Anwendung auch im Fehlerfall weiterhin verfügbar
-	- ohne unmittelbaren menschlichen Eingriff weiter nutztbar
-	- Anwender nimmt keine oder nur kurze Unterbrechung wahr
-- _Sinple Point of Failure:_
-	- eine einzelne Komponente, deren Versagen zum Ausfall des gesamten Systems führ
-	- Vermeidung durch:
-		- Redundanz von Komponenten
-		- Fehlertolerantes und robustes Systemverhalten
-- _Redundanzkonfigurationen:_
-	- Active / Active:
-		- im Nicht-Fehlerfall alle Dienste auf allen Systemen aktiv
-		- im Fehlerfall fallen einzelne Dienstinstanzen weg, alle anderen arbeiten
-	- Active / Passive:
-		- Passive Dienstinstanzen unaktiv
-		- im Fehlerfall werden sie Ersatz für die fehlerhaften Dienstinstanzen
-		- Hot Standby: Systemstart und Aufwand für das Übertragen der aktuellen Konfiguration etc. minimiert
-		- Cold Standy: einfacher zu realisiren, aber längere downtime und höherer Aufwand zur Behandlung des Fehlerfalls
-	- 1 + 1 Redundanz: 
-		- Pro aktivem System ein passiver Standby
-		- Verschwendung der Ressources des passiven Systems
-	- N + 1 Redundanz:
-		- bei mehreren aktiven System ein passiver Standby
-	- M + N Redundanz:
-		- bei mehreren aktiven System gibt mehrere passive Standbys
-- _Out of Band Management:_
-	- Administraton eines Systems über einen Zugriffspfad
-	- getrennt vom Datenpfad deer Applikationsdaten des Systems
-	- z.B seperates Netzwerk für die Systemadministration
-	- verhindert, dass Netzwerkprobleme im Bereich der Applikationsdaten auch die Administration des Server-Systems behindern oder verhindern
-- _In-Band Management:_
-	- Administration eines Systems über den gleichen Netzwerkzugang
-
-### Festplatten
-- _Datenspeicherung auf Festplatten:_
-	- Daten werden in Blöcken gelesen und geschrieben
-	- Partitionen: Unterteilung der Festplatte in unabhängige Bereiche
-	- Dateisystem: Strukturinformation für die Datenspeicherung
-	- Festplattezugriffe langsamer als Zugriffe auf PRozessor Cache und RAM Speicher
-	- Caching der Daten im RAM des Computers
-	- beim Ausfall gelangen die Cache-Inhalte nicht mehr auf die Festplatte
-	- Server-Festplatten haben eine höhere MTTF als Desktop-Festplatten
-- _Ausfallursachen bei Festplatten:_
-	- Fehler in Steuerelektronik
-	- Verschleiß der Mechanik
-	- Mechanisches Aufsetzen des Schreib-Lesekopfes aufgrund von Bewegungen
-	- thermische Probelem
+### TODO
+- Abläufe für RAID Vergrößern und Fehlerbeheben anschauen
+- RAID Wie liest und schreibt ein RAID Array, wenn Platte defekt im Array ist?
 ### SMART
 - Self-Monitoring, Analysis and Reporting Technology
 - System zur Selbstüberwachung
@@ -103,7 +35,7 @@
 	- direkte Zugriff aufgrund der Virtualisierung der Datenspeicher nicht möglich
 	- SMART - Infos müssen über das Management des RAID ausglesen werden
 
-### RAID
+### RAID #lernen
 - Redundant Array of Inexpensive Disks
 - _Ziel:_
 	- Absicherung gegen Festplattenausfall
@@ -125,10 +57,6 @@
 	- in Software, getrennt von der Implementierung des Dateisystems
 	- in Software als Teil des Datensystems
 ### RAID Architektur
-- _Ziel: _
-	- kein Datenverlust beim Ausfall einer oder mehrerer Festplatten
-	- uneingeschränkte Verfügbarkeit der Daten
-	- Keine Auswirkungen des zusätzlichen Sicherungsmechanismus auf die Applikationen
 #### Host-Based RAID #lernen
 - Teil des Host Systems
 - Software RAID oder Hardware RAID
@@ -200,29 +128,6 @@
 - Ausfall einer Platte ist schlimmer als bei n unabhängigen Platten
 - Erhöhte Lese- und Schreibperformance durch Benutzung mehrerer Festplatten des RAID 0 Arrays
 
-##### RAID 2
-- Daten werden bitweise über die Festplatten des RAID 2 Arrays verteilt
-- Führt dazu, dass Anzahl der Datenplatten typischerweise der Anzahl der Bits in einem Datenwort entspricht, also typischerweise 32 Festplatten
-- Pro Datenwort wird ein Hamming Error Correction Code berechnet, dessen Bits werden auf die zusätzlichen ECC Festplatten verteilt
-- Redundante ECC Information:
-	- schützt gegen den Ausfall einer Festplatte
-	- schützt auch gegen Schreibfehler auf irgendeiner der Festplatten
-
-##### RAID 3
-- Daten werden über die Festplatten des RAID 3 Arrays verteilt
-- Plus Datenredundanz mittels Paritätsinformation.
-- Paritätsblöcke auf eigener Platte gespeichert
-- Keine standardisierte Blockgröße
-- Paritätsfestplatte wird zum Engpass bei Schreiboperationen
-- Datenintegrität des RAID 3 Arrays beim Ausfall von maximal einer Platte
-- Beim Ausfall einer Platte ist ein Rebuild erforderlich
-
-##### RAID 4
-- Striping und Paritätsinformation auf einer dedizierten Festplatte wie bei RAID 3
-- festen Blockgröße von meist 64 kB
-- Paritätsfestplatte wird zum Engpass bei Schreiboperationen
-- Datenintegrität des RAID 4 Arrays beim Ausfall von maximal einer Platte
-
 ##### kombinierten RAID Levels #lernen
 - Setups mit kombinierten RAID Levels können die Nachteile der individuellen RAID Levels ausgleichen
 - Realisiert als RAID Array, bei dem jede (logische) oder einzelne Festplatten selbst wiederum ein RAID Array ist/sind
@@ -240,7 +145,7 @@
 	- Das RAID System kann die Daten der bisher aktiven Disk auf die Ersatzdisk kopieren
 	- Vermeidet zwischenzeitlichen Verlust der Redundanz sowie aufwändigen Rebuild
 
-#### Error handling
+#### Error handling #lernen
 ##### Festplatten und Controller
 - internes Schreiben auf einen physischen Sektor fehlschlägt: remapping des logischen Sektors auf anderen physischen Sektor (reallocated sector) und werdenerneut gelesen, ob das Schreiben erfolgreich war
 - Lesen eines logischen Sektors durch lesen des zugehörigen physischen Sektors fehlschlägt, erneute mehrfache Leseversuche, sonst ggfs. langer Timeout
@@ -254,48 +159,7 @@
 - führt u lange Rebuild mit einer Spare Disk
 - geringere Redundanz des RAID in dieser Zeit
 
-#### Datenintegrität
-- Ziel ist Schutz vor dem Ausfall einer oder mehreren Festplatten
-- Datenintegrität wird normaleweise nicht berücksichtigt (ausnahme RAID 2)
-- einige RAID Controller haben Korrekturmechaniscmen:
-	- read after write
-	- Vegleich mit den von den Platte gelesenen Daten
-	- ggfs. Korrektur der falschen Daten
-	- Cache der Platte muss aus sein
-- RAID Scrubbing bei RAID 5 / 6:
-	- korriegiert bei gefunderen Inkonststenz in einem Stripe nur die Parität dieses Stripes
-- Datenfehler auf Applikationsebede können nicht von RAID behandelt werden
-- kein Ersatz für Datensicherung
-#### Dateisysteme mit integriertem RAID
-- sind Dateisystemfunktionalität und RAID Funktionalität integriert (ZFS, Linux btrfs)
-- Vorteil:
-	- RAID kennt belegte und freie Blöcke
-	- behandelt bei Rebuild nur belegte Blöcke -> schneller
-	- Dateisystem kann über Prüfsummen die Dateiintegrität überwachen
-- Nachteil:
-	- Mechanismen sind nicht separiert
-	- erhöhte Komplexität und Fehleranfälligkeit
-	- Hardware-Unterstptzung schwer zu realisieren
-#### Kombination von Volume Management und RAID
-- als Kombination seperater Funktionalitäten
-- oder integriert in die LVM Funktionalität
-##### LVM mit Integriertem RAID 1 
-![[Bildschirm­foto 2023-01-16 um 09.17.50.png]]
-##### Realisierung der PV:s als RAID Arrays
-- geringe Integration und Interaktion von LVM und RAID
-- modulare Realisierung
-- klar abgegrenzte Funktionalität, Administration und Fehlerhandling
-- gut für HW-Unterstützung der RAID Funktionalität
-- ![[Bildschirm­foto 2023-01-16 um 09.21.27.png]]
-##### RAID Funktionalitäten integriert in dem LVM
-- hohe Integration
-- entweder über API getrennt implementiert
-- oder gemeinsame, integrierte Implementierung
-- keine HW-Unterstützung der RAID Funktionalität
-- komplexeres, manuelles Handling des Rebuilds 
-- ![[Bildschirm­foto 2023-01-16 um 09.22.23.png]]
-
-### Clustersysteme
+### Clustersysteme #lernen
 - eine Anzahl von vernetzten Computern, die von außen in vielen Fällen als ein Computer gesehen werden können
 - die einzelnen Cluster-Knoten sind untereinander über ein schnelles Netzwerk verbunden
 - _Ziel:_
@@ -399,7 +263,7 @@
 	- Fehler im Cluster Interconnect, nicht stoppbare Ressourcen, ausbleibende Rückmeldungen, Software-Absturz
 
 ### Monitoring Systeme, Nagios
-- _Ziele:_
+- _Ziele:_ #lernen
 	- Ausfälle wenig Geld kosten
 	- Planung von Durchführung von Infrastruktur-Upgrades
 	- auf Anzeichnen von Störungen frühzeitig reagieren
@@ -410,23 +274,23 @@
 #### Nagios
 - überwacht Hosts, Services, Netztwerke
 - erledigt durch Plug-Ins bestimmte Überwachungsaufgaben
-- _Hosts in Nagios:_
-	- Geräte im Netztwerk, auf dendn zu überwachende Services laufen
+- _Hosts in Nagios:_ #lernen
+	- Geräte im Netztwerk, auf denen zu überwachende Services laufen
 	- wird erst überwacht, wenn es mindestens zu einen zu überwachenden Service gibt
-- _Host Resources:_
+- _Host Resources:_ #lernen
 	- spezifische Aspekte von Hosts, die überwacht werden können
 	- Prozesstemperatur, RAM Speicherverbrauch etc.
 	- werden als Services betrachtet
-- _Host Checks:_
+- _Host Checks:_ #lernen
 	- in regelmäßigen Intervallen
 	- nach Bedarf, wenn ein mit dem Host verbundener Service den Status wechselt
 	- nach Bedarf als Teil der Host-Verfügbarkeits-Logik
 	- nach Bedarf bei vorausschauenden Hosts-Abhängigkeitsprüfungen
-- _Host Groups:_
+- _Host Groups:_ #lernen
 	- mehrere Hosts zu gruppieren
 	- Nagios Konfigurationen zu vereinfachen
 	- werden im User Interface verwendet
-- _Services:_
+- _Services:_ #lernen
 	- SW-Dienst (HTTP, FTP etc.)
 	- interne Eigenschaft eines Hosts (Speicher- und CPU-Auslastung)
 	- messbare Umweltbedingung (Temperaturwert)
@@ -438,7 +302,7 @@
 	-  mehrere Services zu gruppieren
 	- Nagios Konfigurationen zu vereinfachen
 	- werden im User Interface verwendet
-- _Statustypen :
+- _Statustypen : #lernen 
 	- Soft Error:
 		- Prüfungsergebnis in einem Nicht-Ok oder Nicht-Up Status
 		- Prüfung noch nicht nach max_check_attempts oft durchgeführt wurde
@@ -450,28 +314,28 @@
 		- Service Prüfung mit einem Nicht-Ok-Status endet und der zugehörige Host down oder nicht erreichbar ist
 		- trigger Eventhandler
 		- Kontakte werden benachrichtigt
-- _Flapping:_
+- _Flapping:_ #lernen 
 	- durch öftere Zustandswchsels wird ein Sturm von Problemen- und Erholungsbenachrichtigung erzeugt
 	- kann auf Konfigurationsproblemen hinweisen
 	- oder auf sich gegenseiteig störende Services
 	- oder auf wirkliche Netztwerkprobleme
 	- oder anderweitige technische Probleme
-- _Publicy Available Services:_
+- _Publicy Available Services:_ #lernen 
 	- von außen zugängliche Services eines Hosts
 	- können von außen von Nagios geprüft werden
 	- keine Add-On Software auf dem Host notwendig
 	- HTTP, SMTP, ping, FTP, SSH
-- _Aktive Checks:_
+- _Aktive Checks:_ #lernen
 	- gebräuchlichste Methode zur Überwachung
 	- vom Nagios-Prozess veranlasst
 	- laufen auf einer regelmäßig geplanten Basis
-- _Private Services:_
+- _Private Services:_ #lernen 
 	- nicht von außen zugängliche Services eines Hosts
 	- Add-On Software (agent) auf dem Host erforderlich
 	- RAM Speicherauslastung, CPU-Auslastung
-- _Passive Checks:_
+- _Passive Checks:_ #lernen 
 	- werden von Agent SW auf dem Host durchgeführt
-- _Freshness Prüfung:_
+- _Freshness Prüfung:_ 
 	- stellt sicher, dass Prüfungsresultate von passiven Prüfungen so regelmäßig wie erwartet empfangen worden sind
 - _Service Dependencies:_
 	- Benachrichtungen und aktive Prüfungen von Services in Abhängigkeit vom Status eines oder mehrerer Services zu unterdrücken 

@@ -9,7 +9,7 @@
 	- Realisiert im Festplatten Controller
 	- in einem reservierten Bereich der Platte
 	- kein Einfluss auf die Perfomance
-- _für jeden Parameter protokolliert die Festplatte:
+- _für jeden Parameter protokolliert die Festplatte_:
 	1. Rohdaten: eigentlich gemessener Wert
 	2. Übersetzter Wert: Skala bis 255 bis 0, aktueller und bisher schlechtester Wert
 	3. Grenzwert: vom Hersteller festgelegt, Problem bei der Unterschreitung des Grenzwertes

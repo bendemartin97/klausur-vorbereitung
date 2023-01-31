@@ -320,11 +320,10 @@
 		- trigger Eventhandler
 		- Kontakte werden benachrichtigt
 - _Flapping:_ #lernen 
-	- durch öftere Zustandswchsels wird ein Sturm von Problemen- und Erholungsbenachrichtigung erzeugt
-	- kann auf Konfigurationsproblemen hinweisen
-	- oder auf sich gegenseiteig störende Services
-	- oder auf wirkliche Netztwerkprobleme
-	- oder anderweitige technische Probleme
+	- durch öftere Zustandswechsels wird ein Sturm von Problemen- und Erholungsbenachrichtigung erzeugt
+	- kann auf Konfigurationsproblemen, auf sich gegenseiteig störende Services, wirkliche Netztwerkprobleme oder anderweitige technische Probleme hinweisen
+
+
 - _Publicy Available Services:_ #lernen 
 	- von außen zugängliche Services eines Hosts
 	- können von außen von Nagios geprüft werden
@@ -340,14 +339,20 @@
 	- RAM Speicherauslastung, CPU-Auslastung
 - _Passive Checks:_ #lernen 
 	- werden von Agent SW auf dem Host durchgeführt
-- _Freshness Prüfung:_ 
-	- stellt sicher, dass Prüfungsresultate von passiven Prüfungen so regelmäßig wie erwartet empfangen worden sind
 - _Service Dependencies:_
 	- Benachrichtungen und aktive Prüfungen von Services in Abhängigkeit vom Status eines oder mehrerer Services zu unterdrücken 
 - _Plug-Ins:_
 	- Programme oder Skripts, die von dern Kommendozeile aus den Status eines Hosts oder Services überprüfen
 	- die Ergebnisse werden verarbeitet, um notwendige Aktionen auszuführen
 	- arbeiten wie eine Abstraktionsschicht zwiscchen der Überwachungslogik im Nagion-Dämon und den eigentlichen Services, die überwacht werden
+- _RRD:_
+	- Round-robin-Database
+	- ist ein Programm, mit dem zeitbezogene Messdaten gespeichert, zusammengefasst und visualisiert werden können
+	- beim Anlagen der Datenbank wird genug Speicher für eine angegebene Zeitspanne angelegt
+	- immer die ältesten Daten werden verdichtet
+- _Business Process Add-Ons:_
+	- überwachen in konsolidierten Form Geschäftsprozesse, die aus mehreren Hosts und Services bestehen
+	- Dies ist insbesondere im Kontext von Service Level Agreements wichtig, da diese oft auf der Ebene der Auswirkungen auf die Geschäftsprozesse definiert sind.
 ### Elastic Stack
 - Elasticsearch: Text und JSON basierende Suchmaschine. "Herz" des ELK Stacks
 - Logstash: Sammeln, parsen, transformieren, speichern und an ES weitergeben von Log-Dateien

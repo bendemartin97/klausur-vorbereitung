@@ -238,6 +238,7 @@
 - _Spare Disk:_
 	- aktive Festplatte wird durch eine Spare Disk ersetzt, unter Nutzung der noch operativen Festplatte
 	- Das RAID System kann die Daten der bisher aktiven Disk auf die Ersatzdisk kopieren
+	- Vermeidet zwischenzeitlichen Verlust der Redundanz sowie aufwändigen Rebuild
 
 #### Datenintegrität
 - Ziel ist Schutz vor dem Ausfall einer oder mehreren Festplatten

@@ -132,8 +132,12 @@
 #### Host-Based RAID #lernen
 - Teil des Host Systems
 - Software RAID oder Hardware RAID
-- einfache Lösungen belasten den Prozessor und die Datentransferbusse des Hosts start
-#### Software RAID
+- einfache Lösungen belasten den Prozessor und die Datentransferbusse des Hosts stark
+#### Software RAID #lernen
+- keine Hardware für den RAID Controller 
+- kann zu existierendem Rechner zur Laufzeut hinzugefügt werden
+- Belaster CPU und Bussysteme des Rechners
+- Arbeitsspeicher des Rechners als Cache
 #### RAID Levels
 - spezifiert die Mechanismen, nach denen das RAID System arbeitet
 ##### RAID 1 #lernen
@@ -223,6 +227,17 @@
 - Setups mit kombinierten RAID Levels können die Nachteile der individuellen RAID Levels ausgleichen
 - Realisiert als RAID Array, bei dem jede (logische) oder einzelne Festplatten selbst wiederum ein RAID Array ist/sind
 - Äußeres“ RAID Array und „innere“ RAID Arrays arbeiten nach verschiedenen RAID Levels
+
+#### Aspekte des operativen Handlings #lernen 
+- _Hot Spare Disk:_
+	- sind schon in das RAID Array verkabelt, aber noch nicht aktiv eingebunden
+	- die Fehlerhafte Festplatte kann sehr schnell durch eine Hot Spare Platte ersetzt werden
+		- keine Beschaffung, physikalische Installation
+		- Einbidung mittels RAID Rekonfiguration
+		- erst mit dem Rebuild werden Daten auf die Platte geschrieben
+- _Spare Disk:_
+	- aktive Festplatte wird durch eine Spare Disk ersetzt, unter Nutzung der noch operativen Festplatte
+	- Das RAID System kann die Daten der bisher aktiven Disk auf die Ersatzdisk kopieren
 
 #### Datenintegrität
 - Ziel ist Schutz vor dem Ausfall einer oder mehreren Festplatten

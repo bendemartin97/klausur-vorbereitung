@@ -1,6 +1,7 @@
 ### TODO
 - Abläufe für RAID Vergrößern und Fehlerbeheben anschauen
 - RAID Wie liest und schreibt ein RAID Array, wenn Platte defekt im Array ist?
+- Nagios Commanden anschauen
 ### SMART
 - Self-Monitoring, Analysis and Reporting Technology
 - System zur Selbstüberwachung
@@ -286,6 +287,10 @@
 	- nach Bedarf, wenn ein mit dem Host verbundener Service den Status wechselt
 	- nach Bedarf als Teil der Host-Verfügbarkeits-Logik
 	- nach Bedarf bei vorausschauenden Hosts-Abhängigkeitsprüfungen
+- _Parent Hosts:_
+	- Hierarchie der Hosts im Netzwerk, d.h direkte und indirekte Erreichbarkeit für Nagios
+	- zum Entschieden ob ein Host wirklich nicht funktioniert, oder nur ein dazwischenliegender Parent Host nicht funktioniert
+	- werden auch zwischenliegende Routers und Switches miteinbezogen
 - _Host Groups:_ #lernen
 	- mehrere Hosts zu gruppieren
 	- Nagios Konfigurationen zu vereinfachen
@@ -339,6 +344,10 @@
 	- stellt sicher, dass Prüfungsresultate von passiven Prüfungen so regelmäßig wie erwartet empfangen worden sind
 - _Service Dependencies:_
 	- Benachrichtungen und aktive Prüfungen von Services in Abhängigkeit vom Status eines oder mehrerer Services zu unterdrücken 
+- _Plug-Ins:_
+	- Programme oder Skripts, die von dern Kommendozeile aus den Status eines Hosts oder Services überprüfen
+	- die Ergebnisse werden verarbeitet, um notwendige Aktionen auszuführen
+	- arbeiten wie eine Abstraktionsschicht zwiscchen der Überwachungslogik im Nagion-Dämon und den eigentlichen Services, die überwacht werden
 ### Elastic Stack
 - Elasticsearch: Text und JSON basierende Suchmaschine. "Herz" des ELK Stacks
 - Logstash: Sammeln, parsen, transformieren, speichern und an ES weitergeben von Log-Dateien

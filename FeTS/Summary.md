@@ -240,6 +240,20 @@
 	- Das RAID System kann die Daten der bisher aktiven Disk auf die Ersatzdisk kopieren
 	- Vermeidet zwischenzeitlichen Verlust der Redundanz sowie aufwändigen Rebuild
 
+#### Error handling
+##### Festplatten und Controller
+- internes Schreiben auf einen physischen Sektor fehlschlägt: remapping des logischen Sektors auf anderen physischen Sektor (reallocated sector) und werdenerneut gelesen, ob das Schreiben erfolgreich war
+- Lesen eines logischen Sektors durch lesen des zugehörigen physischen Sektors fehlschlägt, erneute mehrfache Leseversuche, sonst ggfs. langer Timeout
+##### SW Raid
+- RAID nutzt Sector Reallocation der HDD für die Error Correction
+- fehlerhafte Block wird mit den korrekten Daten, die irgendwo anders gefunden wurden, überschrieben und wieder gelesen
+##### Timeouts
+- während der sector reallocation HDD unresponsive
+- wenn zu lange unresponsive HDD führt zu Timeout in der RAID Logik
+- RAID markiert die ganze HDD als failed, obwohl noch gut funktioniert
+- führt u lange Rebuild mit einer Spare Disk
+- geringere Redundanz des RAID in dieser Zeit
+
 #### Datenintegrität
 - Ziel ist Schutz vor dem Ausfall einer oder mehreren Festplatten
 - Datenintegrität wird normaleweise nicht berücksichtigt (ausnahme RAID 2)

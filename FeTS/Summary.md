@@ -5,26 +5,26 @@
 ### SMART
 - Self-Monitoring, Analysis and Reporting Technology
 - System zur Selbstüberwachung
-- _Festplatten-interne Mechanismen protokollieren eine Reihe von Parametern_ #lernen
+- _Festplatten-interne Mechanismen protokollieren eine Reihe von Parametern_ 
 	- Realisiert im Festplatten Controller
 	- in einem reservierten Bereich der Platte
 	- kein Einfluss auf die Perfomance
-- _für jeden Parameter protokolliert die Festplatte:_ #lernen
+- _für jeden Parameter protokolliert die Festplatte:
 	1. Rohdaten: eigentlich gemessener Wert
 	2. Übersetzter Wert: Skala bis 255 bis 0, aktueller und bisher schlechtester Wert
 	3. Grenzwert: vom Hersteller festgelegt, Problem bei der Unterschreitung des Grenzwertes
-- _Parameter-Typs:_ #lernen
+- _Parameter-Typs:_
 	- pre-fail: warn vor baldigem Ausfall
 	- old-age: zeigt Alterungszustand an
-- _Self Test:_ #lernen 
+- _Self Test:_  
 	- prüft die Platte aktive elektrischen und mechanischen Eigenschaften und Lesedurchsatz
 	- beim BS-Zugriff auf die Platte wird der Test unterbrochen
 	- brechnen bei Fehlern an
-- _Offline Test:_ #lernen
+- _Offline Test:_
 	- Ergänzung des Self Test, wird aber meist mit Self Test kombiniert
 	- mehr Parameter werden erhoben
 	- beim BS-Zugriftt wird unterbrochen
-- _Architektur:_ #lernen 
+- _Architektur:_  
 	1. Festplatte und Festplatten-Controlle: 
 		- Erhebung und Speicherung der "online" Parameterwerte, jeweils aktuellen Rohwert sowie "worst"
 		- Ausführung der Offline Test, wenn getriggert, Erhebung und Speicherung der "offline" Parameterwerte
@@ -36,7 +36,7 @@
 	- direkte Zugriff aufgrund der Virtualisierung der Datenspeicher nicht möglich
 	- SMART - Infos müssen über das Management des RAID ausglesen werden
 
-### RAID #lernen
+### RAID 
 - Redundant Array of Inexpensive Disks
 - _Ziel:_
 	- Absicherung gegen Festplattenausfall
@@ -58,18 +58,17 @@
 	- in Software, getrennt von der Implementierung des Dateisystems
 	- in Software als Teil des Datensystems
 ### RAID Architektur
-#### Host-Based RAID #lernen
+#### Host-Based RAID 
 - Teil des Host Systems
 - Software RAID oder Hardware RAID
 - einfache Lösungen belasten den Prozessor und die Datentransferbusse des Hosts stark
-#### Software RAID #lernen
+#### Software RAID 
 - keine Hardware für den RAID Controller 
 - kann zu existierendem Rechner zur Laufzeut hinzugefügt werden
 - Belaster CPU und Bussysteme des Rechners
 - Arbeitsspeicher des Rechners als Cache
-#### RAID Levels
-- spezifiert die Mechanismen, nach denen das RAID System arbeitet
-##### RAID 1 #lernen
+
+##### RAID 1 
 - spiegelt die Daten über zwei oder mehr Festplatten des RAID 1 Arrays
 - Redundanz der Daten: die gleichen Daten auf allen Platten, redundant bis zum n -2 Platten 
 - Kapazität: Kapazität des kleinsten Platte
@@ -86,7 +85,7 @@
 - Ausfall von bis zu n-1 Platten keine Auswirkung auf die operative Perfomance
 - Schreiben der gespiegelten Nutzdaten erfordert zusätzliche Datentransfer-Kapazität zwischen Controller und Platte
 
-##### RAID 5 #lernen 
+##### RAID 5 
 - Daten werden über die Festplatten des RAID 5 Arrays verteilt
 - Datenredundanz mittels Paritätsinformationen
 - Paritätsblöcke gleichmäßig über alle Platten verteilt
@@ -111,7 +110,7 @@
 	- Schreiben der neuen Parität auf die fünfte Festplatte
 - Hot Spare Disks sind schon in das RAID Array „verkabelt“, aber noch nicht aktiv eingebunden, d.h. keine Datenspeicherung
 
-##### RAID 6 #lernen
+##### RAID 6 
 - Erweiterung von RAID 5, Ausfall von bis zu zwei Platten kompensiert werden kann
 - zwei Sätze von Redundanzinformation 
 - Erhöhte Leseperformance durch Lesen von mehreren Festplatten des RAID 6 Arrays
@@ -121,7 +120,7 @@
 	- können nach dem Ausfall einer Platte auch Lesefehler während des Rebuilds ausgeglichen werden (auch nach einem zweiten Ausfall)
 - Schreibperformance ist nicht optimal (müssen zwei Kontrollblöcke geschrieben werden)
 
-##### RAID 0 #lernen
+##### RAID 0 
 - Just of a Bunch of Disks:
 	- Datenspeicherkonfiguration mit mehreren unabhängigen Festplatten
 - festen Blockgröße von meist 64 kB
@@ -129,12 +128,12 @@
 - Ausfall einer Platte ist schlimmer als bei n unabhängigen Platten
 - Erhöhte Lese- und Schreibperformance durch Benutzung mehrerer Festplatten des RAID 0 Arrays
 
-##### kombinierten RAID Levels #lernen
+##### kombinierten RAID Levels 
 - Setups mit kombinierten RAID Levels können die Nachteile der individuellen RAID Levels ausgleichen
 - Realisiert als RAID Array, bei dem jede (logische) oder einzelne Festplatten selbst wiederum ein RAID Array ist/sind
 - Äußeres“ RAID Array und „innere“ RAID Arrays arbeiten nach verschiedenen RAID Levels
 
-#### Aspekte des operativen Handlings #lernen 
+#### Aspekte des operativen Handlings  
 - _Hot Spare Disk:_
 	- sind schon in das RAID Array verkabelt, aber noch nicht aktiv eingebunden
 	- die Fehlerhafte Festplatte kann sehr schnell durch eine Hot Spare Platte ersetzt werden
@@ -146,7 +145,7 @@
 	- Das RAID System kann die Daten der bisher aktiven Disk auf die Ersatzdisk kopieren
 	- Vermeidet zwischenzeitlichen Verlust der Redundanz sowie aufwändigen Rebuild
 
-#### Error handling #lernen
+#### Error handling 
 ##### Festplatten und Controller
 - internes Schreiben auf einen physischen Sektor fehlschlägt: remapping des logischen Sektors auf anderen physischen Sektor (reallocated sector) und werdenerneut gelesen, ob das Schreiben erfolgreich war
 - Lesen eines logischen Sektors durch lesen des zugehörigen physischen Sektors fehlschlägt, erneute mehrfache Leseversuche, sonst ggfs. langer Timeout
@@ -160,7 +159,7 @@
 - führt u lange Rebuild mit einer Spare Disk
 - geringere Redundanz des RAID in dieser Zeit
 
-### Clustersysteme #lernen
+### Clustersysteme 
 - eine Anzahl von vernetzten Computern, die von außen in vielen Fällen als ein Computer gesehen werden können
 - die einzelnen Cluster-Knoten sind untereinander über ein schnelles Netzwerk verbunden
 - _Ziel:_
@@ -264,50 +263,26 @@
 	- Fehler im Cluster Interconnect, nicht stoppbare Ressourcen, ausbleibende Rückmeldungen, Software-Absturz
 
 ### Monitoring Systeme, Nagios
-- _Ziele:_ #lernen
-	- Ausfälle wenig Geld kosten
-	- Planung von Durchführung von Infrastruktur-Upgrades
-	- auf Anzeichnen von Störungen frühzeitig reagieren
-	- in bestimmten Fällen automasiertes Lösen von Problemen
-	- Koordination
-	- Sicherstellung der Service Level Agreements
-	- ganzheitliches Monitoring
 #### Nagios
 - überwacht Hosts, Services, Netztwerke
 - erledigt durch Plug-Ins bestimmte Überwachungsaufgaben
-- _Hosts in Nagios:_ #lernen
+- _Hosts in Nagios:_ 
 	- Geräte im Netztwerk, auf denen zu überwachende Services laufen
 	- wird erst überwacht, wenn es mindestens zu einen zu überwachenden Service gibt
-- _Host Resources:_ #lernen
+- _Host Resources:_ 
 	- spezifische Aspekte von Hosts, die überwacht werden können
 	- Prozesstemperatur, RAM Speicherverbrauch etc.
 	- werden als Services betrachtet
-- _Host Checks:_ #lernen
-	- in regelmäßigen Intervallen
-	- nach Bedarf, wenn ein mit dem Host verbundener Service den Status wechselt
-	- nach Bedarf als Teil der Host-Verfügbarkeits-Logik
-	- nach Bedarf bei vorausschauenden Hosts-Abhängigkeitsprüfungen
 - _Parent Hosts:_
 	- Hierarchie der Hosts im Netzwerk, d.h direkte und indirekte Erreichbarkeit für Nagios
 	- zum Entschieden ob ein Host wirklich nicht funktioniert, oder nur ein dazwischenliegender Parent Host nicht funktioniert
 	- werden auch zwischenliegende Routers und Switches miteinbezogen
-- _Host Groups:_ #lernen
-	- mehrere Hosts zu gruppieren
-	- Nagios Konfigurationen zu vereinfachen
-	- werden im User Interface verwendet
-- _Services:_ #lernen
+- _Services:_ 
 	- SW-Dienst (HTTP, FTP etc.)
 	- interne Eigenschaft eines Hosts (Speicher- und CPU-Auslastung)
 	- messbare Umweltbedingung (Temperaturwert)
 	- mit einem Host verbundene Information 
-- _Service Checks:_
-	- in regelmäßigen Intervallen
-	- nach Bedarf bei voraussichtlichen Service-Abhängigkeitsprüfungen
-- _Service Groups:_
-	-  mehrere Services zu gruppieren
-	- Nagios Konfigurationen zu vereinfachen
-	- werden im User Interface verwendet
-- _Statustypen : #lernen 
+- _Statustypen: 
 	- Soft Error:
 		- Prüfungsergebnis in einem Nicht-Ok oder Nicht-Up Status
 		- Prüfung noch nicht nach max_check_attempts oft durchgeführt wurde
@@ -319,7 +294,7 @@
 		- Service Prüfung mit einem Nicht-Ok-Status endet und der zugehörige Host down oder nicht erreichbar ist
 		- trigger Eventhandler
 		- Kontakte werden benachrichtigt
-- _Flapping:_ #lernen 
+- _Flapping:_ 
 	- durch öftere Zustandswechsels wird ein Sturm von Problemen- und Erholungsbenachrichtigung erzeugt
 	- kann auf Konfigurationsproblemen, sich gegenseiteig störende Services, wirkliche Netztwerkprobleme oder anderweitige technische Probleme hinweisen
 	- Ein Host oder Service wird eingestuft, mit dem Flapping begonnen zu haben, wenn der Prozentsatz das erste Mal den hohen Flapping-Schwellwert überschritten hat
@@ -335,24 +310,22 @@
 		- flapping stop Benachrichtigung an die betreffende Kontakte versenden
 		- die Blockade von Benachrichtigungen entfernen.
 
-- _Publicy Available Services:_ #lernen 
+- _Publicy Available Services:_ 
 	- von außen zugängliche Services eines Hosts
 	- können von außen von Nagios geprüft werden
 	- keine Add-On Software auf dem Host notwendig
 	- HTTP, SMTP, ping, FTP, SSH
-- _Aktive Checks:_ #lernen
+- _Aktive Checks:_ 
 	- gebräuchlichste Methode zur Überwachung
 	- vom Nagios-Prozess veranlasst
 	- laufen auf einer regelmäßig geplanten Basis
-- _Private Services:_ #lernen 
+- _Private Services:_ 
 	- nicht von außen zugängliche Services eines Hosts
 	- Add-On Software (agent) auf dem Host erforderlich
 	- RAM Speicherauslastung, CPU-Auslastung
-- _Passive Checks:_ #lernen 
+- _Passive Checks:_ 
 	- werden von Agent SW auf dem Host durchgeführt
-- _Service Dependencies:_
-	- Benachrichtungen und aktive Prüfungen von Services in Abhängigkeit vom Status eines oder mehrerer Services zu unterdrücken 
-- _Plug-Ins:_
+- _Plug-Ins:_ 
 	- Programme oder Skripts, die von dern Kommendozeile aus den Status eines Hosts oder Services überprüfen
 	- die Ergebnisse werden verarbeitet, um notwendige Aktionen auszuführen
 	- arbeiten wie eine Abstraktionsschicht zwiscchen der Überwachungslogik im Nagion-Dämon und den eigentlichen Services, die überwacht werden
@@ -376,13 +349,7 @@
 	- für die browser-basierte, interaktive Analyse und Diagramm-Visualisierung der von Ergebnisdaten, insbesondere jener von Elasticsearch.  
 	- Konfigurierbarkeit der Oberfläche: Dashboard.  
 	- Viele verschiedene Diagrammtypen: Histogramme, Geo-Maps, ...
-- _Volltextsuche:_
-	- ~~Tokenizing: in Worte zerlegen
-	- Stemming: Worte auf ihre Stammform reduzieren
-	- Filtering: Füllworte weg
-	- Ranking der Ergegnisse: wie viele Treffer im Dokument
-	- Such-Index: schneller Suche
-	- invertierter Index: Index der Suchbegriffe mit Verweisen auf die Vorkommen in den Dokument~~
+- _Volltextsuche:
 	- persistente Datenspeicherung
 	- REST API: Anfragen und Ergebnisse im JSON Format
 	- Clustering: skalierende Perfomance, hohe Verfügbarkeit
@@ -394,6 +361,13 @@
 	- gleich benannte Felder von Dokumenten im selben Index müssen vom selben Datentyp sein
 - _Schemalosigkeit:_
 	- beim ersten Erstellen eines Index durch Einlesen erster Daten ein Mapping anhand der Daten der bisheringen Dokumente automatisch aufgebaut wird
+- _Sharding:_
+	- bedeutet das Aufteilen eines Indexes in mehrere Teile ("Scherben"), da dass jede Shard nur einen Teil des Indexes speichert
+	- wenn ein Knoten so groß wird, dass ein Knoten ihn nicht mehr verwalten kann
+- _Replicas:_
+	- replizieren den Datenbestand der Shard
+	- Suchanfragen in der Shard können auf die Repliken verteilt weren
+	- Ausfallsicherheit
 - _Scoring:_
 	- Einstufung der Relevanz jedes Suchergebnisses 
 	- Scorre Boosting beinflusst das Scoring basierend auf Regeln, die man angeben kann
@@ -407,46 +381,8 @@
 	- Anfragen können an jeden Knoten des Clusters gerichtet werden
 	- Anfragen werden automatisch verteilt
 	- höhere Perfomance
-### Event Management
-- bezeichnet in der ITIL den Prozess zur Definizion von Filtern und Kategorisierung für Events
-- Events häufig im Form von System-Alarmen und Logdatei-Einrägen
-- _Prozess:_
-	- Analyse von Trends und Mustern 
-	- Pflege der Event-Monitoring-Regeln zur Filterung
-	- Event-Filterung sollte automatisiert durchgeführt werden
-	- Kontinuierliche Verbesserung des Event-Inputs
-
-### Log Management
-- Welche Arten von Infos aus Logs sind gewinnbar?
-	- IT Sicherheit: Bedrohungen, Hack-Versuche
-	- Troubleshooting: Systemfehler, Incidents
-	- Systemperfomance
-	- System Management: Welche Konfigurationsänderungen wo wann
-	- Regulatorische Informationen: bestimmte Prozess- oder Sicherheitszertifierungen erfordern aktive Überwachund der Logs
-- _Log Management Operationen:_
-	- Log Collection & Archiving
-	- Log Normalization
-	- Log Monitoring: Log Correlation füge Zusatzinfos aus anderen Quellen hinzu
-	- Benachrichtigungen, Alarmgenerierung
-	- Reporting
-- _Log Collection & Archiving:_
-	- viele Logs aus vielen Quellen in vielen verschiedenen Formaten
-- _Log normalization:_
-	- binäre Logdaten in menschen-lesbares Format wandenl
-	- extrahiere Datenfelder
 
 ### Incident Management
-- _IT Service Management: _
-	- Maßnahmen und Methoden, um Unterstützung von Geschäftsprozessen durch IT-Organisation
-- _IT Infrastructure Library:_
-	- Dokumentationsreihe
-	- Sammlung bewährter, praxisbezogener Richtlinien und Verfahren
-	- Planung, Bereitstellung, Betrieb und Management von IT Services
-	- sind Prozesse, Rollen, Verantwortlichkeiten, Begriffsdefinitionen
-- _Incident:_
-	- ungeplante Beeinträchtigung bzw. Unterbrechung eines IT Services
-	- Technisches Ausfall: System funktioniert gar nicht mehr
-	- Perfomance incident: System funktioniert mit eingeschränkten Leistung
 - _Incident management:_
 	- der reaktive Prozess zur schnellst- möglichen, vollständigen Wiederherstellung des normalen Servicebetriebs
 - _Support Organization:_
@@ -465,14 +401,6 @@
 			- Erstellen Standard-Lösungen für häufig wiederkehrende Probleme
 		3. 3rd Party Product Support:
 			- Werden Produkte anderer Hersteller in den eigenen Services oder Produkten verwendet, so muss ggf. die Support-Organisation des externen Herstellers in die Incident-Bearbeitung miteingebunden werden
-- _Prozess:_
-	- Erkennen des Incidents
-	- Dokumentation
-	- Direkte Lösung oder Weiterreichen
-	- Lösung des Incidents
-	- Dokumentation der Lösung
-	- Nachprüfen der Lösung
-	- Schließen des Incidents
 - _Priorität:_
 	- Bearbeitung der Incidents gemäß deren Priorität:
 		- Reihenfolge der Bearbeitung
@@ -503,16 +431,4 @@
 	- Einheitlichkeit des Ablaufs
 	- Analyse der Fallhistorien
 	- eindeutige Kommunikation
-	- Reporting
-
-### Problem Management
-- bezeichnet in der ITIL den proaktiven Prozess zur Ermittlung der eigentlichen Ursache für das (ggf.) wiederholte Auftreten von Incidents
-- _Ziel:_
-	- endgültige Beseitigungs der Störursache
-	- oder Minimirung der Impacts zukünftiger solcher Incidents
-- _Aktivitäten in Problem Management:_
-	- Erkennen von Trends
-	- Ursachenforschung
-	- Erstellung von Lösungskonzepten
-	- Initiierung von Request for Change
 	- Reporting

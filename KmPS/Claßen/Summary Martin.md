@@ -47,7 +47,7 @@
 - beschriebt einen zyklisen Wartezustand zwsichen mehreren Prozessen die auf einer bestimmte Aktion warten und diese Aktion nur exklusiv von diesem anderem Prozess ausgeführt werden kann
 
 ### Race Condition
-- bedeutet, wenn das Ergebnis der Programmausführung von zeitlichen Verhalten bzw. von zeitlichen Abfolge bestimmter Programmteile abhängt, und diese zeitliche Abfolge nicht von dem Programm selbs eindeutig bestimmt werden kann.
+- bedeutet, wenn das Ergebnis der Programmausführung von zeitlichen Verhalten bzw. von zeitlichen Abfolge bestimmter Programmteile abhängt, und diese zeitliche Abfolge nicht von dem Programm selbst eindeutig bestimmt werden kann.
 
 ### Goroutine
 - werden auf die Nebenläufigkeitsmechanismen des Betriebssystem abgebildet (Threads)

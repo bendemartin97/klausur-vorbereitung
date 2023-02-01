@@ -307,9 +307,9 @@
 
 ### Currying
 - eine Funktion, die mehrere Parameter nimmt
-- wird in eine Kette von Funktionen umgewandelt, die jeweils nur ein Argument entgegennimmt
+- wird in eine Kette von Funktionen umgewandelt, die jeweils nur ein Argument entgegennehmen
 - jede Funktion gibt eine neue Funktion zurück, die das nächste Argument erwartet, bis alle Argumente verarbeitet wurden und das engültige Ergebnis zurückgegeben wird
 
 ### Lazy Evaluation
 - eine Funktion, die es erlaubt, bestimmte **Ausdrücke nur dann auszuwerten, wenn ihre Werte benötigt werden.**
-- die Leistungsverbessurung und Reduzierung der Speichernutzung, indem unnötige Berechnungen vermieden werden.
+- Leistungsverbessurung und Reduzierung der Speichernutzung, indem unnötige Berechnungen vermieden werden.

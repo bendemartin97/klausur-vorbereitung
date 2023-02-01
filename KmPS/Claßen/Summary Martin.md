@@ -192,7 +192,7 @@
 	- während einer Nachricht kann keine andere Nachricht abgearbeitet werden
 
 ### Callback Programmierstil
-- asynchrone Programmteile mittels Callbacks und synchrone Funktionsaufrufe düfen bei Abhängigkeiten voneinander nicht gemischt werden
+- asynchrone Programmteile mittels Callbacks und synchrone Funktionsaufrufe dürfen bei Abhängigkeiten voneinander nicht gemischt werden
 - sonst werden sequentliell später kommenden Teile ggf. fehlerhafterweise vor dem sequentiell vorher kommenden, aber asynchrone programmierte Programmteile ausgeführt
 - ebenso dürfen asynchrone Codeteile per Callbacks, die voneinander abhängen, einfach sequentiell programmiert werden, sonst ist die Ausführungsreihenfolge unklar. Die Verschachtelung der Callbackk Aufrufe notwendig
 

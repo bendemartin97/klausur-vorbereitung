@@ -305,7 +305,7 @@
 - die formalen Parameter werden durch die Ausdrücke (noch nicht ausgewertet) in den aktuellen Parametern ersetzt. 
 - die dabei erhaltenen Ausdrücke werden dann leftmost-outermost ausgewertet
 
-## Currying
+### Currying
 - eine Funktion, die mehrere Parameter nimmt
 - wird in eine Kette von Funktionen umgewandelt, die jeweils nur ein Argument entgegennimmt
 - jede Funktion gibt eine neue Funktion zurück, die das nächste Argument erwartet, bis alle Argumente verarbeitet wurden und das engültige Ergebnis zurückgegeben wird

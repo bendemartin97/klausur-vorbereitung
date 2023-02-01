@@ -262,6 +262,7 @@ console.log("Skript Ende!");
 	des JavaScript Interpreters bzw. der JavaScript Plattform an, die zu diesem
 	Verhalten führen.
 	- Da die resolve Methode bei der Definition aufgerufen wird, hat die Promise sofort einen Ergebniswert. Ferner wird die Methode resolve auf das ScriptJobQueue von JS Runtime gepusht. Bei der Ausführung dieser Job, wird ein .then() Script auf dem PromiseJobQueue angehängt. Da diese Queue vollständig abgearbeitet werden muss, bevor der nächste Script ausgeführt werden kann, wird zuert der Resultat geprintet. Danach wird weiter ScriptJobsQueue abgearbeitet und Skript Ende geprintet.
+
 Erläutern Sie das Konzept der Promise.all() Operation: Wozu wird diese Operation genutzt? Was sind die Parameter und was ist der Rückgabewert dieser Operation? Wie werden Fehlerszenarien durch diese Operation behandelt?
 	- Dabei wird auf das Settlement mehrerer Promise gewartet. Die Parameter dieser Funktion ist ein Array an Promises. Bei asynchronen Plattform-Operationen ist die parallele Ausführung möglich, um die Perfomance zu verbessern. Wenn eine Promise rejected ist, werden alle andere Ergebnisse auch verworfen.
 	- 

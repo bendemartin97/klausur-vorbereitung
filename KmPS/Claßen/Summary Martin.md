@@ -304,3 +304,12 @@
 - wird der Funktionsaufruf durch die rechte Seite ersetzt 
 - die formalen Parameter werden durch die Ausdrücke (noch nicht ausgewertet) in den aktuellen Parametern ersetzt. 
 - die dabei erhaltenen Ausdrücke werden dann leftmost-outermost ausgewertet
+
+## Currying
+- eine Funktion, die mehrere Parameter nimmt
+- wird in eine Kette von Funktionen umgewandelt, die jeweils nur ein Argument entgegennimmt
+- jede Funktion gibt eine neue Funktion zurück, die das nächste Argument erwartet, bis alle Argumente verarbeitet wurden und das engültige Ergebnis zurückgegeben wird
+
+### Lazy Evaluation
+- eine Funktion, die es erlaubt, bestimmte **Ausdrücke nur dann auszuwerten, wenn ihre Werte benötigt werden.**
+- die Leistungsverbessurung und Reduzierung der Speichernutzung, indem unnötige Berechnungen vermieden werden.

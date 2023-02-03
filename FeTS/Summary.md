@@ -268,7 +268,7 @@
 - erledigt durch Plug-Ins bestimmte Überwachungsaufgaben
 - _Hosts in Nagios:_ 
 	- Geräte im Netztwerk, auf denen zu überwachende Services laufen
-	- wird erst überwacht, wenn es mindestens zu einen zu überwachenden Service gibt
+	- wird erst überwacht, wenn es mindestens einen zu überwachenden Service gibt
 - _Host Resources:_ 
 	- spezifische Aspekte von Hosts, die überwacht werden können
 	- Prozesstemperatur, RAM Speicherverbrauch etc.
@@ -282,7 +282,7 @@
 	- interne Eigenschaft eines Hosts (Speicher- und CPU-Auslastung)
 	- messbare Umweltbedingung (Temperaturwert)
 	- mit einem Host verbundene Information 
-- _Statustypen: 
+- _Statustypen: _
 	- Soft Error:
 		- Prüfungsergebnis in einem Nicht-Ok oder Nicht-Up Status
 		- Prüfung noch nicht nach max_check_attempts oft durchgeführt wurde

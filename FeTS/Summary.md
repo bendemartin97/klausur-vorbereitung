@@ -1,7 +1,3 @@
-### TODO
-- Abläufe für RAID Vergrößern und Fehlerbeheben anschauen
-- RAID Wie liest und schreibt ein RAID Array, wenn Platte defekt im Array ist?
-- Nagios Commanden anschauen
 ### SMART
 - Self-Monitoring, Analysis and Reporting Technology
 - System zur Selbstüberwachung
@@ -98,12 +94,12 @@
 - Beim Ausfall einer Platte ist ein Rebuild erforderlich, um die Redundanz wiederherzustellen:
 	- neue Platte erhält Nutz und Paritätsdaten 
 	- Datenverlust bei einem weiteren Ausfall
-- Schreiben einfache Variante:
+- Schreiben einfache Variante: #nurdurchlesen
 	- Schreiben von Data1 auf die erste Festplatte.  
 	 - Lesen von Data2, Data3, Data4 von den anderen Festplatten
 	 - Berechnung der neuen Parität aus Data2, Data3, Data4 und neuem Data1
 	 - Schreiben der neuen Parität auf die fünfte Festplatte.
-- Schreiben verbesserte Variante:
+- Schreiben verbesserte Variante: #nurdurchlesen 
 	- Lesen des alten Werts Data1_old und der alten Parität Parity_old(Data1_old...Data4)
 	- Schreiben von Data1 auf die erste Festplatte
 	- Berechnung der neuen Parität aus Data1_old, Parity_old und neuem Data1
@@ -113,7 +109,7 @@
 ##### RAID 6 
 - Erweiterung von RAID 5, Ausfall von bis zu zwei Platten kompensiert werden kann
 - zwei Sätze von Redundanzinformation 
-- Erhöhte Leseperformance durch Lesen von mehreren Festplatten des RAID 6 Arrays
+- Erhöhte Leseperformance durch Lesen von mehreren Festplatten
 - Datenintegrität des RAID 6 Arrays beim Ausfall von bis zu zwei Platten
 - Rebuild:
 	- Neue Platten erhalten Nutz- und Kontrolldaten gemäß dem RAID 6 Schema
@@ -147,16 +143,16 @@
 
 #### Error handling 
 ##### Festplatten und Controller
-- internes Schreiben auf einen physischen Sektor fehlschlägt: remapping des logischen Sektors auf anderen physischen Sektor (reallocated sector) und werdenerneut gelesen, ob das Schreiben erfolgreich war
+- internes Schreiben auf einen physischen Sektor fehlschlägt: remapping des logischen Sektors auf anderen physischen Sektor (reallocated sector) und werden erneut gelesen, ob das Schreiben erfolgreich war
 - Lesen eines logischen Sektors durch lesen des zugehörigen physischen Sektors fehlschlägt, erneute mehrfache Leseversuche, sonst ggfs. langer Timeout
 ##### SW Raid
 - RAID nutzt Sector Reallocation der HDD für die Error Correction
-- fehlerhafte Block wird mit den korrekten Daten, die irgendwo anders gefunden wurden, überschrieben und wieder gelesen
+- fehlerhafte Block wird mit den korrekten Daten überschrieben, die irgendwo anders gefunden wurden, und wieder gelesen
 ##### Timeouts
 - während der sector reallocation HDD unresponsive
 - wenn zu lange unresponsive HDD führt zu Timeout in der RAID Logik
 - RAID markiert die ganze HDD als failed, obwohl noch gut funktioniert
-- führt u lange Rebuild mit einer Spare Disk
+- führt zu langem Rebuild mit einer Spare Disk
 - geringere Redundanz des RAID in dieser Zeit
 
 ### Clustersysteme 
@@ -349,7 +345,7 @@
 	- für die browser-basierte, interaktive Analyse und Diagramm-Visualisierung der von Ergebnisdaten, insbesondere jener von Elasticsearch.  
 	- Konfigurierbarkeit der Oberfläche: Dashboard.  
 	- Viele verschiedene Diagrammtypen: Histogramme, Geo-Maps, ...
-- _Volltextsuche:
+- _Volltextsuche:_
 	- persistente Datenspeicherung
 	- REST API: Anfragen und Ergebnisse im JSON Format
 	- Clustering: skalierende Perfomance, hohe Verfügbarkeit

@@ -1,6 +1,3 @@
-cards-deck: DevSecOps::summarys
----
-
     [[#Kapitel 3]]
 	    [[#Motivation Automatisiertes Testing]]
 	    [[#Automatisierter Software Testing Life Cycle]]
@@ -22,7 +19,8 @@ cards-deck: DevSecOps::summarys
 	    [[#Container-Architekturen ]]
 	    [[#Best Practices]]
 	    [[#Zusammenfassung K4]]
-	    
+
+
 ## Kapitel 3 - Security Testing & SAST
 [PDF Link](DevSecOps_Kapitel3.pdf)
 __Hauptziele des Security Testing__

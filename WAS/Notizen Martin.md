@@ -25,7 +25,7 @@
 	- **static code analysis**: part of CI, manual code reviews
 	- **dynamic analysis**: vulnerability scanning, penetration testers
 - SQL-Intection types:
-	- in-band:
+	- in-band:pro
 		- error-based: attackers get i**nformation about the structure of the db from the caused db error**
 		- union-bases: fuses **multiple select statements to get a single http response**
 	- blind:
@@ -139,7 +139,6 @@
 	- forensics
 	- incident response teams
 
-Directory travelsal attack: an attacker is able to access data outside the web doc root, include scripts, read directories, which they could not read
 Vertical privilege escalation: access resources granted to more priviliged accounts
 SSL chiper suite is specified by: the encryption key lenght, hash algorithm, an encryption protocol
 using site search operator to restrict search results to a spicific domain

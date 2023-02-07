@@ -14,14 +14,13 @@ Diese Präsentation umfasst nicht alle Themen des Semesters aus meinem Teil. Som
 	- Concurrency und Parallelismus sind eng miteinander verbunden, aber nicht dasselbe. Concurrency konzentriert sich darauf, wie Aufgaben verwaltet werden, während Parallelismus sich darauf konzentriert, wie Aufgaben ausgeführt werden. **Ein System kann concurrency haben, ohne parallelismus zu haben, aber es kann nicht parallelismus haben, ohne concurrency zu haben.**
 
 2. Beschreiben Sie das **Scheduling nebenläufiger Programmteile** in **Go** und in **Erlang** und grenzen Sie diese beiden Scheduling Konzepte gegeneinander ab. 
-	- Das Scheduling in Go und Erlang unterscheidet sich in der Art und Weise, wie sie mit Threads umgehen. **Go verwendet ein M:N-Modell**, bei dem eine **feste Anzahl von Os-Threads** verwendet wird, um eine **dynamische Anzahl von Goroutinen** auszuführen. **Erlang verwendet ein 1:1-Modell,** bei dem **jeder Prozess einen Os-Thread verwendet**. _Dies bedeutet, dass Erlang in der Lage sein kann, mehr Prozesse auf einer begrenzten Anzahl von Os-Threads auszuführen, während Go möglicherweise mehr Os-Threads verwendet, um die gleiche Anzahl von Goroutinen auszuführen._
+	- Das Scheduling in Go und Erlang unterscheidet sich in der Art und Weise, wie sie mit Threads umgehen. **Go verwendet ein M:N-Modell**, bei dem eine **feste Anzahl von Os-Threads** verwendet wird, um eine **dynamische Anzahl von Goroutinen** auszuführen. **Erlang verwendet ein 1:1-Modell,** bei dem **jeder Prozess einen Os-Thread verwendet**. _Dies bedeutet, dass Go mehrere Goroutinen auf einem einzigen Os-Thread ausführen kann, während Erlang für jeden Prozess einen eigenen Os-Thread verwendet. Dies führt zu einer Unterschiedlichen Ressourcennutzung und Leistung, die für jedes System und jeden Einsatzfall unterschiedlich sein kann. In Go ist es einfacher, viele kleine parallele Aufgaben auszuführen, während Erlang für komplexere parallele Systeme besser geeignet ist._
 	- Beide Scheduler haben ihre eigenen Vorteile und Nachteile. **Erlang's 1:1-Modell** ermöglicht es, mehr Prozesse auf einer begrenzten Anzahl von Os-Threads auszuführen und ermöglicht es Prozessen, schnell und effizient zu kommunizieren, während Go's M:N-Modell es ermöglicht, mehrere Kerne besser auszunutzen und es ermöglicht es Goroutinen, schnell und effizient zu kontextwechseln. 
 
 3. Was versteht man unter **kooperativem Scheduling**? Nennen Sie dabei auch einen Vorteil und einen Nachteil dieses Scheduling Ansatzes. Beschreiben Sie das kooperative Scheduling in der Programmiersprache **Go**.
 	- Kooperatives Scheduling bezieht sich auf eine Art von Scheduling, bei der die verwalteten Aufgaben, wie z.B. **Threads, aktiv daran mitwirken, den Zeitpunkt des Kontextwechsels zu bestimmen.** Im Gegensatz dazu wird bei **präemptiven** Scheduling der **Scheduler entscheiden, wann der Kontext einer Aufgabe gewechselt wird.**
 	- Ein _Vorteil_ von kooperativem Scheduling ist, dass es die Programmierung einfacher macht, da die Entwickler die Kontrolle darüber haben, wann ein Kontextwechsel stattfindet. Dies ermöglicht es ihnen, ihre Anwendungen *besser zu optimieren* und *potenzielle Probleme mit Deadlocks oder anderen Formen von Blockierungen zu vermeiden.*
 	- Ein _Nachteil_ von kooperativem Scheduling ist, dass es *leicht zu Fehlern* führen kann, wenn Entwickler die Kontrolle über den Kontextwechsel nicht richtig ausüben. Eine Aufgabe kann zum Beispiel in eine *Endlosschleife* geraten, ohne jemals den Kontext freizugeben, was zu Blockierungen und Leistungsproblemen führen kann.
-	- Goroutinen sind ein Beispiel für kooperatives Scheduling. Goroutinen ermöglichen es Entwicklern, nebenläufige Aufgaben zu erstellen, indem sie das Schlüsselwort "go" verwenden. Goroutinen teilen sich einen **gemeinsamen Stack** und die Ausführung **findet kooperativ statt**, das heißt, dass eine **Goroutine dem Scheduler signalisiert, dass sie bereit ist, den Kontext freizugeben,** bevor sie blockiert oder einen anderen Zustand erreicht, in dem sie nicht weiter ausgeführt werden kann.
 
 4. Wie wird der **Wechsel der Kontrolle** zwischen den **nebenläufigen Goroutinen** eines Go Programms veranlasst? Muss der Programmierer des Programms dies immer selbst programmieren?
 	- Der Programmierer muss dies **nicht immer selbst programmieren**, da Go eine hochgradig parallele Programmierung unterstützt und die Verwaltung von Goroutinen automatisch übernimmt. Der Programmierer **kann jedoch gezielt den Wechsel der Kontrolle steuern, indem er "channel"-Datentypen verwendet**, um die Kommunikation zwischen Goroutinen zu steuern und Synchronisation zu erreichen.
@@ -640,3 +639,15 @@ Diese Präsentation umfasst nicht alle Themen des Semesters aus meinem Teil. Som
 
 1. Erläutern Sie, was man bei JavaScript unter dem Begriff des "**Polyfilling**" versteht. (Den Code für das Polyfilling von Object.create() werde ich nicht erfragen. Auch nicht, wie man auf die Existenz testet und dann beim "fehlen" das Polyfilling macht. Aber als Beispiel für Polyfilling sollte man Object.create angeben können.)
 	- **Polyfilling bezieht sich auf die Praxis, ältere oder nicht vollständig unterstützte JavaScript-Funktionalitäten in älteren Browsern durch Code-Implementierungen zu ersetzen, die dieselbe Funktionalität bereitstellen.** Dieser Code wird normalerweise als _polyfill_ bezeichnet. Ein Beispiel dafür ist die Verwendung von Object.create(), einer Methode, die in älteren Browsern nicht vorhanden ist, aber in neueren Browsern verfügbar ist. Um diese Methode in älteren Browsern verfügbar zu machen, kann ein polyfill implementiert werden, das eine ähnliche Funktionalität bereitstellt. 
+	- _Example_
+		```JavaScript
+		if (!Object.create) {
+		  Object.create = function (proto) {
+		    function F() {}
+		    F.prototype = proto;
+		    return new F();
+		  };
+		}
+
+		```
+		

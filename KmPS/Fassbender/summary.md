@@ -54,7 +54,10 @@ wendet eine **Funktion** auf jedes Element der Liste an und speichert es in neue
 
 **auf IntegerListen in Scala-Notation.**
 ```Scala
-def map(list: List[Int], func: Int => Int) : List[Int]
+def myMap[A, B](lst: List[A], f: A => B): List[B] = lst match { 
+	case Nil => Nil 
+	case head :: tail => f(head) :: myMap(tail, f) 
+}
 ```
 
 #### Filter
@@ -86,14 +89,3 @@ In diesem Beispiel wird die Methode reduce mit der Liste numbers aufgerufen und 
 
 ## Lazy Evaluation
 Lazy evaluation is a feature that allows certain **expressions to be evaluated only when their values are needed.** This can help to improve performance and reduce memory usage by avoiding unnecessary computation.
-
-
-
-## Übungen
-
-### Übung 1
-### Übung 2
-### Übung 3
-### Übung 4
-### Übung 5
-### Übung 6

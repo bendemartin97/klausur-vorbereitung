@@ -1,109 +1,38 @@
-### Grundlagen
-- _Verfügbarkeit:_
-	- ein System ist verfügbar, wenn es in der Lage ist, die vorgesehenen Aufgaben zu erfüllen
-	- Produktionszeit / (Produktionszeit + Ausfallzeit) * 100
-	- Gesamtverfügbarkeit hängt ab von der Verfügbarkeit und der logischen Anordnung der Teilsysteme
-	- Serielle Anordnung: Gesamtfunktionalität nur dann gegeben, wenn alle Teilsysteme funktionieren
-	- Parallele Anordnung: bei gleicher Funktionalität (Redundanz), solange ein Teilsystem arbeitet, ist die Gesamtfunktionalität prinzipell noch gegeben 
-- _Downtime:_
-	- bezeichnet die Zeit, in der ein Computersystem nicht verfügbar bzw. nicht funktionstüchtig ist
-	- scheduled downtime: Wartungsarbeiten, geplante Änderungen
-	- unplanned downtime: Fehler in Systemkomponenten, Bedienung, Umgebung
-	- Service Level Agreements definieren, ob scheduled downtime in die Berechnung der Verfügbarkeit eingeht oder nicht (default nicht)
-- _Mean Time Between Failures_:
-	- mittlere Betriebszeit zwischen zwei aufeinanderfolgenden Ausfällen
-	- ist ein Maß für die Zuverlässugkeit des Systems
-- _Mean Time To Failure_:
-	- bei nicht reparierbaren Komponenten oder bei denen, die nach der Reparatur neuwerting sind
-	- bezeichneit die mittlere Betriebsdauer bis zu Ausfall -> mittlere Lebensdauer
-	- statische Kenngröße
-- _Hochverfügbarkeit:_
-	- Verfügbarkeit liegt oberhalb einer Minimalerwartung
-	- 99,99 %, also 52:36 Minuten in hochverfügbaren IT-Systeme
-	- 99,999 %, also 5:16 Minuten in Telekommunikationsnetzte
-	- wird durch Fehlertoleranz gewährleistet
-- _Fehlertoleranz:_
-	- Anwendung auch im Fehlerfall weiterhin verfügbar
-	- ohne unmittelbaren menschlichen Eingriff weiter nutztbar
-	- Anwender nimmt keine oder nur kurze Unterbrechung wahr
-- _Sinple Point of Failure:_
-	- eine einzelne Komponente, deren Versagen zum Ausfall des gesamten Systems führ
-	- Vermeidung durch:
-		- Redundanz von Komponenten
-		- Fehlertolerantes und robustes Systemverhalten
-- _Redundanzkonfigurationen:_
-	- Active / Active:
-		- im Nicht-Fehlerfall alle Dienste auf allen Systemen aktiv
-		- im Fehlerfall fallen einzelne Dienstinstanzen weg, alle anderen arbeiten
-	- Active / Passive:
-		- Passive Dienstinstanzen unaktiv
-		- im Fehlerfall werden sie Ersatz für die fehlerhaften Dienstinstanzen
-		- Hot Standby: Systemstart und Aufwand für das Übertragen der aktuellen Konfiguration etc. minimiert
-		- Cold Standy: einfacher zu realisiren, aber längere downtime und höherer Aufwand zur Behandlung des Fehlerfalls
-	- 1 + 1 Redundanz: 
-		- Pro aktivem System ein passiver Standby
-		- Verschwendung der Ressources des passiven Systems
-	- N + 1 Redundanz:
-		- bei mehreren aktiven System ein passiver Standby
-	- M + N Redundanz:
-		- bei mehreren aktiven System gibt mehrere passive Standbys
-- _Out of Band Management:_
-	- Administraton eines Systems über einen Zugriffspfad
-	- getrennt vom Datenpfad deer Applikationsdaten des Systems
-	- z.B seperates Netzwerk für die Systemadministration
-	- verhindert, dass Netzwerkprobleme im Bereich der Applikationsdaten auch die Administration des Server-Systems behindern oder verhindern
-- _In-Band Management:_
-	- Administration eines Systems über den gleichen Netzwerkzugang
-
-### Festplatten
-- _Datenspeicherung auf Festplatten:_
-	- Daten werden in Blöcken gelesen und geschrieben
-	- Partitionen: Unterteilung der Festplatte in unabhängige Bereiche
-	- Dateisystem: Strukturinformation für die Datenspeicherung
-	- Festplattezugriffe langsamer als Zugriffe auf PRozessor Cache und RAM Speicher
-	- Caching der Daten im RAM des Computers
-	- beim Ausfall gelangen die Cache-Inhalte nicht mehr auf die Festplatte
-	- Server-Festplatten haben eine höhere MTTF als Desktop-Festplatten
-- _Ausfallursachen bei Festplatten:_
-	- Fehler in Steuerelektronik
-	- Verschleiß der Mechanik
-	- Mechanisches Aufsetzen des Schreib-Lesekopfes aufgrund von Bewegungen
-	- thermische Probelem
 ### SMART
 - Self-Monitoring, Analysis and Reporting Technology
 - System zur Selbstüberwachung
-- Festplatten-interne Mechanismen protokollieren eine Reihe von Parametern
+- _Festplatten-interne Mechanismen protokollieren eine Reihe von Parametern_ 
 	- Realisiert im Festplatten Controller
 	- in einem reservierten Bereich der Platte
 	- kein Einfluss auf die Perfomance
-- für jeden Parameter protokolliert die Festplatte:
+- _für jeden Parameter protokolliert die Festplatte_:
 	1. Rohdaten: eigentlich gemessener Wert
 	2. Übersetzter Wert: Skala bis 255 bis 0, aktueller und bisher schlechtester Wert
 	3. Grenzwert: vom Hersteller festgelegt, Problem bei der Unterschreitung des Grenzwertes
-- Parameter-Typs:
+- _Parameter-Typs:_
 	- pre-fail: warn vor baldigem Ausfall
 	- old-age: zeigt Alterungszustand an
-- Self Test:
+- _Self Test:_  
 	- prüft die Platte aktive elektrischen und mechanischen Eigenschaften und Lesedurchsatz
 	- beim BS-Zugriff auf die Platte wird der Test unterbrochen
 	- brechnen bei Fehlern an
-- Offline Test:
+- _Offline Test:_
 	- Ergänzung des Self Test, wird aber meist mit Self Test kombiniert
 	- mehr Parameter werden erhoben
 	- beim BS-Zugriftt wird unterbrochen
-- Architektur:
-	1. Festplatte und Festplatten-Controlle:
+- _Architektur:_  
+	1. Festplatte und Festplatten-Controlle: 
 		- Erhebung und Speicherung der "online" Parameterwerte, jeweils aktuellen Rohwert sowie "worst"
 		- Ausführung der Offline Test, wenn getriggert, Erhebung und Speicherung der "offline" Parameterwerte
 	2. Software auf den Rechner
 		 - Abrufen der Parameterwerte
 		 - Reporting der Werte
 		 - Triggern der Offline-Tests
-- SMART mit Raid:
+- _SMART mit Raid:_
 	- direkte Zugriff aufgrund der Virtualisierung der Datenspeicher nicht möglich
 	- SMART - Infos müssen über das Management des RAID ausglesen werden
 
-### RAID
+### RAID 
 - Redundant Array of Inexpensive Disks
 - _Ziel:_
 	- Absicherung gegen Festplattenausfall
@@ -125,13 +54,17 @@
 	- in Software, getrennt von der Implementierung des Dateisystems
 	- in Software als Teil des Datensystems
 ### RAID Architektur
-#### Host-Based RAID
+#### Host-Based RAID 
 - Teil des Host Systems
 - Software RAID oder Hardware RAID
-- einfache Lösungen belasten den Prozessor und die Datentransferbusse des Hosts start
-#### RAID Levels
-- spezifiert die Mechanismen, nach denen das RAID System arbeitet
-##### RAID 1
+- einfache Lösungen belasten den Prozessor und die Datentransferbusse des Hosts stark
+#### Software RAID 
+- keine Hardware für den RAID Controller 
+- kann zu existierendem Rechner zur Laufzeut hinzugefügt werden
+- Belaster CPU und Bussysteme des Rechners
+- Arbeitsspeicher des Rechners als Cache
+
+##### RAID 1 
 - spiegelt die Daten über zwei oder mehr Festplatten des RAID 1 Arrays
 - Redundanz der Daten: die gleichen Daten auf allen Platten, redundant bis zum n -2 Platten 
 - Kapazität: Kapazität des kleinsten Platte
@@ -148,7 +81,7 @@
 - Ausfall von bis zu n-1 Platten keine Auswirkung auf die operative Perfomance
 - Schreiben der gespiegelten Nutzdaten erfordert zusätzliche Datentransfer-Kapazität zwischen Controller und Platte
 
-##### RAID 5
+##### RAID 5 
 - Daten werden über die Festplatten des RAID 5 Arrays verteilt
 - Datenredundanz mittels Paritätsinformationen
 - Paritätsblöcke gleichmäßig über alle Platten verteilt
@@ -161,29 +94,29 @@
 - Beim Ausfall einer Platte ist ein Rebuild erforderlich, um die Redundanz wiederherzustellen:
 	- neue Platte erhält Nutz und Paritätsdaten 
 	- Datenverlust bei einem weiteren Ausfall
-- Schreiben einfache Variante:
+- Schreiben einfache Variante: #nurdurchlesen
 	- Schreiben von Data1 auf die erste Festplatte.  
 	 - Lesen von Data2, Data3, Data4 von den anderen Festplatten
 	 - Berechnung der neuen Parität aus Data2, Data3, Data4 und neuem Data1
 	 - Schreiben der neuen Parität auf die fünfte Festplatte.
-- Schreiben verbesserte Variante:
+- Schreiben verbesserte Variante: #nurdurchlesen 
 	- Lesen des alten Werts Data1_old und der alten Parität Parity_old(Data1_old...Data4)
 	- Schreiben von Data1 auf die erste Festplatte
 	- Berechnung der neuen Parität aus Data1_old, Parity_old und neuem Data1
 	- Schreiben der neuen Parität auf die fünfte Festplatte
 - Hot Spare Disks sind schon in das RAID Array „verkabelt“, aber noch nicht aktiv eingebunden, d.h. keine Datenspeicherung
 
-##### RAID 6
+##### RAID 6 
 - Erweiterung von RAID 5, Ausfall von bis zu zwei Platten kompensiert werden kann
 - zwei Sätze von Redundanzinformation 
-- Erhöhte Leseperformance durch Lesen von mehreren Festplatten des RAID 6 Arrays
+- Erhöhte Leseperformance durch Lesen von mehreren Festplatten
 - Datenintegrität des RAID 6 Arrays beim Ausfall von bis zu zwei Platten
 - Rebuild:
 	- Neue Platten erhalten Nutz- und Kontrolldaten gemäß dem RAID 6 Schema
 	- können nach dem Ausfall einer Platte auch Lesefehler während des Rebuilds ausgeglichen werden (auch nach einem zweiten Ausfall)
 - Schreibperformance ist nicht optimal (müssen zwei Kontrollblöcke geschrieben werden)
 
-##### RAID 0
+##### RAID 0 
 - Just of a Bunch of Disks:
 	- Datenspeicherkonfiguration mit mehreren unabhängigen Festplatten
 - festen Blockgröße von meist 64 kB
@@ -191,75 +124,38 @@
 - Ausfall einer Platte ist schlimmer als bei n unabhängigen Platten
 - Erhöhte Lese- und Schreibperformance durch Benutzung mehrerer Festplatten des RAID 0 Arrays
 
-##### RAID 2
-- Daten werden bitweise über die Festplatten des RAID 2 Arrays verteilt
-- Führt dazu, dass Anzahl der Datenplatten typischerweise der Anzahl der Bits in einem Datenwort entspricht, also typischerweise 32 Festplatten
-- Pro Datenwort wird ein Hamming Error Correction Code berechnet, dessen Bits werden auf die zusätzlichen ECC Festplatten verteilt
-- Redundante ECC Information:
-	- schützt gegen den Ausfall einer Festplatte
-	- schützt auch gegen Schreibfehler auf irgendeiner der Festplatten
-
-##### RAID 3
-- Daten werden über die Festplatten des RAID 3 Arrays verteilt
-- Plus Datenredundanz mittels Paritätsinformation.
-- Paritätsblöcke auf eigener Platte gespeichert
-- Keine standardisierte Blockgröße
-- Paritätsfestplatte wird zum Engpass bei Schreiboperationen
-- Datenintegrität des RAID 3 Arrays beim Ausfall von maximal einer Platte
-- Beim Ausfall einer Platte ist ein Rebuild erforderlich
-
-##### RAID 4
-- Striping und Paritätsinformation auf einer dedizierten Festplatte wie bei RAID 3
-- festen Blockgröße von meist 64 kB
-- Paritätsfestplatte wird zum Engpass bei Schreiboperationen
-- Datenintegrität des RAID 4 Arrays beim Ausfall von maximal einer Platte
-
-##### kombinierten RAID Levels
+##### kombinierten RAID Levels 
 - Setups mit kombinierten RAID Levels können die Nachteile der individuellen RAID Levels ausgleichen
 - Realisiert als RAID Array, bei dem jede (logische) oder einzelne Festplatten selbst wiederum ein RAID Array ist/sind
 - Äußeres“ RAID Array und „innere“ RAID Arrays arbeiten nach verschiedenen RAID Levels
 
-#### Datenintegrität
-- Ziel ist Schutz vor dem Ausfall einer oder mehreren Festplatten
-- Datenintegrität wird normaleweise nicht berücksichtigt (ausnahme RAID 2)
-- einige RAID Controller haben Korrekturmechaniscmen:
-	- read after write
-	- Vegleich mit den von den Platte gelesenen Daten
-	- ggfs. Korrektur der falschen Daten
-	- Cache der Platte muss aus sein
-- RAID Scrubbing bei RAID 5 / 6:
-	- korriegiert bei gefunderen Inkonststenz in einem Stripe nur die Parität dieses Stripes
-- Datenfehler auf Applikationsebede können nicht von RAID behandelt werden
-- kein Ersatz für Datensicherung
-#### Dateisysteme mit integriertem RAID
-- sind Dateisystemfunktionalität und RAID Funktionalität integriert (ZFS, Linux btrfs)
-- Vorteil:
-	- RAID kennt belegte und freie Blöcke
-	- behandelt bei Rebuild nur belegte Blöcke -> schneller
-	- Dateisystem kann über Prüfsummen die Dateiintegrität überwachen
-- Nachteil:
-	- Mechanismen sind nicht separiert
-	- erhöhte Komplexität und Fehleranfälligkeit
-	- Hardware-Unterstptzung schwer zu realisieren
-#### Kombination von Volume Management und RAID
-- als Kombination seperater Funktionalitäten
-- oder integriert in die LVM Funktionalität
-##### LVM mit Integriertem RAID 1 ![[Bildschirm­foto 2023-01-16 um 09.17.50.png]]
-##### Realisierung der PV:s als RAID Arrays
-- geringe Integration und Interaktion von LVM und RAID
-- modulare Realisierung
-- klar abgegrenzte Funktionalität, Administration und Fehlerhandling
-- gut für HW-Unterstützung der RAID Funktionalität
-- ![[Bildschirm­foto 2023-01-16 um 09.21.27.png]]
-##### RAID Funktionalitäten integriert in dem LVM
-- hohe Integration
-- entweder über API getrennt implementiert
-- oder gemeinsame, integrierte Implementierung
-- keine HW-Unterstützung der RAID Funktionalität
-- komplexeres, manuelles Handling des Rebuilds 
-- ![[Bildschirm­foto 2023-01-16 um 09.22.23.png]]
+#### Aspekte des operativen Handlings  
+- _Hot Spare Disk:_
+	- sind schon in das RAID Array verkabelt, aber noch nicht aktiv eingebunden
+	- die Fehlerhafte Festplatte kann sehr schnell durch eine Hot Spare Platte ersetzt werden
+		- keine Beschaffung, physikalische Installation
+		- Einbidung mittels RAID Rekonfiguration
+		- erst mit dem Rebuild werden Daten auf die Platte geschrieben
+- _Spare Disk:_
+	- aktive Festplatte wird durch eine Spare Disk ersetzt, unter Nutzung der noch operativen Festplatte
+	- Das RAID System kann die Daten der bisher aktiven Disk auf die Ersatzdisk kopieren
+	- Vermeidet zwischenzeitlichen Verlust der Redundanz sowie aufwändigen Rebuild
 
-### Clustersysteme
+#### Error handling 
+##### Festplatten und Controller
+- internes Schreiben auf einen physischen Sektor fehlschlägt: remapping des logischen Sektors auf anderen physischen Sektor (reallocated sector) und werden erneut gelesen, ob das Schreiben erfolgreich war
+- Lesen eines logischen Sektors durch lesen des zugehörigen physischen Sektors fehlschlägt, erneute mehrfache Leseversuche, sonst ggfs. langer Timeout
+##### SW Raid
+- RAID nutzt Sector Reallocation der HDD für die Error Correction
+- fehlerhafte Block wird mit den korrekten Daten überschrieben, die irgendwo anders gefunden wurden, und wieder gelesen
+##### Timeouts
+- während der sector reallocation HDD unresponsive
+- wenn zu lange unresponsive HDD führt zu Timeout in der RAID Logik
+- RAID markiert die ganze HDD als failed, obwohl noch gut funktioniert
+- führt zu langem Rebuild mit einer Spare Disk
+- geringere Redundanz des RAID in dieser Zeit
+
+### Clustersysteme 
 - eine Anzahl von vernetzten Computern, die von außen in vielen Fällen als ein Computer gesehen werden können
 - die einzelnen Cluster-Knoten sind untereinander über ein schnelles Netzwerk verbunden
 - _Ziel:_
@@ -363,46 +259,26 @@
 	- Fehler im Cluster Interconnect, nicht stoppbare Ressourcen, ausbleibende Rückmeldungen, Software-Absturz
 
 ### Monitoring Systeme, Nagios
-- _Ziele:_
-	- Ausfälle wenig Geld kosten
-	- Planung von Durchführung von Infrastruktur-Upgrades
-	- auf Anzeichnen von Störungen frühzeitig reagieren
-	- in bestimmten Fällen automasiertes Lösen von Problemen
-	- Koordination
-	- Sicherstellung der Service Level Agreements
-	- ganzheitliches Monitoring
 #### Nagios
 - überwacht Hosts, Services, Netztwerke
 - erledigt durch Plug-Ins bestimmte Überwachungsaufgaben
-- _Hosts in Nagios:_
-	- Geräte im Netztwerk, auf dendn zu überwachende Services laufen
-	- wird erst überwacht, wenn es mindestens zu einen zu überwachenden Service gibt
-- _Host Resources:_
+- _Hosts in Nagios:_ 
+	- Geräte im Netztwerk, auf denen zu überwachende Services laufen
+	- wird erst überwacht, wenn es mindestens einen zu überwachenden Service gibt
+- _Host Resources:_ 
 	- spezifische Aspekte von Hosts, die überwacht werden können
 	- Prozesstemperatur, RAM Speicherverbrauch etc.
 	- werden als Services betrachtet
-- _Host Checks:_
-	- in regelmäßigen Intervallen
-	- nach Bedarf, wenn ein mit dem Host verbundener Service den Status wechselt
-	- nach Bedarf als Teil der Host-Verfügbarkeits-Logik
-	- nach Bedarf bei vorausschauenden Hosts-Abhängigkeitsprüfungen
-- _Host Groups:_
-	- mehrere Hosts zu gruppieren
-	- Nagios Konfigurationen zu vereinfachen
-	- werden im User Interface verwendet
-- _Services:_
+- _Parent Hosts:_
+	- Hierarchie der Hosts im Netzwerk, d.h direkte und indirekte Erreichbarkeit für Nagios
+	- zum Entschieden ob ein Host wirklich nicht funktioniert, oder nur ein dazwischenliegender Parent Host nicht funktioniert
+	- werden auch zwischenliegende Routers und Switches miteinbezogen
+- _Services:_ 
 	- SW-Dienst (HTTP, FTP etc.)
 	- interne Eigenschaft eines Hosts (Speicher- und CPU-Auslastung)
 	- messbare Umweltbedingung (Temperaturwert)
 	- mit einem Host verbundene Information 
-- _Service Checks:_
-	- in regelmäßigen Intervallen
-	- nach Bedarf bei voraussichtlichen Service-Abhängigkeitsprüfungen
-- _Service Groups:_
-	-  mehrere Services zu gruppieren
-	- Nagios Konfigurationen zu vereinfachen
-	- werden im User Interface verwendet
-- _Statustypen :
+- _Statustypen: _
 	- Soft Error:
 		- Prüfungsergebnis in einem Nicht-Ok oder Nicht-Up Status
 		- Prüfung noch nicht nach max_check_attempts oft durchgeführt wurde
@@ -414,79 +290,80 @@
 		- Service Prüfung mit einem Nicht-Ok-Status endet und der zugehörige Host down oder nicht erreichbar ist
 		- trigger Eventhandler
 		- Kontakte werden benachrichtigt
-- _Flapping:_
-	- durch öftere Zustandswchsels wird ein Sturm von Problemen- und Erholungsbenachrichtigung erzeugt
-	- kann auf Konfigurationsproblemen hinweisen
-	- oder auf sich gegenseiteig störende Services
-	- oder auf wirkliche Netztwerkprobleme
-	- oder anderweitige technische Probleme
-- _Publicy Available Services:_
+- _Flapping:_ 
+	- durch öftere Zustandswechsels wird ein Sturm von Problemen- und Erholungsbenachrichtigung erzeugt
+	- kann auf Konfigurationsproblemen, sich gegenseiteig störende Services, wirkliche Netztwerkprobleme oder anderweitige technische Probleme hinweisen
+	- Ein Host oder Service wird eingestuft, mit dem Flapping begonnen zu haben, wenn der Prozentsatz das erste Mal den hohen Flapping-Schwellwert überschritten hat
+	- Ein Host oder Service wird angesehen, das Flapping beendet zu haben, wenn der Prozentsatz unter den niedrigen Flapping-Schwellwert sinkt
+	- Flapping Start:
+		- Event-Meldung protokollieren
+		- nicht permanenter Kommentar zum Host oder Service hinzufügen, dass er flattert
+		- flapping-start Benachrichtigung an die betreffende Kontakte versenden
+		- andere Benachrachtigungen unterdrücken
+	- Flapping End:
+		- Event-Meldung protokkolieren
+		- den Kommentar löschen
+		- flapping stop Benachrichtigung an die betreffende Kontakte versenden
+		- die Blockade von Benachrichtigungen entfernen.
+
+- _Publicy Available Services:_ 
 	- von außen zugängliche Services eines Hosts
 	- können von außen von Nagios geprüft werden
 	- keine Add-On Software auf dem Host notwendig
 	- HTTP, SMTP, ping, FTP, SSH
-- _Aktive Checks:_
+- _Aktive Checks:_ 
 	- gebräuchlichste Methode zur Überwachung
 	- vom Nagios-Prozess veranlasst
 	- laufen auf einer regelmäßig geplanten Basis
-- _Private Services:_
+- _Private Services:_ 
 	- nicht von außen zugängliche Services eines Hosts
 	- Add-On Software (agent) auf dem Host erforderlich
 	- RAM Speicherauslastung, CPU-Auslastung
-- _Passive Checks:_
+- _Passive Checks:_ 
 	- werden von Agent SW auf dem Host durchgeführt
-- _Freshness Prüfung:_
-	- stellt sicher, dass Prüfungsresultate von passiven Prüfungen so regelmäßig wie erwartet empfangen worden sind
-- _Service Dependencies:_
-	- Benachrichtungen und aktive Prüfungen von Services in Abhängigkeit vom Status eines oder mehrerer Services zu unterdrücken 
+- _Plug-Ins:_ 
+	- Programme oder Skripts, die von dern Kommendozeile aus den Status eines Hosts oder Services überprüfen
+	- die Ergebnisse werden verarbeitet, um notwendige Aktionen auszuführen
+	- arbeiten wie eine Abstraktionsschicht zwiscchen der Überwachungslogik im Nagion-Dämon und den eigentlichen Services, die überwacht werden
+- _RRD:_
+	- Round-robin-Database
+	- ist ein Programm, mit dem zeitbezogene Messdaten gespeichert, zusammengefasst und visualisiert werden können
+	- beim Anlagen der Datenbank wird genug Speicher für eine angegebene Zeitspanne angelegt
+	- immer die ältesten Daten werden verdichtet
+- _Business Process Add-Ons:_
+	- überwachen in konsolidierten Form Geschäftsprozesse, die aus mehreren Hosts und Services bestehen
+	- Dies ist insbesondere im Kontext von Service Level Agreements wichtig, da diese oft auf der Ebene der Auswirkungen auf die Geschäftsprozesse definiert sind.
+
+
 ### Elastic Stack
 - Elasticsearch: Text und JSON basierende Suchmaschine. "Herz" des ELK Stacks
-- Logstash: Sammeln, parsen, transformieren, speichern und an ES weitergeben von Log-Dateien
-- Kibana: Visualisierung von ES Ergebnisdaten.
+- _Logstash:_
+	- sammelt, parsed und identifiziert Strukturen, transformiert und speichert Event-, Log- und anderen Daten-Input, z.B. Log-Dateien als datei-basierten Input, und sendet diesen transformierten und strukturierten Input an Elasticsearch oder andere Systeme.
+- _Beats:_
+	- ist die Plattform für Daten-Shipper, die jeweils genau für einen Anwendungsfall gebaut werden. Diese lassen sich als leichtgewichtige Agenten installieren und übermitteln Daten von Hunderten oder Tausenden Maschinen an Logstash oder Elasticsearch.
+- _Kibana:_
+	- für die browser-basierte, interaktive Analyse und Diagramm-Visualisierung der von Ergebnisdaten, insbesondere jener von Elasticsearch.  
+	- Konfigurierbarkeit der Oberfläche: Dashboard.  
+	- Viele verschiedene Diagrammtypen: Histogramme, Geo-Maps, ...
 - _Volltextsuche:_
-	- Tokenizing: in Worte zerlegen
-	- Stemming: Worte auf ihre Stammform reduzieren
-	- Filtering: Füllworte weg
-	- Ranking der Ergegnisse: wie viele Treffer im Dokument
-	- Such-Index: schneller Suche
-	- invertierter Index: Index der Suchbegriffe mit Verweisen auf die Vorkommen in den Dokument
-- persistente Datenspeicherung
-- REST API: Anfragen und Ergebnisse im JSON Format
-- Clustering: skalierende Perfomance, hohe Verfügbarkeit
-- _Datenspeicherung:_
-	- NoSQL Datenbanken:
-		- Key-Value Stores
-		- Wide-Column Stores
-		- Graph-orientierte DB
-		- Dokumenten-orientierte DB
-	- Key-Value Stores:
-		- speichern Daten in From von Schlüssel-Wertparen
-		- die Werte können von verschiedenen Typen sein
-		- einfach in der Struktur und Datenspeicherung
-		- schnelle Suche
-		- leicht horizontal skalierbar
-	- Wide-Column Stores
-		- Tabellenform
-		- alle Informationen eines Datensatzes in einer Zeile
-		- Anzahl der genutzten Spalten kann von Datensatz zu Datensatz unterschiedlich sein
-		- Daten können schemalos abgelegt werden
-	- Dokumenten-orientierte DB
-		- speichern die Daten in Form von Dokumenten
-		- ein Dokument ist eine Sammlung von Schlüssel-Werte-Paaren, die einen Bezug zueinander haben
-		- dürfen unterschiedliche Struktur haben
-		- schemafrei
-- ES ist schema-lose, dokumenten-orientierte NoSQL DB
-- Daten werden im JSON Format verarbeitet und gespeichert
-- Daten können einfach eingefügt werden
+	- persistente Datenspeicherung
+	- REST API: Anfragen und Ergebnisse im JSON Format
+	- Clustering: skalierende Perfomance, hohe Verfügbarkeit
+	- ES ist schema-lose, dokumenten-orientierte NoSQL DB
+	- Daten werden im JSON Format verarbeitet und gespeichert
+	- Daten können einfach eingefügt werden
 - _Index:_
 	- Zusammenstellung von Dokumenten
 	- gleich benannte Felder von Dokumenten im selben Index müssen vom selben Datentyp sein
-- _Types:_
-	- logische Unterteilung eines Index
-- _Mapping:_
-	- gibt an welcher Datentyp für welches Feld festgelegt ist
 - _Schemalosigkeit:_
 	- beim ersten Erstellen eines Index durch Einlesen erster Daten ein Mapping anhand der Daten der bisheringen Dokumente automatisch aufgebaut wird
+- _Sharding:_
+	- bedeutet das Aufteilen eines Indexes in mehrere Teile ("Scherben"), da dass jede Shard nur einen Teil des Indexes speichert
+	- wenn ein Knoten so groß wird, dass ein Knoten ihn nicht mehr verwalten kann
+- _Replicas:_
+	- replizieren den Datenbestand der Shard
+	- Suchanfragen in der Shard können auf die Repliken verteilt weren
+	- Ausfallsicherheit
 - _Scoring:_
 	- Einstufung der Relevanz jedes Suchergebnisses 
 	- Scorre Boosting beinflusst das Scoring basierend auf Regeln, die man angeben kann
@@ -500,50 +377,13 @@
 	- Anfragen können an jeden Knoten des Clusters gerichtet werden
 	- Anfragen werden automatisch verteilt
 	- höhere Perfomance
-### Event Management
-- bezeichnet in der ITIL den Prozess zur Definizion von Filtern und Kategorisierung für Events
-- Events häufig im Form von System-Alarmen und Logdatei-Einrägen
-- _Prozess:_
-	- Analyse von Trends und Mustern 
-	- Pflege der Event-Monitoring-Regeln zur Filterung
-	- Event-Filterung sollte automatisiert durchgeführt werden
-	- Kontinuierliche Verbesserung des Event-Inputs
-
-### Log Management
-- Welche Arten von Infos aus Logs sind gewinnbar?
-	- IT Sicherheit: Bedrohungen, Hack-Versuche
-	- Troubleshooting: Systemfehler, Incidents
-	- Systemperfomance
-	- System Management: Welche Konfigurationsänderungen wo wann
-	- Regulatorische Informationen: bestimmte Prozess- oder Sicherheitszertifierungen erfordern aktive Überwachund der Logs
-- _Log Management Operationen:_
-	- Log Collection & Archiving
-	- Log Normalization
-	- Log Monitoring: Log Correlation füge Zusatzinfos aus anderen Quellen hinzu
-	- Benachrichtigungen, Alarmgenerierung
-	- Reporting
-- _Log Collection & Archiving:_
-	- viele Logs aus vielen Quellen in vielen verschiedenen Formaten
-- _Log normalization:_
-	- binäre Logdaten in menschen-lesbares Format wandenl
-	- extrahiere Datenfelder
 
 ### Incident Management
-- _IT Service Management: _
-	- Maßnahmen und Methoden, um Unterstützung von Geschäftsprozessen durch IT-Organisation
-- _IT Infrastructure Library:_
-	- Dokumentationsreihe
-	- Sammlung bewährter, praxisbezogener Richtlinien und Verfahren
-	- Planung, Bereitstellung, Betrieb und Management von IT Services
-	- sind Prozesse, Rollen, Verantwortlichkeiten, Begriffsdefinitionen
-- _Incident:_
-	- ungeplante Beeinträchtigung bzw. Unterbrechung eines IT Services
-	- Technisches Ausfall: System funktioniert gar nicht mehr
-	- Perfomance incident: System funktioniert mit eingeschränkten Leistung
 - _Incident management:_
 	- der reaktive Prozess zur schnellst- möglichen, vollständigen Wiederherstellung des normalen Servicebetriebs
 - _Support Organization:_
 	-  verantwortlich für die Lösung der Incidents
+	- aufgeteilt in Levels, also Gruppen von Experten für einen Bereich von Tätigkeiten im Support
 	- oft strukturiert in drei Levels:
 		1. Helpdesk:
 			- first line to the customer
@@ -558,35 +398,43 @@
 			- Erstellen Standard-Lösungen für häufig wiederkehrende Probleme
 		3. 3rd Party Product Support:
 			- Werden Produkte anderer Hersteller in den eigenen Services oder Produkten verwendet, so muss ggf. die Support-Organisation des externen Herstellers in die Incident-Bearbeitung miteingebunden werden
-- _Prozess:_
-	- Erkennen des Incidents
-	- Dokumentation
-	- Direkte Lösung oder Weiterreichen
-	- Lösung des Incidents
-	- Dokumentation der Lösung
-	- Nachprüfen der Lösung
-	- Schließen des Incidents
 - _Priorität:_
 	- Bearbeitung der Incidents gemäß deren Priorität:
 		- Reihenfolge der Bearbeitung
 		- Umfang eingesetzter Ressourcen
 	- Priorität = Auswirkungen * Dringlichkeit
+	-  Auswirkungen:
+		- Anzahl betroffener Anwender, Anzahl betroffener „Chefs“
+		- Ausmaß der Beeinträchtigung der Geschäftsprozesse , monetäre Verluste -> Business Impact
+		- Gefährdung der Service Levels
+	- Dringlichkeit:
+		- Größe und Eskalation potentiell entstehender Schäden
+		- zeitliche Aspekte der Auswirkungen auf die Geschäftsprozesse
+		- Aufwand der Behebung
+- _Eskalation:_
+	- um eine Steigerung des Ressourceneinsatzes bei der Incident- Behebung herbeizuführen
+	- um Entscheidungen herbeizuführen
+	- funktionale Eskaltion: Weiterleitung von 1st Line zum 2nd Line Support -> Inanspruchname höherer technischer Kompetenz
 
 ### Ticket Systeme
 - Software für Empfang, Bestätigung, Klassifizierung und Bearbeitung von Störungsmeldungen
 - ermöglciht die Zuweisung eines Tickets an ein Team oder an eine Person zur weiteren Bearbeitung
-- sicherstellen, dass keine Nachricht verloren geht
+- stellen sicher, dass keine Nachricht verloren geht, ein Gesamtüberblick über die zu bearbeitenden Vorgänge und die Störungs- / Anfragenlage jederzeit möglich ist und die Bearbeitung strukturiert und koordiniert ablaufen kann.
 - _Issue Tracking:_
 	- nicht nur Fehlern und Störungen
 	- Strörungen
 	- Anfragen nach Informationen, Preisen etc.
 	- Änderungswünsche
-- _Trouble Ticket:_
-	- die elektronische Form einer Fehlermeldung im Fault Management
 - _Queues:_
-	- Mailbox für Tickets
+	- Mailbox für Tickets, zu speicherung und Verwaltung von Tickets
 	- gruppieren die Tickets inhaltlich
 	- ein Ticket kann in eine andere Queue weitergeleitet werden
+	- Gruppierung nach Themen:
+		- Bearbeiter sehen nur Tickets, die zum eigenen Fachgebiet gehören
+		- Überblick, in welchen Themenbereichen wie viele Tickets anfallen
+	- Zuweisung der Tickets zu Berarbeitern
+		- Queue entkoppelt die Generierung des Tickets von der Zuweisung zum Bearbeiter
+		- Kunde kann höchstent der Queue zuweiden, aber nicht den Bearbeiter herausfinden
 - _Eskalationen:_
 	- Wird ein Ticket mit einer bestimmten Priorität vom aktuellen Support Level nicht innerhalb eines bestimmten Zeitraums gelöst, so wird es ggfs. vom Ticket System automatisch eskaliert
 - _Vorteile:_
@@ -596,16 +444,4 @@
 	- Einheitlichkeit des Ablaufs
 	- Analyse der Fallhistorien
 	- eindeutige Kommunikation
-	- Reporting
-
-### Problem Management
-- bezeichnet in der ITIL den proaktiven Prozess zur Ermittlung der eigentlichen Ursache für das (ggf.) wiederholte Auftreten von Incidents
-- _Ziel:_
-	- endgültige Beseitigungs der Störursache
-	- oder Minimirung der Impacts zukünftiger solcher Incidents
-- _Aktivitäten in Problem Management:_
-	- Erkennen von Trends
-	- Ursachenforschung
-	- Erstellung von Lösungskonzepten
-	- Initiierung von Request for Change
 	- Reporting

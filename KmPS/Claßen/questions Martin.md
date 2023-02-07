@@ -246,6 +246,7 @@ Wozu dient die .catch() Methode bei JavaScript Promises? Erläutern Sie dies anh
 	- .catch() Methode ist für die einheitliche Error-Handling zuständing, egal ob der Fehler durch reject oder durch ein Exception in .then Rumpf entstanden ist.
 	- die Methode hat ein Parameter, eine Callback-Funktion. Diese Funktionen erwartet einen Wert als Parameter. Da die Methode auf eine Promise aufgerufen wird und die vorherige Berechnung eine Promise liefert, muss der Ergebniswert also ausgepackt werden. Als Rückgabewert ist auch eine Promise, und muss wieder eingepackt werden, wenn es keine Promise ist. 
 	- Mittels catch kann die Fehlerbehandlung sehr einheitlich gestaltet werden und ist keine weiter try/catch Block notwendig. Ferner ist die Verwendung von try/catch Blöcke für synchrone Fehlerhandlung gedacht und die catch Methode bei einer Promise soll die asynchrone Fehlerhandlung erledigen.
+
 Was versteht man unter der Promise Absorption? Erläutern Sie, wie dieser Mechanismus funktioniert und welchen Zweck er für die Programmierung mittels Promises erfüllt. Was versteht man unter Promise Chaining? Erläutern Sie auch hier, wie dieser Mechanismus funktioniert und welchen Zweck er für die Programmierung mittels Promises erfüllt. #wiederholen 
 	- .then() und .catch() Methoden werden auf einer Promise aufgerufen, aber die Parameterfunktionen der beiden Methoden einen konkreten Wert erwarten. Da die vorherige Berechnung auch eine Promise liefert, müssen die quasi ausgepackt werden und so der Methode übergeben werden. Bei der Rückgabewert, wenn dieser keine Promise ist, muss er wieder in eine Promise eingepackt werden.
 	- Da die Methoden immer eine Promise zurückgeben, ist es möglich diese Methoden zu verketten(chainen), also mehrere .then() hintereinander aufzurufen
@@ -262,6 +263,7 @@ console.log("Skript Ende!");
 	des JavaScript Interpreters bzw. der JavaScript Plattform an, die zu diesem
 	Verhalten führen.
 	- Da die resolve Methode bei der Definition aufgerufen wird, hat die Promise sofort einen Ergebniswert. Ferner wird die Methode resolve auf das ScriptJobQueue von JS Runtime gepusht. Bei der Ausführung dieser Job, wird ein .then() Script auf dem PromiseJobQueue angehängt. Da diese Queue vollständig abgearbeitet werden muss, bevor der nächste Script ausgeführt werden kann, wird zuert der Resultat geprintet. Danach wird weiter ScriptJobsQueue abgearbeitet und Skript Ende geprintet.
+
 Erläutern Sie das Konzept der Promise.all() Operation: Wozu wird diese Operation genutzt? Was sind die Parameter und was ist der Rückgabewert dieser Operation? Wie werden Fehlerszenarien durch diese Operation behandelt?
 	- Dabei wird auf das Settlement mehrerer Promise gewartet. Die Parameter dieser Funktion ist ein Array an Promises. Bei asynchronen Plattform-Operationen ist die parallele Ausführung möglich, um die Perfomance zu verbessern. Wenn eine Promise rejected ist, werden alle andere Ergebnisse auch verworfen.
 	- 

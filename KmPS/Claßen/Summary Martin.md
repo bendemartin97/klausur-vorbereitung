@@ -47,7 +47,7 @@
 - beschriebt einen zyklisen Wartezustand zwsichen mehreren Prozessen die auf einer bestimmte Aktion warten und diese Aktion nur exklusiv von diesem anderem Prozess ausgeführt werden kann
 
 ### Race Condition
-- bedeutet, wenn das Ergebnis der Programmausführung von zeitlichen Verhalten bzw. von zeitlichen Abfolge bestimmter Programmteile abhängt, und diese zeitliche Abfolge nicht von dem Programm selbs eindeutig bestimmt werden kann.
+- bedeutet, wenn das Ergebnis der Programmausführung von zeitlichen Verhalten bzw. von zeitlichen Abfolge bestimmter Programmteile abhängt, und diese zeitliche Abfolge nicht von dem Programm selbst eindeutig bestimmt werden kann.
 
 ### Goroutine
 - werden auf die Nebenläufigkeitsmechanismen des Betriebssystem abgebildet (Threads)
@@ -192,7 +192,7 @@
 	- während einer Nachricht kann keine andere Nachricht abgearbeitet werden
 
 ### Callback Programmierstil
-- asynchrone Programmteile mittels Callbacks und synchrone Funktionsaufrufe düfen bei Abhängigkeiten voneinander nicht gemischt werden
+- asynchrone Programmteile mittels Callbacks und synchrone Funktionsaufrufe dürfen bei Abhängigkeiten voneinander nicht gemischt werden
 - sonst werden sequentliell später kommenden Teile ggf. fehlerhafterweise vor dem sequentiell vorher kommenden, aber asynchrone programmierte Programmteile ausgeführt
 - ebenso dürfen asynchrone Codeteile per Callbacks, die voneinander abhängen, einfach sequentiell programmiert werden, sonst ist die Ausführungsreihenfolge unklar. Die Verschachtelung der Callbackk Aufrufe notwendig
 
@@ -304,3 +304,12 @@
 - wird der Funktionsaufruf durch die rechte Seite ersetzt 
 - die formalen Parameter werden durch die Ausdrücke (noch nicht ausgewertet) in den aktuellen Parametern ersetzt. 
 - die dabei erhaltenen Ausdrücke werden dann leftmost-outermost ausgewertet
+
+### Currying
+- eine Funktion, die mehrere Parameter nimmt
+- wird in eine Kette von Funktionen umgewandelt, die jeweils nur ein Argument entgegennehmen
+- jede Funktion gibt eine neue Funktion zurück, die das nächste Argument erwartet, bis alle Argumente verarbeitet wurden und das engültige Ergebnis zurückgegeben wird
+
+### Lazy Evaluation
+- eine Funktion, die es erlaubt, bestimmte **Ausdrücke nur dann auszuwerten, wenn ihre Werte benötigt werden.**
+- Leistungsverbessurung und Reduzierung der Speichernutzung, indem unnötige Berechnungen vermieden werden.

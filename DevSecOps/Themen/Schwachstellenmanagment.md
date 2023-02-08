@@ -1,25 +1,37 @@
+---
+cards-deck: DevSecOps::Themen
+---
+
 ## CVSS 
 
 ### Base Metrics
 CVSS (Common Vulnerability Scoring System) v3.1 is a standardized method for **evaluating the severity of a security vulnerability.** The Base Metrics are the core component of the CVSS score, and they provide a quantitative representation of the underlying characteristics of a vulnerability. The Base Metrics are divided into three groups:
 
-1.  _Attack Vector (AV):_ Reflects the ease of access to the vulnerable component from an attacker's perspective, such as whether the attack requires local or network access.
+1.  _Attack Vector (AV):_:::Gibt an, **wie einfach der Zugriff auf die verwundbare Komponente** aus der Sicht eines Angreifers ist, z. B. ob für den Angriff lokaler oder Netzwerkzugriff erforderlich ist.
+^1675869405143
     
-2.  _Attack Complexity (AC):_ Describes the complexity of the attack required to exploit the vulnerability, such as whether it requires special knowledge or skills.
+2.  _Attack Complexity (AC):_:::Beschreibt die Komplexität des Angriffs, der erforderlich ist, um die Schwachstelle auszunutzen, z. B. ob spezielle Kenntnisse oder Fähigkeiten erforderlich sind.
+^1675869551066
     
-3. _Privileges Required (PR):_ Refers to the level of access required to perform the attack, such as whether the attacker needs administrative or root privileges.
+3. _Privileges Required (PR):_:::Bezieht sich auf die Zugriffsebene, die zur Durchführung des Angriffs erforderlich ist, z. B. ob der Angreifer Administrator- oder Root-Rechte benötigt.
+^1675869551072
     
-4.  _User Interaction (UI):_ Indicates whether the vulnerability can be exploited without any user interaction, such as whether the user needs to take a specific action for the attack to succeed.
+4.  _User Interaction (UI):_:::Gibt an, ob die Schwachstelle ohne Benutzerinteraktion ausgenutzt werden kann, d. h. ob der Benutzer eine bestimmte Aktion ausführen muss, damit der Angriff erfolgreich ist.
+^1675869551075
     
-5.  _Scope (S):_ Specifies whether the vulnerability affects resources only within the scope of the vulnerable component or whether it can impact resources outside the vulnerable component as well.
+5.  _Scope (S):_:::Gibt an, ob die Schwachstelle nur Ressourcen innerhalb des Geltungsbereichs der verwundbaren Komponente betrifft oder ob sie sich auch auf Ressourcen außerhalb der verwundbaren Komponente auswirken kann.
+^1675869551080
     
-6.  _Confidentiality Impact (C):_ Refers to the impact on the confidentiality of data, such as whether the attacker can access or modify sensitive information.
+6.  _Confidentiality Impact (C):_:::Bezieht sich auf die Auswirkungen auf die Vertraulichkeit von Daten, z. B. ob der Angreifer auf sensible Informationen zugreifen oder sie verändern kann.
+^1675869551083
     
-7.  _Integrity Impact (I):_ Describes the impact on the integrity of data, such as whether the attacker can modify or destroy data.
+7.  _Integrity Impact (I):_:::Beschreibt die Auswirkungen auf die Integrität der Daten, z. B. ob der Angreifer Daten verändern oder zerstören kann.
+^1675869551088
     
-8.  _Availability Impact (A):_ Refers to the impact on the availability of the vulnerable component, such as whether the attacker can cause a denial-of-service condition.
+8.  _Availability Impact (A):_:::Bezieht sich auf die Auswirkungen auf die Verfügbarkeit der verwundbaren Komponente, z. B. ob der Angreifer einen Denial-of-Service-Zustand verursachen kann.
+^1675869551091
 
-### Qualitative Severity Rating Scale
+### Qualitative Severity Rating Scale #card 
 
 | Rating   | CVSS Score |
 | -------- | ---------- |
@@ -29,3 +41,4 @@ CVSS (Common Vulnerability Scoring System) v3.1 is a standardized method for **e
 | High     | 7.0 - 8.9  |
 | Critical | 9.0 - 10.0 |
 |          |            |
+^1675869551095

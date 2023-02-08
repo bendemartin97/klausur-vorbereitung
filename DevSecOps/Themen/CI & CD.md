@@ -1,3 +1,7 @@
+---
+cards-deck: DevSecOps::Themen
+---
+
 ## Github Actions
 
 You can configure a GitHub Actions _workflow_ to be triggered when an _event_ occurs in your repository, such as a pull request being opened or an issue being created. Your workflow contains one or more _jobs_ which can run in sequential order or in parallel. Each job will run inside its own virtual machine _runner_, or inside a container, and has one or more _steps_ that either run a script that you define or run an _action_, which is a reusable extension that can simplify your workflow.
@@ -22,6 +26,22 @@ You can write your own actions, or you can find actions to use in your workflows
 
 ### Runner
 A runner is a server that runs your workflows when they're triggered. Each runner can run a single job at a time. GitHub provides Ubuntu Linux, Microsoft Windows, and macOS runners to run your workflows; each workflow run executes in a fresh, newly-provisioned virtual machine. GitHub also offers larger runners, which are available in larger configurations. For more information, see "[Using larger runners](https://docs.github.com/en/actions/using-github-hosted-runners/using-larger-runners)." If you need a different operating system or require a specific hardware configuration, you can host your own runners. For more information about self-hosted runners, see "[Hosting your own runners](https://docs.github.com/en/actions/hosting-your-own-runners)."
+
+#### Flashcards
+Was ist ein Github Actions-Workflow?:::Ein konfigurierbarer automatisierter Prozess, der einen oder mehrere Jobs ausführt, die durch ein Ereignis in einem Repository oder manuell oder nach einem festgelegten Zeitplan ausgelöst werden, definiert durch eine YAML-Datei im Verzeichnis '.github/workflows' in einem Repository.
+^1675869940189
+
+Was sind Github Actions-Ereignisse?:::Bestimmte Aktivitäten in einem Repository, die einen Workflow-Lauf auslösen, wie z. B. eine Pull-Anfrage, ein Issue, ein Commit, ein Zeitplan, eine REST-API oder manuell.  
+^1675869940192
+  
+Was sind Github Actions Jobs?:::Eine Reihe von Schritten in einem Workflow, die auf demselben Runner laufen, aus Shell-Skripten oder Aktionen bestehen und in der richtigen Reihenfolge und in Abhängigkeit voneinander ausgeführt werden. Jobs können so konfiguriert werden, dass sie von anderen Jobs abhängen.  
+^1675869940194
+  
+Was sind Github Actions Aktionen?:::Eine benutzerdefinierte Anwendung für die Github Actions Plattform, die eine komplexe, häufig wiederkehrende Aufgabe ausführt und dazu beiträgt, sich wiederholenden Code in Workflow-Dateien zu reduzieren. Actions können selbst geschrieben oder auf dem Github Marketplace gefunden werden.  
+^1675869940195
+  
+Was sind Github Actions-Runner?:::Ein Server, der Workflows ausführt, wenn sie ausgelöst werden. Er bietet Ubuntu-Linux-, Microsoft-Windows- und macOS-Runner oder kann für verschiedene Betriebssysteme oder Hardwarekonfigurationen selbst gehostet werden.  
+^1675869940197
 
 ## Aufgabe #1
 1.  Tipp: Wiederholen Sie das Thema GitHub Actions (Praktikum 2 und 3), um mit den Begrifflichkeiten vertraut zu sein und GitHub Workflows analysieren zu können.

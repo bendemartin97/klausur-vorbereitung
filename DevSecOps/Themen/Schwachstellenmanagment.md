@@ -18,3 +18,14 @@ CVSS (Common Vulnerability Scoring System) v3.1 is a standardized method for **e
 7.  _Integrity Impact (I):_ Describes the impact on the integrity of data, such as whether the attacker can modify or destroy data.
     
 8.  _Availability Impact (A):_ Refers to the impact on the availability of the vulnerable component, such as whether the attacker can cause a denial-of-service condition.
+
+### Qualitative Severity Rating Scale
+
+| Rating   | CVSS Score |
+| -------- | ---------- |
+| None     | 0.0        |
+| Low      | 0.1 - 3.9  |
+| Medium   | 4.0 - 6.9  |
+| High     | 7.0 - 8.9  |
+| Critical | 9.0 - 10.0 |
+|          |            |

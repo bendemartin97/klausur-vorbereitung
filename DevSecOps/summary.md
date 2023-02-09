@@ -447,4 +447,3 @@ Limit namespaces, what is visible to a container is visible during execution
 - Es gibt eine Vielzahl von Deployment-Optionen und die Tendenz geht Richtung Cloud-Deployment, insbesondere Container-basierte Deployments 
 - Container-Sicherheit ist ein komplexes Thema und muss Stück für Stück umgesetzt werden 
 - Hier haben wir die wichtigsten Techniken zur Container-Absicherung beim Erstellen von Images als auch beim Betrieb von Containern kennengelernt
-

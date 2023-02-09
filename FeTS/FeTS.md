@@ -1,0 +1,426 @@
+### Smart
+- Self-Monitoring, Analysis and Reporting Technology
+- Sytem zur Selbstüberwachung
+- Festplatten-interne Mechanismen protokollieren eine Reihen von Parametern:
+	- im Festplattencontroller realisiert
+	- in einem resiervierten Bereich der Festplatte
+	- keine Auswirkung auf die Perfomance
+- für jeden Parameter protokolliert die Platte:
+	- den Rohwert: den eigentlich gemessenen Wert
+	- den Übersetztenwert: auf einer Skala von 255 bis 0, jeweils den Rohwert sowie worst
+	- Grenzwert: vom Hersteller festgelegt, Problem bei Unterschreitung des Grenzwertes
+- Parameter-Type:
+	- pre-fail: warnt vom baldigen Ausfall
+	- old-age: zeigt Alterungszustand an
+- Self-Test:
+	- prüft die Platte elektrische und mechanische Eigenschaften und Lesedurchsatz
+	- wird beim BS-Zugriff auf die Platte unterbrochen
+	- brechen bei Fehler ab
+- Offline Test:
+	- Ergänzung zum Self-Test, wird aber meist mit Self-Test kombiniert
+	- mehrere Parameter werden erhoben
+	- brechen beim BS-Zugriff ab
+- Architektur:
+	- Festplatte und Festplattecontroller:
+		- Erhebung und Speicherung der online Parameterwerte, sowie aktuellen Rohwert und worst
+		- Ausführung von der Offline-Tests, Erhebung und Speicherung von offline Parameterwerte
+	- Software auf den Rechner:
+		- Abrufen von Parameterwerte
+		- Reporting von Werte
+		- trigger die Offline-Tests
+- Smart mit RAID:
+	- direkte Zugriff auf die Platte aufgrund von Visualisierung der Datenspeicher nicht möglich
+	- SMART - Informationen müssen über das Management des RAID ausgelesen werden
+
+### RAID
+- Redundant Array os inexpensive Disks
+- Ziel:
+	- Absicherung gegen Festplattenausfall
+	- kein Datenverlust
+	- keine Downtime im Betrieb
+	- keine Auswirkungen des zusätzlichen Sicherheitsmechanismus
+- Idee:
+	- mehrere logische Laufwerke
+	- intern aus mehreren physischen Laufwerke bestehend
+	- Daten redundant speichern
+- Vorteile:
+	- höhere Verfügbarkeit der Daten beim Ausfall
+	- bessere Perfomance
+- RAID Controller:
+	- hat die Rolle eines Festplattencontrollers
+	- sammelt Infos über den Status der einzelnen Festplatten und stellt diese zur Verfügung
+	- stellt das RAID Array dem Host als eine logische Festplatte dar
+	- in Hardware
+	- In Software, getrennt von dem Dateisystem oder als Teil des Dateisystem
+
+### RAID Architektur
+- Host-Based Raid:
+	- Teil des Hostsystems
+	- Software RAID oder Hardware RAID
+	- einfache Lösungen belasten den Prozessor und die Datentransferbusse des Hosts stark
+- Software Raid:
+	- keine Hardware für den RAID Controller
+	- kann zur einen existierenden Rechner zur Laufzeit hinzugefügt werden
+	- belastet den CPU und Bussysteme des Rechners
+	- Arbeitspeicher des Rechners als Cache
+- RAID 1:
+	- speigelt die Daten über zwei oder mehreren Festplatten des RAID 1 Arrays
+	- Redundanz der Daten: gleiche Daten auf allen Festplatten, Redundanz bis zum n-2 Festplatten
+	- Kapazität: Kapazität des kleinsten Festplatte
+	- feste Blockgröße von meist 64kb
+	- hohe Ausfallsicherung
+	- sehr einfaches Funktionsprinzip
+	- sehr einfaches Rebuild:
+		- alle Daten werden auf die neue Festplatte geschrieben
+		- geringe Komplexität
+		- Datenverlust beim Ausfall aller Platten
+	- hohe Kosten für Redundanz
+	- Hardware RAID oder ggf. Disk RAID empfehlenswert
+	- erhöhte Leseperfomance durch Lesen von mehreren Platten
+	- Ausfall von bis zum n-1 Platten hat keine Auswirkung auf die operative Performance
+	- Schreiben von dem gespiegelten Daten erfordert zusätlichen Datentransferkapazität zwischen dem Controller und der Festplatte
+- RAID 5:
+	- die Daten werden auf die Festplatten des RAID 5 Arrays verteilt
+	- Datenredundanz mittels Paritätsinformationen
+	- Paritätsblöcken werden gleichmäßig auf allen Festplatten verteilt
+	- feste Blockgröße von meist 64 kb
+	- redundante Paritätsinformation erlaubt den Rebuild einer Festplatte bei deren Verlust
+	- erhöhte Leseperfomance durch Lesen von mehreren Platten
+	- Berechnung von Paritätsdaten erfordert zusätzlichen Processing-Kapazität, Schreiben von Nutzdaten erfordert zusätlichen Datentransferkapazität zwischen dem Controller und der Festplatte
+	- geringere Kosten für Redundanz
+	- Hardware RAID empfehlenswert
+	- Rebuild:
+		- die neue Platte erhält alle Nutz und Paritätsdaten
+		- Datenverlust bei einem weiteren Ausfall
+	- Hot Spare Disk sind schon in das Array verkabelt, aber noch nicht aktiv eingebunden, d.h keine Datenspeicherung
+- RAID 6:
+	- Ergänzung zum RAID 5, wobei Ausfall von bis zum zwei Platten kompensiert werden können
+	- zwei Sätze von Paritätsinformationen
+	- erhöhte Leseperfomance durch Lesen von mehreren Platten
+	- Datenintegrität bis zum Ausfall von bin zu zwei Platten
+	- Rebuild:
+		- die neue Platte erhält alle Nutz und Paritätsdaten gemäß dem RAID 6 Schema
+		- beim Ausfall einer Platte können Lesefehler währends Rebuild ausgegliechen werden, auch bei einem weiteren Ausfall
+	- Schreibperformance ist nicht optimal, da immer 2 Kontrollblöcke geschrieben werden müssen
+- RAID 0:
+	- Just of a Bench of Disks:
+		- Datenspeicherkonfiguration mit mehreren unabhängigen Festplatten
+	- feste Blockgröße von meist 64kb
+	- keine Redundanz
+	- Ausfall einer Platte ist schlimmer als bei n unabhängigen Platte
+	- erhöhte Schreib- und Leseperformance durch Benutzung mehrerer Festplatten des RAID 0 Arrays
+- Kombinierted RAID Levels:
+	- Setups mit kombinierted RAID Levels ermöglichen die Nachteile des individuellen RAID Level auszugleichen
+	- Realisiert als RAID Array, bei dem jede einzelne logische Festplatte selbst ein RAID Array ist
+	- Äußere und innere RAID Arrays arbeiten nach verschiedenen RAID Levels
+- Hot Spare Disk:
+	- die Festplatten sind schon in das RAID Array verkabelt, aber noch nicht aktiv eingebunden
+	- die fehlerhafte Festplatte kann sehr schnell durch ein Hot Spare Disk ersetzt werden:
+		- keine Beschaffung oder physische Installation
+		- Einbindung durch RAID Rekonfiguration
+		- die Daten werden erst mit dem Rebuild auf die Festplatte geschrieben
+- Spare Disk:
+	- aktive Festplatte wird durch eine Spare Disk ersetzt, unter der Nutzung der operativen Festplatte
+	- Das Raid System kann die Daten der bisher aktiven Festplatte auf die Ersatzdisk kopieren
+	- Vermeidet zwischenzeitlichen Verlust der Redundanz sowie aufwändigen Rebuild
+- Error Handling
+	- Festplatten und Controller:
+		- wenn das interne Schreiben auf einen physischen Sektor fehschlägt: die logische Sektors werden auf anderen physischen Sektors remappt und erneut gelesen, ob das Schreiben erfolgreich war
+		- wenn das Lesen eines logischen Sektors durch dem zugehörigen physischen Sektors fehlschlägt: das Lesen wird erneut mehrmals versucht, es kann ggf. zum Timeout kommen
+	- SW RAID:
+		- Raid nutzt Sector Reallocation der HDD für die Fehlerkorrektur
+		- fehlerhafte Block wird mit den Daten, die irgendwo anders gefunden wurden, überschrieben und erneut gelesen
+	- Timeout:
+		- HDD ist während der sector reallocation unresponsive
+		- HDD, die sehr lange unresponsive ist, kann zum Timeout führen
+		- RAID markiert die ganze HDD als failed, obwohl die noch eigentlich gut funktioniert
+		- dies führt zu einem langen Rebuild mit einer Spare Disk und zu einer geringeren Redundanz des RAID in dieser Zeit
+
+### Cluster
+- eine Anzahl von vernetzten Computern, dei von außen in vielen Fällen als ein Computer gesehen werden
+- jede einzelne Cluster-Knoten sind untereinander über ein schnelles Netzwerk verbunden
+- Ziel:
+	- Erhöhung der Rechnerkapazität oder Erhöhung der Verfügbarkeit gegenüber einem einzelnen Computer
+- Hochverfügbarkeitscluster:
+	- Steigerung der Verfügbarkeit
+	- beim Fehlerfall auf einem Knoten werden die Dienste und Ressource dieses Clusters auf andere Clusterknoten migriert
+- Clusterknoten:
+	- eigenständige Computer mit eigenem BS und Applikationen
+- Cluster Messaging:
+	- Kommunikation zwischen den Clusterknoten
+	- Austausch von Lebenszeichen (hearbeat)
+	- wichtig zur schnellen Behandlung von Konfigurationsänderungen und Fehler
+- Heartbeat:
+	- gegenseitige Benachrichtung der Clusterknoten, dass sie betriebsbereit sind
+	- regelmäßig gesendet
+	- unicast oder multicast
+	- typische Intervall 1-5s
+	- Ausbleiben mehreren aufeinanderfolgenden heartbeat löst Fehlerbehandlungsmechanismen in anderen Clusterknoten aus
+	- Gründe für das Ausbleiben:
+		- verlorengegangene Nachrichten
+		- exzessive Verzögerung
+		- Ausfall des Netzwerkinterfaces
+		- Ausfall des Clusterknotens
+- Cluster Interconnect:
+	- optionale Separierung des cluster-interne Netwerks von öffentlichem
+	- vermeidet störende interne Einflüsse auf dem cluster-interne Kommunikation
+	- erlaubt verschiedene Redundanz-Setups für beide Netzwerke
+- Cluster Membership:
+	- relevante Situationen:
+		- Ausfall eines Clusterknotens
+		- initiale Start des Clusters
+		- Hinzufügen oder Entfernen eines Clusterknotens
+		- jeder Zeit unbedingt ein genaues und klares Bild der Membership
+- Cluster Manager:
+	- Steuerungssoftware des Clusters
+	- läuft auf jeden Clusterknoten, die Steuerung läuft beim Fehlerfall weiter
+- Cluster Information Base:
+	- zentrale Cluster Datenbank
+	- wird im Cluster gespeichert und von dem Manager verwaltet
+	- hält alle Informationen über die aktuelle Konfiguration des Clusters
+	- auf jeden Knoten verfügbar
+- Designated Coordinator:
+	- eine einzigartige zugewiesene Rolle
+	- hält den Master CIB
+	- entscheidet über Beitritt-Requests neuer Clusterknoten
+	- Änderungswünsche werden in CIB durchgeführt, welcher an alle Clusterknoten delagiert
+	- Auswahl beim Start: der erste aktive Knoten
+	- Auswahlregeln klar und einfach, beim Fehlerfall muss das neue CIB schnell gewählt werden
+- Cluster Ressource:
+	- auf Cluster-Ebene verwaltete Dienste, Objekte
+	- beinhaltet nicht die lokale Ressourcen eines Clusterknotens
+- Local Resource Manager:
+	- läuft auf jeden Clusterknoten
+	- verwaltet lokalen Ressource
+	- Änderungswünsche von CRM werden an dem LRM delagiert
+	- Logik zur Ressourceverwaltung
+	- Adapter für das konkrete Handling von verschiedener Ressourcen
+	- Verwalter Ressourceadapter
+- Resource Agents:
+	- abstrahiert von den konkreten Details der Ressourcen
+	- einheitliche abstrakte Schicht von Seiten des Cluster
+	- Adapter für das konkrete Handling der Ressourcen
+- Score:
+	- beim Start eines Clusterknotens wird berechnet
+	- eine Kennzahl, die die Eignung eines Clusterknotes zur Aufname der Ressource festlegt
+	- Platzierung der Ressource auf dem Clusterknoten mit höchsten score
+- Resource Stickiness:
+	- Beharrungsvermögen einer Ressource auf einem Clusterknoten
+	- soll die zu häufige Wechseln einer Ressource zwischen verschiedenen Clusterknoten erschweren
+	- Default Stickiness gilt für alle Ressource auf allen Knoten
+- Constraints:
+	- Regeln, welche die scores einer Ressource auf einem Clusterknoten beeinflussen
+	- werden von Cluster Administrator festgelegt
+	- verschiedene Constraints:
+		- Location: Plazierung der Ressource auf einem bestimmten Clusterknoten
+		- Colocation: gemeinsame Plazierung der Ressourcen auf dem gleichen Clusterknoten
+		- Ordering: Reihenfolge des Startens und Stoppens von Ressourcen
+- Migration von Ressourcen
+	- die Monitoring einer Ressource kann schon bei der Difinition spezifiziert werden
+	- übersteigt der fail-count einer Ressource ihren migration-threshold Parameter so wird die Ressource auf einem anderen Clusterknoten migriert
+- Split Brain Situation:
+	- bei Störungen im Cluster Interconnect entstehen mehrere Teilclusters
+	- Jede Teilcluster denkt, er wäre der einzig Überlebender und einzig korrekt funktionierender Teilcluster
+	- führt zu konkurrierenden Ressourcen, Inkonsistenzen, unkontrolliertes Verhalten
+	- Maßnahmen:
+		- redundante Auslegung des Cluster Interconnect
+		- Quorum Mechanismus: Auswahlmechanismus zur Bestimmung der einzig gültigen Teilclusters
+- Fencing:
+	- Ausschluss von Ressourcen oder gesamte Clusterknoten, deren Zustand unbestimmt ist
+	- Ressource-Level Fencing
+	- Node-Level Fencing
+	- Fehler im Cluster Interconnect, nicht stoppbare Ressource, ausbleibende Rückmeldungen, Software-Absturz
+
+### Nagios
+- überwacht Hosts, Services, Netzwerke
+- erledigt durch Plug-Ins bestimmte Überwachungsaufgabe
+- Host in Nagios:
+	- sind Geräte im Netzwerk, auf dem zu überwachenden Services laufen
+	- wird erst überwacht, wenn ein zu überwachendem Service läuft
+- Host Resources:
+	- spezifische Aspekte eines Hosts, die überwacht werden können
+	- werden als Service betrachtet
+- Parent Host:
+	- Hierarchie der Hosts im Netzwerk, d.h direkte und indirekte Erreichbarkeit für Nagios
+	- zum Entscheiden ob ein Host wirklich nicht funktioniert, oder nur dazwischenliegende Parent Host nicht fuktioniert
+	- zwischenliegende Router und Switsches werden miteinbezogen
+- Services:
+	- Software-Dienste eines Host (HTTP, FTP etc.)
+	- interne Eigenschaften eines Hosts (Prozesstermperatur, RAM Speicherverbraucht)
+	- messbare Umweltbedingungen (Temperaturwert)
+	- mit dem Host verbundenen Informationen
+- Statustypen:
+	- Soft-Error:
+		- Prüfungsergebnis endet in einem Nicht-OK oder Nicht-UP Status
+		- Prüfung wurde noch nicht nach dem max_attemps_check oft durchgeführt
+		- triggert Eventhandler
+	- Hard-Error:
+		- Prüfungsergebnis endet in einem Nicht-OK oder Nicht-UP Status
+		- Prüfung wurde nach dem max_attemps_check oft durchgeführt
+		- Service oder Hosts wechselt aus einem Hard-Error-Zustand in einem anderen Fehlerzustand
+		- Serviceprüfung endet in einem Nicht-OK Status und der zugehörige Host ist down oder nicht erreichbar
+		- triggert Evendhandler
+		- Kontakte werden benachrichtigt
+- Flapping:
+	- durch öftere Zustandwechsel wird ein Sturm von Problemen- und Erholungsbenachrichtigungen erzeugt
+	- kann auf Konfigurationsproblemen, sich gegenseitig störende Services, wirkliche Netzwerkprobleme oder anderweitige technische Probeleme hinweisen
+	- Ein Service wird eingestuft, mit dem Flapping begonnen zu haben, wenn der Prozentsatz den höheren Flapping-Schwellwert überschritten hat
+	- Ein Service wird eingestuft, das Flapping beendet zu haben, wenn der Prozentsatz unter den niedrigen Flapping-Schwellert gesinkt hat
+	- Flapping-Start:
+		- Event Meldung wird protokolliert
+		- ein nicht-permanenter Kommenter wird zu dem Host oder Service hinzugefügt
+		- flapping-start Benachrichtigung wird an den betroffenen Kontakte versendet
+		- andere Benachrichtigungen underdrückt
+	- Flapping-End:
+		- Event Meldung wird protokolliert
+		- der nicht-permanente Kommentar wird gelöscht
+		- flapping-end Benachrichtigung wird an den betroffenen Kontakte versendet
+		- die Blockade der Banachrichtigungen wird gelöscht
+- Publicy Available Services:
+	- von außen zugängliche Service
+	- können von außen von Nagion geprüft werden
+	- kein Add-On SW muss auf dem Host installiert werden
+	- HTTP, SMTP, ping, FTP, SSH
+- Aktive Checks:
+	- gebräuchliste Methode zur Überwachung
+	- wird von dem Nagios-Prozess veranlasst
+	- laufen auf einer geplanten Basis
+- Private Services:
+	- von außen nicht zugängliche Services eines Hosts
+	- Add-On SW (agent) auf dem Host notwendig (CPU-Auslastung)
+- Passive Check:
+	- werden von Agent SW auf dem Host durchgeführt
+- Plug-Ins:
+	- Programme oder Skripts, die von der Kommandozeile aus den Status eines Hosts oder Service überprüfen
+	- die Ergebnisse werden verarbeitet, um notwendige Aktionen auszuführen
+	- arbeiten wie ein abstraktions Schicht zwischen der Überwachungslogik im Nagios-Dämon und den eigentlichen Services, die überwacht werden
+- RRD:
+	- Round-Robin Database
+	- ein Programm, mit dem zeitbezogene Messdaten gespeichert, zusammengefasst und virtualisiert werden können
+	- beim Anlegen der Datenbank wird genug Speicher für die angegebene Zeitspanne angelegt
+	- immer die älteste Daten werden zuerst verdichtet
+- Business Proccess Add-Ons:
+	- überwachen in konsolidierten Form Geschäftsprozesse, die aus mehreren Hosts oder Services bestehen
+	- Dies ist insbesondern im Kontext von Service Level Agreements wichtig, da diese oft auf der Ebene der Auswirkungen auf die Geschäftprozesse definiert sind
+
+### Elastic Stack
+- Elastic Search: Text und JSON basierte Suchmaschine. Herz des Elastic Stacks
+- Logstash:
+	- sammelt, parsed und identifiziert Strukturen
+	- transformiert und speicher Log-, Event- und andere Daten-Input, z.B Log-Daten als daten-basierten Input
+	- sendet die transformierten und strukturierten Input an Elasticsearch oder andere Systeme
+- Beats:
+	- ist die Platform für Daten Shipper
+	- ist genau für einen Anwendungsfall gebaut
+	- lassen sich als leichtgewichtige Agenten installieren
+	- übermitteln Daten von Hunderten oder Tausenden Maschinen an Logstash oder Elasticsearch
+- Kibana:
+	- für die browser-basierte, interaktive Analyse und Diagramm-Visualisierung der Daten, insbesondere jener von Elasticsearch
+	- Oberfläche kann einfach konfiguriert werden -> personalisierte Dashboard
+	- beinhaltet viele Diagrammtypen: Histogramme, Geo-Maps etc.
+- Volltextsuche:
+	- persistente Datenspeicherung
+	- REST API: Anfragen und Ergebnisse in JSON Format
+	- Clustering: skalierende Performance und hohe Verfügbarkeit
+	- ES ist eine schema-lose, daten-orientierte NoSQL DB, d.h Schema muss nicht vorher definiert werden
+	- Daten werden in JSON Format gespeichert
+	- Daten können eingefügt werden. ES versucht beim Parsen Strukture zu erkennen. Man kann aber vordefinierten Mapping eingeben, um das Parsing zu unterstützen und die Strukture vorzugeben
+- Index:
+	- Zusammenstellung von Dokumenten
+	- gleich genannte Felder von Dokumenten im selben Index müssen vom selben Datentyp sein
+- Schemalosigkeit:
+	- bedeutet, dass ein Mapping beim Erstellen eines Index durch Einlesen von Daten anhand der Daten der bisherigen Dokumente automatisch aufgebaut wird
+- Sharding:
+	- bedeutet das Aufteilen eines Indexes in mehreren Teilen, so dass jede Shard nur ein Teil des Index speichert
+	- wichtig, wenn ein Index so groß wird, dass ein Knoten ihn nicht mehr verwalten kann
+- Replicas:
+	- jede Shard kann mehrere Replicas haben
+	- replizieren den Datenbestand der Shard
+	- Anfragen in den Shards können auf mehreren Replicas verteilt werden
+	- hohe Ausfallsicherheit durch Redundanz der Shards mittels Replicas
+- Score:
+	- Einstufung der Relevanz jedes Suchergebnisses
+	- Score Booster beeinflusst den Score basierend auf Regeln, die man eingeben kann
+	- beeinflussende Faktoren:
+		- Term Frequency: wie oft kommt ein Term in den Dokumenten vor?
+		- Inverse Term Frequency: wie oft kommt ein Term in allen Dokumenten eines Indexes vor? Je öfter, desto geringer ist die Gesamt-Relevanz
+		- Field-Lenght Norm: je kürzer die Values des Treffer-Keys, desto relevanter
+- Cluster:
+	- bestehen aus mehreren ES Nodes
+	- ES verhält sich wie ein gemeinsamer Dienst
+	- Anfragen können auf jeden Knoten des Clusters verteilt werden
+	- Anfragen werden automatisch verteilt
+	- höhere Perfomance
+
+### Incident Management
+- reaktive Prozess zur schnellsmöglichen, vollständigen Wiederherstellung des normalen Servicebetriebs
+- Support Organizationen:
+	- verantworlich für die Lösung der Incidents
+	- aufgeteilt in Levels, also in Gruppen von Experten im Bereich von Tätigkeiten im Support
+	- 3 Levels:
+		- Help-Desk:
+			- first line to the customer
+			- führt Erstklassifikation der Problem durch
+			- Löst viele Standardprobleme sofort
+			- Weiterleitung auf second Level Support
+			- Kommuniziert Problemlösung und schließt das Ticket
+			- Rückgriff auf CMDB -> schnelle Erschließung der spezifischen Situation beim Kunden
+		- 2nd Level Support:
+			- wenig kompententere Experte
+			- in funktionales Teams nach technischen Gebiet sub-strukturiert
+			- erstellen Standard Lösungen für häufig wiederkehrenden Problemen
+		- 3rd Party Product Support:
+			- werden Produkte externer Herstellern in eigenem Service oder Produkt verwendet, so muss ggf. die Support-Organization der externen Hersteller in die Incident Management eingebunden werden
+- Priorität:
+	- Bearbeitung der Incidedents gemäß deren Priorität, die festlegt:
+		- die Reihenfolge der Bearbeitung
+		- den Umfang der eingesetzten Ressource
+	- Priorität = Auswirkung * Dringlichkeit
+	- die Auswirkung kann an folgenden gemessen werden:
+		- Anzahl betroffener Anwenden
+		- Ausmaß der Beeinträchtigung der Geschäftsprozesse
+		- Gefährdung der Service Levels
+	- Dringlichkeit:
+		- Größe und Eskalation der potenziell entstehender Schäden
+		- zeitliche Aspekte der Auswirkung auf die Geschäftsprozesse
+		- Aufwand der Behebung
+- Eskalation:
+	- um die Steigerung der Ressourceeinsatzes bei der Incident-Bearbeitung herbeizuführen
+	- um Entscheidungen herbeizuführen
+	- funktionale Eskalation:
+		- Weiterleitung von 1st line zu 2nd line Support
+		- Inanspruchnahme höherer technischer Kompetenz
+	- hierarchische Eskalation:
+		- Inanspruchnahme der Management-Autorität
+		- Re-Priorisierung von Geld, Experten
+
+### Ticket Systeme
+- Software für Empfang, Bestätigung, Klassifizierung unde Bearbeitung von Störungsmeldungen
+- ermöglicht die Zuweisung eines Ticket an einem Team oder an einer PErson zur weiteren Bearbeitung
+- stellen sicher, dass keine Nachricht verloren geht
+- ein Gesamtüberlick ist über die zu bearbeitenden Vorgänge oder Störung- oder Anfragelage jederzeit möglich
+- die Bearbeitung kann strukturiert und koordiniert ablaufen
+- Issue Tracking:
+	- Störungen werden von Fault Management bearbeitet und mittels Trouble Tickets gemeldet
+	- Anfrage nach Informationen, Preis etc. werden von dem Customer Support bearbeitet und mittelt Customer Support Request gemeldet
+	- Änderungswünsche werden mittel Change Request gemeldet
+- Queue:
+	- Mailbox für Speicherung und Verwaltung von Tickets
+	- gruppieren Tickets inhaltlich
+	- ein Ticket kann in eine andere Queue weitergeleitet werden
+	- Gruppierung von Tickets:
+		- Bearbeiter sieht nur Tickets, die zu eigenem Fechgebiet gehören
+		- Überlick, in welchen Themenbereichen wie viele Tickets anfallen
+	- Zuweisung eines Ticket zum Bearbeiter:
+		- Queue entkoppelt die Erstellung eines Ticket von der Zuweisung zum Bearbeiter
+		- Kunde kann höchstens den Queue zuweisen, aber nicht den Bearbeiter herausfinden
+- Eskalation:
+	- wird ein Ticket mit einer bestimmtem Priorität von dem aktuellen Support Level nicht innerhalb eines bestimmten Zeitraums gelöst, so wird er ggf. von dem Ticket System automatisch eskaliert
+- Vorteile:
+	- alle Tickets werden einheitlich dokumentiert und behandelt
+	- automatische Meldungen
+	- online Überprüfung vom aktuellen Stand
+	- Einheitlichkeit des Ablaufs
+	- Analyse der Fallhistorie
+	- eindeutige Kommunikation
+	- Reporting
